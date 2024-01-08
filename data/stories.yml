@@ -1,0 +1,9 @@
+version: "3.1"
+
+stories:
+- story: emergency_abdominal_pain
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: form_general_info
+  - active_loop: form_general_info

@@ -1,0 +1,43 @@
+version: "3.1"
+
+nlu:
+# source: example data
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+# source: LLM augmentation, interaction data
+- intent: patient_inputs_homeaddr
+  examples: |
+    - My address is [789 Elm Avenue, New York](patient_homeaddr)
+    - My address is [332 Oak Lane, Los Angeles](patient_homeaddr)
+    - My address is [456 Pine Street, Chicago](patient_homeaddr)
+    - My address is [210 Cedar Court, Miami](patient_homeaddr)
+    - My address is [602 Maple Drive, Boston](patient_homeaddr)
+    - My address is [901 Birch Road, Seattle](patient_homeaddr)
+    - My address is [123 Willow Street, Austin](patient_homeaddr)
+    - My address is [876 Spruce Avenue, Denver](patient_homeaddr)
+    - My address is [543 Cherry Lane, Atlanta](patient_homeaddr)
+    - My address is [789 Palm Boulevard, San Diego](patient_homeaddr)
+    - I need you to come quick [Via Roma 789, Rome](patient_homeaddr)
+    - I live at [Corso Italia 332, Milan](patient_homeaddr)
+    - Here is the address [Via Garibaldi 456, Venice](patient_homeaddr)
+    - I need you to come quick, [210 Via Nazionale, Florence](patient_homeaddr)
+    - I live at [Via Cavour 602, Naples](patient_homeaddr)
+    - Here is the address [Via Po 901, Turin](patient_homeaddr)
+    - I need you to come quick [Corso Vittorio Emanuele 123, Palermo](patient_homeaddr)
+    - I live at [Via Dante 876, Bologna](patient_homeaddr)
+    - Here is the address [Piazza del Duomo 543, Catania](patient_homeaddr)
+    - I need you to come quick [Via San Michele 789, Bari](patient_homeaddr)
