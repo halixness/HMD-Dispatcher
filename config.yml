@@ -15,17 +15,14 @@ pipeline:
   model: en_core_web_md
 - name: EntitySynonymMapper
 - name: SpacyTokenizer
-- name: LanguageModelFeaturizer
-  model_name: "bert"
-  model_weights: "rasa/LaBSE"
 - name: SpacyFeaturizer
-#  - name: RegexFeaturizer
-#  - name: LexicalSyntacticFeaturizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
-- name: CountVectorsFeaturizer
-  analyzer: "char_wb"
-  min_ngram: 1
-  max_ngram: 4
+#- name: CountVectorsFeaturizer
+#  analyzer: "char_wb"
+#  min_ngram: 1
+#  max_ngram: 4
 - name: DIETClassifier
   epochs: 50
   constrain_similarities: yes

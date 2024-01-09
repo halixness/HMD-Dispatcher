@@ -7,3 +7,4 @@ stories:
   - action: utter_greet
   - action: form_general_info
   - active_loop: form_general_info
+  - action: utter_start_medical_questions

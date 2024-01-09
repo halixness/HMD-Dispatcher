@@ -13,6 +13,7 @@ class Geocoding:
             }, doseq=True)
             resp = requests.get(url="https://geocode.maps.co/search", params=params)
             data = resp.json()
+            print(data)
             return type(data) is list and len(data) > 0
         except:
             return True

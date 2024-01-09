@@ -3,9 +3,11 @@ version: "3.1"
 intents:
   - greet
   - patient_inputs_homeaddr
+  - patient_inputs_phone
 
 entities:
   - patient_homeaddr
+  - patient_phonenmbr
 
 slots:
   patient_homeaddr:
@@ -13,23 +15,37 @@ slots:
     mappings:
       - type: from_entity
         entity: patient_homeaddr
+  patient_phonenmbr:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: patient_phonenmbr
 
 actions:
   - validate_form_general_info
+  - action_ask_patient_homeaddr
 
 responses:
   utter_greet:
   - text: "Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime. "
-  
+  # --------------------------
   utter_ask_patient_homeaddr:
-  - text: "To send help as soon as possible, I need you to provide us your home address."
+  - text: "Can you {verb} your home address, please?"
+  utter_invalid_patient_homeaddr:
+  - text: "I'm sorry, we can't find this address on the map."
+  # --------------------------
+  utter_ask_patient_phonenmbr:
+  - text: "And what's your phone number?"
+  # --------------------------
+  utter_start_medical_questions:
+  - text: "Please tell me what happened."
+  # --------------------------
+  utter_repeat_last_time:
+  - text: "Let's retry one last time."
 
 forms:
   form_general_info:
     required_slots:
     - patient_homeaddr
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+    - patient_phonenmbr
 
