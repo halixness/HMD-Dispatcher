@@ -11,23 +11,25 @@ assistant_id: 20240107-185249-ash-quiver
 language: en
 
 pipeline:
-- name: SpacyNLP
-  model: en_core_web_md
-- name: EntitySynonymMapper
-- name: SpacyTokenizer
-- name: SpacyFeaturizer
-- name: RegexFeaturizer
-- name: LexicalSyntacticFeaturizer
-- name: CountVectorsFeaturizer
-#- name: CountVectorsFeaturizer
-#  analyzer: "char_wb"
-#  min_ngram: 1
-#  max_ngram: 4
-- name: DIETClassifier
-  epochs: 50
-  constrain_similarities: yes
-- name: ResponseSelector
-  epochs: 50
+  - name: SpacyNLP
+    model: en_core_web_md
+  - name: EntitySynonymMapper
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 50
+    constrain_similarities: true
+  - name: ResponseSelector
+    epochs: 50
+  - name: FallbackClassifier
+    threshold: 0.6
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
@@ -35,6 +37,6 @@ policies:
   - name: MemoizationPolicy
   - name: RulePolicy
   - name: TEDPolicy
-    max_history: 5
+    max_history: 20
     epochs: 100
     constrain_similarities: true

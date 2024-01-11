@@ -1,51 +1,172 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - patient_inputs_homeaddr
-  - patient_inputs_phone
-
+- greet
+- patient_inputs_homeaddr
+- patient_inputs_phone
+- patient_asks_cause
+- patient_asks_change_lifestyle
+- patient_asks_effect_lifestyle
+- patient_asks_learn
+- patient_asks_longterm_effects
+- patient_asks_permanent
+- patient_asks_symptoms_persist
+- patient_asks_treatment
+- patient_reports_abdominal_pain
+- patient_reports_respiratory_difficulty
 entities:
-  - patient_homeaddr
-  - patient_phonenmbr
-
+- patient_phonenmbr
+- patient_homeaddr
 slots:
+  reported_pathology:
+    type: categorical
+    values:
+    - patient_reports_abdominal_pain
+    mappings:
+    - type: custom
   patient_homeaddr:
     type: any
     mappings:
-      - type: from_entity
-        entity: patient_homeaddr
+    - type: from_entity
+      entity: patient_homeaddr
   patient_phonenmbr:
     type: any
     mappings:
-      - type: from_entity
-        entity: patient_phonenmbr
-
+    - type: from_entity
+      entity: patient_phonenmbr
+  abdominal_pain_time:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_abdominal_pain
+        requested_slot: abdominal_pain_time
+  abdominal_pain_area:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_abdominal_pain
+        requested_slot: abdominal_pain_area
+  abdominal_pain_type:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_abdominal_pain
+        requested_slot: abdominal_pain_type
+  abdominal_pain_worsening:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_abdominal_pain
+        requested_slot: abdominal_pain_worsening
+  abdominal_pain_relief:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_abdominal_pain
+        requested_slot: abdominal_pain_relief
+  abdominal_pain_duration:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_abdominal_pain
+        requested_slot: abdominal_pain_duration
+  respiratory_difficulty_atnight:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+  respiratory_difficulty_usepillows:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+  respiratory_difficulty_pastexp:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+  respiratory_difficulty_frequency:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+  respiratory_difficulty_familiarity:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
 actions:
-  - validate_form_general_info
-  - action_ask_patient_homeaddr
-
+- utter_greet
+- action_ask_patient_homeaddr
+- utter_ask_patient_phonenmbr
+- utter_start_medical_questions
+- validate_form_general_info
+- action_set_pathology
 responses:
   utter_greet:
-  - text: "Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime. "
-  # --------------------------
+  - text: 'Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime. '
   utter_ask_patient_homeaddr:
-  - text: "Can you {verb} your home address, please?"
+  - text: Can you {verb} your home address, please?
   utter_invalid_patient_homeaddr:
-  - text: "I'm sorry, we can't find this address on the map."
-  # --------------------------
+  - text: I'm sorry, we can't find this address on the map.
   utter_ask_patient_phonenmbr:
-  - text: "And what's your phone number?"
-  # --------------------------
+  - text: And what's your phone number?
+  utter_ask_abdominal_pain_time:
+  - text: When does the pain occur? In the morning? After eating? Always?
+  utter_ask_abdominal_pain_area:
+  - text: Where does the pain occur? In the entire abdomen or a specific area?
+  utter_ask_abdominal_pain_type:
+  - text: What type of pain are you experiencing? Dull ache? Sharp pain? Persistent or in waves?
+  utter_ask_abdominal_pain_worsening:
+  - text: What makes the pain worse? Coughing?
+  utter_ask_abdominal_pain_relief:
+  - text: What makes the pain better? Eating? Not eating?
+  utter_ask_abdominal_pain_duration:
+  - text: How long have you experienced this pain? Days? Months?
+  utter_answ_cause_abdominal_pain:
+  - text: Abdominal pain can be caused by a variety of factors, including indigestion, constipation, gastritis, ulcers, food poisoning, or more serious conditions such as appendicitis, gallstones, or inflammatory bowel disease.
+  utter_answ_permanent_abdominal_pain:
+  - text: The permanence of abdominal pain depends on its underlying cause. Some conditions may resolve with treatment, while others may require ongoing management. It's important to consult a healthcare professional for an accurate diagnosis and prognosis.
+  utter_conclude_abdominal_pain:
+  - text: Ok, I have collected all the necessary info about your abdominal pain. Paramedics are on the way. While we're waiting, do you have any questions?
+  utter_conclude_respiratory_difficulty:
+  - text: Ok, I have collected all the necessary info about your respiratory difficulty. Paramedics are on the way. While we're waiting, do you have any questions?
   utter_start_medical_questions:
-  - text: "Please tell me what happened."
-  # --------------------------
+  - text: Tell me what's the issue.
   utter_repeat_last_time:
-  - text: "Let's retry one last time."
-
+  - text: Let's retry one last time.
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
 forms:
   form_general_info:
     required_slots:
     - patient_homeaddr
     - patient_phonenmbr
-
+  form_emergency_abdominal_pain:
+    required_slots:
+    - abdominal_pain_time
+    - abdominal_pain_area
+    - abdominal_pain_type
+    - abdominal_pain_worsening
+    - abdominal_pain_relief
+    - abdominal_pain_duration
+  form_emergency_respiratory_difficulty:
+    required_slots:
+    - respiratory_difficulty_atnight
+    - respiratory_difficulty_usepillows
+    - respiratory_difficulty_pastexp
+    - respiratory_difficulty_frequency
+    - respiratory_difficulty_familiarity
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

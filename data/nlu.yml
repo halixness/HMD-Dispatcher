@@ -1,7 +1,5 @@
 version: "3.1"
-
 nlu:
-# source: example data
 - intent: greet
   examples: |
     - hey
@@ -17,36 +15,23 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
-# source: LLM augmentation, interaction data
 - intent: patient_inputs_homeaddr
   examples: |
     - My address is [789 Elm Avenue, New York](patient_homeaddr)
-    - My address is [332 Oak Lane, Los Angeles](patient_homeaddr)
-    - My address is [456 Pine Street, Chicago](patient_homeaddr)
-    - My address is [210 Cedar Court, Miami](patient_homeaddr)
-    - My address is [602 Maple Drive, Boston](patient_homeaddr)
-    - My address is [901 Birch Road, Seattle](patient_homeaddr)
-    - My address is [123 Willow Street, Austin](patient_homeaddr)
-    - My address is [876 Spruce Avenue, Denver](patient_homeaddr)
-    - My address is [543 Cherry Lane, Atlanta](patient_homeaddr)
-    - My address is [789 Palm Boulevard, San Diego](patient_homeaddr)
     - I need you to come quick [Via Roma 789, Rome](patient_homeaddr)
     - I live at [Corso Italia 332, Milan](patient_homeaddr)
     - Here is the address [Via Garibaldi 456, Venice](patient_homeaddr)
-    - I need you to come quick, [210 Via Nazionale, Florence](patient_homeaddr)
+    - I need you to come quick [210 Via Nazionale, Florence](patient_homeaddr)
     - I live at [Via Cavour 602, Naples](patient_homeaddr)
     - Here is the address [Via Po 901, Turin](patient_homeaddr)
     - I need you to come quick [Corso Vittorio Emanuele 123, Palermo](patient_homeaddr)
     - I live at [Via Dante 876, Bologna](patient_homeaddr)
     - Here is the address [Piazza del Duomo 543, Catania](patient_homeaddr)
     - I need you to come quick [Via San Michele 789, Bari](patient_homeaddr)
-    
-# source: LLM augmentation, interaction data
+    - [via mantova 1, parma](patient_homeaddr)
 - intent: patient_inputs_phone
   examples: |
     - [2124567890](patient_phonenmbr)
-    - [3331234567](patient_phonenmbr)
     - [+39 02 1234567](patient_phonenmbr)
     - My phone number is [2124567890](patient_phonenmbr)
     - You can reach me at [212-456-7890](patient_phonenmbr)
@@ -55,3 +40,182 @@ nlu:
     - sure, my number is [+39 02 1234567](patient_phonenmbr)
     - You can contact me at [+39 011 123 4567](patient_phonenmbr)
     - please use [+39 080 123 4567](patient_phonenmbr)
+    - [33333333333](patient_phonenmbr)
+- intent: patient_reports_abdominal_pain
+  examples: |
+    - I am experiencing discomfort in my abdomen.
+    - My stomach is hurting.
+    - I have pain in my belly.
+    - I am suffering from abdominal pain.
+    - I am feeling unwell in my midsection.
+    - I have discomfort in my stomach area.
+    - My abdomen is causing me pain.
+    - I am experiencing pain in my gut.
+    - I have aching in my abdominal region.
+    - My stomach is causing me distress.
+    - I am in pain in my midriff.
+    - I am having stomach pain.
+    - My belly is aching.
+    - I am feeling pain in my tummy.
+    - I have discomfort in my abdominal area.
+    - My midsection is painful.
+    - I am experiencing aches in my stomach.
+    - I have a sore abdomen.
+    - My stomach is giving me trouble.
+    - I am feeling pain in my lower torso.
+    - I have aching in my midsection.
+    - My belly is causing me discomfort.
+    - I am suffering from pain in my abdomen.
+    - I am experiencing aches in my belly.
+    - I have a sore stomach.
+    - My midriff is hurting.
+    - I am feeling discomfort in my tummy.
+    - I have pain in my abdominal region.
+    - My abdomen is aching.
+    - I am in discomfort in my stomach.
+- intent: patient_reports_respiratory_difficulty
+  examples: |
+    - I am experiencing difficulty breathing
+    - Breathing is difficult for me
+    - I find it hard to breathe
+    - It's a struggle for me to breathe
+    - My breathing is not easy
+    - I have trouble with my breathing
+    - I am having trouble breathing
+    - My respiration is difficult
+    - I struggle to breathe
+    - Breathing is a challenge for me
+    - It's hard for me to take a breath
+    - I find it tough to breathe
+    - Taking a breath is difficult for me
+    - I experience respiratory difficulty
+    - I find it hard to catch my breath
+    - My breathing is problematic
+    - I have a hard time breathing
+    - It's tough for me to breathe
+    - I am finding it difficult to breathe
+    - I have a difficulty with my respiration
+    - Breathing is not easy for me
+    - I am having a hard time breathing
+    - My breath is labored
+    - I have a problem with my breathing
+    - It's difficult for me to respire
+    - I struggle with my respiration
+    - I find it challenging to breathe
+    - I have a tough time with my breathing
+    - It's a challenge for me to respire
+- intent: patient_asks_cause
+  examples: |
+    - What may have caused this condition?
+    - Can you tell me what might have led to this condition?
+    - Do you have any idea what could be the cause of this condition?
+    - Could you explain what may have triggered this condition?
+    - Any thoughts on what might be behind this condition?
+    - What are the potential causes of this condition?
+    - Is it possible to identify the factors that may have caused this condition?
+    - Do we know what could have brought about this condition?
+    - Can you shed light on what may have contributed to this condition?
+    - What might be the reason behind this condition?
+    - Could you elaborate on the possible causes of this condition?
+    - Do you have any insights into what could have precipitated this condition?
+    - Is it possible to identify the factors that led to this condition?
+    - Any thoughts on what may be the underlying cause of this condition?
+    - What are the potential factors that may have caused this condition?
+    - Can you shed light on what may have contributed to this condition?
+    - Do we know what could have brought about this condition?
+    - Could you explain what may have triggered this condition?
+    - Can you tell me what might have led to this condition?
+    - What are the likely causes of this condition?
+    - Is it possible to determine the origins of this condition?
+    - Any idea what could be the cause of this condition?
+    - What may have initiated this condition?
+    - Are there any identifiable reasons for this condition?
+    - Can you provide any insights into the origins of this condition?
+    - Do we have any understanding of what may have provoked this condition?
+    - Could you outline the potential factors that may have led to this condition?
+    - What may have instigated this condition?
+    - Can you offer any explanations for what may have caused this condition?
+- intent: patient_asks_permanent
+  examples: |
+    - Will it be permanent?
+    - Is it going to be permanent?
+    - Will this be permanent?
+    - Can we expect this to be permanent?
+    - Is the permanence of this guaranteed?
+    - Are we looking at a permanent situation?
+    - Will it remain this way indefinitely?
+    - Can we anticipate this being permanent?
+    - Is there a possibility of this being permanent?
+    - Might this be permanent?
+- intent: patient_asks_treatment
+  examples: |
+    - How is this condition treated or managed?
+    - What are the treatment options for this condition?
+    - How can this condition be managed effectively?
+    - What are the ways to treat or control this condition?
+    - Could you explain the treatment approach for this condition?
+    - How might one go about treating or handling this condition?
+    - What are the available methods for managing this condition?
+    - Can you outline the treatment or management strategies for this condition?
+    - What are the recommended approaches for treating or dealing with this condition?
+    - How is it typically recommended to address this condition?
+- intent: patient_asks_longterm_effects
+  examples: |
+    - What will be the long-term effects on my life?
+    - What are the potential long-term implications for my life?
+    - How will my life be affected in the long run?
+    - What long-term effects can I expect on my life?
+    - What will be the lasting impact on my life?
+    - How might this situation shape my life in the long term?
+    - What are the enduring consequences for my life?
+    - In the grand scheme of things how will this affect my life over time?
+    - What long-term changes can I anticipate in my life?
+    - What will be the prolonged influence on my life?
+- intent: patient_asks_learn
+  examples: |
+    - How can I learn more about my condition?
+    - How can I find more information about my condition?
+    - What are the best ways to educate myself about my condition?
+    - Is there a recommended approach to learning more about my condition?
+    - What resources are available for understanding my condition better?
+    - Are there any specific methods for gaining knowledge about my condition?
+    - In what ways can I increase my understanding of my condition?
+    - What are some effective strategies for getting more information about my condition?
+    - How should I go about educating myself about my condition?
+    - Are there any tips for delving deeper into the details of my condition?
+- intent: patient_asks_effect_lifestyle
+  examples: |
+    - Could my lifestyle or habits be contributing to my pain?
+    - Might the way I live or my habits be causing my discomfort?
+    - Could the pain I'm experiencing be linked to my lifestyle choices or habits?
+    - Is it possible that my pain is a result of the way I live or my daily habits?
+    - Do you think my pain could be connected to the way I lead my life or the habits I have?
+    - I'm wondering if the way I live or my habits could be playing a part in the pain I'm feeling. What do you think?
+    - Could my pain be influenced by my lifestyle or the habits I follow?
+    - Might there be a connection between my pain and the way I conduct my life or my habits?
+    - Do you think my pain might be due to the way I live or the habits I maintain?
+    - I'm curious if my pain could be impacted by my lifestyle or the habits I engage in. What's your take on this?
+- intent: patient_asks_change_lifestyle
+  examples: |
+    - What are some lifestyle changes or home remedies that could help alleviate my symptoms?
+    - Are there any natural ways or home remedies to ease my symptoms?
+    - Could you suggest some home remedies or lifestyle adjustments that may relieve my symptoms?
+    - What are some ways to alleviate my symptoms naturally such as through lifestyle changes or home remedies?
+    - I'm looking for advice on lifestyle changes or home remedies that could help with my symptoms. Any suggestions?
+    - Do you know of any home remedies or lifestyle changes that are effective in alleviating symptoms?
+    - Are there any natural or home-based solutions that could help ease my symptoms?
+    - What lifestyle modifications or home remedies would you recommend to help ease my symptoms?
+    - Could you provide information on home remedies or changes in lifestyle that may assist in alleviating my symptoms?
+    - Are there any lifestyle changes or home remedies that could help alleviate my symptoms?
+- intent: patient_asks_symptoms_persist
+  examples: |
+    - What should I do if my symptoms persist or worsen?
+    - If my symptoms don't improve or get worse what actions should I take?
+    - In case my symptoms persist or become more severe what would be the recommended course of action?
+    - What steps should I follow if my symptoms continue or worsen over time?
+    - Should my symptoms persist or worsen what should be my next steps?
+    - If my symptoms don't get better or worsen what would you advise me to do?
+    - In the event that my symptoms persist or deteriorate what actions do you recommend I take?
+    - What are the appropriate measures to take if my symptoms linger or worsen?
+    - If my symptoms stay the same or worsen what should be my plan of action?
+    - Should my symptoms not improve or worsen what steps should I be prepared to take?

@@ -1,3 +1,52 @@
 version: "3.1"
 
 rules:
+
+# Once the general info are collected, close form and move to medical questions
+- rule: submit_general_info
+  condition:
+  - active_loop: form_general_info
+  steps:
+  - action: form_general_info
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_start_medical_questions
+
+- rule: submit_emergency1_info
+  condition:
+  - active_loop: form_emergency_abdominal_pain
+  steps:
+  - action: form_emergency_abdominal_pain
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_set_pathology
+  - action: utter_conclude_abdominal_pain
+
+- rule: submit_emergency2_info
+  condition:
+  - active_loop: form_emergency_respiratory_difficulty
+  steps:
+  - action: form_emergency_respiratory_difficulty
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_set_pathology
+  - action: utter_conclude_respiratory_difficulty
+
+# Handle free questions out of any form (for each pathology)
+# maybe we can have here a custom action that detected the pathology and picks the answer?
+- rule: abdominal_pain_patient_asks_1
+  condition:
+  - slot_was_set:
+    - reported_pathology: patient_reports_abdominal_pain
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answ_cause_abdominal_pain
+
+# Fallback case
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase

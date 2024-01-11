@@ -1,10 +1,31 @@
 version: "3.1"
 
+# Sources:
+# https://rasa.com/docs/rasa/stories/#checkpoints
+# https://rasa.com/docs/rasa/forms/#writing-stories--rules-for-unhappy-form-paths
+
 stories:
-- story: emergency_abdominal_pain
+  
+# ==== Part 1: essential details
+# Happy paths
+- story: emergency1
   steps:
   - intent: greet
   - action: utter_greet
   - action: form_general_info
   - active_loop: form_general_info
-  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: emergency2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: form_general_info
+  - active_loop: form_general_info
+  - intent: patient_reports_respiratory_difficulty
+  - action: form_emergency_respiratory_difficulty
+  - active_loop: form_emergency_respiratory_difficulty
+
+# Unhappy paths
