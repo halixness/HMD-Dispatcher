@@ -1,4 +1,6 @@
 version: '3.1'
+
+
 intents:
 - greet
 - patient_inputs_homeaddr
@@ -13,14 +15,24 @@ intents:
 - patient_asks_treatment
 - patient_reports_abdominal_pain
 - patient_reports_respiratory_difficulty
+
+
 entities:
 - patient_phonenmbr
 - patient_homeaddr
+
+
 slots:
+
+  # ======================================================
+  #  General
+  # ======================================================
   reported_pathology:
     type: categorical
     values:
     - patient_reports_abdominal_pain
+    - patient_reports_respiratory_difficulty
+    - patient_reports_poisoning
     mappings:
     - type: custom
   patient_homeaddr:
@@ -33,6 +45,10 @@ slots:
     mappings:
     - type: from_entity
       entity: patient_phonenmbr
+
+  # ======================================================
+  #  (1) Abdominal pain
+  # ======================================================
   abdominal_pain_time:
     type: text
     mappings:
@@ -75,36 +91,68 @@ slots:
       conditions:
       - active_loop: form_emergency_abdominal_pain
         requested_slot: abdominal_pain_duration
+        
+  # ======================================================
+  #  (2) Respiratory difficulty
+  # ======================================================
   respiratory_difficulty_atnight:
     type: text
     mappings:
     - type: from_text
       conditions:
       - active_loop: form_emergency_respiratory_difficulty
-  respiratory_difficulty_usepillows:
+        requested_slot: respiratory_difficulty_atnight
+  respiratory_difficulty_before:
     type: text
     mappings:
     - type: from_text
       conditions:
       - active_loop: form_emergency_respiratory_difficulty
-  respiratory_difficulty_pastexp:
+        requested_slot: respiratory_difficulty_before
+  respiratory_difficulty_suddenly:
     type: text
     mappings:
     - type: from_text
       conditions:
       - active_loop: form_emergency_respiratory_difficulty
-  respiratory_difficulty_frequency:
+        requested_slot: respiratory_difficulty_suddenly
+  respiratory_difficulty_recentchanges:
     type: text
     mappings:
     - type: from_text
       conditions:
       - active_loop: form_emergency_respiratory_difficulty
-  respiratory_difficulty_familiarity:
+        requested_slot: respiratory_difficulty_recentchanges
+  respiratory_difficulty_regularly:
     type: text
     mappings:
     - type: from_text
       conditions:
       - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_regularly
+  respiratory_difficulty_worsens:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_worsens
+  respiratory_difficulty_ankles:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_ankles
+  respiratory_difficulty_weeks:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_weeks
+
+
 actions:
 - utter_greet
 - action_ask_patient_homeaddr
@@ -112,15 +160,38 @@ actions:
 - utter_start_medical_questions
 - validate_form_general_info
 - action_set_pathology
+
+
 responses:
+  # ======================================================
+  #  General
+  # ======================================================
+  utter_start_medical_questions:
+  - text: Tell me what's the issue.
+  utter_repeat_last_time:
+  - text: Let's retry one last time.
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
   utter_greet:
-  - text: 'Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime. '
+  - text: Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime.
+  utter_please_specify_pathology:
+  - text: Sorry, I need you to give me some details about your pathology first.
+  utter_please_provide_general_info:
+  - text: To possibly send help for your emergency, I need some details first.
+
+  # ======================================================
+  #  Personal details
+  # ======================================================
   utter_ask_patient_homeaddr:
   - text: Can you {verb} your home address, please?
   utter_invalid_patient_homeaddr:
   - text: I'm sorry, we can't find this address on the map.
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
+  
+  # ======================================================
+  #  (1) Abdominal pain
+  # ======================================================
   utter_ask_abdominal_pain_time:
   - text: When does the pain occur? In the morning? After eating? Always?
   utter_ask_abdominal_pain_area:
@@ -139,19 +210,42 @@ responses:
   - text: The permanence of abdominal pain depends on its underlying cause. Some conditions may resolve with treatment, while others may require ongoing management. It's important to consult a healthcare professional for an accurate diagnosis and prognosis.
   utter_conclude_abdominal_pain:
   - text: Ok, I have collected all the necessary info about your abdominal pain. Paramedics are on the way. While we're waiting, do you have any questions?
+  
+  # ======================================================
+  #  (2) Respiratory difficulty
+  # ======================================================
+  utter_ask_respiratory_difficulty_atnight:
+  - text: Do you have any problems breathing at night? 
+  utter_ask_respiratory_difficulty_before:
+  - text: Have you experienced this difficulty breathing before? 
+  utter_ask_respiratory_difficulty_suddenly:
+  - text: Did this episode come on suddenly? 
+  utter_ask_respiratory_difficulty_recentchanges:
+  - text: Have you had any recent changes in exertional capacity, fatigue, or significant weight change? 
+  utter_ask_respiratory_difficulty_regularly:
+  - text: Are you feeling short of breath regularly? 
+  utter_ask_respiratory_difficulty_worsens:
+  - text: Does your shortness of breath get worse when you've been doing your normal activities, or when you lie down? 
+  utter_ask_respiratory_difficulty_ankles:
+  - text: Do you have swollen ankles along with shortness of breath? 
+  utter_ask_respiratory_difficulty_weeks:
+  - text: Are you coughing for 3 weeks or more?
   utter_conclude_respiratory_difficulty:
   - text: Ok, I have collected all the necessary info about your respiratory difficulty. Paramedics are on the way. While we're waiting, do you have any questions?
-  utter_start_medical_questions:
-  - text: Tell me what's the issue.
-  utter_repeat_last_time:
-  - text: Let's retry one last time.
-  utter_please_rephrase:
-  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  
+  # ======================================================
+  #  (3) Poisoning
+  # ======================================================
+  utter_ask_poisoning_first:
+  - text: bruh.mp3
+
 forms:
+
   form_general_info:
     required_slots:
     - patient_homeaddr
     - patient_phonenmbr
+
   form_emergency_abdominal_pain:
     required_slots:
     - abdominal_pain_time
@@ -160,6 +254,7 @@ forms:
     - abdominal_pain_worsening
     - abdominal_pain_relief
     - abdominal_pain_duration
+
   form_emergency_respiratory_difficulty:
     required_slots:
     - respiratory_difficulty_atnight
@@ -167,6 +262,9 @@ forms:
     - respiratory_difficulty_pastexp
     - respiratory_difficulty_frequency
     - respiratory_difficulty_familiarity
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+
+  form_emergency_poisoning:
+    required_slots:
+    - poisoning_first
+
+

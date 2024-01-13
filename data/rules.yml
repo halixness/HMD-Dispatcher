@@ -2,8 +2,10 @@ version: "3.1"
 
 rules:
 
-# Once the general info are collected, close form and move to medical questions
-- rule: submit_general_info
+# ======================================================
+#  General
+# ======================================================
+- rule: Submit the form with personal details in the beginning
   condition:
   - active_loop: form_general_info
   steps:
@@ -13,7 +15,10 @@ rules:
     - requested_slot: null
   - action: utter_start_medical_questions
 
-- rule: submit_emergency1_info
+# ======================================================
+#  (1) Abdominal pain
+# ======================================================
+- rule: Submit the medical form about abdominal pain
   condition:
   - active_loop: form_emergency_abdominal_pain
   steps:
@@ -24,7 +29,18 @@ rules:
   - action: action_set_pathology
   - action: utter_conclude_abdominal_pain
 
-- rule: submit_emergency2_info
+- rule: User asks about abdominal pain (1)
+  condition:
+  - slot_was_set:
+    - reported_pathology: patient_reports_abdominal_pain
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answ_cause_abdominal_pain
+
+# ======================================================
+#  (1) Respiratory difficulty
+# ======================================================
+- rule: Submit the medical form about respiratory difficulty
   condition:
   - active_loop: form_emergency_respiratory_difficulty
   steps:
@@ -35,17 +51,10 @@ rules:
   - action: action_set_pathology
   - action: utter_conclude_respiratory_difficulty
 
-# Handle free questions out of any form (for each pathology)
-# maybe we can have here a custom action that detected the pathology and picks the answer?
-- rule: abdominal_pain_patient_asks_1
-  condition:
-  - slot_was_set:
-    - reported_pathology: patient_reports_abdominal_pain
-  steps:
-  - intent: patient_asks_cause
-  - action: utter_answ_cause_abdominal_pain
+# ======================================================
+#  Error handling
+# ======================================================
 
-# Fallback case
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
   - intent: nlu_fallback

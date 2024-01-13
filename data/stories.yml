@@ -5,20 +5,120 @@ version: "3.1"
 # https://rasa.com/docs/rasa/forms/#writing-stories--rules-for-unhappy-form-paths
 
 stories:
-  
-# ==== Part 1: essential details
-# Happy paths
-- story: emergency1
+
+- story: collects_general_info
   steps:
   - intent: greet
   - action: utter_greet
   - action: form_general_info
   - active_loop: form_general_info
+  - checkpoint: collected_general_info
+
+# ======================================================
+#  (1) Abdominal pain
+# ======================================================
+- story: emergency_abdominal_pain
+  steps:
+  - checkpoint: collected_general_info
   - intent: patient_reports_abdominal_pain
   - action: form_emergency_abdominal_pain
   - active_loop: form_emergency_abdominal_pain
 
-- story: emergency2
+# Asking questions before the medical form
+- story: unhappy1_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_cause
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy2_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_permanent
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy3_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_treatment
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy4_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_longterm_effects
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy5_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_learn
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy6_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_effect_lifestyle
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy7_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_change_lifestyle
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+- story: unhappy7_em1
+  steps:
+  - checkpoint: collected_general_info
+  - intent: patient_asks_symptoms_persist
+  - action: utter_please_specify_pathology
+  - action: utter_start_medical_questions
+  - intent: patient_reports_abdominal_pain
+  - action: form_emergency_abdominal_pain
+  - active_loop: form_emergency_abdominal_pain
+
+# Telling a pathology without filling the info
+- story: unhappy_pathology_before_info_em1
+  steps:
+  - intent: greet
+  - intent: patient_reports_abdominal_pain
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - checkpoint: collected_general_info
+
+# ======================================================
+#  (2) Respiratory difficulty
+# ======================================================
+- story: emergency_respiratory_difficulty
   steps:
   - intent: greet
   - action: utter_greet
@@ -28,4 +128,35 @@ stories:
   - action: form_emergency_respiratory_difficulty
   - active_loop: form_emergency_respiratory_difficulty
 
-# Unhappy paths
+# Telling a pathology without filling the info
+- story: unhappy_pathology_before_info_em2
+  steps:
+  - intent: greet
+  - intent: patient_reports_respiratory_difficulty
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - checkpoint: collected_general_info
+
+# ======================================================
+#  (3) Poisoning
+# ======================================================
+- story: emergency_poisoning
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: form_general_info
+  - active_loop: form_general_info
+  - intent: patient_reports_poisoning
+  - action: form_emergency_poisoning
+  - active_loop: form_emergency_poisoning
+
+# Telling a pathology without filling the info
+- story: unhappy_pathology_before_info_em3
+  steps:
+  - intent: greet
+  - intent: patient_reports_poisoning
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - checkpoint: collected_general_info
