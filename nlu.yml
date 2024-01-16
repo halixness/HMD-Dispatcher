@@ -1,0 +1,16 @@
+version: "3.1"
+nlu:
+- intent: patient_reports_pain
+  examples: |
+    - hello, I have [pain in my abdomen](pain_abdominal_pain)
+    - specific [area](pain_abdominal_pain)
+    - [dull ache](pain_abdominal_pain)
+    - [not](pain_respiratory_difficulty) eating
+- intent: greet
+  examples: |
+    - in the morning
+    - coughing
+    - no
+- intent: patient_inputs_coordinates
+  examples: |
+    - [2](patient_phonenmbr) days

@@ -31,12 +31,35 @@ class AskPatientHomeAddr(Action):
         """
             Formulating how to ask the form field depending on repetitions
         """
-        attempts = get_num_attempts(tracker, repetition_utterance="utter_invalid_patient_homeaddr")
-        # asking for the param depending on the errors
-        if not attempts:
-            dispatcher.utter_message(response="utter_ask_patient_homeaddr", verb="provide")
-        else:
-            dispatcher.utter_message(response="utter_ask_patient_homeaddr", verb="repeat")
+        home_addr = tracker.get_slot('patient_homeaddr')
+        if home_addr is None:
+            attempts = get_num_attempts(tracker, repetition_utterance="utter_invalid_patient_homeaddr")
+            # asking for the param depending on the errors
+            if not attempts:
+                dispatcher.utter_message(response="ask_patient_homeaddr", verb="provide")
+            else:
+                dispatcher.utter_message(response="ask_patient_homeaddr", verb="repeat")
+        return []
+    
+class SubmitPatientCoordinates(Action):
+    
+    def name(self) -> Text:
+        return "action_submit_patient_coordinates"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """
+            Formulating how to ask the form field depending on repetitions
+        """
+        anySlotRequired = tracker.get_slot('required_slot') is not None
+
+        if not anySlotRequired:
+            home_address = tracker.get_slot('patient_homeaddr')
+            phone = tracker.get_slot('patient_phonenmbr')
+            helpRequest = {
+                "address": home_address,
+                "phone": phone
+            }
+            print(f"[!] New help request at: {helpRequest}")
         return []
 
 

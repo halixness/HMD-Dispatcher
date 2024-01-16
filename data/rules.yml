@@ -2,54 +2,6 @@ version: "3.1"
 
 rules:
 
-# ======================================================
-#  General
-# ======================================================
-- rule: Submit the form with personal details in the beginning
-  condition:
-  - active_loop: form_general_info
-  steps:
-  - action: form_general_info
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: utter_start_medical_questions
-
-# ======================================================
-#  (1) Abdominal pain
-# ======================================================
-- rule: Submit the medical form about abdominal pain
-  condition:
-  - active_loop: form_emergency_abdominal_pain
-  steps:
-  - action: form_emergency_abdominal_pain
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_set_pathology
-  - action: utter_conclude_abdominal_pain
-
-- rule: User asks about abdominal pain (1)
-  condition:
-  - slot_was_set:
-    - reported_pathology: patient_reports_abdominal_pain
-  steps:
-  - intent: patient_asks_cause
-  - action: utter_answ_cause_abdominal_pain
-
-# ======================================================
-#  (1) Respiratory difficulty
-# ======================================================
-- rule: Submit the medical form about respiratory difficulty
-  condition:
-  - active_loop: form_emergency_respiratory_difficulty
-  steps:
-  - action: form_emergency_respiratory_difficulty
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_set_pathology
-  - action: utter_conclude_respiratory_difficulty
 
 # ======================================================
 #  Error handling

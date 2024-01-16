@@ -24,250 +24,158 @@ nlu:
 # ======================================================
 #  Personal details info
 # ======================================================
-- intent: patient_inputs_homeaddr
+- intent: patient_inputs_coordinates
   examples: |
-    - My address is [789 Elm Avenue, New York](patient_homeaddr)
-    - I need you to come quick [Via Roma 789, Rome](patient_homeaddr)
-    - I live at [Corso Italia 332, Milan](patient_homeaddr)
-    - Here is the address [Via Garibaldi 456, Venice](patient_homeaddr)
-    - I need you to come quick [210 Via Nazionale, Florence](patient_homeaddr)
-    - I live at [Via Cavour 602, Naples](patient_homeaddr)
-    - Here is the address [Via Po 901, Turin](patient_homeaddr)
-    - I need you to come quick [Corso Vittorio Emanuele 123, Palermo](patient_homeaddr)
-    - I live at [Via Dante 876, Bologna](patient_homeaddr)
-    - Here is the address [Piazza del Duomo 543, Catania](patient_homeaddr)
-    - I need you to come quick [Via San Michele 789, Bari](patient_homeaddr)
-    - [via mantova 1, parma](patient_homeaddr)
-- intent: patient_inputs_phone
-  examples: |
-    - [2124567890](patient_phonenmbr)
-    - [+39 02 1234567](patient_phonenmbr)
-    - My phone number is [2124567890](patient_phonenmbr)
-    - You can reach me at [212-456-7890](patient_phonenmbr)
-    - [+1 212.456.7890](patient_phonenmbr)
-    - My contact number is [212 456 789](patient_phonenmbr)
-    - sure, my number is [+39 02 1234567](patient_phonenmbr)
-    - You can contact me at [+39 011 123 4567](patient_phonenmbr)
-    - please use [+39 080 123 4567](patient_phonenmbr)
-    - [33333333333](patient_phonenmbr)
+    - My address is [12 Via Roma, Rome](patient_homeaddr)
+    - I live at [45 Via Garibaldi, Milan](patient_homeaddr)
+    - The address is [8 Via Veneto, Florence](patient_homeaddr)
+    - You can find me at [3 Via Della Vigna, Venice](patient_homeaddr)
+    - It's [27 Via Cavour, Naples](patient_homeaddr)
+    - I'm located at [9 Corso Vittorio Emanuele, Turin](patient_homeaddr)
+    - The address is [6 Via Borgo, Bologna](patient_homeaddr)
+    - It's [15 Via San Marco, Bari](patient_homeaddr)
+    - I reside at [18 Corso Umberto, Palermo](patient_homeaddr)
+    - You can reach me at [22 Via Dante, Verona](patient_homeaddr)
+    - It's [7 Piazza Navona, Genoa](patient_homeaddr)
+    - I'm at [30 Via Mazzini, Padua](patient_homeaddr)
+    - The address is [4 Corso Buenos Aires, Catania](patient_homeaddr)
+    - It's [11 Corso Vittorio Emanuele II, Trieste](patient_homeaddr)
+    - I live at [20 Via Indipendenza, Brescia](patient_homeaddr)
+    - You can find me at [10 Corso Garibaldi, Taranto](patient_homeaddr)
+    - It's [5 Piazza Del Duomo, Parma](patient_homeaddr)
+    - I'm located at [25 Corso Matteotti, Perugia](patient_homeaddr)
+    - The address is [14 Via XX Settembre, Modena](patient_homeaddr)
+    - It's [2 Piazza De Ferrari, Reggio Emilia](patient_homeaddr)
+    - I reside at [17 Corso Italia, Reggio Calabria](patient_homeaddr)
+    - You can reach me at [13 Corso Vannucci, Pescara](patient_homeaddr)
+    - It's [19 Corso Mazzini, Salerno](patient_homeaddr)
+    - I'm at [16 Via Roma, Ferrara](patient_homeaddr)
+    - The address is [23 Corso Vittorio Veneto, Rimini](patient_homeaddr)
+    - It's [21 Corso Garibaldi, Monza](patient_homeaddr)
+    - I live at [26 Via Vittorio Emanuele, Latina](patient_homeaddr)
+    - You can find me at [28 Corso Vittorio Emanuele III, Cagliari](patient_homeaddr)
+    - It's [24 Corso Vittorio Emanuele II, Sassari](patient_homeaddr)
+    - My number is [06 807 1476](patient_phonenmbr)
+    - Okay, it's [06 671 1973](patient_phonenmbr)
+    - It's [06 151 8913](patient_phonenmbr)
+    - My phone number is [06 794 7914](patient_phonenmbr)
+    - You can reach me at [06 993 5166](patient_phonenmbr)
+    - It's [06 623 7980](patient_phonenmbr)
+    - My number is [338 123 4567](patient_phonenmbr)
+    - Okay, it's [340 987 6543](patient_phonenmbr)
+    - It's [02 555 4433](patient_phonenmbr)
+    - My phone number is [091 876 5432](patient_phonenmbr)
+    - You can reach me at [055 234 5678](patient_phonenmbr)
+    - It's [081 333 4444](patient_phonenmbr)
+    - My number is [349 112 2233](patient_phonenmbr)
+    - Okay, it's [328 445 5667](patient_phonenmbr)
+    - It's [380 998 7654](patient_phonenmbr)
+    - My phone number is [011 111 2222](patient_phonenmbr)
+    - You can reach me at [0471 111222](patient_phonenmbr)
+    - It's [0541 987654](patient_phonenmbr)
+    - My number is [02 1234 5678](patient_phonenmbr)
+    - Okay, it's [081 333 4444](patient_phonenmbr)
+    - It's [055 876 5432](patient_phonenmbr)
+    - My phone number is [340 112 2233](patient_phonenmbr)
+    - You can reach me at [349 445 5667](patient_phonenmbr)
+    - It's [328 998 7654](patient_phonenmbr)
+    - My number is [091 111 2222](patient_phonenmbr)
+    - Okay, it's [055 111222](patient_phonenmbr)
+    - It's [0471 987654](patient_phonenmbr)
+    - My phone number is [02 876 5432](patient_phonenmbr)
+    - You can reach me at [380 112 2233](patient_phonenmbr)
+    - It's [011 445 5667](patient_phonenmbr)
 
 # ======================================================
 #  Emergency detection
 # ======================================================
-- intent: patient_reports_abdominal_pain
+- intent: patient_reports_pain
   examples: |
-    - I am experiencing discomfort in my abdomen.
-    - My stomach is hurting.
-    - I have pain in my belly.
-    - I am suffering from abdominal pain.
-    - I am feeling unwell in my midsection.
-    - I have discomfort in my stomach area.
-    - My abdomen is causing me pain.
-    - I am experiencing pain in my gut.
-    - I have aching in my abdominal region.
-    - My stomach is causing me distress.
-    - I am in pain in my midriff.
-    - I am having stomach pain.
-    - My belly is aching.
-    - I am feeling pain in my tummy.
-    - I have discomfort in my abdominal area.
-    - My midsection is painful.
-    - I am experiencing aches in my stomach.
-    - I have a sore abdomen.
-    - My stomach is giving me trouble.
-    - I am feeling pain in my lower torso.
-    - I have aching in my midsection.
-    - My belly is causing me discomfort.
-    - I am suffering from pain in my abdomen.
-    - I am experiencing aches in my belly.
-    - I have a sore stomach.
-    - My midriff is hurting.
-    - I am feeling discomfort in my tummy.
-    - I have pain in my abdominal region.
-    - My abdomen is aching.
-    - I am in discomfort in my stomach.
-    
-- intent: patient_reports_respiratory_difficulty
+    - I have this sensation of [discomfort in my abdomen](pain_abdominal_pain)
+    - It's like [I have a sharp pain in my stomach](pain_abdominal_pain)
+    - I'm experiencing [some sort of ache in my belly](pain_abdominal_pain)
+    - I feel like [there's a dull pain in my midsection](pain_abdominal_pain)
+    - It seems like [my tummy is really hurting](pain_abdominal_pain)
+    - I have this [uncomfortable feeling in my stomach](pain_abdominal_pain)
+    - It's as if [my belly is aching a lot](pain_abdominal_pain)
+    - I'm having this sensation of [pain in my abdominal area](pain_abdominal_pain)
+    - I sense [some pain in my stomach](pain_abdominal_pain)
+    - I'm in [a lot of discomfort in my abdomen](pain_abdominal_pain)
+    - I have this [sharp ache in my belly](pain_abdominal_pain)
+    - It feels like [there's a throbbing pain in my stomach](pain_abdominal_pain)
+    - I'm having [some serious pain in my midsection](pain_abdominal_pain)
+    - It's as though [my tummy is really aching](pain_abdominal_pain)
+    - I have this [unpleasant feeling in my stomach](pain_abdominal_pain)
+    - It's like [my belly is really hurting badly](pain_abdominal_pain)
+    - I'm experiencing [a great deal of pain in my abdominal area](pain_abdominal_pain)
+    - I feel like [there's a persistent pain in my stomach](pain_abdominal_pain)
+    - It seems like [my tummy is causing me a lot of pain](pain_abdominal_pain)
+    - I have this sensation of [intense discomfort in my belly](pain_abdominal_pain)
+    - It's as if [my stomach is in a lot of pain](pain_abdominal_pain)
+    - I'm having this sensation of [aching in my abdominal area](pain_abdominal_pain)
+    - I sense [a sharp pain in my stomach](pain_abdominal_pain)
+    - I'm in [a lot of discomfort in my midsection](pain_abdominal_pain)
+    - I have this [dull ache in my abdomen](pain_abdominal_pain)
+    - It feels like [there's a constant pain in my stomach](pain_abdominal_pain)
+    - It seems like [I'm gasping for air](pain_respiratory_difficulty).
+    - I'm experiencing something similar to [a heavy weight on my chest](pain_respiratory_difficulty).
+    - It's like [I'm suffocating](pain_respiratory_difficulty) and can't get enough air.
+    - I have this sensation of [air hunger](pain_respiratory_difficulty) and it's really uncomfortable.
+    - I'm having trouble [drawing in a full breath](pain_respiratory_difficulty).
+    - It feels like [there's a band around my chest](pain_respiratory_difficulty) and it's hard to expand.
+    - I'm finding it hard to [catch my breath](pain_respiratory_difficulty).
+    - I have this feeling of [shallow breathing](pain_respiratory_difficulty) and it's worrying me.
+    - It's like [my chest is constricting](pain_respiratory_difficulty) and I can't take deep breaths.
+    - I feel like [I'm not getting enough air](pain_respiratory_difficulty).
+    - I'm having this sensation of [breathlessness] and it's concerning.
+    - It's as if [there's a pressure on my chest](pain_respiratory_difficulty) and I can't breathe deeply.
+    - I feel like [I'm wheezing](pain_respiratory_difficulty) and it's making me anxious.
+    - I'm struggling with [breathing deeply](pain_respiratory_difficulty) and it's painful.
+    - It's like [there's a blockage in my airway](pain_respiratory_difficulty) and I can't breathe properly.
+    - I have this sensation of [labored breathing](pain_respiratory_difficulty) and it's distressing.
+    - It feels like [I'm fighting for each breath](pain_respiratory_difficulty) and it's exhausting.
+    - I'm experiencing something similar to [airway constriction](pain_respiratory_difficulty) and it's alarming.
+    - It's as if [I'm breathing through a straw](pain_respiratory_difficulty) and it's uncomfortable.
+    - I feel like [I'm not able to fill my lungs completely](pain_respiratory_difficulty).
+    - I'm having difficulty [getting enough air into my lungs](pain_respiratory_difficulty).
+    - It's like [my breathing is restricted](pain_respiratory_difficulty) and it's causing pain.
+    - I have this feeling of [airway obstruction](pain_respiratory_difficulty) and it's frightening.
+    - It seems like [I'm not able to take a deep breath](pain_respiratory_difficulty).
+    - I'm finding it hard to [breathe in fully](pain_respiratory_difficulty) and it's distressing.
+    - It feels like [there's a weight on my chest](pain_respiratory_difficulty) and I can't breathe properly.
+    - I'm struggling with [shortness of breath](pain_respiratory_difficulty) and it's concerning.
+    - It's like [my chest is tightening](pain_respiratory_difficulty) and I can't take a deep breath.
+    - I feel like [I'm suffocating](pain_respiratory_difficulty) and it's making me anxious.
+  
+- intent: patient_needs_ambulance
   examples: |
-    - I am experiencing difficulty breathing
-    - Breathing is difficult for me
-    - I find it hard to breathe
-    - It's a struggle for me to breathe
-    - My breathing is not easy
-    - I have trouble with my breathing
-    - I am having trouble breathing
-    - My respiration is difficult
-    - I struggle to breathe
-    - Breathing is a challenge for me
-    - It's hard for me to take a breath
-    - I find it tough to breathe
-    - Taking a breath is difficult for me
-    - I experience respiratory difficulty
-    - I find it hard to catch my breath
-    - My breathing is problematic
-    - I have a hard time breathing
-    - It's tough for me to breathe
-    - I am finding it difficult to breathe
-    - I have a difficulty with my respiration
-    - Breathing is not easy for me
-    - I am having a hard time breathing
-    - My breath is labored
-    - I have a problem with my breathing
-    - It's difficult for me to respire
-    - I struggle with my respiration
-    - I find it challenging to breathe
-    - I have a tough time with my breathing
-    - It's a challenge for me to respire
-
-- intent: patient_reports_poisoning
-  examples: |
-    - I was exposed to a toxic substance.
-    - I ingested a harmful chemical.
-    - I was affected by a poisonous material.
-    - I suffered from poisoning.
-    - I was intoxicated with a harmful agent.
-    - I fell victim to a toxic exposure.
-    - I experienced the effects of a poison.
-    - I was harmed by a toxic substance.
-    - I encountered a poisonous substance.
-    - I was subject to poisoning.
-    - I underwent toxic contamination.
-    - I absorbed a harmful toxin.
-    - I was influenced by a noxious substance.
-    - I faced the consequences of poisoning.
-    - I was hurt by a poisonous chemical.
-    - I endured the impact of a toxin.
-    - I was damaged by a poisonous compound.
-    - I underwent the effects of a poison.
-    - I was hurt by a toxic compound.
-    - I experienced the consequences of toxic exposure.
-    - I was unwell due to poisoning.
-    - I suffered the results of toxic ingestion.
-    - I was unwell from a poisonous substance.
-    - I felt the effects of a harmful chemical.
-    - I was a victim of toxic poisoning.
-    - I felt unwell from a poisonous exposure.
-    - I was in a toxic state due to poisoning.
-    - I experienced the symptoms of poisoning.
-    - I was in a harmful condition due to toxic exposure.
-    - I felt the impact of a poisonous substance.
-
-# ======================================================
-#  Patient Q & A
-# ======================================================
-
-- intent: patient_asks_cause
-  examples: |
-    - What may have caused this condition?
-    - Can you tell me what might have led to this condition?
-    - Do you have any idea what could be the cause of this condition?
-    - Could you explain what may have triggered this condition?
-    - Any thoughts on what might be behind this condition?
-    - What are the potential causes of this condition?
-    - Is it possible to identify the factors that may have caused this condition?
-    - Do we know what could have brought about this condition?
-    - Can you shed light on what may have contributed to this condition?
-    - What might be the reason behind this condition?
-    - Could you elaborate on the possible causes of this condition?
-    - Do you have any insights into what could have precipitated this condition?
-    - Is it possible to identify the factors that led to this condition?
-    - Any thoughts on what may be the underlying cause of this condition?
-    - What are the potential factors that may have caused this condition?
-    - Can you shed light on what may have contributed to this condition?
-    - Do we know what could have brought about this condition?
-    - Could you explain what may have triggered this condition?
-    - Can you tell me what might have led to this condition?
-    - What are the likely causes of this condition?
-    - Is it possible to determine the origins of this condition?
-    - Any idea what could be the cause of this condition?
-    - What may have initiated this condition?
-    - Are there any identifiable reasons for this condition?
-    - Can you provide any insights into the origins of this condition?
-    - Do we have any understanding of what may have provoked this condition?
-    - Could you outline the potential factors that may have led to this condition?
-    - What may have instigated this condition?
-    - Can you offer any explanations for what may have caused this condition?
-- intent: patient_asks_permanent
-  examples: |
-    - Will it be permanent?
-    - Is it going to be permanent?
-    - Will this be permanent?
-    - Can we expect this to be permanent?
-    - Is the permanence of this guaranteed?
-    - Are we looking at a permanent situation?
-    - Will it remain this way indefinitely?
-    - Can we anticipate this being permanent?
-    - Is there a possibility of this being permanent?
-    - Might this be permanent?
-- intent: patient_asks_treatment
-  examples: |
-    - How is this condition treated or managed?
-    - What are the treatment options for this condition?
-    - How can this condition be managed effectively?
-    - What are the ways to treat or control this condition?
-    - Could you explain the treatment approach for this condition?
-    - How might one go about treating or handling this condition?
-    - What are the available methods for managing this condition?
-    - Can you outline the treatment or management strategies for this condition?
-    - What are the recommended approaches for treating or dealing with this condition?
-    - How is it typically recommended to address this condition?
-- intent: patient_asks_longterm_effects
-  examples: |
-    - What will be the long-term effects on my life?
-    - What are the potential long-term implications for my life?
-    - How will my life be affected in the long run?
-    - What long-term effects can I expect on my life?
-    - What will be the lasting impact on my life?
-    - How might this situation shape my life in the long term?
-    - What are the enduring consequences for my life?
-    - In the grand scheme of things how will this affect my life over time?
-    - What long-term changes can I anticipate in my life?
-    - What will be the prolonged influence on my life?
-- intent: patient_asks_learn
-  examples: |
-    - How can I learn more about my condition?
-    - How can I find more information about my condition?
-    - What are the best ways to educate myself about my condition?
-    - Is there a recommended approach to learning more about my condition?
-    - What resources are available for understanding my condition better?
-    - Are there any specific methods for gaining knowledge about my condition?
-    - In what ways can I increase my understanding of my condition?
-    - What are some effective strategies for getting more information about my condition?
-    - How should I go about educating myself about my condition?
-    - Are there any tips for delving deeper into the details of my condition?
-- intent: patient_asks_effect_lifestyle
-  examples: |
-    - Could my lifestyle or habits be contributing to my pain?
-    - Might the way I live or my habits be causing my discomfort?
-    - Could the pain I'm experiencing be linked to my lifestyle choices or habits?
-    - Is it possible that my pain is a result of the way I live or my daily habits?
-    - Do you think my pain could be connected to the way I lead my life or the habits I have?
-    - I'm wondering if the way I live or my habits could be playing a part in the pain I'm feeling. What do you think?
-    - Could my pain be influenced by my lifestyle or the habits I follow?
-    - Might there be a connection between my pain and the way I conduct my life or my habits?
-    - Do you think my pain might be due to the way I live or the habits I maintain?
-    - I'm curious if my pain could be impacted by my lifestyle or the habits I engage in. What's your take on this?
-- intent: patient_asks_change_lifestyle
-  examples: |
-    - What are some lifestyle changes or home remedies that could help alleviate my symptoms?
-    - Are there any natural ways or home remedies to ease my symptoms?
-    - Could you suggest some home remedies or lifestyle adjustments that may relieve my symptoms?
-    - What are some ways to alleviate my symptoms naturally such as through lifestyle changes or home remedies?
-    - I'm looking for advice on lifestyle changes or home remedies that could help with my symptoms. Any suggestions?
-    - Do you know of any home remedies or lifestyle changes that are effective in alleviating symptoms?
-    - Are there any natural or home-based solutions that could help ease my symptoms?
-    - What lifestyle modifications or home remedies would you recommend to help ease my symptoms?
-    - Could you provide information on home remedies or changes in lifestyle that may assist in alleviating my symptoms?
-    - Are there any lifestyle changes or home remedies that could help alleviate my symptoms?
-- intent: patient_asks_symptoms_persist
-  examples: |
-    - What should I do if my symptoms persist or worsen?
-    - If my symptoms don't improve or get worse what actions should I take?
-    - In case my symptoms persist or become more severe what would be the recommended course of action?
-    - What steps should I follow if my symptoms continue or worsen over time?
-    - Should my symptoms persist or worsen what should be my next steps?
-    - If my symptoms don't get better or worsen what would you advise me to do?
-    - In the event that my symptoms persist or deteriorate what actions do you recommend I take?
-    - What are the appropriate measures to take if my symptoms linger or worsen?
-    - If my symptoms stay the same or worsen what should be my plan of action?
-    - Should my symptoms not improve or worsen what steps should I be prepared to take?
+    - I need medical assistance right away.
+    - Please send an ambulance to my location.
+    - There has been an accident, and we need an ambulance immediately.
+    - We require urgent medical help. Please dispatch an ambulance.
+    - I'm calling to request an ambulance for a medical emergency.
+    - We have a medical crisis and need an ambulance as soon as possible.
+    - I need an ambulance for a serious health issue.
+    - Urgent medical attention is needed. Please send an ambulance quickly.
+    - We need an ambulance for a critical situation.
+    - Please send an ambulance urgently. It's a medical emergency.
+    - We need immediate medical aid. Please dispatch an ambulance now.
+    - An ambulance is required immediately at this location.
+    - We need medical help right away. Please send an ambulance.
+    - This is an emergency. Please send an ambulance promptly.
+    - We need an ambulance for a life-threatening situation.
+    - Please send an ambulance as quickly as possible. It's an emergency.
+    - We need urgent medical assistance. Please dispatch an ambulance.
+    - An ambulance is needed urgently. Please send one immediately.
+    - We require an ambulance for a critical medical condition.
+    - Please send an ambulance right away. It's a medical emergency.
+    - We need immediate medical attention. Please send an ambulance.
+    - An ambulance is needed for a serious health issue.
+    - Please dispatch an ambulance to this location for a medical emergency.
+    - We need an ambulance as soon as possible. It's a critical situation.
+    - Urgent medical help is needed. Please send an ambulance urgently.
+    - We require an ambulance for a life-threatening emergency.
+    - Please send an ambulance promptly. It's a medical crisis.
+    - An ambulance is needed urgently for a critical condition.
+    - We need immediate assistance. Please dispatch an ambulance quickly.
+    - Please send an ambulance urgently. It's a matter of life and death.

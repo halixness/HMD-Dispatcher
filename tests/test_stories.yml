@@ -1,91 +1,66 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
-  steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
 
-- story: happy path 2
-  steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+# - action: action_deactivate_loop # stop the current form and reset all
 
-- story: sad path 1
+# Happy paths
+- story: User greets
   steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
+    - intent: greet
+    - action: utter_greet
+    - checkpoint: user_said_hello
 
-- story: sad path 2
+# ========== Path 1
+- story: User needs an ambulance, the agent guides the conversation
   steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
+    - checkpoint: user_said_hello
+    - intent: patient_needs_ambulance
+    - action: utter_please_provide_general_info
+    - action: form_general_info
+    - active_loop: form_general_info
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - slot_was_set:
+      - patient_homeaddr: address
+      - patient_phonenmbr: 123
+    - action: utter_start_medical_questions
+    - checkpoint: user_provided_general_info
 
-- story: sad path 3
+# ========== Path 2
+- story: User reports a specific pain, without general info
   steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+    - checkpoint: user_said_hello
+    - intent: patient_reports_pain
+      entities:
+      - pain_abdominal_pain: pain in my abdomen
+    - slot_was_set:
+      - pain_abdominal_pain: pain in my abdomen
+    - action: form_emergency_abdominal_pain
+    - active_loop: form_emergency_abdominal_pain
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - slot_was_set:
+      - patient_homeaddr: null
+      - patient_phonenmbr: null
+    - action: utter_conclude_abdominal_pain
 
-- story: say goodbye
+# ========== Path 3
+- story: User provided general info, now reports a pain 
   steps:
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+    - checkpoint: user_provided_general_info
+    - intent: patient_reports_pain
+      entities:
+      - pain_abdominal_pain: pain in my abdomen
+    - slot_was_set:
+      - pain_abdominal_pain: pain in my abdomen
+    - action: form_emergency_abdominal_pain
+    - active_loop: form_emergency_abdominal_pain
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_conclude_abdominal_pain
 
-- story: bot challenge
-  steps:
-  - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
+
+
