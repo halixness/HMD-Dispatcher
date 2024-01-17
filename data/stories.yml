@@ -5,8 +5,7 @@ version: "3.1"
 # https://rasa.com/docs/rasa/forms/#writing-stories--rules-for-unhappy-form-paths
 
 # Notes:
-# - should use checkpoints, it's way easier to jump around
-
+#
 # unhappy paths:
 # - provides pathology first
 # - provides home address first
@@ -14,53 +13,60 @@ version: "3.1"
 
 stories:
 
-# - action: action_deactivate_loop # stop the current form and reset all
-
-# Happy paths
-- story: User greets, the agent guides the conversation
+- story: greeting
   steps:
     - intent: greet
     - action: utter_greet
+    - checkpoint: user_said_hello
+
+- story: general query + ask generalities
+  steps:
+    - checkpoint: user_said_hello
+    - intent: patient_needs_ambulance
     - action: form_general_info
     - active_loop: form_general_info
     - slot_was_set:
       - requested_slot: null
     - active_loop: null
-    - action: utter_start_medical_questions
+    - action: utter_question_issue
+
+- story: generalities > medical questions
+  steps:
     - slot_was_set:
       - patient_homeaddr: address
       - patient_phonenmbr: 123
+      - requested_slot: null
+    - action: utter_question_issue
     - intent: patient_reports_pain
       entities:
-      - pain_abdominal_pain: pain in my abdomen
-    - slot_was_set:
       - pain_abdominal_pain: pain in my abdomen
     - action: form_emergency_abdominal_pain
     - active_loop: form_emergency_abdominal_pain
     - slot_was_set:
       - requested_slot: null
     - active_loop: null
-    - action: utter_conclude_abdominal_pain
+    - checkpoint: conclude
 
-- story: User reports abdominal pain first
+- story: specific query + ask generalities
   steps:
-  - intent: patient_reports_pain
-    entities:
-    - pain_abdominal_pain: pain in my abdomen
-  - slot_was_set:
-    - pain_abdominal_pain: pain in my abdomen
-  - action: form_emergency_abdominal_pain
-  - active_loop: form_emergency_abdominal_pain
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_please_provide_general_info
-  - action: form_general_info
-  - active_loop: form_general_info
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_conclude_abdominal_pain
+    - checkpoint: user_said_hello
+    - intent: patient_reports_pain
+      entities:
+      - pain_abdominal_pain: pain in my abdomen
+    - action: form_emergency_abdominal_pain
+    - active_loop: form_emergency_abdominal_pain
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: form_general_info
+    - active_loop: form_general_info
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - checkpoint: conclude
 
-
-
+- story: conclude with the diagnosis
+  steps:
+    - checkpoint: conclude
+    - action: utter_conclude_abdominal_pain
+  

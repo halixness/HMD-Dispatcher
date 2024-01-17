@@ -29,6 +29,7 @@ slots:
     mappings:
     - type: from_entity
       entity: patient_phonenmbr
+  # =================================================
   abdominal_pain_time:
     type: text
     mappings:
@@ -78,14 +79,14 @@ actions:
 - action_set_pathology
 - action_submit_patient_coordinates
 - utter_greet
-- utter_start_medical_questions
+- utter_question_issue
 - utter_repeat_last_time
 - utter_please_rephrase
 - utter_please_specify_pathology
 - utter_please_provide_general_info
 - utter_invalid_patient_homeaddr
 responses:
-  utter_start_medical_questions:
+  utter_question_issue:
   - text: Tell me what's the issue.
   utter_repeat_last_time:
   - text: Let's retry one last time.
@@ -124,16 +125,13 @@ responses:
 forms:
   form_general_info:
     required_slots:
-    - patient_homeaddr
-    - patient_phonenmbr
+      - patient_homeaddr
+      - patient_phonenmbr
   form_emergency_abdominal_pain:
     required_slots:
-    - abdominal_pain_time
-    - abdominal_pain_area
-    - abdominal_pain_type
-    - abdominal_pain_worsening
-    - abdominal_pain_relief
-    - abdominal_pain_duration
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+      - abdominal_pain_time
+      - abdominal_pain_area
+      - abdominal_pain_type
+      - abdominal_pain_worsening
+      - abdominal_pain_relief
+      - abdominal_pain_duration

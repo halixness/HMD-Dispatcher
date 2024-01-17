@@ -39,5 +39,4 @@ policies:
   - name: MemoizationPolicy
   - name: RulePolicy
   - name: TEDPolicy
-    max_history: 50
     epochs: 100
