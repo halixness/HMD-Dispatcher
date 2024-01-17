@@ -3,6 +3,8 @@ intents:
 - greet
 - patient_inputs_coordinates
 - patient_reports_pain
+- patient_asks_cause
+- patient_needs_ambulance
 entities:
 - pain_respiratory_difficulty
 - pain_abdominal_pain
@@ -10,22 +12,24 @@ entities:
 - patient_homeaddr
 slots:
   pain_abdominal_pain:
-    type: any
+    type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: pain_abdominal_pain
   pain_respiratory_difficulty:
-    type: any
+    type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: pain_respiratory_difficulty
   patient_homeaddr:
-    type: any
+    type: text
     mappings:
     - type: from_entity
       entity: patient_homeaddr
   patient_phonenmbr:
-    type: any
+    type: text
     mappings:
     - type: from_entity
       entity: patient_phonenmbr
@@ -72,8 +76,67 @@ slots:
       conditions:
       - active_loop: form_emergency_abdominal_pain
         requested_slot: abdominal_pain_duration
+  # =================================================
+  respiratory_difficulty_atnight:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_atnight
+  respiratory_difficulty_before:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_before
+  respiratory_difficulty_suddenly:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_suddenly
+  respiratory_difficulty_recentchanges:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_recentchanges
+  respiratory_difficulty_regularly:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_regularly
+  respiratory_difficulty_worsens:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_worsens
+  respiratory_difficulty_ankles:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_ankles
+  respiratory_difficulty_weeks:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_emergency_respiratory_difficulty
+        requested_slot: respiratory_difficulty_weeks
+
 actions:
 - utter_conclude_abdominal_pain
+- utter_conclude_respiratory_difficulty
 - validate_form_general_info
 - action_ask_patient_homeaddr
 - action_set_pathology
@@ -85,9 +148,14 @@ actions:
 - utter_please_specify_pathology
 - utter_please_provide_general_info
 - utter_invalid_patient_homeaddr
+
 responses:
+  utter_will_ask_medical_questions:
+  - text: Ok, I'm going to ask you some questions about your problem.
   utter_question_issue:
   - text: Tell me what's the issue.
+  - text: What is your emergency?
+  - text: What is the problem you are experiencing?
   utter_repeat_last_time:
   - text: Let's retry one last time.
   utter_please_rephrase:
@@ -98,30 +166,64 @@ responses:
   - text: Sorry, I need you to give me some details about your pathology first.
   utter_please_provide_general_info:
   - text: Ok, to possibly send help for your emergency, I need some details.
+  - text: Ok, we will send paramedics. I need your current location and a contact number.
   ask_patient_homeaddr:
   - text: Can you {verb} your home address, please?
   utter_invalid_patient_homeaddr:
   - text: I'm sorry, we can't find this address on the map.
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
+  # =================================================
   utter_ask_abdominal_pain_time:
   - text: When does the pain occur? In the morning? After eating? Always?
   utter_ask_abdominal_pain_area:
+  - text: And where does the pain occur? In the entire abdomen or a specific area?
   - text: Where does the pain occur? In the entire abdomen or a specific area?
+  - text: I see, does the pain occur? In the entire abdomen or a specific area?
   utter_ask_abdominal_pain_type:
+  - text: And what type of pain are you experiencing? Dull ache? Sharp pain? Persistent or in waves?
   - text: What type of pain are you experiencing? Dull ache? Sharp pain? Persistent or in waves?
   utter_ask_abdominal_pain_worsening:
-  - text: What makes the pain worse? Coughing?
+  - text: And what makes the pain worse? Coughing?
+  - text: I see, what makes the pain worse? Coughing?
   utter_ask_abdominal_pain_relief:
   - text: What makes the pain better? Eating? Not eating?
   utter_ask_abdominal_pain_duration:
-  - text: How long have you experienced this pain? Days? Months?
-  utter_answ_cause_abdominal_pain:
-  - text: Abdominal pain can be caused by a variety of factors, including indigestion, constipation, gastritis, ulcers, food poisoning, or more serious conditions such as appendicitis, gallstones, or inflammatory bowel disease.
-  utter_answ_permanent_abdominal_pain:
-  - text: The permanence of abdominal pain depends on its underlying cause. Some conditions may resolve with treatment, while others may require ongoing management. It's important to consult a healthcare professional for an accurate diagnosis and prognosis.
+  - text: One last question, how long have you experienced this pain? Days? Months?
+  - text: Ok last one please, how long have you experienced this pain? Days? Months?
   utter_conclude_abdominal_pain:
   - text: Ok, I have collected all the necessary info about your abdominal pain. Paramedics are on the way. While we're waiting, do you have any questions?
+  # =================================================
+  utter_ask_respiratory_difficulty_atnight:
+  - text: Do you have any problems breathing at night? 
+  utter_ask_respiratory_difficulty_before:
+  - text: And have you experienced this difficulty breathing before? 
+  - text: Have you experienced this difficulty breathing before?  
+  - text: I see, you experienced this difficulty breathing before? 
+  utter_ask_respiratory_difficulty_suddenly:
+  - text: Did this episode come on suddenly? 
+  - text: And did this episode come on suddenly? 
+  - text: Ok, did this episode come on suddenly? 
+  utter_ask_respiratory_difficulty_recentchanges:
+  - text: Ok, have you had any recent changes in exertional capacity, fatigue, or significant weight change? 
+  - text: Have you had any recent changes in exertional capacity, fatigue, or significant weight change?  
+  - text: And you had any recent changes in exertional capacity, fatigue, or significant weight change? 
+  utter_ask_respiratory_difficulty_regularly:
+  - text: Are you feeling short of breath regularly? 
+  utter_ask_respiratory_difficulty_worsens:
+  - text: Does your shortness of breath get worse when you've been doing your normal activities, or when you lie down? 
+  - text: And does your shortness of breath get worse when you've been doing your normal activities, or when you lie down?
+  - text: I see, does your shortness of breath get worse when you've been doing your normal activities, or when you lie down? 
+  utter_ask_respiratory_difficulty_ankles:
+  - text: Do you have swollen ankles along with shortness of breath? 
+  utter_ask_respiratory_difficulty_weeks:
+  - text: One last question, are you coughing for 3 weeks or more?
+  - text: Ok, last one please, are you coughing for 3 weeks or more?
+  utter_conclude_respiratory_difficulty:
+  - text: Ok, I have collected all the necessary info about your respiratory difficulty. Paramedics are on the way. While we're waiting, do you have any questions?
+  utter_answ_cause:
+    - text: Abdominal pain can be caused by a variety of factors, including indigestion, constipation, gastritis, ulcers, food poisoning, or more serious conditions such as appendicitis, gallstones, or inflammatory bowel disease.
+    
 forms:
   form_general_info:
     required_slots:
@@ -135,3 +237,14 @@ forms:
       - abdominal_pain_worsening
       - abdominal_pain_relief
       - abdominal_pain_duration
+
+  form_emergency_respiratory_difficulty:
+    required_slots:
+    - respiratory_difficulty_atnight
+    - respiratory_difficulty_before
+    - respiratory_difficulty_suddenly
+    - respiratory_difficulty_recentchanges
+    - respiratory_difficulty_regularly
+    - respiratory_difficulty_worsens
+    - respiratory_difficulty_ankles
+    - respiratory_difficulty_weeks

@@ -1,5 +1,23 @@
 ## Behaviors to handle
 
-[ ] When the user asks its own questions in the middle of medical questions: for now, medical questions take any text as answer, which is wrong. If the user asks a question in the middle it doesn't work.
-[ ] When the user answers medical questions and includes a question.
-[ ] When the user opens the conversation with already info about the medical emergency: this requires recognizing the pathology as an entity and mapping the value to a slot that activates the right story. Or maybe recognizing the intent already and diverting the story.
+### Questions
+- [ ] 
+- [ ] Is it good practice to keep separate forms for each scenario (type of pain)? We have variable amounts of questions.
+- [ ] Is it good practice to receive any input text to a form question with "from_text", regardless of the detected intent?
+
+### High priority
+- [x] the agent should alert they're going to ask specific questions
+- [x] maybe the agent should give some feedback after some questions being answered.
+- [ ] How to fix questions that depend on whether a pain has been reported before? Probably custom actions.
+- [ ] after collecting specific questions, the agent should give a feedback.
+- [ ] initial prompt: what's your emergency?
+- [ ] improve the NLU to parse home addresses
+- [ ] improve the NLU to parse symptoms
+- [ ] implementing user questions
+- [ ] implementing all scenario forms
+
+### Low priority
+- [ ] how to handle any question the user asks while a form is being filled? (interruptions)
+- [ ] Handling multiple types of pain reported at once
+- [ ] Handling address and phone number reported in one message
+- [ ] Adding more variants of the prompted text

@@ -104,5 +104,3 @@ class SetPathology(Action):
             return [SlotSet("reported_pathology", intent_pathology)]
         else:
             return []
-
- # ========================== General info form validation        

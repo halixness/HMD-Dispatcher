@@ -36,7 +36,7 @@ pipeline:
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
-  - name: MemoizationPolicy
+  - name: AugmentedMemoizationPolicy # this may be worse than MemoizationPolicy
   - name: RulePolicy
   - name: TEDPolicy
-    epochs: 100
+    epochs: 50 # this should be enough to obtain acc = 1

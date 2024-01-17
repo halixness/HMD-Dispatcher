@@ -3,6 +3,7 @@ version: "3.1"
 # Sources:
 # https://rasa.com/docs/rasa/stories/#checkpoints
 # https://rasa.com/docs/rasa/forms/#writing-stories--rules-for-unhappy-form-paths
+# https://rasa.com/docs/rasa/responses/#conditional-response-variations
 
 # Notes:
 #
@@ -17,8 +18,10 @@ stories:
   steps:
     - intent: greet
     - action: utter_greet
+    - action: utter_question_issue
     - checkpoint: user_said_hello
 
+# ========== Path 1
 - story: general query + ask generalities
   steps:
     - checkpoint: user_said_hello
@@ -30,7 +33,7 @@ stories:
     - active_loop: null
     - action: utter_question_issue
 
-- story: generalities > medical questions
+- story: generalities > questions- abdominal pain
   steps:
     - slot_was_set:
       - patient_homeaddr: address
@@ -39,34 +42,71 @@ stories:
     - action: utter_question_issue
     - intent: patient_reports_pain
       entities:
-      - pain_abdominal_pain: pain in my abdomen
+      - pain_abdominal_pain: symptoms
+    - action: utter_will_ask_medical_questions
     - action: form_emergency_abdominal_pain
     - active_loop: form_emergency_abdominal_pain
     - slot_was_set:
       - requested_slot: null
     - active_loop: null
-    - checkpoint: conclude
+    - action: utter_conclude_abdominal_pain
 
-- story: specific query + ask generalities
+- story: generalities > questions- respiratory difficulty
+  steps:
+    - slot_was_set:
+      - patient_homeaddr: address
+      - patient_phonenmbr: 123
+      - requested_slot: null
+    - action: utter_question_issue
+    - intent: patient_reports_pain
+      entities:
+      - pain_respiratory_difficulty: symptoms
+    - action: utter_will_ask_medical_questions
+    - action: form_emergency_respiratory_difficulty
+    - active_loop: form_emergency_respiratory_difficulty
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_conclude_respiratory_difficulty
+
+# ========== Path 2
+- story: specific query + ask generalities - abdominal pain
   steps:
     - checkpoint: user_said_hello
     - intent: patient_reports_pain
       entities:
-      - pain_abdominal_pain: pain in my abdomen
+      - pain_abdominal_pain: symptoms
+    - action: utter_will_ask_medical_questions
     - action: form_emergency_abdominal_pain
     - active_loop: form_emergency_abdominal_pain
     - slot_was_set:
       - requested_slot: null
     - active_loop: null
+    - action: utter_please_provide_general_info
     - action: form_general_info
     - active_loop: form_general_info
     - slot_was_set:
       - requested_slot: null
     - active_loop: null
-    - checkpoint: conclude
-
-- story: conclude with the diagnosis
-  steps:
-    - checkpoint: conclude
     - action: utter_conclude_abdominal_pain
-  
+    - checkpoint: reported_abdominal_pain
+
+- story: specific query + ask generalities - respiratory difficulty
+  steps:
+    - checkpoint: user_said_hello
+    - intent: patient_reports_pain
+      entities:
+      - pain_respiratory_difficulty: symptoms
+    - action: utter_will_ask_medical_questions
+    - action: form_emergency_respiratory_difficulty
+    - active_loop: form_emergency_respiratory_difficulty
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_please_provide_general_info
+    - action: form_general_info
+    - active_loop: form_general_info
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_conclude_respiratory_difficulty

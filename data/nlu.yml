@@ -179,3 +179,35 @@ nlu:
     - An ambulance is needed urgently for a critical condition.
     - We need immediate assistance. Please dispatch an ambulance quickly.
     - Please send an ambulance urgently. It's a matter of life and death.
+
+- intent: patient_asks_cause
+  examples: |
+    - What may have caused this condition?
+    - Can you tell me what might have led to this condition?
+    - Do you have any idea what could be the cause of this condition?
+    - Could you explain what may have triggered this condition?
+    - Any thoughts on what might be behind this condition?
+    - What are the potential causes of this condition?
+    - Is it possible to identify the factors that may have caused this condition?
+    - Do we know what could have brought about this condition?
+    - Can you shed light on what may have contributed to this condition?
+    - What might be the reason behind this condition?
+    - Could you elaborate on the possible causes of this condition?
+    - Do you have any insights into what could have precipitated this condition?
+    - Is it possible to identify the factors that led to this condition?
+    - Any thoughts on what may be the underlying cause of this condition?
+    - What are the potential factors that may have caused this condition?
+    - Can you shed light on what may have contributed to this condition?
+    - Do we know what could have brought about this condition?
+    - Could you explain what may have triggered this condition?
+    - Can you tell me what might have led to this condition?
+    - What are the likely causes of this condition?
+    - Is it possible to determine the origins of this condition?
+    - Any idea what could be the cause of this condition?
+    - What may have initiated this condition?
+    - Are there any identifiable reasons for this condition?
+    - Can you provide any insights into the origins of this condition?
+    - Do we have any understanding of what may have provoked this condition?
+    - Could you outline the potential factors that may have led to this condition?
+    - What may have instigated this condition?
+    - Can you offer any explanations for what may have caused this condition?
