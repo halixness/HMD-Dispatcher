@@ -2,6 +2,65 @@ version: "3.1"
 
 rules:
 
+# =========== General info form
+- rule: (1) submit info form
+  condition:
+  - active_loop: form_general_info
+  - slot_was_set:
+    - pain_type: null
+  steps:
+  - action: form_general_info
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_patient_coordinates
+  - action: utter_question_issue
+
+- rule: (2) submit info form
+  condition:
+  - active_loop: form_general_info
+  - slot_was_set:
+    - pain_type: some pain
+  steps:
+  - action: form_general_info
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_patient_coordinates
+  - action: utter_conclude
+
+# =========== Emergency form
+- rule: (1) submit emergency form
+  condition:
+  - active_loop: form_medical_questions
+  - slot_was_set:
+    - patient_homeaddr: address
+    - patient_phonenmbr: 123
+  steps:
+  - action: form_medical_questions
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_emergency_form
+  - action: utter_conclude
+
+- rule: (2) submit emergency form
+  condition:
+  - active_loop: form_medical_questions
+  - slot_was_set:
+    - patient_homeaddr: null
+    - patient_phonenmbr: null
+  steps:
+  - action: form_medical_questions
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_emergency_form
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+
+
 # ======================================================
 #  Error handling
 # ======================================================

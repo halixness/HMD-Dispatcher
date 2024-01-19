@@ -20,7 +20,6 @@ nlu:
     - goodevening
     - good afternoon
 
-    
 # ======================================================
 #  Personal details info
 # ======================================================
@@ -55,6 +54,56 @@ nlu:
     - I live at [26 Via Vittorio Emanuele, Latina](patient_homeaddr)
     - You can find me at [28 Corso Vittorio Emanuele III, Cagliari](patient_homeaddr)
     - It's [24 Corso Vittorio Emanuele II, Sassari](patient_homeaddr)
+    - [Via romeo e giulietta 5 verona](patient_homeaddr) is my residence.
+    - My place is at [piazza garibaldi 3 napoli](patient_homeaddr).
+    - [Via delle rose 12 firenze](patient_homeaddr) is where I reside.
+    - You can find me at [corso vittorio emanuele 8 milano](patient_homeaddr).
+    - [Via veneto 20 roma](patient_homeaddr) is my home address.
+    - I stay at [viale della vittoria 15 bologna](patient_homeaddr).
+    - [Piazza duomo 7 catania](patient_homeaddr) is where I live.
+    - My residence is at [corso italia 10 genova](patient_homeaddr).
+    - [Via garofano 25 palermo](patient_homeaddr) is my current location.
+    - Find me at [viale dei fiori 4 torino](patient_homeaddr).
+    - My place of residence is [piazza maggiore 18 bari](patient_homeaddr).
+    - [Via monte bianco 30 trieste](patient_homeaddr) is where you'll locate me.
+    - You can reach me at [corso dante 22 perugia](patient_homeaddr).
+    - [Piazza unità d'Italia 6 venezia](patient_homeaddr) is my address.
+    - My home is at [viale dei giardini 14 messina](patient_homeaddr).
+    - [Via degli ulivi 9 cagliari](patient_homeaddr) is where I'm located.
+    - Find me at [piazza della repubblica 2 ravenna](patient_homeaddr).
+    - My residence is [viale delle palme 16 rimini](patient_homeaddr).
+    - I'm at [corso cavour 11 salerno](patient_homeaddr).
+    - [Via dei leoni 8 taranto](patient_homeaddr) is my current address.
+    - [Piazza del popolo 25 ancona](patient_homeaddr) is where I live.
+    - My place is [viale dei tigli 7 modena](patient_homeaddr).
+    - [Via delle magnolie 3 livorno](patient_homeaddr) is where you'll find me.
+    - You can reach me at [corso garibaldi 14 pisa](patient_homeaddr).
+    - [Piazza santa croce 21 vicenza](patient_homeaddr) is my location.
+    - My home address is [viale della pace 13 udine](patient_homeaddr).
+    - [Via roma 6 sassari](patient_homeaddr) is where I'm situated.
+    - Find me at [piazza della vittoria 19 foggia](patient_homeaddr).
+    - My residence is [corso umberto 9 terni](patient_homeaddr).
+    - [Via della rocca 23 trento](patient_homeaddr) is my current residence.
+    - I'm at [viale delle mura 17 potenza](patient_homeaddr).
+    - [Piazza castello 10 aosta](patient_homeaddr) is where I live.
+    - My place is [via dei portici 4 novara](patient_homeaddr).
+    - [Via della scala 8 vercelli](patient_homeaddr) is my home address.
+    - You can find me at [corso umberto I 16 lecce](patient_homeaddr).
+    - [Piazza cavour 12 pesaro](patient_homeaddr) is where I reside.
+    - [Via del corso 28 brindisi](patient_homeaddr) is my address.
+    - My residence is at [viale dei tigli 6 asti](patient_homeaddr).
+    - [Piazza della libertà 11 pescara](patient_homeaddr) is my location.
+    - Find me at [corso vittorio veneto 5 benevento](patient_homeaddr).
+    - My home is [via garibaldi 20 massa](patient_homeaddr).
+    - [Via roma 15 alessandria](patient_homeaddr) is where you'll locate me.
+    - You can reach me at [piazza marconi 3 pordenone](patient_homeaddr).
+    - [Viale dei ciliegi 26 treviso](patient_homeaddr) is my current address.
+    - [Piazza del duomo 16 ferrara](patient_homeaddr) is where I live.
+    - My place is [corso italia 7 sondrio](patient_homeaddr).
+    - [Via dei mille 10 biella](patient_homeaddr) is where you'll find me.
+    - [Piazza XX settembre 4 varese](patient_homeaddr) is my location.
+    - You can find me at [viale dante 21 como](patient_homeaddr).
+    - [Via roma 14 cremona](patient_homeaddr) is my address.
     - My number is [06 807 1476](patient_phonenmbr)
     - Okay, it's [06 671 1973](patient_phonenmbr)
     - It's [06 151 8913](patient_phonenmbr)
@@ -91,61 +140,61 @@ nlu:
 # ======================================================
 - intent: patient_reports_pain
   examples: |
-    - I have this sensation of [discomfort in my abdomen](pain_abdominal_pain)
-    - It's like [I have a sharp pain in my stomach](pain_abdominal_pain)
-    - I'm experiencing [some sort of ache in my belly](pain_abdominal_pain)
-    - I feel like [there's a dull pain in my midsection](pain_abdominal_pain)
-    - It seems like [my tummy is really hurting](pain_abdominal_pain)
-    - I have this [uncomfortable feeling in my stomach](pain_abdominal_pain)
-    - It's as if [my belly is aching a lot](pain_abdominal_pain)
-    - I'm having this sensation of [pain in my abdominal area](pain_abdominal_pain)
-    - I sense [some pain in my stomach](pain_abdominal_pain)
-    - I'm in [a lot of discomfort in my abdomen](pain_abdominal_pain)
-    - I have this [sharp ache in my belly](pain_abdominal_pain)
-    - It feels like [there's a throbbing pain in my stomach](pain_abdominal_pain)
-    - I'm having [some serious pain in my midsection](pain_abdominal_pain)
-    - It's as though [my tummy is really aching](pain_abdominal_pain)
-    - I have this [unpleasant feeling in my stomach](pain_abdominal_pain)
-    - It's like [my belly is really hurting badly](pain_abdominal_pain)
-    - I'm experiencing [a great deal of pain in my abdominal area](pain_abdominal_pain)
-    - I feel like [there's a persistent pain in my stomach](pain_abdominal_pain)
-    - It seems like [my tummy is causing me a lot of pain](pain_abdominal_pain)
-    - I have this sensation of [intense discomfort in my belly](pain_abdominal_pain)
-    - It's as if [my stomach is in a lot of pain](pain_abdominal_pain)
-    - I'm having this sensation of [aching in my abdominal area](pain_abdominal_pain)
-    - I sense [a sharp pain in my stomach](pain_abdominal_pain)
-    - I'm in [a lot of discomfort in my midsection](pain_abdominal_pain)
-    - I have this [dull ache in my abdomen](pain_abdominal_pain)
-    - It feels like [there's a constant pain in my stomach](pain_abdominal_pain)
-    - It seems like [I'm gasping for air](pain_respiratory_difficulty).
-    - I'm experiencing something similar to [a heavy weight on my chest](pain_respiratory_difficulty).
-    - It's like [I'm suffocating](pain_respiratory_difficulty) and can't get enough air.
-    - I have this sensation of [air hunger](pain_respiratory_difficulty) and it's really uncomfortable.
-    - I'm having trouble [drawing in a full breath](pain_respiratory_difficulty).
-    - It feels like [there's a band around my chest](pain_respiratory_difficulty) and it's hard to expand.
-    - I'm finding it hard to [catch my breath](pain_respiratory_difficulty).
-    - I have this feeling of [shallow breathing](pain_respiratory_difficulty) and it's worrying me.
-    - It's like [my chest is constricting](pain_respiratory_difficulty) and I can't take deep breaths.
-    - I feel like [I'm not getting enough air](pain_respiratory_difficulty).
+    - I have this sensation of [discomfort in my abdomen](pain_type)
+    - It's like [I have a sharp pain in my stomach](pain_type)
+    - I'm experiencing [some sort of ache in my belly](pain_type)
+    - I feel like [there's a dull pain in my midsection](pain_type)
+    - It seems like [my tummy is really hurting](pain_type)
+    - I have this [uncomfortable feeling in my stomach](pain_type)
+    - It's as if [my belly is aching a lot](pain_type)
+    - I'm having this sensation of [pain in my abdominal area](pain_type)
+    - I sense [some pain in my stomach](pain_type)
+    - I'm in [a lot of discomfort in my abdomen](pain_type)
+    - I have this [sharp ache in my belly](pain_type)
+    - It feels like [there's a throbbing pain in my stomach](pain_type)
+    - I'm having [some serious pain in my midsection](pain_type)
+    - It's as though [my tummy is really aching](pain_type)
+    - I have this [unpleasant feeling in my stomach](pain_type)
+    - It's like [my belly is really hurting badly](pain_type)
+    - I'm experiencing [a great deal of pain in my abdominal area](pain_type)
+    - I feel like [there's a persistent pain in my stomach](pain_type)
+    - It seems like [my tummy is causing me a lot of pain](pain_type)
+    - I have this sensation of [intense discomfort in my belly](pain_type)
+    - It's as if [my stomach is in a lot of pain](pain_type)
+    - I'm having this sensation of [aching in my abdominal area](pain_type)
+    - I sense [a sharp pain in my stomach](pain_type)
+    - I'm in [a lot of discomfort in my midsection](pain_type)
+    - I have this [dull ache in my abdomen](pain_type)
+    - It feels like [there's a constant pain in my stomach](pain_type)
+    - It seems like [I'm gasping for air](pain_type).
+    - I'm experiencing something similar to [a heavy weight on my chest](pain_type).
+    - It's like [I'm suffocating](pain_type) and can't get enough air.
+    - I have this sensation of [air hunger](pain_type) and it's really uncomfortable.
+    - I'm having trouble [drawing in a full breath](pain_type).
+    - It feels like [there's a band around my chest](pain_type) and it's hard to expand.
+    - I'm finding it hard to [catch my breath](pain_type).
+    - I have this feeling of [shallow breathing](pain_type) and it's worrying me.
+    - It's like [my chest is constricting](pain_type) and I can't take deep breaths.
+    - I feel like [I'm not getting enough air](pain_type).
     - I'm having this sensation of [breathlessness] and it's concerning.
-    - It's as if [there's a pressure on my chest](pain_respiratory_difficulty) and I can't breathe deeply.
-    - I feel like [I'm wheezing](pain_respiratory_difficulty) and it's making me anxious.
-    - I'm struggling with [breathing deeply](pain_respiratory_difficulty) and it's painful.
-    - It's like [there's a blockage in my airway](pain_respiratory_difficulty) and I can't breathe properly.
-    - I have this sensation of [labored breathing](pain_respiratory_difficulty) and it's distressing.
-    - It feels like [I'm fighting for each breath](pain_respiratory_difficulty) and it's exhausting.
-    - I'm experiencing something similar to [airway constriction](pain_respiratory_difficulty) and it's alarming.
-    - It's as if [I'm breathing through a straw](pain_respiratory_difficulty) and it's uncomfortable.
-    - I feel like [I'm not able to fill my lungs completely](pain_respiratory_difficulty).
-    - I'm having difficulty [getting enough air into my lungs](pain_respiratory_difficulty).
-    - It's like [my breathing is restricted](pain_respiratory_difficulty) and it's causing pain.
-    - I have this feeling of [airway obstruction](pain_respiratory_difficulty) and it's frightening.
-    - It seems like [I'm not able to take a deep breath](pain_respiratory_difficulty).
-    - I'm finding it hard to [breathe in fully](pain_respiratory_difficulty) and it's distressing.
-    - It feels like [there's a weight on my chest](pain_respiratory_difficulty) and I can't breathe properly.
-    - I'm struggling with [shortness of breath](pain_respiratory_difficulty) and it's concerning.
-    - It's like [my chest is tightening](pain_respiratory_difficulty) and I can't take a deep breath.
-    - I feel like [I'm suffocating](pain_respiratory_difficulty) and it's making me anxious.
+    - It's as if [there's a pressure on my chest](pain_type) and I can't breathe deeply.
+    - I feel like [I'm wheezing](pain_type) and it's making me anxious.
+    - I'm struggling with [breathing deeply](pain_type) and it's painful.
+    - It's like [there's a blockage in my airway](pain_type) and I can't breathe properly.
+    - I have this sensation of [labored breathing](pain_type) and it's distressing.
+    - It feels like [I'm fighting for each breath](pain_type) and it's exhausting.
+    - I'm experiencing something similar to [airway constriction](pain_type) and it's alarming.
+    - It's as if [I'm breathing through a straw](pain_type) and it's uncomfortable.
+    - I feel like [I'm not able to fill my lungs completely](pain_type).
+    - I'm having difficulty [getting enough air into my lungs](pain_type).
+    - It's like [my breathing is restricted](pain_type) and it's causing pain.
+    - I have this feeling of [airway obstruction](pain_type) and it's frightening.
+    - It seems like [I'm not able to take a deep breath](pain_type).
+    - I'm finding it hard to [breathe in fully](pain_type) and it's distressing.
+    - It feels like [there's a weight on my chest](pain_type) and I can't breathe properly.
+    - I'm struggling with [shortness of breath](pain_type) and it's concerning.
+    - It's like [my chest is tightening](pain_type) and I can't take a deep breath.
+    - I feel like [I'm suffocating](pain_type) and it's making me anxious.
   
 - intent: patient_needs_ambulance
   examples: |

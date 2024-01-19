@@ -22,18 +22,15 @@ stories:
     - checkpoint: user_said_hello
 
 # ========== Path 1
-- story: general query + ask generalities
+- story: (1) general query + ask generalities
   steps:
     - checkpoint: user_said_hello
     - intent: patient_needs_ambulance
+    - action: utter_please_provide_general_info
     - action: form_general_info
     - active_loop: form_general_info
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_question_issue
 
-- story: generalities > questions- abdominal pain
+- story: (2) general query + ask generalities
   steps:
     - slot_was_set:
       - patient_homeaddr: address
@@ -42,71 +39,37 @@ stories:
     - action: utter_question_issue
     - intent: patient_reports_pain
       entities:
-      - pain_abdominal_pain: symptoms
+        - pain_type: pain
     - action: utter_will_ask_medical_questions
-    - action: form_emergency_abdominal_pain
-    - active_loop: form_emergency_abdominal_pain
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_conclude_abdominal_pain
+    - action: form_medical_questions
+    - active_loop: form_medical_questions
 
-- story: generalities > questions- respiratory difficulty
+# Unhappy path
+- story: (?) agent answers with a pain, but none are identified
   steps:
-    - slot_was_set:
-      - patient_homeaddr: address
-      - patient_phonenmbr: 123
-      - requested_slot: null
     - action: utter_question_issue
     - intent: patient_reports_pain
-      entities:
-      - pain_respiratory_difficulty: symptoms
-    - action: utter_will_ask_medical_questions
-    - action: form_emergency_respiratory_difficulty
-    - active_loop: form_emergency_respiratory_difficulty
     - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_conclude_respiratory_difficulty
+      - pain_type: null
+    - action: utter_please_rephrase
 
 # ========== Path 2
-- story: specific query + ask generalities - abdominal pain
-  steps:
-    - checkpoint: user_said_hello
-    - intent: patient_reports_pain
-      entities:
-      - pain_abdominal_pain: symptoms
-    - action: utter_will_ask_medical_questions
-    - action: form_emergency_abdominal_pain
-    - active_loop: form_emergency_abdominal_pain
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_please_provide_general_info
-    - action: form_general_info
-    - active_loop: form_general_info
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_conclude_abdominal_pain
-    - checkpoint: reported_abdominal_pain
 
-- story: specific query + ask generalities - respiratory difficulty
+- story: (1) specific query + ask generalities
   steps:
     - checkpoint: user_said_hello
     - intent: patient_reports_pain
       entities:
-      - pain_respiratory_difficulty: symptoms
+        - pain_type: pain
     - action: utter_will_ask_medical_questions
-    - action: form_emergency_respiratory_difficulty
-    - active_loop: form_emergency_respiratory_difficulty
+    - action: form_medical_questions
+    - active_loop: form_medical_questions
+  
+# Unhappy path
+- story: (?) agent reports a pain, but none are identified
+  steps:
+    - checkpoint: user_said_hello
+    - intent: patient_reports_pain
     - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_please_provide_general_info
-    - action: form_general_info
-    - active_loop: form_general_info
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_conclude_respiratory_difficulty
+      - pain_type: null
+    - action: utter_please_rephrase

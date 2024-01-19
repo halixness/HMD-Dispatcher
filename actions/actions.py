@@ -47,9 +47,6 @@ class SubmitPatientCoordinates(Action):
         return "action_submit_patient_coordinates"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """
-            Formulating how to ask the form field depending on repetitions
-        """
         anySlotRequired = tracker.get_slot('required_slot') is not None
 
         if not anySlotRequired:
@@ -60,6 +57,30 @@ class SubmitPatientCoordinates(Action):
                 "phone": phone
             }
             print(f"[!] New help request at: {helpRequest}")
+        return []
+    
+
+class SubmitEmergencyForm(Action):
+    
+    def name(self) -> Text:
+        return "action_submit_emergency_form"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        anySlotRequired = tracker.get_slot('required_slot') is not None
+        if not anySlotRequired:
+            answers = [
+                tracker.get_slot('pain_nature'),
+                tracker.get_slot('pain_location'),
+                tracker.get_slot('pain_duration'),
+                tracker.get_slot('pain_severity'),
+                tracker.get_slot('pain_relieving'),
+                tracker.get_slot('pain_symptoms'),
+                tracker.get_slot('pain_history'),
+                tracker.get_slot('pain_trauma'),
+                tracker.get_slot('pain_allergies'),
+                tracker.get_slot('pain_warnings'),
+            ]
+            print(f"[!] New help request at: {answers}")
         return []
 
 

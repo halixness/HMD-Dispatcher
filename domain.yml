@@ -6,23 +6,15 @@ intents:
 - patient_asks_cause
 - patient_needs_ambulance
 entities:
-- pain_respiratory_difficulty
-- pain_abdominal_pain
+- pain_type
 - patient_phonenmbr
 - patient_homeaddr
 slots:
-  pain_abdominal_pain:
+  pain_type:
     type: text
-    influence_conversation: true
     mappings:
     - type: from_entity
-      entity: pain_abdominal_pain
-  pain_respiratory_difficulty:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: pain_respiratory_difficulty
+      entity: pain_type
   patient_homeaddr:
     type: text
     mappings:
@@ -34,113 +26,85 @@ slots:
     - type: from_entity
       entity: patient_phonenmbr
   # =================================================
-  abdominal_pain_time:
+  pain_nature:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_abdominal_pain
-        requested_slot: abdominal_pain_time
-  abdominal_pain_area:
+      - active_loop: form_medical_questions
+        requested_slot: pain_nature
+  pain_location:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_abdominal_pain
-        requested_slot: abdominal_pain_area
-  abdominal_pain_type:
+      - active_loop: form_medical_questions
+        requested_slot: pain_location
+  pain_duration:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_abdominal_pain
-        requested_slot: abdominal_pain_type
-  abdominal_pain_worsening:
+      - active_loop: form_medical_questions
+        requested_slot: pain_duration
+  pain_severity:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_abdominal_pain
-        requested_slot: abdominal_pain_worsening
-  abdominal_pain_relief:
+      - active_loop: form_medical_questions
+        requested_slot: pain_severity
+  pain_relieving:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_abdominal_pain
-        requested_slot: abdominal_pain_relief
-  abdominal_pain_duration:
+      - active_loop: form_medical_questions
+        requested_slot: pain_relieving
+  pain_symptoms:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_abdominal_pain
-        requested_slot: abdominal_pain_duration
-  # =================================================
-  respiratory_difficulty_atnight:
+      - active_loop: form_medical_questions
+        requested_slot: pain_symptoms
+  pain_history:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_atnight
-  respiratory_difficulty_before:
+      - active_loop: form_medical_questions
+        requested_slot: pain_history
+  pain_trauma:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_before
-  respiratory_difficulty_suddenly:
+      - active_loop: form_medical_questions
+        requested_slot: pain_trauma
+  pain_allergies:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_suddenly
-  respiratory_difficulty_recentchanges:
+      - active_loop: form_medical_questions
+        requested_slot: pain_allergies
+  pain_warnings:
     type: text
     mappings:
     - type: from_text
       conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_recentchanges
-  respiratory_difficulty_regularly:
-    type: text
-    mappings:
-    - type: from_text
-      conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_regularly
-  respiratory_difficulty_worsens:
-    type: text
-    mappings:
-    - type: from_text
-      conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_worsens
-  respiratory_difficulty_ankles:
-    type: text
-    mappings:
-    - type: from_text
-      conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_ankles
-  respiratory_difficulty_weeks:
-    type: text
-    mappings:
-    - type: from_text
-      conditions:
-      - active_loop: form_emergency_respiratory_difficulty
-        requested_slot: respiratory_difficulty_weeks
+      - active_loop: form_medical_questions
+        requested_slot: pain_warnings
+
 
 actions:
-- utter_conclude_abdominal_pain
-- utter_conclude_respiratory_difficulty
+- utter_conclude
 - validate_form_general_info
 - action_ask_patient_homeaddr
 - action_set_pathology
 - action_submit_patient_coordinates
+- action_submit_emergency_form
 - utter_greet
 - utter_question_issue
 - utter_repeat_last_time
@@ -160,6 +124,10 @@ responses:
   - text: Let's retry one last time.
   utter_please_rephrase:
   - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: Could you please rephrase that? I'm having trouble understanding.
+  - text: I didn't grasp your message completely. Can you put it differently?
+  - text: I'm a bit confused; can you reword your statement for clarity?
+  - text: Sorry, I didn't catch that. Could you express it in another way?
   utter_greet:
   - text: Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime.
   utter_please_specify_pathology:
@@ -174,77 +142,95 @@ responses:
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
   # =================================================
-  utter_ask_abdominal_pain_time:
-  - text: When does the pain occur? In the morning? After eating? Always?
-  utter_ask_abdominal_pain_area:
-  - text: And where does the pain occur? In the entire abdomen or a specific area?
-  - text: Where does the pain occur? In the entire abdomen or a specific area?
-  - text: I see, does the pain occur? In the entire abdomen or a specific area?
-  utter_ask_abdominal_pain_type:
-  - text: And what type of pain are you experiencing? Dull ache? Sharp pain? Persistent or in waves?
-  - text: What type of pain are you experiencing? Dull ache? Sharp pain? Persistent or in waves?
-  utter_ask_abdominal_pain_worsening:
-  - text: And what makes the pain worse? Coughing?
-  - text: I see, what makes the pain worse? Coughing?
-  utter_ask_abdominal_pain_relief:
-  - text: What makes the pain better? Eating? Not eating?
-  utter_ask_abdominal_pain_duration:
-  - text: One last question, how long have you experienced this pain? Days? Months?
-  - text: Ok last one please, how long have you experienced this pain? Days? Months?
-  utter_conclude_abdominal_pain:
-  - text: Ok, I have collected all the necessary info about your abdominal pain. Paramedics are on the way. While we're waiting, do you have any questions?
-  # =================================================
-  utter_ask_respiratory_difficulty_atnight:
-  - text: Do you have any problems breathing at night? 
-  utter_ask_respiratory_difficulty_before:
-  - text: And have you experienced this difficulty breathing before? 
-  - text: Have you experienced this difficulty breathing before?  
-  - text: I see, you experienced this difficulty breathing before? 
-  utter_ask_respiratory_difficulty_suddenly:
-  - text: Did this episode come on suddenly? 
-  - text: And did this episode come on suddenly? 
-  - text: Ok, did this episode come on suddenly? 
-  utter_ask_respiratory_difficulty_recentchanges:
-  - text: Ok, have you had any recent changes in exertional capacity, fatigue, or significant weight change? 
-  - text: Have you had any recent changes in exertional capacity, fatigue, or significant weight change?  
-  - text: And you had any recent changes in exertional capacity, fatigue, or significant weight change? 
-  utter_ask_respiratory_difficulty_regularly:
-  - text: Are you feeling short of breath regularly? 
-  utter_ask_respiratory_difficulty_worsens:
-  - text: Does your shortness of breath get worse when you've been doing your normal activities, or when you lie down? 
-  - text: And does your shortness of breath get worse when you've been doing your normal activities, or when you lie down?
-  - text: I see, does your shortness of breath get worse when you've been doing your normal activities, or when you lie down? 
-  utter_ask_respiratory_difficulty_ankles:
-  - text: Do you have swollen ankles along with shortness of breath? 
-  utter_ask_respiratory_difficulty_weeks:
-  - text: One last question, are you coughing for 3 weeks or more?
-  - text: Ok, last one please, are you coughing for 3 weeks or more?
-  utter_conclude_respiratory_difficulty:
-  - text: Ok, I have collected all the necessary info about your respiratory difficulty. Paramedics are on the way. While we're waiting, do you have any questions?
-  utter_answ_cause:
-    - text: Abdominal pain can be caused by a variety of factors, including indigestion, constipation, gastritis, ulcers, food poisoning, or more serious conditions such as appendicitis, gallstones, or inflammatory bowel disease.
-    
+  utter_ask_pain_nature:
+  - text: How would you describe the sensation of the pain?
+  - text: Can you tell me more about the kind of pain you're experiencing?
+  - text: In what way is the pain manifesting? (sharp, dull, etc.)
+  - text: Describe the pain's nature for me.
+  - text: What words would you use to characterize the pain?
+
+  utter_ask_pain_location:
+  - text: Can you point to the exact location of the pain? Does it move elsewhere?
+  - text: Tell me where it hurts, and does the pain travel to other parts of your body?
+  - text: Pinpoint the specific area of discomfort. Does it radiate anywhere else?
+  - text: Identify the spot of pain, and does it extend to other regions?
+  - text: Describe the location of the pain and any spreading sensations.
+
+  utter_ask_pain_duration:
+  - text: When did you first notice the pain, and is it continuous or intermittent?
+  - text: Tell me about the onset of the pain. Is it persistent or comes and goes?
+  - text: When did the pain begin, and has it been steady or sporadic? How long has it persisted?
+  - text: Share details about when the pain began and whether it's constant or sporadic.
+  - text: Describe the timeline of the pain. How long has it been present?
+
+  utter_ask_pain_severity:
+  - text: Using a scale from 0 to 10, how would you rate the intensity of your pain?
+  - text: On a scale of 0 to 10, how severe is the pain you're experiencing?
+  - text: If 0 means no pain and 10 is the most severe, where would you place your pain level?
+  - text: Can you quantify the pain on a scale from 0 to 10?
+  - text: Using a scale, gauge the intensity of your pain from 0 to 10.
+
+  utter_ask_pain_relieving:
+  - text: Are there certain things you do that either worsen or alleviate the pain?
+  - text: Can you identify any actions or postures that affect the pain positively or negatively?
+  - text: Do certain activities or positions bring relief or aggravate the pain?
+  - text: Are there particular movements or positions that either help or worsen the pain?
+  - text: Describe any actions or postures that impact the pain positively or negatively.
+
+  utter_ask_pain_symptoms:
+  - text: Aside from the pain, are you experiencing any other symptoms like nausea or dizziness?
+  - text: Tell me if there are any additional symptoms accompanying the pain.
+  - text: Do you notice any other changes in your body, like sweating or shortness of breath?
+  - text: Are there other feelings or symptoms occurring along with the pain?
+  - text: Describe any other sensations or symptoms you're currently having.
+
+  utter_ask_pain_history:
+  - text: Are you currently being treated for any medical conditions or taking any medications?
+  - text: Tell me about any pre-existing health conditions or medications you're on.
+  - text: Have you been diagnosed with any medical issues, and are you taking any regular medications?
+  - text: Share information about your medical history and any prescribed medications.
+  - text: Describe any known health conditions and the medications you're currently using.
+
+  utter_ask_pain_trauma:
+  - text: Did something happen recently that might be linked to the onset of the pain?
+  - text: Tell me if there were any recent injuries or accidents connected to the pain.
+  - text: Have you encountered any trauma or incidents that could be associated with the pain?
+  - text: Describe any recent events or injuries that might be related to the pain.
+  - text: Share details about any recent traumas or accidents that could be relevant to the pain.
+
+  utter_ask_pain_allergies:
+  - text: Do you have any known allergies to medications or other substances?
+  - text: Are there any medications or substances that you're allergic to?
+  - text: Tell me if you have any known allergies, especially to medications.
+  - text: Provide information on any allergies you have, especially related to medications.
+  - text: Mention if there are any substances or medications you are allergic to.
+
+  utter_ask_pain_warnings:
+  - text: Do you notice any signs of emergency, such as difficulty breathing or chest pain?
+  - text: Are you observing any indications of an emergency, like trouble breathing or chest discomfort?
+  - text: Have you spotted any emergency signs, like struggling to breathe or experiencing chest pain?
+  - text: Do you see any emergency warning signs, such as trouble with breathing or pain in the chest?
+  - text: Are there any signs of emergency, such as difficulty in breathing or chest pain, that you're noticing?
+  
+  utter_conclude:
+  - text: Ok, I have collected all the necessary info about your {pain_type}. Paramedics are on the way. While we're waiting, do you have any questions?
+  
+
 forms:
   form_general_info:
     required_slots:
       - patient_homeaddr
       - patient_phonenmbr
-  form_emergency_abdominal_pain:
+  form_medical_questions:
     required_slots:
-      - abdominal_pain_time
-      - abdominal_pain_area
-      - abdominal_pain_type
-      - abdominal_pain_worsening
-      - abdominal_pain_relief
-      - abdominal_pain_duration
+      - pain_nature
+      - pain_location
+      - pain_duration
+      - pain_severity
+      - pain_relieving
+      - pain_symptoms
+      - pain_history
+      - pain_trauma
+      - pain_allergies
+      - pain_warnings
 
-  form_emergency_respiratory_difficulty:
-    required_slots:
-    - respiratory_difficulty_atnight
-    - respiratory_difficulty_before
-    - respiratory_difficulty_suddenly
-    - respiratory_difficulty_recentchanges
-    - respiratory_difficulty_regularly
-    - respiratory_difficulty_worsens
-    - respiratory_difficulty_ankles
-    - respiratory_difficulty_weeks
