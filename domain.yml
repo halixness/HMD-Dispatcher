@@ -112,36 +112,52 @@ actions:
 - utter_please_specify_pathology
 - utter_please_provide_general_info
 - utter_invalid_patient_homeaddr
+- utter_transferring_to_human
+- utter_ask_dispatch_ambulance
+- utter_collected_all_info
+- utter_confirm_ambulance_sent
 
 responses:
+
   utter_will_ask_medical_questions:
   - text: Ok, I'm going to ask you some questions about your problem.
+
   utter_question_issue:
   - text: Tell me what's the issue.
   - text: What is your emergency?
   - text: What is the problem you are experiencing?
+
   utter_repeat_last_time:
   - text: Let's retry one last time.
+
   utter_please_rephrase:
   - text: I'm sorry, I didn't quite understand that. Could you rephrase?
   - text: Could you please rephrase that? I'm having trouble understanding.
   - text: I didn't grasp your message completely. Can you put it differently?
   - text: I'm a bit confused; can you reword your statement for clarity?
   - text: Sorry, I didn't catch that. Could you express it in another way?
+
   utter_greet:
   - text: Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime.
+
   utter_please_specify_pathology:
   - text: Sorry, I need you to give me some details about your pathology first.
+
   utter_please_provide_general_info:
   - text: Ok, to possibly send help for your emergency, I need some details.
   - text: Ok, we will send paramedics. I need your current location and a contact number.
+
+  # =================================================
+
   ask_patient_homeaddr:
   - text: Can you {verb} your home address, please?
   utter_invalid_patient_homeaddr:
   - text: I'm sorry, we can't find this address on the map.
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
+
   # =================================================
+  
   utter_ask_pain_nature:
   - text: How would you describe the sensation of the pain?
   - text: Can you tell me more about the kind of pain you're experiencing?
@@ -211,10 +227,35 @@ responses:
   - text: Have you spotted any emergency signs, like struggling to breathe or experiencing chest pain?
   - text: Do you see any emergency warning signs, such as trouble with breathing or pain in the chest?
   - text: Are there any signs of emergency, such as difficulty in breathing or chest pain, that you're noticing?
-  
+
+  # =================================================
+
   utter_conclude:
-  - text: Ok, I have collected all the necessary info about your {pain_type}. Paramedics are on the way. While we're waiting, do you have any questions?
+  - text: Ok, I have collected all the necessary info about your {pain_type}.
   
+  utter_transferring_to_human:
+  - text: Ok, I'm transferring you to a human operator.
+  - text: Alright, I'll connect you to a human operator.
+  - text: Sure thing, I'll transfer you to a human agent.
+  - text: No worries, I'm redirecting you to a human operator.
+  - text: Okay, I'm putting you through to a human agent.
+  - text: Understood, initiating transfer to a human operator.
+
+  utter_collected_all_info:
+  - text: Ok, I have collected all the necessary information.
+
+  utter_ask_dispatch_ambulance:
+  - text: Would you like to receive assistance through an ambulance?
+  - text: Do you want us to send an ambulance to your house?
+
+  utter_confirm_ambulance_sent:
+  - text: Ok, an ambulance has been dispatched to your address.
+  - text: Ok, paramedics are on their way.
+
+  utter_ask_any_questions:
+  - text: Do you have any questions?
+  
+  # =================================================
 
 forms:
   form_general_info:

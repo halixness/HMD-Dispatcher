@@ -73,3 +73,8 @@ stories:
     - slot_was_set:
       - pain_type: null
     - action: utter_please_rephrase
+
+- story: user wants to speak with a human agent
+  steps:
+    - intent: patient_wants_human_agent
+    - action: utter_transferring_to_human

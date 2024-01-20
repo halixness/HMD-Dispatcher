@@ -260,3 +260,25 @@ nlu:
     - Could you outline the potential factors that may have led to this condition?
     - What may have instigated this condition?
     - Can you offer any explanations for what may have caused this condition?
+
+- intent: patient_wants_human_agent
+  examples: |
+    - I desire to communicate with a live representative.
+    - My preference is to engage in conversation with a human agent.
+    - I wish to speak with a person directly.
+    - I'd like to have a discussion with a live operator.
+    - I want to converse with a human representative.
+    - It is my preference to talk to a real person.
+    - I'd prefer to engage in dialogue with a human agent.
+    - My desire is to communicate with a person.
+    - I want to have a conversation with a live operator.
+    - I would like to talk with a human representative.
+    - It is my wish to speak with a real person.
+    - I'd like to engage in a discussion with a human agent.
+    - I want to converse with a live representative.
+    - My preference is to have a conversation with a person.
+    - I desire to talk to a human operator.
+    - I'd like to speak with a live representative.
+    - It is my preference to engage in dialogue with a human agent.
+    - I wish to talk with a person directly.
+    - I want to have a conversation with a human representative.
