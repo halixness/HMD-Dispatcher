@@ -5,6 +5,9 @@ intents:
 - patient_reports_pain
 - patient_asks_cause
 - patient_needs_ambulance
+- patient_wants_human_agent
+- affirmative
+- negative
 entities:
 - pain_type
 - patient_phonenmbr
@@ -99,7 +102,8 @@ slots:
 
 
 actions:
-- utter_conclude
+- utter_medical_questions_filled
+- utter_proceed_asking_pain
 - validate_form_general_info
 - action_ask_patient_homeaddr
 - action_set_pathology
@@ -114,13 +118,16 @@ actions:
 - utter_invalid_patient_homeaddr
 - utter_transferring_to_human
 - utter_ask_dispatch_ambulance
-- utter_collected_all_info
 - utter_confirm_ambulance_sent
 
 responses:
 
   utter_will_ask_medical_questions:
-  - text: Ok, I'm going to ask you some questions about your problem.
+  - text: I see, I am going to ask you some detailed questions to be as accurate as possible, don't worry if you can't answer fully.
+  
+  utter_proceed_asking_pain:
+  - text: Ok, now could you tell me more about your problem?
+  - text: Thank you, now can you tell me what problem are you experiencing?
 
   utter_question_issue:
   - text: Tell me what's the issue.
@@ -144,8 +151,8 @@ responses:
   - text: Sorry, I need you to give me some details about your pathology first.
 
   utter_please_provide_general_info:
-  - text: Ok, to possibly send help for your emergency, I need some details.
-  - text: Ok, we will send paramedics. I need your current location and a contact number.
+  - text: Ok, to possibly send help for your emergency, I need some details first.
+  - text: Ok, I'm going to ask you some contact details first.
 
   # =================================================
 
@@ -230,7 +237,7 @@ responses:
 
   # =================================================
 
-  utter_conclude:
+  utter_medical_questions_filled:
   - text: Ok, I have collected all the necessary info about your {pain_type}.
   
   utter_transferring_to_human:
@@ -241,16 +248,13 @@ responses:
   - text: Okay, I'm putting you through to a human agent.
   - text: Understood, initiating transfer to a human operator.
 
-  utter_collected_all_info:
-  - text: Ok, I have collected all the necessary information.
-
   utter_ask_dispatch_ambulance:
-  - text: Would you like to receive assistance through an ambulance?
-  - text: Do you want us to send an ambulance to your house?
+  - text: I can provide you with some general indications about your problem. But first, Would you like to receive assistance through an ambulance?
+  - text: I can answer to some common questions about your problem. But first, do you want us to send an ambulance to your house?
 
   utter_confirm_ambulance_sent:
-  - text: Ok, an ambulance has been dispatched to your address.
-  - text: Ok, paramedics are on their way.
+  - text: An ambulance has been dispatched to your address.
+  - text: Paramedics are on their way.
 
   utter_ask_any_questions:
   - text: Do you have any questions?

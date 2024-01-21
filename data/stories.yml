@@ -22,7 +22,7 @@ stories:
     - checkpoint: user_said_hello
 
 # ========== Path 1
-- story: (1) general query + ask generalities
+- story: greeting > needs ambulance > general info
   steps:
     - checkpoint: user_said_hello
     - intent: patient_needs_ambulance
@@ -30,24 +30,22 @@ stories:
     - action: form_general_info
     - active_loop: form_general_info
 
-- story: (2) general query + ask generalities
+- story: general info > medical questions
   steps:
     - slot_was_set:
       - patient_homeaddr: address
       - patient_phonenmbr: 123
       - requested_slot: null
-    - action: utter_question_issue
+    - action: utter_proceed_asking_pain
     - intent: patient_reports_pain
       entities:
         - pain_type: pain
-    - action: utter_will_ask_medical_questions
     - action: form_medical_questions
     - active_loop: form_medical_questions
 
 # Unhappy path
-- story: (?) agent answers with a pain, but none are identified
+- story: reports unknown pain
   steps:
-    - action: utter_question_issue
     - intent: patient_reports_pain
     - slot_was_set:
       - pain_type: null
@@ -55,7 +53,16 @@ stories:
 
 # ========== Path 2
 
-- story: (1) specific query + ask generalities
+- story: greeting by reporting pain > medical questions
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - pain_type: pain
+    - action: utter_will_ask_medical_questions
+    - action: form_medical_questions
+    - active_loop: form_medical_questions
+
+- story: greeting > medical questions
   steps:
     - checkpoint: user_said_hello
     - intent: patient_reports_pain
@@ -64,15 +71,24 @@ stories:
     - action: utter_will_ask_medical_questions
     - action: form_medical_questions
     - active_loop: form_medical_questions
-  
-# Unhappy path
-- story: (?) agent reports a pain, but none are identified
+
+- story: medical questions > ask ambulance > yes
   steps:
-    - checkpoint: user_said_hello
-    - intent: patient_reports_pain
+    - action: utter_ask_dispatch_ambulance
+    - intent: affirmative
+    - action: form_general_info
+    - active_loop: form_general_info
+
+- story: medical questions > ask ambulance > no
+  steps:
     - slot_was_set:
-      - pain_type: null
-    - action: utter_please_rephrase
+      - patient_homeaddr: null
+      - patient_phonenmbr: null
+    - action: utter_ask_dispatch_ambulance
+    - intent: negative
+    - action: utter_ask_any_questions
+
+# ========== Out of paths turn
 
 - story: user wants to speak with a human agent
   steps:

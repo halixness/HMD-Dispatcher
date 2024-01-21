@@ -3,7 +3,7 @@ version: "3.1"
 rules:
 
 # =========== General info form
-- rule: (1) submit info form
+- rule: needs ambulance > general info
   condition:
   - active_loop: form_general_info
   - slot_was_set:
@@ -14,9 +14,9 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit_patient_coordinates
-  - action: utter_question_issue
+  - action: utter_proceed_asking_pain
 
-- rule: (2) submit info form
+- rule: medical questions > needs ambulance > yes
   condition:
   - active_loop: form_general_info
   - slot_was_set:
@@ -27,10 +27,11 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit_patient_coordinates
-  - action: utter_conclude
+  - action: utter_confirm_ambulance_sent
+  - action: utter_ask_any_questions
 
 # =========== Emergency form
-- rule: (1) submit emergency form
+- rule: need ambulance > medical questions
   condition:
   - active_loop: form_medical_questions
   - slot_was_set:
@@ -42,9 +43,10 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit_emergency_form
-  - action: utter_conclude
+  - action: utter_medical_questions_filled
+  - action: utter_confirm_ambulance_sent
 
-- rule: (2) submit emergency form
+- rule: medical questions > ask for ambulance
   condition:
   - active_loop: form_medical_questions
   - slot_was_set:
@@ -56,10 +58,8 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit_emergency_form
-  - action: utter_please_provide_general_info
-  - action: form_general_info
-  - active_loop: form_general_info
-
+  - action: utter_medical_questions_filled
+  - action: utter_ask_dispatch_ambulance
 
 # ======================================================
 #  Error handling

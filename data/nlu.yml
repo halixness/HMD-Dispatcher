@@ -282,3 +282,23 @@ nlu:
     - It is my preference to engage in dialogue with a human agent.
     - I wish to talk with a person directly.
     - I want to have a conversation with a human representative.
+
+- intent: affirmative
+  examples: |
+    - Yes please
+    - Yes thank you
+    - yes
+    - yes I need it
+    - yeah
+    - yh
+    - yas
+
+- intent: negative
+  examples: |
+    - No i'm fine
+    - No i'm ok
+    - no
+    - no, no problem
+    - no, it's ok
+    - no, I don't need it
+    - no, there is no need
