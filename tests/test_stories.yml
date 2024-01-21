@@ -1,66 +1,316 @@
-
 stories:
-
-# - action: action_deactivate_loop # stop the current form and reset all
-
-# Happy paths
-- story: User greets
+# There is a special syntax for this. For instance:
+# - you don't have to unclude utterances for the form questions
+# - you don't need to include "action_listen"
+# - you need to put "action: form" and "active_loop: form" after each answer to a form question
+# ============================================================
+- story: Path 1.A - ask ambulance, report pain, no questions 
   steps:
-    - intent: greet
-    - action: utter_greet
-    - checkpoint: user_said_hello
-
-# ========== Path 1
-- story: User needs an ambulance, the agent guides the conversation
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - action: utter_question_issue
+  - user: |
+      I need an ambulance
+    intent: patient_needs_ambulance
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      it's [via brennero 1 trento]{"entity": "patient_homeaddr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      it's [333333333]{"entity": "patient_phonenmbr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - active_loop: null
+  - action: action_submit_patient_coordinates
+  - action: utter_proceed_asking_pain
+  - user: |
+      I have some [pain in my stomach]{"entity": "pain_type"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: null
+  - action: action_submit_emergency_form
+  - action: utter_medical_questions_filled
+  - action: utter_confirm_ambulance_sent
+  - action: utter_ask_any_questions
+  - action: action_listen
+  - user: |
+      No thank you
+    intent: negative
+  - action: utter_goodbye
+# ============================================================
+- story: Path 1.B - ask ambulance, report pain, start QA 
   steps:
-    - checkpoint: user_said_hello
-    - intent: patient_needs_ambulance
-    - action: utter_please_provide_general_info
-    - action: form_general_info
-    - active_loop: form_general_info
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - slot_was_set:
-      - patient_homeaddr: address
-      - patient_phonenmbr: 123
-    - action: utter_start_medical_questions
-    - checkpoint: user_provided_general_info
-
-# ========== Path 2
-- story: User reports a specific pain, without general info
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - action: utter_question_issue
+  - user: |
+      I need an ambulance
+    intent: patient_needs_ambulance
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      it's [via brennero 1 trento]{"entity": "patient_homeaddr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      it's [333333333]{"entity": "patient_phonenmbr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - active_loop: null
+  - action: action_submit_patient_coordinates
+  - action: utter_proceed_asking_pain
+  - user: |
+      I have some [pain in my stomach]{"entity": "pain_type"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: null
+  - action: action_submit_emergency_form
+  - action: utter_medical_questions_filled
+  - action: utter_confirm_ambulance_sent
+  - action: utter_ask_any_questions
+  - action: action_listen
+  - user: |
+      yes thanks
+    intent: affirmative
+  - action: utter_start_QA
+# ============================================================
+- story: Path 1.C - ask ambulance, interrupts to ask for human agent 
   steps:
-    - checkpoint: user_said_hello
-    - intent: patient_reports_pain
-      entities:
-      - pain_abdominal_pain: pain in my abdomen
-    - slot_was_set:
-      - pain_abdominal_pain: pain in my abdomen
-    - action: form_emergency_abdominal_pain
-    - active_loop: form_emergency_abdominal_pain
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - slot_was_set:
-      - patient_homeaddr: null
-      - patient_phonenmbr: null
-    - action: utter_conclude_abdominal_pain
-
-# ========== Path 3
-- story: User provided general info, now reports a pain 
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - action: utter_question_issue
+  - user: |
+      I need an ambulance
+    intent: patient_needs_ambulance
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      i want to speak with a human agent
+    intent: patient_wants_human_agent
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_transferring_to_human
+  
+# ============================================================
+- story: Path 2.A - report pain, don't ask for an ambulance 
   steps:
-    - checkpoint: user_provided_general_info
-    - intent: patient_reports_pain
-      entities:
-      - pain_abdominal_pain: pain in my abdomen
-    - slot_was_set:
-      - pain_abdominal_pain: pain in my abdomen
-    - action: form_emergency_abdominal_pain
-    - active_loop: form_emergency_abdominal_pain
-    - slot_was_set:
-      - requested_slot: null
-    - active_loop: null
-    - action: utter_conclude_abdominal_pain
-
-
-
+  - user: |
+      I have some [pain in my stomach]{"entity": "pain_type"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: null
+  - action: action_submit_emergency_form
+  - action: utter_medical_questions_filled
+  - action: utter_ask_dispatch_ambulance
+  - action: action_listen
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+# ============================================================
+- story: Path 2.B - report pain, ask for an ambulance 
+  steps:
+  - user: |
+      I have some [pain in my stomach]{"entity": "pain_type"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      answer
+  - action: form_medical_questions
+  - active_loop: null
+  - action: action_submit_emergency_form
+  - action: utter_medical_questions_filled
+  - action: utter_ask_dispatch_ambulance
+  - action: action_listen
+  - user: |
+      yes thanks
+    intent: affirmative
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      it's [via brennero 1 trento]{"entity": "patient_homeaddr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      it's [333333333]{"entity": "patient_phonenmbr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - active_loop: null
+  - action: action_submit_patient_coordinates
+  - action: utter_confirm_ambulance_sent
+  - action: utter_ask_any_questions

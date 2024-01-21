@@ -119,6 +119,8 @@ actions:
 - utter_transferring_to_human
 - utter_ask_dispatch_ambulance
 - utter_confirm_ambulance_sent
+- utter_goodbye
+- utter_start_QA
 
 responses:
 
@@ -258,7 +260,13 @@ responses:
 
   utter_ask_any_questions:
   - text: Do you have any questions?
+
+  utter_goodbye:
+  - text: Alright, I hope I've been helpful. For any question, ask right away anytime!
   
+  utter_start_QA:
+  - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
+
   # =================================================
 
 forms:

@@ -18,40 +18,36 @@ stories:
   steps:
     - intent: greet
     - action: utter_greet
-    - action: utter_question_issue
-    - checkpoint: user_said_hello
+    - checkpoint: did_greet
 
-# ========== Path 1
-- story: greeting > needs ambulance > general info
+- story: greed > reports pain
   steps:
-    - checkpoint: user_said_hello
+    - checkpoint: did_greet
+    - action: utter_question_issue
+    - intent: patient_reports_pain
+
+- story: greed > needs ambulance
+  steps:
+    - checkpoint: did_greet
+    - action: utter_question_issue
     - intent: patient_needs_ambulance
     - action: utter_please_provide_general_info
     - action: form_general_info
     - active_loop: form_general_info
 
-- story: general info > medical questions
+- story: needs ambulance > general info
   steps:
-    - slot_was_set:
-      - patient_homeaddr: address
-      - patient_phonenmbr: 123
-      - requested_slot: null
-    - action: utter_proceed_asking_pain
-    - intent: patient_reports_pain
-      entities:
-        - pain_type: pain
-    - action: form_medical_questions
-    - active_loop: form_medical_questions
+    - intent: patient_needs_ambulance
+    - action: utter_please_provide_general_info
+    - action: form_general_info
+    - active_loop: form_general_info
 
-# Unhappy path
 - story: reports unknown pain
   steps:
     - intent: patient_reports_pain
     - slot_was_set:
       - pain_type: null
     - action: utter_please_rephrase
-
-# ========== Path 2
 
 - story: greeting by reporting pain > medical questions
   steps:
@@ -62,18 +58,9 @@ stories:
     - action: form_medical_questions
     - active_loop: form_medical_questions
 
-- story: greeting > medical questions
-  steps:
-    - checkpoint: user_said_hello
-    - intent: patient_reports_pain
-      entities:
-        - pain_type: pain
-    - action: utter_will_ask_medical_questions
-    - action: form_medical_questions
-    - active_loop: form_medical_questions
-
 - story: medical questions > ask ambulance > yes
   steps:
+    - action: utter_medical_questions_filled
     - action: utter_ask_dispatch_ambulance
     - intent: affirmative
     - action: form_general_info
@@ -81,16 +68,48 @@ stories:
 
 - story: medical questions > ask ambulance > no
   steps:
-    - slot_was_set:
-      - patient_homeaddr: null
-      - patient_phonenmbr: null
+    - action: utter_medical_questions_filled
     - action: utter_ask_dispatch_ambulance
     - intent: negative
     - action: utter_ask_any_questions
 
-# ========== Out of paths turn
+- story: ask any questions > no > goodbye
+  steps:
+    - action: utter_ask_any_questions
+    - intent: negative
+    - action: utter_goodbye
 
-- story: user wants to speak with a human agent
+- story: ask any questions > no > goodbye
+  steps:
+    - action: utter_ask_any_questions
+    - intent: affirmative
+    - action: utter_start_QA
+
+# ========== Interruptions
+
+- story: ask dispatch ambulance > needs human agent
+  steps:
+    - action: utter_ask_dispatch_ambulance
+    - intent: patient_wants_human_agent
+    - action: utter_transferring_to_human
+
+- story: ask any questions > needs human agent
+  steps:
+    - action: utter_ask_any_questions
+    - intent: patient_wants_human_agent
+    - action: utter_transferring_to_human
+
+- story: anytime speak with human agent
   steps:
     - intent: patient_wants_human_agent
+    - action: utter_transferring_to_human
+
+- story: ask human agent during form (1)
+  steps:
+    - action: utter_please_provide_general_info
+    - action: form_general_info
+    - active_loop: form_general_info
+    - intent: patient_wants_human_agent
+    - action: action_deactivate_loop
+    - active_loop: null
     - action: utter_transferring_to_human
