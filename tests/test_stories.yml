@@ -314,3 +314,17 @@ stories:
   - action: action_submit_patient_coordinates
   - action: utter_confirm_ambulance_sent
   - action: utter_ask_any_questions
+# ============================================================
+- story: Path 2.C - report pain, interrupts to speak with a human
+  steps:
+  - user: |
+      I have some [pain in my stomach]{"entity": "pain_type"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: form_medical_questions
+  - active_loop: form_medical_questions
+  - user: |
+      I want to speak with a human operator
+  - action: form_medical_questions
+  - action: action_deactivate_loop
+  - action: utter_transferring_to_human

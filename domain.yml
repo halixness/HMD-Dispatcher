@@ -12,27 +12,35 @@ entities:
 - pain_type
 - patient_phonenmbr
 - patient_homeaddr
+# https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
   pain_type:
     type: text
     mappings:
     - type: from_entity
       entity: pain_type
+      conditions:
+      - active_loop: null
   patient_homeaddr:
     type: text
     mappings:
     - type: from_entity
       entity: patient_homeaddr
+      conditions:
+      - active_loop: form_general_info
   patient_phonenmbr:
     type: text
     mappings:
     - type: from_entity
       entity: patient_phonenmbr
+      conditions:
+      - active_loop: form_general_info
   # =================================================
   pain_nature:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_nature
@@ -40,6 +48,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_location
@@ -47,6 +56,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_duration
@@ -54,6 +64,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_severity
@@ -61,6 +72,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_relieving
@@ -68,6 +80,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_symptoms
@@ -75,6 +88,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_history
@@ -82,6 +96,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_trauma
@@ -89,6 +104,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_allergies
@@ -96,6 +112,7 @@ slots:
     type: text
     mappings:
     - type: from_text
+      not_intent: patient_wants_human_agent
       conditions:
       - active_loop: form_medical_questions
         requested_slot: pain_warnings

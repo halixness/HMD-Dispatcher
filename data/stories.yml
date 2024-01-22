@@ -113,3 +113,13 @@ stories:
     - action: action_deactivate_loop
     - active_loop: null
     - action: utter_transferring_to_human
+
+- story: ask human agent during form (2)
+  steps:
+    - action: utter_will_ask_medical_questions
+    - action: form_medical_questions
+    - active_loop: form_medical_questions
+    - intent: patient_wants_human_agent
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: utter_transferring_to_human
