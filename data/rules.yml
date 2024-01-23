@@ -33,41 +33,6 @@ rules:
   - action: utter_confirm_ambulance_sent
   - action: utter_ask_any_questions
 
-# =========== Emergency form
-- rule: collect pain info > send ambulance
-  condition:
-  # collected general info
-  - active_loop: form_medical_questions
-  - slot_was_set:
-    - patient_homeaddr: address
-    - patient_phonenmbr: 123
-  steps:
-  - action: form_medical_questions
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  # collected medical questions
-  - action: action_submit_emergency_form
-  - action: utter_medical_questions_filled
-  - action: utter_confirm_ambulance_sent
-  - action: utter_ask_any_questions
-
-- rule: collect pain info > ask for ambulance
-  condition:
-  - active_loop: form_medical_questions
-  - slot_was_set:
-    - patient_homeaddr: null
-    - patient_phonenmbr: null
-  steps:
-  # medical questions collected
-  - action: form_medical_questions
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_submit_emergency_form
-  - action: utter_medical_questions_filled
-  - action: utter_ask_dispatch_ambulance
-
 # ======================================================
 #  Error handling
 # ======================================================

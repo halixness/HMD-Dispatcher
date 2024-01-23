@@ -1,5 +1,6 @@
 from typing import Text, List, Any, Dict
-from modules.geocoding import Geocoding
+from utils.geocoding import Geocoding
+from utils.nlu import SlotMappingUtilities
 
 from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk import Tracker, FormValidationAction, Action
@@ -78,7 +79,17 @@ class SubmitEmergencyForm(Action):
         ]
         print(f"[!] New help request at: {answers}")
         return []
-
+    
+    
+class MapPainNature(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_nature"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_nature", tracker=tracker)
+        
 
 class ValidateFormGeneralInfo(FormValidationAction):
 

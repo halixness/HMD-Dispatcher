@@ -8,6 +8,7 @@ intents:
 - patient_wants_human_agent
 - affirmative
 - negative
+- inform_pain_nature
 entities:
 - pain_type
 - patient_phonenmbr
@@ -39,84 +40,8 @@ slots:
   pain_nature:
     type: text
     mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_nature
-  pain_location:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_location
-  pain_duration:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_duration
-  pain_severity:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_severity
-  pain_relieving:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_relieving
-  pain_symptoms:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_symptoms
-  pain_history:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_history
-  pain_trauma:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_trauma
-  pain_allergies:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_allergies
-  pain_warnings:
-    type: text
-    mappings:
-    - type: from_text
-      not_intent: patient_wants_human_agent
-      conditions:
-      - active_loop: form_medical_questions
-        requested_slot: pain_warnings
-
+    - type: custom
+      action: action_map_pain_nature
 
 actions:
 - utter_medical_questions_filled
@@ -138,6 +63,7 @@ actions:
 - utter_confirm_ambulance_sent
 - utter_goodbye
 - utter_start_QA
+- action_map_pain_nature
 
 responses:
 
@@ -185,10 +111,9 @@ responses:
   # =================================================
   
   utter_ask_pain_nature:
-  - text: How would you describe the sensation of the pain?
-  - text: Can you tell me more about the kind of pain you're experiencing?
+  - text: How would you describe the sensation of the pain? (sharp, dull, etc.)
+  - text: Can you tell me more about the kind of pain you're experiencing? (sharp, dull, etc.)
   - text: In what way is the pain manifesting? (sharp, dull, etc.)
-  - text: Describe the pain's nature for me.
   - text: What words would you use to characterize the pain?
 
   utter_ask_pain_location:
@@ -291,16 +216,3 @@ forms:
     required_slots:
       - patient_homeaddr
       - patient_phonenmbr
-  form_medical_questions:
-    required_slots:
-      - pain_nature
-      - pain_location
-      - pain_duration
-      - pain_severity
-      - pain_relieving
-      - pain_symptoms
-      - pain_history
-      - pain_trauma
-      - pain_allergies
-      - pain_warnings
-

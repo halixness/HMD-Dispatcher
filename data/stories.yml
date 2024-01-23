@@ -55,8 +55,7 @@ stories:
       entities:
         - pain_type: pain
     - action: utter_will_ask_medical_questions
-    - action: form_medical_questions
-    - active_loop: form_medical_questions
+    - action: utter_ask_pain_nature
 
 - story: medical questions > ask ambulance > yes
   steps:
@@ -109,16 +108,6 @@ stories:
     - action: utter_please_provide_general_info
     - action: form_general_info
     - active_loop: form_general_info
-    - intent: patient_wants_human_agent
-    - action: action_deactivate_loop
-    - active_loop: null
-    - action: utter_transferring_to_human
-
-- story: ask human agent during form (2)
-  steps:
-    - action: utter_will_ask_medical_questions
-    - action: form_medical_questions
-    - active_loop: form_medical_questions
     - intent: patient_wants_human_agent
     - action: action_deactivate_loop
     - active_loop: null

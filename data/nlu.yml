@@ -302,3 +302,27 @@ nlu:
     - no, it's ok
     - no, I don't need it
     - no, there is no need
+
+# pain types: [abdominal_pain, ]
+- intent: inform_pain_nature
+  examples: |
+    - The pain is [sharp and stabbing](pain_nature), and it feels like something is twisting inside.
+    - It's a [constant ache that radiates across my stomach](pain_nature), and it feels heavy at times.
+    - The pain [comes and goes, but when it hits, it's a burning sensation](pain_nature) that's hard to ignore.
+    - I would describe it as a [cramping feeling](pain_nature), like my stomach is in a tight grip.
+    - It's a [throbbing pain](pain_nature), and it gets more intense after I eat anything.
+    - The pain is [dull but persistent](pain_nature), like a constant pressure in my abdomen.
+    - I feel a [sharp, shooting pain](pain_nature) that seems to move from one side of my belly to the other.
+    - The sensation is like a [squeezing or tightness](pain_nature), especially when I try to stand up.
+    - It's a gnawing pain that's accompanied by [a feeling of bloating and discomfort](pain_nature).
+    - The pain is [intermittent](pain_nature), but when it's there, it's as if my stomach is being twisted.
+    - It feels like a [stabbing pain](pain_nature) that shoots through my abdomen, and it's hard to catch my breath.
+    - The pain is [crampy and comes in waves](pain_nature), almost like contractions.
+    - It's a [constant, dull ache](pain_nature) that sometimes sharpens into a stabbing sensation.
+    - The pain is [deep and throbbing](pain_nature), and it's accompanied by a sense of nausea.
+    - I would say it's like a [persistent burning sensation](pain_nature) that won't let up.
+    - The pain is [sharp and stabbing](pain_nature), and it feels like a pressure building up in my stomach.
+    - It's like a [twisting or knotting sensation](pain_nature) in my abdomen, especially when I move.
+    - The pain is [bearable, but it's a constant discomfort](pain_nature) that doesn't seem to go away.
+    - It's a [crampy pain](pain_nature) that feels like my stomach is tied up in knots.
+    - The sensation is [sharp and shooting](pain_nature), like a jolt of pain radiating from my belly.
