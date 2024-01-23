@@ -140,61 +140,61 @@ nlu:
 # ======================================================
 - intent: patient_reports_pain
   examples: |
-    - I have this sensation of [discomfort in my abdomen](pain_type)
-    - It's like [I have a sharp pain in my stomach](pain_type)
-    - I'm experiencing [some sort of ache in my belly](pain_type)
-    - I feel like [there's a dull pain in my midsection](pain_type)
-    - It seems like [my tummy is really hurting](pain_type)
-    - I have this [uncomfortable feeling in my stomach](pain_type)
-    - It's as if [my belly is aching a lot](pain_type)
-    - I'm having this sensation of [pain in my abdominal area](pain_type)
-    - I sense [some pain in my stomach](pain_type)
-    - I'm in [a lot of discomfort in my abdomen](pain_type)
-    - I have this [sharp ache in my belly](pain_type)
-    - It feels like [there's a throbbing pain in my stomach](pain_type)
-    - I'm having [some serious pain in my midsection](pain_type)
-    - It's as though [my tummy is really aching](pain_type)
-    - I have this [unpleasant feeling in my stomach](pain_type)
-    - It's like [my belly is really hurting badly](pain_type)
-    - I'm experiencing [a great deal of pain in my abdominal area](pain_type)
-    - I feel like [there's a persistent pain in my stomach](pain_type)
-    - It seems like [my tummy is causing me a lot of pain](pain_type)
-    - I have this sensation of [intense discomfort in my belly](pain_type)
-    - It's as if [my stomach is in a lot of pain](pain_type)
-    - I'm having this sensation of [aching in my abdominal area](pain_type)
-    - I sense [a sharp pain in my stomach](pain_type)
-    - I'm in [a lot of discomfort in my midsection](pain_type)
-    - I have this [dull ache in my abdomen](pain_type)
-    - It feels like [there's a constant pain in my stomach](pain_type)
-    - It seems like [I'm gasping for air](pain_type).
-    - I'm experiencing something similar to [a heavy weight on my chest](pain_type).
-    - It's like [I'm suffocating](pain_type) and can't get enough air.
-    - I have this sensation of [air hunger](pain_type) and it's really uncomfortable.
-    - I'm having trouble [drawing in a full breath](pain_type).
-    - It feels like [there's a band around my chest](pain_type) and it's hard to expand.
-    - I'm finding it hard to [catch my breath](pain_type).
-    - I have this feeling of [shallow breathing](pain_type) and it's worrying me.
-    - It's like [my chest is constricting](pain_type) and I can't take deep breaths.
-    - I feel like [I'm not getting enough air](pain_type).
+    - I have this sensation of [discomfort in my abdomen](abdominal_pain)
+    - It's like [I have a sharp pain in my stomach](abdominal_pain)
+    - I'm experiencing [some sort of ache in my belly](abdominal_pain)
+    - I feel like [there's a dull pain in my midsection](abdominal_pain)
+    - It seems like [my tummy is really hurting](abdominal_pain)
+    - I have this [uncomfortable feeling in my stomach](abdominal_pain)
+    - It's as if [my belly is aching a lot](abdominal_pain)
+    - I'm having this sensation of [pain in my abdominal area](abdominal_pain)
+    - I sense [some pain in my stomach](abdominal_pain)
+    - I'm in [a lot of discomfort in my abdomen](abdominal_pain)
+    - I have this [sharp ache in my belly](abdominal_pain)
+    - It feels like [there's a throbbing pain in my stomach](abdominal_pain)
+    - I'm having [some serious pain in my midsection](abdominal_pain)
+    - It's as though [my tummy is really aching](abdominal_pain)
+    - I have this [unpleasant feeling in my stomach](abdominal_pain)
+    - It's like [my belly is really hurting badly](abdominal_pain)
+    - I'm experiencing [a great deal of pain in my abdominal area](abdominal_pain)
+    - I feel like [there's a persistent pain in my stomach](abdominal_pain)
+    - It seems like [my tummy is causing me a lot of pain](abdominal_pain)
+    - I have this sensation of [intense discomfort in my belly](abdominal_pain)
+    - It's as if [my stomach is in a lot of pain](abdominal_pain)
+    - I'm having this sensation of [aching in my abdominal area](abdominal_pain)
+    - I sense [a sharp pain in my stomach](abdominal_pain)
+    - I'm in [a lot of discomfort in my midsection](abdominal_pain)
+    - I have this [dull ache in my abdomen](abdominal_pain)
+    - It feels like [there's a constant pain in my stomach](abdominal_pain)
+    - It seems like [I'm gasping for air](abdominal_pain).
+    - I'm experiencing something similar to [a heavy weight on my chest](abdominal_pain).
+    - It's like [I'm suffocating](abdominal_pain) and can't get enough air.
+    - I have this sensation of [air hunger](abdominal_pain) and it's really uncomfortable.
+    - I'm having trouble [drawing in a full breath](abdominal_pain).
+    - It feels like [there's a band around my chest](abdominal_pain) and it's hard to expand.
+    - I'm finding it hard to [catch my breath](abdominal_pain).
+    - I have this feeling of [shallow breathing](abdominal_pain) and it's worrying me.
+    - It's like [my chest is constricting](abdominal_pain) and I can't take deep breaths.
+    - I feel like [I'm not getting enough air](abdominal_pain).
     - I'm having this sensation of [breathlessness] and it's concerning.
-    - It's as if [there's a pressure on my chest](pain_type) and I can't breathe deeply.
-    - I feel like [I'm wheezing](pain_type) and it's making me anxious.
-    - I'm struggling with [breathing deeply](pain_type) and it's painful.
-    - It's like [there's a blockage in my airway](pain_type) and I can't breathe properly.
-    - I have this sensation of [labored breathing](pain_type) and it's distressing.
-    - It feels like [I'm fighting for each breath](pain_type) and it's exhausting.
-    - I'm experiencing something similar to [airway constriction](pain_type) and it's alarming.
-    - It's as if [I'm breathing through a straw](pain_type) and it's uncomfortable.
-    - I feel like [I'm not able to fill my lungs completely](pain_type).
-    - I'm having difficulty [getting enough air into my lungs](pain_type).
-    - It's like [my breathing is restricted](pain_type) and it's causing pain.
-    - I have this feeling of [airway obstruction](pain_type) and it's frightening.
-    - It seems like [I'm not able to take a deep breath](pain_type).
-    - I'm finding it hard to [breathe in fully](pain_type) and it's distressing.
-    - It feels like [there's a weight on my chest](pain_type) and I can't breathe properly.
-    - I'm struggling with [shortness of breath](pain_type) and it's concerning.
-    - It's like [my chest is tightening](pain_type) and I can't take a deep breath.
-    - I feel like [I'm suffocating](pain_type) and it's making me anxious.
+    - It's as if [there's a pressure on my chest](abdominal_pain) and I can't breathe deeply.
+    - I feel like [I'm wheezing](abdominal_pain) and it's making me anxious.
+    - I'm struggling with [breathing deeply](abdominal_pain) and it's painful.
+    - It's like [there's a blockage in my airway](abdominal_pain) and I can't breathe properly.
+    - I have this sensation of [labored breathing](abdominal_pain) and it's distressing.
+    - It feels like [I'm fighting for each breath](abdominal_pain) and it's exhausting.
+    - I'm experiencing something similar to [airway constriction](abdominal_pain) and it's alarming.
+    - It's as if [I'm breathing through a straw](abdominal_pain) and it's uncomfortable.
+    - I feel like [I'm not able to fill my lungs completely](abdominal_pain).
+    - I'm having difficulty [getting enough air into my lungs](abdominal_pain).
+    - It's like [my breathing is restricted](abdominal_pain) and it's causing pain.
+    - I have this feeling of [airway obstruction](abdominal_pain) and it's frightening.
+    - It seems like [I'm not able to take a deep breath](abdominal_pain).
+    - I'm finding it hard to [breathe in fully](abdominal_pain) and it's distressing.
+    - It feels like [there's a weight on my chest](abdominal_pain) and I can't breathe properly.
+    - I'm struggling with [shortness of breath](abdominal_pain) and it's concerning.
+    - It's like [my chest is tightening](abdominal_pain) and I can't take a deep breath.
+    - I feel like [I'm suffocating](abdominal_pain) and it's making me anxious.
   
 - intent: patient_needs_ambulance
   examples: |
@@ -304,25 +304,85 @@ nlu:
     - no, there is no need
 
 # pain types: [abdominal_pain, ]
-- intent: inform_pain_nature
+- intent: inform_pain_description
   examples: |
-    - The pain is [sharp and stabbing](pain_nature), and it feels like something is twisting inside.
-    - It's a [constant ache that radiates across my stomach](pain_nature), and it feels heavy at times.
-    - The pain [comes and goes, but when it hits, it's a burning sensation](pain_nature) that's hard to ignore.
-    - I would describe it as a [cramping feeling](pain_nature), like my stomach is in a tight grip.
-    - It's a [throbbing pain](pain_nature), and it gets more intense after I eat anything.
-    - The pain is [dull but persistent](pain_nature), like a constant pressure in my abdomen.
-    - I feel a [sharp, shooting pain](pain_nature) that seems to move from one side of my belly to the other.
-    - The sensation is like a [squeezing or tightness](pain_nature), especially when I try to stand up.
-    - It's a gnawing pain that's accompanied by [a feeling of bloating and discomfort](pain_nature).
-    - The pain is [intermittent](pain_nature), but when it's there, it's as if my stomach is being twisted.
-    - It feels like a [stabbing pain](pain_nature) that shoots through my abdomen, and it's hard to catch my breath.
-    - The pain is [crampy and comes in waves](pain_nature), almost like contractions.
-    - It's a [constant, dull ache](pain_nature) that sometimes sharpens into a stabbing sensation.
-    - The pain is [deep and throbbing](pain_nature), and it's accompanied by a sense of nausea.
-    - I would say it's like a [persistent burning sensation](pain_nature) that won't let up.
-    - The pain is [sharp and stabbing](pain_nature), and it feels like a pressure building up in my stomach.
-    - It's like a [twisting or knotting sensation](pain_nature) in my abdomen, especially when I move.
-    - The pain is [bearable, but it's a constant discomfort](pain_nature) that doesn't seem to go away.
-    - It's a [crampy pain](pain_nature) that feels like my stomach is tied up in knots.
-    - The sensation is [sharp and shooting](pain_nature), like a jolt of pain radiating from my belly.
+    - It's been [on and off for most of the day](pain_duration).
+    - The pain is [constant](pain_duration) and [has been getting worse over the past hour](pain_duration).
+    - Started feeling it [this morning](pain_duration), and it [comes and goes in waves](pain_duration).
+    - It's been bothering me [for about an hour now](pain_duration), and it's pretty intense.
+    - I've had this abdominal pain [off and on since yesterday evening](pain_duration).
+    - The pain is [continuous](pain_duration), and I [first noticed it about two hours ago](pain_duration).
+    - It started as a mild discomfort [this afternoon](pain_duration), and [now it's constant and severe](pain_duration).
+    - Been feeling this abdominal pain [for the past 30 minutes](pain_duration), and it's not letting up.
+    - It's been [intermittent for the past few hours](pain_duration), but [now it's more constant](pain_duration).
+    - The pain [started around lunchtime](pain_duration), and it's been [pretty steady since then](pain_duration).
+    - Feels like [it comes and goes every 10 minutes](pain_duration) or so.
+    - Started feeling the pain [about three hours ago](pain_duration), and [it's been continuous](pain_duration).
+    - The abdominal pain has been [constant and quite hard for the past hour](pain_duration).
+    - It [comes and goes](pain_duration), but when it's here, it's really sharp.
+    - I first noticed the pain [this morning](pain_duration), and it's been [constant since then](pain_duration).
+    - It started [as a dull ache yesterday](pain_duration), but [now it's a constant pain](pain_duration).
+    - The abdominal pain is [intermittent](pain_duration), but [it's been happening all day](pain_duration).
+    - Started feeling it [about two hours ago](pain_duration), and [it hasn't stopped since](pain_duration).
+    - It's been [off and on for the past few days](pain_duration), and [now it's more continuous](pain_duration).
+    - The pain is quite hard and has been [constant since last night](pain_duration).
+    - I'd say it's [around 6, quite uncomfortable](pain_severity).
+    - Solid [8, definitely on the strong side](pain_severity).
+    - It's a [5, bearable but persistent](pain_severity).
+    - Feeling like a [9](pain_severity), [sharp and constant](pain_severity).
+    - Probably [a 3, mild but irritating](pain_severity).
+    - I think it's [a 7](pain_severity), getting [harder to ignore](pain_severity).
+    - [A 10](pain_severity), it's [excruciating](pain_severity)!
+    - [Around 4](pain_severity), not too bad but [noticeable](pain_severity).
+    - I'd rate it [6](pain_severity), [moderate pain](pain_severity) but [not unbearable](pain_severity).
+    - Feels [like an 8](pain_severity), [pretty intense](pain_severity) right now.
+    - Maybe a [2, just a dull ache](pain_severity).
+    - Definitely [a 10](pain_severity), I [can barely handle it](pain_severity).
+    - It's [like a 5](pain_severity), there's a [constant discomfort](pain_severity).
+    - I'd put it at [a 7](pain_severity), [getting worse over time].
+    - [A 9, I can hardly focus](pain_severity) on anything else.
+    - I think it's [a 3, annoying](pain_severity) but not too bad.
+    - Solid [10](pain_severity), the pain is [unbearable](pain_severity)!
+    - Maybe [a 6](pain_severity), it [comes and goes in waves](pain_severity).
+    - [Around 8](pain_severity), it's [throbbing and persistent](pain_severity).
+    - I'd rate it [4, noticeable](pain_severity) but not too severe.
+    - Right around my [navel area](abdominal_pain_area).
+    - In the [lower part of my belly](abdominal_pain_area).
+    - Just [above my waistline](abdominal_pain_area).
+    - Around the [middle of my stomach](abdominal_pain_area).
+    - Towards the [left side, near my hip](abdominal_pain_area).
+    - Around my [pelvic region](abdominal_pain_area).
+    - In the [upper part of my abdomen](abdominal_pain_area).
+    - [Close to my belly button](abdominal_pain_area), but [a bit to the right](abdominal_pain_area).
+    - Lower [left side of my belly](abdominal_pain_area).
+    - More to the [right side](abdominal_pain_area), [below my ribcage](abdominal_pain_area).
+    - Around the area [between my ribs and belly button](abdominal_pain_area).
+    - Right [above my pelvic bone](abdominal_pain_area).
+    - Across my [entire stomach area](abdominal_pain_area).
+    - Centralized, [between my chest and belly button](abdominal_pain_area).
+    - In the [lower right quadrant](abdominal_pain_area) of my abdomen.
+    - [Closer to my groin](abdominal_pain_area), in the lower abdomen.
+    - [Spread out](abdominal_pain_area), covering my whole stomach.
+    - [Around my belly button](abdominal_pain_area) and [extending to the sides](abdominal_pain_area).
+    - Concentrated [in the middle, below my sternum](abdominal_pain_area).
+    - Towards the [lower part of my stomach](abdominal_pain_area), but on [both sides](abdominal_pain_area).
+    - Yes, I've been experiencing [intense abdominal pain and vomiting](abdominal_other_symptoms).
+    - [No, the abdominal pain is the only symptom](abdominal_other_symptoms) I'm currently dealing with.
+    - I do have [some discomfort](abdominal_other_symptoms) in my abdomen, and I've been [running a low-grade fever](abdominal_other_symptoms).
+    - I [haven't noticed any changes in bowel habits](abdominal_other_symptoms), but the abdominal pain is quite severe.
+    - I've been [feeling nauseous](abdominal_other_symptoms) along with the abdominal pain.
+    - [No, thankfully](abdominal_other_symptoms), I haven't had any other symptoms accompanying the abdominal pain.
+    - The abdominal pain is constant, but [I haven't experienced vomiting or fever](abdominal_other_symptoms).
+    - I did have [a bit of a fever earlier](abdominal_other_symptoms), but now it's mostly the abdominal pain bothering me.
+    - I [lost my appetite](abdominal_other_symptoms), and the abdominal pain seems to be getting worse.
+    - Yes, there's abdominal pain, and I've been [feeling queasy as well](abdominal_other_symptoms).
+    - [No other symptoms](abdominal_other_symptoms), just this persistent abdominal pain.
+    - I had [some slight fever earlier](abdominal_other_symptoms), and the abdominal pain is still there.
+    - The abdominal pain is sharp, and I've been [nauseous](abdominal_other_symptoms) since it started.
+    - I'm dealing with abdominal pain, and I noticed [a mild fever setting in](abdominal_other_symptoms).
+    - [No vomiting](abdominal_other_symptoms), but the abdominal pain is [making it hard to eat](abdominal_other_symptoms).
+    - I [haven't experienced any other symptoms](abdominal_other_symptoms) besides this abdominal pain.
+    - The abdominal pain is accompanied by a [feeling of sickness](abdominal_other_symptoms) and [loss of appetite](abdominal_other_symptoms).
+    - Yes, I've been feeling [unwell overall](abdominal_other_symptoms), along with the abdominal pain.
+    - [No fever](abdominal_other_symptoms), but the abdominal pain is constant and uncomfortable.
+    - I'm experiencing abdominal pain, and I had [some nausea earlier](abdominal_other_symptoms).

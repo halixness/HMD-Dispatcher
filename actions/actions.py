@@ -81,14 +81,41 @@ class SubmitEmergencyForm(Action):
         return []
     
     
-class MapPainNature(Action):
+class MapPainDuration(Action):
     
     def name(self) -> Text:
-        return "action_map_pain_nature"
+        return "action_map_pain_duration"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_nature", tracker=tracker)
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_duration", tracker=tracker)
+    
+class MapPainSeverity(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_severity"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_severity", tracker=tracker)
+    
+class MapAbdominalPainArea(Action):
+    
+    def name(self) -> Text:
+        return "action_map_abdominal_pain_area"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="abdominal_pain_area", tracker=tracker)
+        
+class MapAbdominalPainArea(Action):
+    
+    def name(self) -> Text:
+        return "action_map_abdominal_other_symptoms"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="abdominal_other_symptoms", tracker=tracker)
         
 
 class ValidateFormGeneralInfo(FormValidationAction):

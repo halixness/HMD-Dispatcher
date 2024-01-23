@@ -42,23 +42,9 @@ stories:
     - action: form_general_info
     - active_loop: form_general_info
 
-- story: reports unknown pain
-  steps:
-    - intent: patient_reports_pain
-    - slot_was_set:
-      - pain_type: null
-    - action: utter_please_rephrase
-
-- story: greeting by reporting pain > medical questions
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - pain_type: pain
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_nature
-
 - story: medical questions > ask ambulance > yes
   steps:
+    - checkpoint: completed_medical_questions
     - action: utter_medical_questions_filled
     - action: utter_ask_dispatch_ambulance
     - intent: affirmative
@@ -67,6 +53,7 @@ stories:
 
 - story: medical questions > ask ambulance > no
   steps:
+    - checkpoint: completed_medical_questions
     - action: utter_medical_questions_filled
     - action: utter_ask_dispatch_ambulance
     - intent: negative
@@ -83,6 +70,32 @@ stories:
     - action: utter_ask_any_questions
     - intent: affirmative
     - action: utter_start_QA
+
+# ========== Abdominal pain
+
+- story: report abdominal pain
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - abdominal_pain: value pain
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_description
+      entities:
+        - pain_duration: value
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_description
+      entities:
+        - pain_severity: value
+    - action: utter_ask_abdominal_pain_area
+    - intent: inform_pain_description
+      entities:
+        - abdominal_pain_area: value
+    - action: utter_ask_abdominal_other_symptoms
+    - intent: inform_pain_description
+      entities:
+        - abdominal_other_symptoms: value
+    - checkpoint: completed_medical_questions
 
 # ========== Interruptions
 

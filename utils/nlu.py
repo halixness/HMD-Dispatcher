@@ -10,8 +10,9 @@ class SlotMappingUtilities:
 
         """
         detected_intent = tracker.get_intent_of_latest_message()
-        if detected_intent == f"inform_{slot}":
-            entity_value = ""
+        if detected_intent == f"inform_pain_description":
+            curr_slot_value = tracker.get_slot("slot")
+            entity_value = f"{curr_slot_value}; " if curr_slot_value else "" # supports filling over time
             detected_entities = tracker.latest_message['entities']        
             # entities -> fill slot with entity values
             if len(detected_entities) > 0:

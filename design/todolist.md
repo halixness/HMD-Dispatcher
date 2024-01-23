@@ -3,7 +3,8 @@
 ### Questions
 
 ### Issues
-- [x] Slots are filled even when they already contain a value. E.g. medical questions, classified intent "pain_type" overwrites current slot value. This can happen arbitrarily. Fixed with conditions in slot mapping on active loop!
+- [ ] custom slot mapping: how to apply it conditionally? It always runs for all slots and it empties the values...
+- [ ] Once general info are filled, how to detect whether an emergency has been already reported? Probably global slot mapping or some logical check. We broke down pain_type into different pathologies. Otherwise how would we detect the scenarios?
 
 ### High priority
 - [x] the agent should alert they're going to ask specific questions

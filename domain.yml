@@ -1,4 +1,5 @@
 version: '3.1'
+
 intents:
 - greet
 - patient_inputs_coordinates
@@ -8,20 +9,31 @@ intents:
 - patient_wants_human_agent
 - affirmative
 - negative
-- inform_pain_nature
+- inform_pain_description
+
 entities:
-- pain_type
 - patient_phonenmbr
 - patient_homeaddr
+- abdominal_pain
+- respiratory_difficulty
+- fainting
+- poisoning
+- hyperthermia
+# ==== just to avoid warnings
+- pain_duration
+- pain_severity
+- abdominal_pain_area
+- abdominal_other_symptoms
+# ==== 
+
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
-  pain_type:
+  abdominal_pain:
     type: text
     mappings:
     - type: from_entity
-      entity: pain_type
-      conditions:
-      - active_loop: null
+      entity: abdominal_pain
+      # can overwriting this slot cause twisting the story? check it
   patient_homeaddr:
     type: text
     mappings:
@@ -36,13 +48,30 @@ slots:
       entity: patient_phonenmbr
       conditions:
       - active_loop: form_general_info
-  # =================================================
-  pain_nature:
+  # ============== General medical questions ==============
+  pain_duration:
     type: text
     mappings:
     - type: custom
-      action: action_map_pain_nature
+      action: action_map_pain_duration
+  pain_severity:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_severity
 
+  # ============== Abdominal pain questions ==============
+  abdominal_pain_area:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_abdominal_pain_area
+  abdominal_other_symptoms:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_abdominal_other_symptoms
+  
 actions:
 - utter_medical_questions_filled
 - utter_proceed_asking_pain
@@ -63,7 +92,10 @@ actions:
 - utter_confirm_ambulance_sent
 - utter_goodbye
 - utter_start_QA
-- action_map_pain_nature
+- action_map_pain_duration
+- action_map_pain_severity
+- action_map_abdominal_pain_area
+- action_map_abdominal_other_symptoms
 
 responses:
 
@@ -108,7 +140,7 @@ responses:
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
 
-  # =================================================
+  # ============== General medical questions ==============
   
   utter_ask_pain_nature:
   - text: How would you describe the sensation of the pain? (sharp, dull, etc.)
@@ -127,15 +159,12 @@ responses:
   - text: When did you first notice the pain, and is it continuous or intermittent?
   - text: Tell me about the onset of the pain. Is it persistent or comes and goes?
   - text: When did the pain begin, and has it been steady or sporadic? How long has it persisted?
-  - text: Share details about when the pain began and whether it's constant or sporadic.
-  - text: Describe the timeline of the pain. How long has it been present?
 
   utter_ask_pain_severity:
   - text: Using a scale from 0 to 10, how would you rate the intensity of your pain?
   - text: On a scale of 0 to 10, how severe is the pain you're experiencing?
   - text: If 0 means no pain and 10 is the most severe, where would you place your pain level?
   - text: Can you quantify the pain on a scale from 0 to 10?
-  - text: Using a scale, gauge the intensity of your pain from 0 to 10.
 
   utter_ask_pain_relieving:
   - text: Are there certain things you do that either worsen or alleviate the pain?
@@ -179,10 +208,22 @@ responses:
   - text: Do you see any emergency warning signs, such as trouble with breathing or pain in the chest?
   - text: Are there any signs of emergency, such as difficulty in breathing or chest pain, that you're noticing?
 
+  # ============== Abdominal pain questions ==============
+
+  utter_ask_abdominal_pain_area:
+  - text: Where exactly in your abdomen do you feel the pain? (e.g., upper, lower, left, right, centralized)
+  - text: Can you pinpoint the specific location of the abdominal pain? (e.g., upper, lower, left, right, central)
+  - text: In which area of your abdomen is the pain most concentrated? (e.g., upper, lower, left, right)
+  
+  utter_ask_abdominal_other_symptoms:
+  - text: Are there any other symptoms accompanying the abdominal pain, such as nausea, vomiting, changes in bowel habits, or fever?
+  - text: Do you have any additional symptoms along with the abdominal pain, like nausea, vomiting, alterations in bowel habits, or fever?
+  - text: Are there any other signs present with the abdominal pain, such as nausea, vomiting, shifts in bowel patterns, or an elevated body temperature?
+
   # =================================================
 
   utter_medical_questions_filled:
-  - text: Ok, I have collected all the necessary info about your {pain_type}.
+  - text: Ok, I have collected all the necessary info about your problem.
   
   utter_transferring_to_human:
   - text: Ok, I'm transferring you to a human operator.
@@ -209,7 +250,7 @@ responses:
   utter_start_QA:
   - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
 
-  # =================================================
+    # =================================================
 
 forms:
   form_general_info:
