@@ -3,6 +3,35 @@ version: "3.1"
 rules:
 
 # =========== General info form
+- rule: collect general info > ask for pain info
+  condition:
+  - active_loop: form_general_info
+  - slot_was_set:
+    - is_pain_reported: false
+  steps:
+  - action: form_general_info
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # collected general info
+  - action: action_submit_patient_coordinates
+  - action: utter_proceed_asking_pain
+
+- rule: collect general info > send ambulance
+  condition:
+  # collected medical questions
+  - active_loop: form_general_info
+  - slot_was_set:
+    - is_pain_reported: true
+  steps:
+  - action: form_general_info
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # collected general info
+  - action: action_submit_patient_coordinates
+  - action: utter_confirm_ambulance_sent
+  - action: utter_ask_any_questions
 
 # ======================================================
 #  Error handling

@@ -9,7 +9,10 @@ intents:
 - patient_wants_human_agent
 - affirmative
 - negative
-- inform_pain_description
+- inform_pain_duration
+- inform_pain_severity
+- inform_abdominal_pain_area
+- inform_abdominal_other_symptoms
 
 entities:
 - patient_phonenmbr
@@ -30,18 +33,31 @@ entities:
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
+
+
+  # ============== Reported pathologies ==============
+  is_pain_reported:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: custom
+      action: action_toggle_is_pain_reported
+
   hypothermia:
     type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: hypothermia
 
   abdominal_pain:
     type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: abdominal_pain
-      # can overwriting this slot cause twisting the story? check it
+    
+  # ============== Patient coordinates ==============
   patient_homeaddr:
     type: text
     mappings:
@@ -56,6 +72,7 @@ slots:
       entity: patient_phonenmbr
       conditions:
       - active_loop: form_general_info
+
   # ============== General medical questions ==============
   pain_duration:
     type: text
@@ -118,6 +135,7 @@ actions:
 - action_map_abdominal_other_symptoms
 - action_map_hypothermia_skin_color
 - action_map_hypothermia_treatment
+- action_toggle_is_pain_reported
 
 responses:
 

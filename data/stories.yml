@@ -80,19 +80,19 @@ stories:
         - abdominal_pain: value pain
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
-    - intent: inform_pain_description
+    - intent: inform_pain_duration
       entities:
         - pain_duration: value
     - action: utter_ask_pain_severity
-    - intent: inform_pain_description
+    - intent: inform_pain_severity
       entities:
         - pain_severity: value
     - action: utter_ask_abdominal_pain_area
-    - intent: inform_pain_description
+    - intent: inform_abdominal_pain_area
       entities:
         - abdominal_pain_area: value
     - action: utter_ask_abdominal_other_symptoms
-    - intent: inform_pain_description
+    - intent: inform_abdominal_other_symptoms
       entities:
         - abdominal_other_symptoms: value
     - checkpoint: completed_medical_questions
@@ -105,11 +105,11 @@ stories:
         - hypothermia: value pain
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
-    - intent: inform_pain_description
+    - intent: inform_pain_duration
       entities:
         - pain_duration: value
     - action: utter_ask_pain_severity
-    - intent: inform_pain_description
+    - intent: inform_pain_severity
       entities:
         - pain_severity: value
     - action: utter_ask_hypothermia_skin_color
@@ -121,8 +121,6 @@ stories:
       entities:
         - hypothermia_treatment: value
     - checkpoint: completed_medical_questions
-    
-
 
 # ========== Interruptions
 

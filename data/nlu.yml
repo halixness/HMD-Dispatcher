@@ -304,7 +304,7 @@ nlu:
     - no, there is no need
 
 # pain types: [abdominal_pain, ]
-- intent: inform_pain_description
+- intent: inform_pain_duration
   examples: |
     - It's been [on and off for most of the day](pain_duration).
     - The pain is [constant](pain_duration) and [has been getting worse over the past hour](pain_duration).
@@ -326,6 +326,9 @@ nlu:
     - Started feeling it [about two hours ago](pain_duration), and [it hasn't stopped since](pain_duration).
     - It's been [off and on for the past few days](pain_duration), and [now it's more continuous](pain_duration).
     - The pain is quite hard and has been [constant since last night](pain_duration).
+
+- intent: inform_pain_severity
+  examples: |
     - I'd say it's [around 6, quite uncomfortable](pain_severity).
     - Solid [8, definitely on the strong side](pain_severity).
     - It's a [5, bearable but persistent](pain_severity).
@@ -346,6 +349,9 @@ nlu:
     - Maybe [a 6](pain_severity), it [comes and goes in waves](pain_severity).
     - [Around 8](pain_severity), it's [throbbing and persistent](pain_severity).
     - I'd rate it [4, noticeable](pain_severity) but not too severe.
+
+- intent: inform_abdominal_pain_area
+  examples: |
     - Right around my [navel area](abdominal_pain_area).
     - In the [lower part of my belly](abdominal_pain_area).
     - Just [above my waistline](abdominal_pain_area).
@@ -366,6 +372,9 @@ nlu:
     - [Around my belly button](abdominal_pain_area) and [extending to the sides](abdominal_pain_area).
     - Concentrated [in the middle, below my sternum](abdominal_pain_area).
     - Towards the [lower part of my stomach](abdominal_pain_area), but on [both sides](abdominal_pain_area).
+
+- intent: inform_abdominal_other_symptoms
+  examples: |
     - Yes, I've been experiencing [intense abdominal pain and vomiting](abdominal_other_symptoms).
     - [No, the abdominal pain is the only symptom](abdominal_other_symptoms) I'm currently dealing with.
     - I do have [some discomfort](abdominal_other_symptoms) in my abdomen, and I've been [running a low-grade fever](abdominal_other_symptoms).
