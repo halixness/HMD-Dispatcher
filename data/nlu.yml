@@ -195,6 +195,27 @@ nlu:
     - I'm struggling with [shortness of breath](abdominal_pain) and it's concerning.
     - It's like [my chest is tightening](abdominal_pain) and I can't take a deep breath.
     - I feel like [I'm suffocating](abdominal_pain) and it's making me anxious.
+    - I feel [extremely cold](hypothermia) and my teeth are chattering. #hypothermia
+    - My [skin is cold](hypothermia) and my speech is becoming slurred.
+    - I'm [having trouble breathing](hypothermia).
+    - I feel [extremely tired](hypothermia).
+    - I'm confused and my [heart rate is slowing down](hypothermia).
+    - My hands are clumsy and I'm [feeling very cold](hypothermia).
+    - I'm exhausted and [my skin is cold to the touch](hypothermia).
+    - I'm [becoming drowsy](hypothermia).
+    - I'm [feeling numb in my extremities](hypothermia).
+    - I'm experiencing a [slow heart rate](hypothermia).
+    - My [breathing rate is decreasing](hypothermia).
+    - I'm [having trouble speaking clearly](hypothermia).
+    - My [movements are slow and clumsy](hypothermia).
+    - I'm feeling very cold and [my teeth are chattering](hypothermia).
+    - I'm feeling drowsy and [my pulse is weakening](hypothermia).
+    - I'm [shivering uncontrollably](hypothermia) and my heart rate is slowing down.
+    - I'm feeling [extremely exhausted](hypothermia) and my skin is cold to the touch.
+    - I feel like [my energy is draining away](hypothermia).
+    - My [skin is turning bluish](hypothermia).
+    - I'm experiencing intense shivering and [my fingers are becoming numb](hypothermia).
+
   
 - intent: patient_needs_ambulance
   examples: |
@@ -303,7 +324,7 @@ nlu:
     - no, I don't need it
     - no, there is no need
 
-# pain types: [abdominal_pain, ]
+# pain types: [abdominal_pain, hypothermia]
 - intent: inform_pain_description
   examples: |
     - It's been [on and off for most of the day](pain_duration).
@@ -386,3 +407,19 @@ nlu:
     - Yes, I've been feeling [unwell overall](abdominal_other_symptoms), along with the abdominal pain.
     - [No fever](abdominal_other_symptoms), but the abdominal pain is constant and uncomfortable.
     - I'm experiencing abdominal pain, and I had [some nausea earlier](abdominal_other_symptoms).
+    - Yes, my [skin has become very pale](hypothermia_skin_color), and it feels cool to the touch.
+    - I've observed a [noticeable paleness in my skin](hypothermia_skin_color), and it feels quite cool.
+    - There's [a change in my skin color](hypothermia_skin_color).
+    - Indeed, my [skin has turned pale](hypothermia_skin_color), and it's noticeably cooler than usual.
+    - I've noticed both [paleness](hypothermia_skin_color) and a cool sensation in my skin.
+    - Yes, my skin feels cool, and [the color has become paler](hypothermia_skin_color).
+    - There's a distinct coolness and [paleness in my skin](hypothermia_skin_color).
+    - My skin has [changed the color](hypothermia_skin_color); it's now paler, and there's a coolness to it.
+    - No, I [haven't received any treatment yet](hypothermia_treatment) for how I'm feeling.
+    - [Not yet](hypothermia_treatment); I haven't received any treatment for feeling unwell.
+    - I [haven't received any medical treatment](hypothermia_treatment) since I started feeling bad.
+    - [No treatment so far](hypothermia_treatment).
+    - I [have received treatment](hypothermia_treatment) after feeling unwell.
+    - Yes, I saw a doctor and [received appropriate treatment](hypothermia_treatment).
+    - I sought medical help, and I am currently [undergoing treatment](hypothermia_treatment).
+    - [Yes, I've received treatment](hypothermia_treatment) for my symptoms from a healthcare professional.
