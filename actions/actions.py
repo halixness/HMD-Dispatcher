@@ -98,7 +98,9 @@ class MapPainSeverity(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_severity", tracker=tracker)
-    
+
+# ============== Abdominal pain actions ==============
+
 class MapAbdominalPainArea(Action):
     
     def name(self) -> Text:
@@ -108,7 +110,7 @@ class MapAbdominalPainArea(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="abdominal_pain_area", tracker=tracker)
         
-class MapAbdominalPainArea(Action):
+class MapAbdominalPainOtherSymptoms(Action):
     
     def name(self) -> Text:
         return "action_map_abdominal_other_symptoms"
@@ -117,6 +119,27 @@ class MapAbdominalPainArea(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="abdominal_other_symptoms", tracker=tracker)
         
+# ============== Hypothermia actions ==============
+
+class MapHypothermiaSkincolor(Action):
+    
+    def name(self) -> Text:
+        return "action_map_hypothermia_skin_color"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="hypothermia_skin_color", tracker=tracker)
+
+class MapHypothermiaTreatment(Action):
+    
+    def name(self) -> Text:
+        return "action_map_hypothermia_treatment"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="hypothermia_treatment", tracker=tracker)
+
+
 
 class ValidateFormGeneralInfo(FormValidationAction):
 

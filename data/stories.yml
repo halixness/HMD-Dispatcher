@@ -97,6 +97,33 @@ stories:
         - abdominal_other_symptoms: value
     - checkpoint: completed_medical_questions
 
+# ========== Hypothermia 
+- story: report abdominal pain
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - hypothermia: value pain
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_description
+      entities:
+        - pain_duration: value
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_description
+      entities:
+        - pain_severity: value
+    - action: utter_ask_hypothermia_skin_color
+    - intent: inform_pain_description
+      entities:
+        - hypothermia_skin_color: value
+    - action: utter_ask_hypothermia_treatment
+    - intent: inform_pain_description
+      entities:
+        - hypothermia_treatment: value
+    - checkpoint: completed_medical_questions
+    
+
+
 # ========== Interruptions
 
 - story: ask dispatch ambulance > needs human agent

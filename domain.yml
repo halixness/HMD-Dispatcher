@@ -18,16 +18,24 @@ entities:
 - respiratory_difficulty
 - fainting
 - poisoning
-- hyperthermia
+- hypothermia
 # ==== just to avoid warnings
 - pain_duration
 - pain_severity
 - abdominal_pain_area
 - abdominal_other_symptoms
 # ==== 
+- hypothermia_skin_color
+- hypothermia_treatment
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
+  hypothermia:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: hypothermia
+
   abdominal_pain:
     type: text
     mappings:
@@ -71,7 +79,19 @@ slots:
     mappings:
     - type: custom
       action: action_map_abdominal_other_symptoms
-  
+  # ============== hypothermia questions ==============
+  hypothermia_skin_color:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_hypothermia_skin_color
+  hypothermia_treatment:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_hypothermia_treatment
+
+
 actions:
 - utter_medical_questions_filled
 - utter_proceed_asking_pain
@@ -96,6 +116,8 @@ actions:
 - action_map_pain_severity
 - action_map_abdominal_pain_area
 - action_map_abdominal_other_symptoms
+- action_map_hypothermia_skin_color
+- action_map_hypothermia_treatment
 
 responses:
 
@@ -219,6 +241,18 @@ responses:
   - text: Are there any other symptoms accompanying the abdominal pain, such as nausea, vomiting, changes in bowel habits, or fever?
   - text: Do you have any additional symptoms along with the abdominal pain, like nausea, vomiting, alterations in bowel habits, or fever?
   - text: Are there any other signs present with the abdominal pain, such as nausea, vomiting, shifts in bowel patterns, or an elevated body temperature?
+
+  # ============== Hypothermia pain questions ==============
+  utter_ask_hypothermia_skin_color:
+  - text: Have you noticed any changes in your skin color or temperature, such as paleness or coolness to the touch?
+  - text: Have you observed any alterations in your skin's color or temperature, such as becoming paler or cooler to the touch?
+  - text: Did your skin color change?
+
+  utter_ask_hypothermia_treatment:
+  - text: Do you have any medical conditions or take any medications that might affect your body's response to cold?
+  - text: Do you have adequate clothing or treatment when you felt bad?
+  - text: Have you recieved any treatment after feeling bad?
+
 
   # =================================================
 
