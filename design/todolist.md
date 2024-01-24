@@ -4,7 +4,7 @@
 
 ### Pathologies
 - [x] Abdominal pain
-- [ ] Respiratory distress
+- [x] Respiratory distress
 - [ ] Fainting
 - [ ] Poisoning/drug abuse
 - [ ] Hyperthermia

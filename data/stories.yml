@@ -72,12 +72,29 @@ stories:
     - action: utter_start_QA
 
 # ========== Abdominal pain
-
 - story: report abdominal pain
   steps:
     - intent: patient_reports_pain
       entities:
-        - abdominal_pain: value pain
+        - abdominal_pain: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
+    - action: utter_ask_abdominal_pain_area
+    - intent: inform_abdominal_pain_area
+    - action: utter_ask_abdominal_other_symptoms
+    - intent: inform_abdominal_other_symptoms
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+# ========== Respiratory difficulty 
+- story: report respiratory difficulty
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - respiratory_difficulty: value
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
@@ -85,16 +102,13 @@ stories:
         - pain_duration: value
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
-      entities:
-        - pain_severity: value
-    - action: utter_ask_abdominal_pain_area
-    - intent: inform_abdominal_pain_area
-      entities:
-        - abdominal_pain_area: value
-    - action: utter_ask_abdominal_other_symptoms
-    - intent: inform_abdominal_other_symptoms
-      entities:
-        - abdominal_other_symptoms: value
+    - action: utter_ask_resp_difficulty_nature
+    - intent: inform_resp_difficulty_nature
+    - action: utter_ask_resp_difficulty_triggers
+    - intent: inform_resp_difficulty_triggers
+    - action: utter_ask_resp_difficulty_exposure
+    - intent: utter_ask_resp_difficulty_exposure
+    - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
 # ========== Hypothermia 
@@ -102,7 +116,7 @@ stories:
   steps:
     - intent: patient_reports_pain
       entities:
-        - hypothermia: value pain
+        - hypothermia: value
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
@@ -120,6 +134,7 @@ stories:
     - intent: inform_pain_description
       entities:
         - hypothermia_treatment: value
+    - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
 # ========== Interruptions
