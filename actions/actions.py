@@ -80,6 +80,21 @@ class SubmitEmergencyForm(Action):
         print(f"[!] New help request at: {answers}")
         return []
     
+
+class TogglePainIsReported(Action):
+    
+    def name(self) -> Text:
+        return "action_toggle_is_pain_reported"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Check history for reported pathologies """
+        for past_event in tracker.events:
+            if "parse_data" in past_event:
+                has_detected_entities = len(past_event["parse_data"]["entities"]) > 0
+                has_reported_pain = past_event["parse_data"]["intent"]["name"] == "patient_reports_pain"
+                if has_reported_pain and has_detected_entities: return [SlotSet("is_pain_reported", True)]
+        return [SlotSet("is_pain_reported", False)]            
+    
     
 class MapPainDuration(Action):
     
@@ -118,7 +133,37 @@ class MapAbdominalPainOtherSymptoms(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="abdominal_other_symptoms", tracker=tracker)
+    
+# ============== Respiratory difficulty actions ==============
+
+class MapRespiratoryDiffNature(Action):
+    
+    def name(self) -> Text:
+        return "action_map_resp_difficulty_nature"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="resp_difficulty_nature", tracker=tracker)
         
+class MapRespiratoryDiffTriggers(Action):
+    
+    def name(self) -> Text:
+        return "action_map_resp_difficulty_triggers"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="resp_difficulty_triggers", tracker=tracker)
+        
+class MapRespiratoryDiffExposure(Action):
+    
+    def name(self) -> Text:
+        return "action_map_resp_difficulty_exposure"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="resp_difficulty_exposure", tracker=tracker)
+        
+
 # ============== Hypothermia actions ==============
 
 class MapHypothermiaSkincolor(Action):

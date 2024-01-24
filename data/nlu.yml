@@ -215,8 +215,18 @@ nlu:
     - I feel like [my energy is draining away](hypothermia).
     - My [skin is turning bluish](hypothermia).
     - I'm experiencing intense shivering and [my fingers are becoming numb](hypothermia).
+    - Doctor, I've been having [trouble breathing](respiratory_difficulty) lately.
+    - It feels like my [chest is tight and I can't take a deep breath](respiratory_difficulty).
+    - I often find myself [short of breath](respiratory_difficulty), even with minimal exertion.
+    - Breathing feels labored and I [struggle to inhale](respiratory_difficulty) properly.
+    - I've noticed a [persistent cough and wheezing](respiratory_difficulty) that accompanies my [difficulty in breathing](respiratory_difficulty).
+    - I've experienced [increased breathlessness](respiratory_difficulty), especially during physical activities.
+    - I feel like I'm [not getting enough air](respiratory_difficulty), as if my lungs aren't expanding fully.
+    - Sometimes it's [hard to catch my breath](respiratory_difficulty), and I [feel breathless](respiratory_difficulty) even at rest.
+    - I've been waking up at night [feeling breathless](respiratory_difficulty), and it's affecting my sleep.
+    - I've observed a decrease in my exercise tolerance due to these [respiratory issues](respiratory_difficulty).
+    - I've had this persistent [shortness of breath](respiratory_difficulty) for the past few weeks.
 
-  
 - intent: patient_needs_ambulance
   examples: |
     - I need medical assistance right away.
@@ -324,8 +334,8 @@ nlu:
     - no, I don't need it
     - no, there is no need
 
-# pain types: [abdominal_pain, hypothermia]
-- intent: inform_pain_description
+
+- intent: inform_pain_duration
   examples: |
     - It's been [on and off for most of the day](pain_duration).
     - The pain is [constant](pain_duration) and [has been getting worse over the past hour](pain_duration).
@@ -347,6 +357,9 @@ nlu:
     - Started feeling it [about two hours ago](pain_duration), and [it hasn't stopped since](pain_duration).
     - It's been [off and on for the past few days](pain_duration), and [now it's more continuous](pain_duration).
     - The pain is quite hard and has been [constant since last night](pain_duration).
+
+- intent: inform_pain_severity
+  examples: |
     - I'd say it's [around 6, quite uncomfortable](pain_severity).
     - Solid [8, definitely on the strong side](pain_severity).
     - It's a [5, bearable but persistent](pain_severity).
@@ -367,6 +380,9 @@ nlu:
     - Maybe [a 6](pain_severity), it [comes and goes in waves](pain_severity).
     - [Around 8](pain_severity), it's [throbbing and persistent](pain_severity).
     - I'd rate it [4, noticeable](pain_severity) but not too severe.
+
+- intent: inform_abdominal_pain_area
+  examples: |
     - Right around my [navel area](abdominal_pain_area).
     - In the [lower part of my belly](abdominal_pain_area).
     - Just [above my waistline](abdominal_pain_area).
@@ -387,6 +403,9 @@ nlu:
     - [Around my belly button](abdominal_pain_area) and [extending to the sides](abdominal_pain_area).
     - Concentrated [in the middle, below my sternum](abdominal_pain_area).
     - Towards the [lower part of my stomach](abdominal_pain_area), but on [both sides](abdominal_pain_area).
+
+- intent: inform_abdominal_other_symptoms
+  examples: |
     - Yes, I've been experiencing [intense abdominal pain and vomiting](abdominal_other_symptoms).
     - [No, the abdominal pain is the only symptom](abdominal_other_symptoms) I'm currently dealing with.
     - I do have [some discomfort](abdominal_other_symptoms) in my abdomen, and I've been [running a low-grade fever](abdominal_other_symptoms).
@@ -407,6 +426,9 @@ nlu:
     - Yes, I've been feeling [unwell overall](abdominal_other_symptoms), along with the abdominal pain.
     - [No fever](abdominal_other_symptoms), but the abdominal pain is constant and uncomfortable.
     - I'm experiencing abdominal pain, and I had [some nausea earlier](abdominal_other_symptoms).
+
+- intent: inform_hypothermia_skin_color
+  examples: |
     - Yes, my [skin has become very pale](hypothermia_skin_color), and it feels cool to the touch.
     - I've observed a [noticeable paleness in my skin](hypothermia_skin_color), and it feels quite cool.
     - There's [a change in my skin color](hypothermia_skin_color).
@@ -415,6 +437,8 @@ nlu:
     - Yes, my skin feels cool, and [the color has become paler](hypothermia_skin_color).
     - There's a distinct coolness and [paleness in my skin](hypothermia_skin_color).
     - My skin has [changed the color](hypothermia_skin_color); it's now paler, and there's a coolness to it.
+- intent: hypothermia_treatment
+  examples: |
     - No, I [haven't received any treatment yet](hypothermia_treatment) for how I'm feeling.
     - [Not yet](hypothermia_treatment); I haven't received any treatment for feeling unwell.
     - I [haven't received any medical treatment](hypothermia_treatment) since I started feeling bad.
@@ -423,3 +447,62 @@ nlu:
     - Yes, I saw a doctor and [received appropriate treatment](hypothermia_treatment).
     - I sought medical help, and I am currently [undergoing treatment](hypothermia_treatment).
     - [Yes, I've received treatment](hypothermia_treatment) for my symptoms from a healthcare professional.
+
+- intent: inform_resp_difficulty_nature
+  examples: |
+    - I'm having trouble breathing, and my [chest feels really tight](resp_difficulty_nature).
+    - It's like I [can't get enough air](resp_difficulty_nature), and my [chest is getting tighter](resp_difficulty_nature).
+    - I noticed a [sudden shortness of breath](resp_difficulty_nature), and my [chest is feeling constricted](resp_difficulty_nature).
+    - My [breathing is becoming difficult](resp_difficulty_nature), and there's a [tightening sensation in my chest](resp_difficulty_nature).
+    - I started [wheezing](resp_difficulty_nature), and it's getting harder to breathe.
+    - I'm experiencing [shortness of breath](resp_difficulty_nature), and my [chest is starting to feel tight](resp_difficulty_nature).
+    - I feel like I'm [gasping for air](resp_difficulty_nature), and my [chest is getting tighter with each breath](resp_difficulty_nature).
+    - It's getting [tough to breathe](resp_difficulty_nature), and my [chest is feeling really heavy](resp_difficulty_nature).
+    - I started [wheezing](resp_difficulty_nature), and it feels like there's [a weight on my chest](resp_difficulty_nature).
+    - My [breaths are getting shallower](resp_difficulty_nature).
+    - It feels like [my airways are closing up](resp_difficulty_nature), and I'm struggling to breathe.
+    - It's like I [can't fill my lungs completely](resp_difficulty_nature), and there's [pressure building in my chest](resp_difficulty_nature).
+    - I started [wheezing](resp_difficulty_nature), and it's becoming [harder to take deep breaths](resp_difficulty_nature).
+    - I feel [like I'm suffocating](resp_difficulty_nature), and my [chest is getting tighter](resp_difficulty_nature).
+    - I [can't seem to breathe deeply](resp_difficulty_nature), and my [chest is feeling constricted](resp_difficulty_nature).
+
+- intent: inform_resp_difficulty_triggers
+  examples: |
+    - No, I can't pinpoint anything specific. It just feels like it's getting harder to breathe.
+    - Well, it seems to get worse [when I try to climb stairs](resp_distress_triggers) or [exert myself](resp_distress_triggers).
+    - I've noticed it tends to [flare up after I eat a big meal](resp_distress_triggers).
+    - I think it gets worse when the [weather is really cold or hot](resp_distress_triggers).
+    - It seems to be triggered when I'm exposed to [strong odors or perfumes](resp_distress_triggers).
+    - Sometimes it gets worse when I'm [lying down, especially at night](resp_distress_triggers).
+    - I haven't identified any specific triggers, but [stress seems to make it worse](resp_distress_triggers).
+    - I've noticed that it worsens after I've been [around cigarette smoke](resp_distress_triggers).
+    - It seems to flare up when I'm in a [dusty or moldy environment](resp_distress_triggers).
+    - I can't point to a particular activity, but it tends to [worsen during allergy seasons](resp_distress_triggers).
+    - I think it gets worse when I'm [anxious or feeling panicky](resp_distress_triggers).
+    - I haven't found a pattern yet, but it tends to be more challenging [when I'm talking a lot](resp_distress_triggers).
+    - I've noticed it gets worse after I've been [around pets](resp_distress_triggers) or in [places with pet dander](resp_distress_triggers).
+    - Sometimes it worsens after I've had [a few alcoholic drinks](resp_distress_triggers).
+    - I haven't identified any specific triggers, but it seems to be [worse in the mornings](resp_distress_triggers).
+    - It tends to worsen after I've been [exposed to strong cleaning chemicals](resp_distress_triggers).
+    - I can't pinpoint any particular activity, but it seems worse [when I have a cold](resp_distress_triggers).
+    - I've noticed it gets worse when I'm [around pollen](resp_distress_triggers) or [freshly cut grass](resp_distress_triggers).
+    - Sometimes it worsens after I've been [in a crowded or stuffy room](resp_distress_triggers).
+    - I can't find a specific trigger, but it seems to be worse when I'm [tired or fatigued](resp_distress_triggers).
+
+- intent: inform_resp_difficulty_exposure
+  examples: |
+    - No, I haven't been sick recently, but I did spend the weekend [in a dusty old attic cleaning out some old stuff](resp_difficulty_exposure).
+    - I had a [cold about a week ago](resp_difficulty_exposure), but I thought I was over it. The breathing trouble just started today.
+    - I've been dealing with allergies lately, especially with the [pollen in the air](resp_difficulty_exposure)
+    - I work [in a chemical plant](resp_difficulty_exposure), and today there was a spill. [I had my mask on](resp_difficulty_exposure), but I'm still having trouble breathing.
+    - I've been feeling fine until yesterday when I [went for a run](resp_difficulty_exposure). Now, I'm struggling to catch my breath.
+    - [I live near a construction site](resp_difficulty_exposure), and there's [a lot of dust and fumes in the air](resp_difficulty_exposure).
+    - No recent illnesses, but I did have [a bonfire in my backyard](resp_difficulty_exposure) last night.
+    - I have [a history of asthma](resp_difficulty_exposure), and it's been acting up more than usual lately.
+    - I work [in a bakery](resp_difficulty_exposure), and the [flour dust](resp_difficulty_exposure) is always in the air.
+    - I had a sudden onset of difficulty breathing [after eating a new dish](resp_difficulty_exposure) at a restaurant.
+    - I recently [moved to a new apartment](resp_difficulty_exposure), and the air feels different here.
+    - I was at a friend's house, and they have [a cat](resp_difficulty_exposure). I'm allergic, and now I'm struggling to breathe.
+    - I work in a car repair shop, and there are always [strong odors from the chemicals](resp_difficulty_exposure).
+    - I don't recall any recent illnesses, but I do live in an area with [high air pollution](resp_difficulty_exposure).
+    - No illnesses, but I did attend a family gathering, and someone was [smoking nearby](resp_difficulty_exposure).
