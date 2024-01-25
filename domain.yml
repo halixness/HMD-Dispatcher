@@ -18,7 +18,7 @@ intents:
 - inform_resp_difficulty_exposure
 - inform_hypothermia_skin_color
 - inform_hypothermia_treatment
-- inform_aller_cuase
+- inform_aller_cause
 - inform_aller_symptoms
 - inform_aller_history
 

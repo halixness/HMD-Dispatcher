@@ -524,39 +524,39 @@ nlu:
     - I don't recall any recent illnesses, but I do live in an area with [high air pollution](resp_difficulty_exposure).
     - No illnesses, but I did attend a family gathering, and someone was [smoking nearby](resp_difficulty_exposure).
 
-- intent: inform_aller_cuase
+- intent: inform_aller_cause
   examples: |
-  - I recently ate [a meal that included shellfish](allergy_cause), and I suspect it might be the cause.
-  - I used [a new skincare product](allergy_cause) yesterday, and my skin reacted, so it could be an ingredient in that.
-  - I was gardening earlier, and I may have come into [contact with a plant or pollen](allergy_cause) that triggered my allergies.
-  - I tried [a new medication](allergy_cause) this morning, and shortly afterward, I started experiencing these symptoms.
-  - I was [stung by a bee](allergy_cause) while outdoors, and I think I might be allergic to bee venom.
-  - I attended a friend's pet-friendly house, and I'm [allergic to cats](allergy_cause). That exposure might be the cause.
-  - I had a [different brand of nuts as a snack](allergy_cause), and I'm wondering if that could be the allergen.
-  - I recently moved into a new apartment, and there might be [environmental factors](allergy_cause) triggering my allergies.
-  - I spent time in a grassy area, and I'm [allergic to certain types of grasses](allergy_cause).
-  - I used [a scented cleaning product](allergy_cause) at home today, and the aroma might have triggered my allergic reaction.
+    - I recently ate [a meal that included shellfish](allergy_cause), and I suspect it might be the cause.
+    - I used [a new skincare product](allergy_cause) yesterday, and my skin reacted, so it could be an ingredient in that.
+    - I was gardening earlier, and I may have come into [contact with a plant or pollen](allergy_cause) that triggered my allergies.
+    - I tried [a new medication](allergy_cause) this morning, and shortly afterward, I started experiencing these symptoms.
+    - I was [stung by a bee](allergy_cause) while outdoors, and I think I might be allergic to bee venom.
+    - I attended a friend's pet-friendly house, and I'm [allergic to cats](allergy_cause). That exposure might be the cause.
+    - I had a [different brand of nuts as a snack](allergy_cause), and I'm wondering if that could be the allergen.
+    - I recently moved into a new apartment, and there might be [environmental factors](allergy_cause) triggering my allergies.
+    - I spent time in a grassy area, and I'm [allergic to certain types of grasses](allergy_cause).
+    - I used [a scented cleaning product](allergy_cause) at home today, and the aroma might have triggered my allergic reaction.
 
 - intent: inform_aller_symptoms
   examples: |
-  - Yes, my [lips have become noticeably swollen](allergy_symptoms).
-  - I've observed [swelling in my tongue](allergy_symptoms) since the onset of symptoms.
-  - There is [swelling around my eyes](allergy_symptoms) and on my face.
-  - My throat feels swollen and tight, making it [difficult to swallow](allergy_symptoms).
-  - I can feel [swelling in my lips](allergy_symptoms), and they appear larger than usual.
-  - There's a [tingling sensation in my tongue](allergy_symptoms), and it seems to be swollen.
-  - [My face feels puffy](allergy_symptoms), especially around the cheeks and eyes.
-  - I'm experiencing pronounced [swelling in my throat](allergy_symptoms), making it hard to breathe.
-  - I've developed [watery eyes and a runny nose](allergy_symptoms).
-  - I've been feeling [lightheaded and dizzy](allergy_symptoms) since the reaction started.
+    - Yes, my [lips have become noticeably swollen](allergy_symptoms).
+    - I've observed [swelling in my tongue](allergy_symptoms) since the onset of symptoms.
+    - There is [swelling around my eyes](allergy_symptoms) and on my face.
+    - My throat feels swollen and tight, making it [difficult to swallow](allergy_symptoms).
+    - I can feel [swelling in my lips](allergy_symptoms), and they appear larger than usual.
+    - There's a [tingling sensation in my tongue](allergy_symptoms), and it seems to be swollen.
+    - [My face feels puffy](allergy_symptoms), especially around the cheeks and eyes.
+    - I'm experiencing pronounced [swelling in my throat](allergy_symptoms), making it hard to breathe.
+    - I've developed [watery eyes and a runny nose](allergy_symptoms).
+    - I've been feeling [lightheaded and dizzy](allergy_symptoms) since the reaction started.
 
 - intent: inform_aller_history
   examples: |
-  - [Yes, I have a known allergy to peanuts](allergy_history), and I carry an epinephrine auto-injector for emergencies.
-  - [No, I've never experienced allergies before](allergy_history); this is the first time I've had such a reaction.
-  - [I have seasonal allergies](allergy_history), mainly to pollen, but it has never caused a reaction like this before.
-  - I have [a history of mild skin allergies](allergy_history), but nothing as severe as what I'm experiencing now.
-  - I'm allergic to certain medications, but [I've never had a reaction to food or environmental factors](allergy_history).
-  - I have [a family history of allergies](allergy_history).
-  - I have [a history of reactions to insect stings](allergy_history), but this feels different from my usual response.
-  - I had [an allergic reaction a few years ago](allergy_history), but the trigger was never identified.
+    - [Yes, I have a known allergy to peanuts](allergy_history), and I carry an epinephrine auto-injector for emergencies.
+    - [No, I've never experienced allergies before](allergy_history); this is the first time I've had such a reaction.
+    - [I have seasonal allergies](allergy_history), mainly to pollen, but it has never caused a reaction like this before.
+    - I have [a history of mild skin allergies](allergy_history), but nothing as severe as what I'm experiencing now.
+    - I'm allergic to certain medications, but [I've never had a reaction to food or environmental factors](allergy_history).
+    - I have [a family history of allergies](allergy_history).
+    - I have [a history of reactions to insect stings](allergy_history), but this feels different from my usual response.
+    - I had [an allergic reaction a few years ago](allergy_history), but the trigger was never identified.
