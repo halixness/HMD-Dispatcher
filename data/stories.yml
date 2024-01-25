@@ -107,7 +107,7 @@ stories:
     - action: utter_ask_resp_difficulty_triggers
     - intent: inform_resp_difficulty_triggers
     - action: utter_ask_resp_difficulty_exposure
-    - intent: utter_ask_resp_difficulty_exposure
+    - intent: inform_resp_difficulty_exposure
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -127,15 +127,37 @@ stories:
       entities:
         - pain_severity: value
     - action: utter_ask_hypothermia_skin_color
-    - intent: inform_pain_description
+    - intent: inform_hypothermia_skin_color
       entities:
         - hypothermia_skin_color: value
     - action: utter_ask_hypothermia_treatment
-    - intent: inform_pain_description
+    - intent: inform_hypothermia_treatment
       entities:
         - hypothermia_treatment: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
+# ========== Allergy Reaction
+- story: report allergy reaction
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - allergic_reaction: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
+    - action: utter_ask_allergy_cause
+    - intent: inform_aller_cuase
+    - action: utter_ask_allergy_symptoms
+    - intent: inform_aller_symptoms
+    - action: utter_ask_allergy_history
+    - intent: inform_aller_history
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 
 # ========== Interruptions
 

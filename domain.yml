@@ -16,6 +16,11 @@ intents:
 - inform_resp_difficulty_nature
 - inform_resp_difficulty_triggers
 - inform_resp_difficulty_exposure
+- inform_hypothermia_skin_color
+- inform_hypothermia_treatment
+- inform_aller_cuase
+- inform_aller_symptoms
+- inform_aller_history
 
 entities:
 - patient_phonenmbr
@@ -25,6 +30,7 @@ entities:
 - fainting
 - poisoning
 - hypothermia
+- allergic_reaction
 # ==== just to avoid warnings
 - pain_duration
 - pain_severity
@@ -33,6 +39,9 @@ entities:
 # ==== 
 - hypothermia_skin_color
 - hypothermia_treatment
+- allergy_cause
+- allergy_symptoms
+- allergy_history
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
@@ -136,6 +145,25 @@ slots:
     mappings:
     - type: custom
       action: action_map_hypothermia_treatment
+   # ============== Allergy reaction questions ==============
+  aller_cuase:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_cuase
+  aller_symptoms:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_symptoms
+  aller_history:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_history
+  
+  
+
 
 
 actions:
@@ -168,6 +196,9 @@ actions:
 - action_map_resp_difficulty_nature
 - action_map_resp_difficulty_triggers
 - action_map_resp_difficulty_exposure
+- action_map_aller_cuase
+- action_map_aller_symptoms
+- action_map_aller_history
 
 
 responses:
@@ -319,6 +350,20 @@ responses:
   - text: Do you have adequate clothing or treatment when you felt bad?
   - text: Have you recieved any treatment after feeling bad?
 
+  # ============== allergy questions ==============
+  utter_ask_allergy_cause:
+  - text: Are you aware of any specific allergen exposure or trigger that might have caused the reaction?
+  - text: Have you recently consumed any new foods or medications?
+  - text: Were you exposed to any environmental factors, such as insect stings or plants?
+
+  utter_ask_allergy_symptoms:
+  - text: Are you experiencing any difficulty breathing or shortness of breath?
+  - text: Have you noticed any swelling in your face, lips, tongue, or throat?
+  - text: Are there any gastrointestinal symptoms, such as abdominal pain, nausea, or vomiting?
+
+  utter_ask_allergy_history:
+  - text: Do you have a history of allergies or allergic reactions?
+  - text: Have you experienced a similar reaction in the past?
   # =================================================
 
   utter_medical_questions_filled:

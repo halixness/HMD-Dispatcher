@@ -184,6 +184,32 @@ class MapHypothermiaTreatment(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="hypothermia_treatment", tracker=tracker)
 
+# ============== Allergy actions ==============
+class MapAllergyCause(Action):
+    
+    def name(self) -> Text:
+        return "action_map_aller_cuase"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_cuase", tracker=tracker)
+class MapAllergySymptoms(Action):
+    
+    def name(self) -> Text:
+        return "action_map_aller_symptoms"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_symptoms", tracker=tracker)
+class MapAllergyHistory(Action):
+    
+    def name(self) -> Text:
+        return "action_map_aller_history"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_history", tracker=tracker)
+# ========================================================
 
 
 class ValidateFormGeneralInfo(FormValidationAction):
