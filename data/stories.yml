@@ -150,7 +150,7 @@ stories:
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
     - action: utter_ask_allergy_cause
-    - intent: inform_aller_cuase
+    - intent: inform_aller_cause
     - action: utter_ask_allergy_symptoms
     - intent: inform_aller_symptoms
     - action: utter_ask_allergy_history
