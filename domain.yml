@@ -9,8 +9,12 @@ intents:
 - patient_wants_human_agent
 - affirmative
 - negative
+#--------general------------
 - inform_pain_duration
 - inform_pain_severity
+- inform_pain_location
+- inform_pain_nature
+#---------specific-----------
 - inform_abdominal_pain_area
 - inform_abdominal_other_symptoms
 - inform_resp_difficulty_nature
@@ -31,17 +35,22 @@ entities:
 - poisoning
 - hypothermia
 - allergic_reaction
-# ==== just to avoid warnings
+- fall
+# ==== general
 - pain_duration
 - pain_severity
+- pain_location
+- pain_nature
+# ==== specific 
 - abdominal_pain_area
 - abdominal_other_symptoms
-# ==== 
 - hypothermia_skin_color
 - hypothermia_treatment
 - allergy_cause
 - allergy_symptoms
 - allergy_history
+- fall_conscious
+- fall_move
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
@@ -74,6 +83,20 @@ slots:
     mappings:
     - type: from_entity
       entity: hypothermia
+  
+  allergy:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: allergic_reaction
+  
+  fall:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fall
 
   # ============== Patient coordinates ==============
   patient_homeaddr:
@@ -97,12 +120,24 @@ slots:
     mappings:
     - type: custom
       action: action_map_pain_duration
+
   pain_severity:
     type: text
     mappings:
     - type: custom
       action: action_map_pain_severity
 
+  pain_location:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_location
+  
+  pain_nature:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_nature
   # ============== Abdominal pain questions ==============
   abdominal_pain_area:
     type: text
@@ -161,8 +196,17 @@ slots:
     mappings:
     - type: custom
       action: action_map_aller_history
-  
-  
+  # ============== fall questions ==============
+  fall_conscious:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_cuase
+  fall_movement:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_cuase
 
 
 
@@ -186,8 +230,12 @@ actions:
 - utter_confirm_ambulance_sent
 - utter_goodbye
 - utter_start_QA
+#=========================
 - action_map_pain_duration
 - action_map_pain_severity
+- action_map_pain_location
+- action_map_pain_nature
+#=========================
 - action_map_abdominal_pain_area
 - action_map_abdominal_other_symptoms
 - action_map_hypothermia_skin_color
@@ -199,6 +247,8 @@ actions:
 - action_map_aller_cuase
 - action_map_aller_symptoms
 - action_map_aller_history
+- action_map_fall_conscious
+- action_map_fall_movement
 
 
 responses:
@@ -364,6 +414,15 @@ responses:
   utter_ask_allergy_history:
   - text: Do you have a history of allergies or allergic reactions?
   - text: Have you experienced a similar reaction in the past?
+
+  # ============== fall questions ==============
+  utter_ask_conscious:
+  - text: Are you conscious and able to communicate clearly?
+  - text: Have you lost consciousness at any point since the fall?
+  
+  utter_ask_movement: 
+  - text: Can you move your limbs? Any difficulty moving your arms or legs?
+  - text: Have you attempted to stand or move since the fall?
   # =================================================
 
   utter_medical_questions_filled:

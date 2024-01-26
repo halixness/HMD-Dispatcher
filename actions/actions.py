@@ -114,6 +114,52 @@ class MapPainSeverity(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_severity", tracker=tracker)
 
+class MapPainLocation(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_location"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_location", tracker=tracker)
+
+class MapPainNature(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_nature"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_nature", tracker=tracker)
+
+class MapPainSymptoms(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_symptoms"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_symptoms", tracker=tracker)
+
+class MapPainHistory(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_history"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_history", tracker=tracker)
+
+class MapPainRelieving(Action):
+    
+    def name(self) -> Text:
+        return "action_map_pain_relieving"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_relieving", tracker=tracker)
+
+
 # ============== Abdominal pain actions ==============
 
 class MapAbdominalPainArea(Action):
@@ -209,6 +255,44 @@ class MapAllergyHistory(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_history", tracker=tracker)
+
+# ============== fall actions ==============
+class MapFallConscious(Action):
+    
+    def name(self) -> Text:
+        return "action_map_fall_conscious"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fall_conscious", tracker=tracker)
+class MapFallMovement(Action):
+    
+    def name(self) -> Text:
+        return "action_map_fall_movement"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fall_movement", tracker=tracker)
+
+# ================= fever =====================
+class MapFeverTemperature(Action):
+    
+    def name(self) -> Text:
+        return "action_map_fever_temperature"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fever_temperature", tracker=tracker)
+
+# ================ headache ====================
+class MapHeadLife(Action):
+    
+    def name(self) -> Text:
+        return "action_map_headachelifestyle"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="headache_lifestyle", tracker=tracker)
 # ========================================================
 
 
