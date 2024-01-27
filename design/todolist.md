@@ -5,14 +5,14 @@
 ### Pathologies
 - [x] Abdominal pain
 - [x] Respiratory distress
-- [ ] Fainting
+- [x] Fainting
 - [ ] Poisoning/drug abuse
 - [ ] Hyperthermia
 - [x] Hypothermia
-- [ ] Allergic reaction
-- [ ] Fall
-- [ ] Fever
-- Headache
+- [x] Allergic reaction
+- [x] Fall
+- [x] Fever
+- [x] Headache
 
 ### Issues
 - [ ] custom slot mapping: how to apply it conditionally? It always runs for all slots and it empties the values...

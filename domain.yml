@@ -2,13 +2,13 @@ version: '3.1'
 
 intents:
 - greet
+- affirmative
+- negative
 - patient_inputs_coordinates
 - patient_reports_pain
 - patient_asks_cause
 - patient_needs_ambulance
 - patient_wants_human_agent
-- affirmative
-- negative
 - inform_pain_duration
 - inform_pain_severity
 - inform_abdominal_pain_area
@@ -21,6 +21,8 @@ intents:
 - inform_aller_cause
 - inform_aller_symptoms
 - inform_aller_history
+- inform_fainting_prior
+- inform_fainting_patterns
 
 entities:
 - patient_phonenmbr
@@ -53,21 +55,24 @@ slots:
     mappings:
     - type: custom
       action: action_toggle_is_pain_reported
-
   abdominal_pain:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: abdominal_pain
-
   respiratory_difficulty:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: respiratory_difficulty
-    
+  fainting:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fainting
   hypothermia:
     type: text
     influence_conversation: true
@@ -199,6 +204,11 @@ actions:
 - action_map_aller_cuase
 - action_map_aller_symptoms
 - action_map_aller_history
+- utter_will_ask_medical_questions
+- utter_ask_pain_severity
+- utter_ask_pain_duration
+- utter_ask_fainting_prior
+- utter_ask_fainting_patterns
 
 
 responses:
@@ -338,6 +348,16 @@ responses:
   - text: Have you experienced any recent illness or exposure to environmental factors that might be related to your respiratory distress?
   - text: Have you encountered any recent health issues or been exposed to environmental factors that could be linked to your respiratory difficulties?
   - text: Did you undergo any recent illnesses or come into contact with environmental elements that might be associated with your respiratory distress?
+
+  utter_ask_fainting_prior:
+  - text: Can you describe the events leading up to the fainting episode?
+  - text: Could you provide a detailed account of the circumstances that preceded the fainting incident?
+  - text: What happened before the person fainted? Please describe the events leading up to it.
+
+  utter_ask_fainting_patterns:
+  - text: Have you noticed any specific triggers or patterns associated with your fainting episodes?
+  - text: Have you identified any particular factors or recurring patterns linked to your episodes of fainting?
+  - text: Are there specific triggers or regular patterns that you've observed in connection with your instances of fainting?
 
   # ============== Hypothermia pain questions ==============
   utter_ask_hypothermia_skin_color:

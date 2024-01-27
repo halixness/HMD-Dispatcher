@@ -98,8 +98,6 @@ stories:
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
     - action: utter_ask_resp_difficulty_nature
@@ -111,8 +109,26 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+# ========== Fainting 
+- story: report fainting
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - fainting: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
+    - action: utter_ask_fainting_prior
+    - intent: inform_fainting_prior
+    - action: utter_ask_fainting_patterns
+    - intent: inform_fainting_patterns
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 # ========== Hypothermia 
-- story: report abdominal pain
+- story: report hypothermia pain
   steps:
     - intent: patient_reports_pain
       entities:
@@ -136,6 +152,7 @@ stories:
         - hypothermia_treatment: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
+
 # ========== Allergy Reaction
 - story: report allergy reaction
   steps:

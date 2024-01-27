@@ -104,36 +104,26 @@ nlu:
     - [Piazza XX settembre 4 varese](patient_homeaddr) is my location.
     - You can find me at [viale dante 21 como](patient_homeaddr).
     - [Via roma 14 cremona](patient_homeaddr) is my address.
-    - My number is [06 807 1476](patient_phonenmbr)
-    - Okay, it's [06 671 1973](patient_phonenmbr)
-    - It's [06 151 8913](patient_phonenmbr)
-    - My phone number is [06 794 7914](patient_phonenmbr)
-    - You can reach me at [06 993 5166](patient_phonenmbr)
-    - It's [06 623 7980](patient_phonenmbr)
-    - My number is [338 123 4567](patient_phonenmbr)
-    - Okay, it's [340 987 6543](patient_phonenmbr)
-    - It's [02 555 4433](patient_phonenmbr)
-    - My phone number is [091 876 5432](patient_phonenmbr)
-    - You can reach me at [055 234 5678](patient_phonenmbr)
-    - It's [081 333 4444](patient_phonenmbr)
-    - My number is [349 112 2233](patient_phonenmbr)
-    - Okay, it's [328 445 5667](patient_phonenmbr)
-    - It's [380 998 7654](patient_phonenmbr)
-    - My phone number is [011 111 2222](patient_phonenmbr)
-    - You can reach me at [0471 111222](patient_phonenmbr)
-    - It's [0541 987654](patient_phonenmbr)
-    - My number is [02 1234 5678](patient_phonenmbr)
-    - Okay, it's [081 333 4444](patient_phonenmbr)
-    - It's [055 876 5432](patient_phonenmbr)
-    - My phone number is [340 112 2233](patient_phonenmbr)
-    - You can reach me at [349 445 5667](patient_phonenmbr)
-    - It's [328 998 7654](patient_phonenmbr)
-    - My number is [091 111 2222](patient_phonenmbr)
-    - Okay, it's [055 111222](patient_phonenmbr)
-    - It's [0471 987654](patient_phonenmbr)
-    - My phone number is [02 876 5432](patient_phonenmbr)
-    - You can reach me at [380 112 2233](patient_phonenmbr)
-    - It's [011 445 5667](patient_phonenmbr)
+    - You can reach me at [3331112222](patient_phonenmbr).
+    - My contact number is [3456789012](patient_phonenmbr).
+    - I'm calling from [3334445555](patient_phonenmbr).
+    - You can contact me at [3459876543](patient_phonenmbr).
+    - My phone number is [3216549876](patient_phonenmbr).
+    - I'm reachable at [3332221111](patient_phonenmbr).
+    - You can reach me on [3456781234](patient_phonenmbr).
+    - My contact number is [3219876543](patient_phonenmbr).
+    - I'm calling from [3335554444](patient_phonenmbr).
+    - You can contact me at [3454321098](patient_phonenmbr).
+    - My phone number is [3218765432](patient_phonenmbr).
+    - I'm reachable at [3333333333](patient_phonenmbr).
+    - You can reach me at [3452109876](patient_phonenmbr).
+    - I'm calling from [3211234567](patient_phonenmbr).
+    - My contact number is [3334446666](patient_phonenmbr).
+    - You can contact me at [3459874321](patient_phonenmbr).
+    - My phone number is [3216543210](patient_phonenmbr).
+    - I'm reachable at [3332229999](patient_phonenmbr).
+    - You can reach me on [3456785678](patient_phonenmbr).
+    - I'm calling from [3219877890](patient_phonenmbr).
 
 # ======================================================
 #  Emergency detection
@@ -238,10 +228,26 @@ nlu:
     - I have a known [allergy](allergic_reaction), and I'm experiencing an allergic reaction. Please send help immediately.
     - I accidentally ingested an allergen, and I'm now experiencing [swelling in my face and difficulty breathing](allergic_reaction).
     - I have a known allergy, and I'm encountering a reaction with symptoms like [itching, redness, and swelling](allergic_reaction).
-
-
-
-
+    - I've been experiencing episodes where I [suddenly lose consciousness](fainting).
+    - I [passed out suddenly](fainting) and [found myself on the floor](fainting).
+    - There was a moment when [everything went dark](fainting), and [I collapsed](fainting).
+    - [I fainted](fainting) and woke up to the realization that I had fallen.
+    - It happened so fast—I just [blacked out](fainting) and hit the ground.
+    - One moment I was standing, and the next, [I was unconscious](fainting).
+    - I experienced a [sudden loss of consciousness](fainting) and ended up on the ground.
+    - I [had a blackout episode](fainting) where I [lost consciousness](fainting) for a brief period.
+    - It felt like the [lights went out](fainting), and I came to on the floor.
+    - [My vision faded](fainting), and [I fainted](fainting), leading to an unexpected fall.
+    - There was a brief period where I was [completely unaware](fainting) and [lying down](fainting).
+    - I [suddenly collapsed](fainting), and when I opened my eyes, I was on the ground.
+    - I lost consciousness and had a brief episode of being unresponsive.
+    - I [had a sudden blackout](fainting), and the next thing I remember is being on the floor.
+    - It's worrying because I [just passed out](fainting) without any warning.
+    - I've been having these moments where [everything suddenly goes blurry](fainting), and [I can't see clearly](fainting) before I pass out.
+    - There are times when I [feel really lightheaded](fainting), and my [head starts spinning](fainting) like I'm on a [merry-go-round](fainting), leading to me fainting.
+    - I've noticed that my [heart starts racing](fainting) for no apparent reason, and shortly after, I end up losing consciousness.
+    - Occasionally, I get this [overwhelming feeling of dizziness](fainting), and my [legs give out](fainting), causing me to collapse unexpectedly.
+    - I've experienced a couple of instances where I [feel nauseous](fainting), break into a [cold sweat](fainting), and then [black out](fainting) without any warning.
 
 
 - intent: patient_needs_ambulance
@@ -350,6 +356,9 @@ nlu:
     - no, it's ok
     - no, I don't need it
     - no, there is no need
+    - No, not really
+    - I don't think so
+    - No, nothing like that
 
 
 - intent: inform_pain_duration
@@ -523,6 +532,49 @@ nlu:
     - I work in a car repair shop, and there are always [strong odors from the chemicals](resp_difficulty_exposure).
     - I don't recall any recent illnesses, but I do live in an area with [high air pollution](resp_difficulty_exposure).
     - No illnesses, but I did attend a family gathering, and someone was [smoking nearby](resp_difficulty_exposure).
+
+- intent: inform_fainting_prior
+  examples: |
+    - I was standing in line at the grocery store, and suddenly [everything started spinning](fainting_prior).
+    - I was at work, and I [felt really lightheaded](fainting_prior) while talking to my colleague.
+    - I was sitting on the couch, and out of nowhere, I [started feeling really dizzy](fainting_prior).
+    - I had just [finished exercising](fainting_prior), and when [I stood up](fainting_prior), I [felt extremely lightheaded](fainting_prior).
+    - I was in a [crowded bus](fainting_prior), and suddenly I [felt like I was going to pass out](fainting_prior).
+    - I was in a meeting at work, and [all of a sudden, I started feeling really faint](fainting_prior).
+    - I had been [outside in the heat for a while](fainting_prior), and when I came inside, I [felt dizzy and weak](fainting_prior).
+    - I was on a [long phone call](fainting_prior), and midway through, I [started feeling faint](fainting_prior).
+    - I was [in the shower](fainting_prior), and I suddenly [felt lightheaded](fainting_prior) and [had to sit down](fainting_prior).
+    - I was [walking up the stairs](fainting_prior), and halfway through, I [felt like I was going to faint](fainting_prior).
+    - I was [at a party](fainting_prior), and [the room started spinning](fainting_prior) before I fainted.
+    - I had just [eaten a big meal](fainting_prior), and suddenly I [felt really dizzy](fainting_prior).
+    - I was waiting for the bus, and I [started feeling lightheaded out of nowhere](fainting_prior).
+    - I was at the dentist, and [the sight of blood made me feel faint](fainting_prior).
+    - I was at home [watching TV](fainting_prior), and [suddenly I felt really weak and dizzy](fainting_prior).
+    - I was [standing in a long queue](fainting_prior) at the bank, and I [started feeling faint](fainting_prior).
+    - I was [in a hot and crowded subway](fainting_prior), and I suddenly [felt like I was going to pass out](fainting_prior).
+    - I had been [sitting for a long time](fainting_prior), and [when I stood up](fainting_prior), I [felt lightheaded](fainting_prior).
+    - I was [at a concert](fainting_prior), and the [loud music](fainting_prior) and [the crowd](fainting_prior) made me [feel faint](fainting_prior).
+    - I was [outside in the cold for too long](fainting_prior), and when I came inside, I [felt dizzy and faint](fainting_prior).
+
+- intent: inform_fainting_patterns
+  examples: |
+    - Well, it seems to happen [when I stand up too quickly](fainting_patterns), especially after sitting for a while.
+    - I've noticed it usually occurs when I'm [in crowded places](fainting_patterns), like shopping malls or [busy events](fainting_patterns).
+    - It happens more often [when I'm feeling really stressed](fainting_patterns) or [anxious about something](fainting_patterns).
+    - I've fainted a few times [after seeing blood](fainting_patterns) or [experiencing a medical procedure](fainting_patterns).
+    - I've noticed a pattern [after intense physical activity](fainting_patterns); it seems to trigger my fainting episodes.
+    - There's a connection with dehydration—I tend to faint [when I forget to drink](fainting_patterns) enough water.
+    - It's strange, but [certain strong smells](fainting_patterns) can sometimes make me faint.
+    - Whenever I'm [in a hot environment](fainting_patterns), it increases the likelihood of a fainting episode.
+    - I've fainted a couple of times [when I've been extremely fatigued](fainting_patterns) or [sleep-deprived](fainting_patterns).
+    - It's more likely to happen [during my menstrual cycle](fainting_patterns); I've noticed a monthly pattern.
+    - My fainting episodes seem to coincide with [moments of low blood sugar](fainting_patterns).
+    - [Bright lights or flashing lights](fainting_patterns) can be a trigger for me, especially in a dark room.
+    - I've fainted when I've [had to stand still for a long time](fainting_patterns), like in long queues.
+    - It tends to happen when I'm [feeling emotionally overwhelmed or panicked](fainting_patterns).
+    - [Hot showers or baths](fainting_patterns) sometimes precede my fainting episodes.
+    - It's strange, but [loud noises](fainting_patterns) seem to trigger my fainting, especially sudden ones.
+    - I've fainted during [moments of extreme pain](fainting_patterns); it's like my body can't handle it.
 
 - intent: inform_aller_cause
   examples: |
