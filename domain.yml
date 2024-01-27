@@ -9,8 +9,20 @@ intents:
 - patient_asks_cause
 - patient_needs_ambulance
 - patient_wants_human_agent
+<<<<<<< HEAD
+=======
+- affirmative
+- negative
+#--------general------------
+>>>>>>> b7758835b01df4c7579dd430d5a17b35b1ab7797
 - inform_pain_duration
 - inform_pain_severity
+- inform_pain_location
+- inform_pain_nature
+- inform_pain_symptoms
+- inform_pain_history
+- inform_pain_relieving
+#---------specific-----------
 - inform_abdominal_pain_area
 - inform_abdominal_other_symptoms
 - inform_resp_difficulty_nature
@@ -21,8 +33,15 @@ intents:
 - inform_aller_cause
 - inform_aller_symptoms
 - inform_aller_history
+<<<<<<< HEAD
 - inform_fainting_prior
 - inform_fainting_patterns
+=======
+- inform_fall_conscious
+- inform_fall_movement
+- inform_fever_temperature
+- inform_headache_lifestyle
+>>>>>>> b7758835b01df4c7579dd430d5a17b35b1ab7797
 
 entities:
 - patient_phonenmbr
@@ -33,17 +52,29 @@ entities:
 - poisoning
 - hypothermia
 - allergic_reaction
-# ==== just to avoid warnings
+- fall
+- fever
+- headache
+# ==== general
 - pain_duration
 - pain_severity
+- pain_location
+- pain_nature
+- pain_symptoms
+- pain_history
+- pain_relieving
+# ==== specific 
 - abdominal_pain_area
 - abdominal_other_symptoms
-# ==== 
 - hypothermia_skin_color
 - hypothermia_treatment
 - allergy_cause
 - allergy_symptoms
 - allergy_history
+- fall_conscious
+- fall_move
+- fever_temperature
+- headache_lifestyle
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
@@ -79,6 +110,35 @@ slots:
     mappings:
     - type: from_entity
       entity: hypothermia
+  
+  allergy:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: allergic_reaction
+  
+  fall:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fall
+
+  fever:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fever
+  
+  headache:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: headache
+
 
   # ============== Patient coordinates ==============
   patient_homeaddr:
@@ -102,11 +162,42 @@ slots:
     mappings:
     - type: custom
       action: action_map_pain_duration
+
   pain_severity:
     type: text
     mappings:
     - type: custom
       action: action_map_pain_severity
+
+  pain_location:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_location
+  
+  pain_nature:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_nature
+  
+  pain_symptoms:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_symptoms
+  
+  pain_history:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_history
+
+  pain_relieving:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_pain_relieving
 
   # ============== Abdominal pain questions ==============
   abdominal_pain_area:
@@ -166,9 +257,29 @@ slots:
     mappings:
     - type: custom
       action: action_map_aller_history
-  
-  
-
+  # ============== fall questions ==============
+  fall_conscious:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_cuase
+  fall_movement:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_aller_cuase
+  # =============== fever questions ==============
+  fever_temperature:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_fever_temperature
+  # =============== headache ====================
+  headache_lifestyle:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_headachelifestyle
 
 
 actions:
@@ -191,8 +302,15 @@ actions:
 - utter_confirm_ambulance_sent
 - utter_goodbye
 - utter_start_QA
+#=========================
 - action_map_pain_duration
 - action_map_pain_severity
+- action_map_pain_location
+- action_map_pain_nature
+- action_map_pain_symptoms
+- action_map_pain_history
+- action_map_pain_relieving
+#=========================
 - action_map_abdominal_pain_area
 - action_map_abdominal_other_symptoms
 - action_map_hypothermia_skin_color
@@ -201,14 +319,23 @@ actions:
 - action_map_resp_difficulty_nature
 - action_map_resp_difficulty_triggers
 - action_map_resp_difficulty_exposure
+- action_map_hypothermia_skin_color
+- action_map_hypothermia_treatment
 - action_map_aller_cuase
 - action_map_aller_symptoms
 - action_map_aller_history
+<<<<<<< HEAD
 - utter_will_ask_medical_questions
 - utter_ask_pain_severity
 - utter_ask_pain_duration
 - utter_ask_fainting_prior
 - utter_ask_fainting_patterns
+=======
+- action_map_fall_conscious
+- action_map_fall_movement
+- action_map_fever_temperature
+- action_map_headachelifestyle
+>>>>>>> b7758835b01df4c7579dd430d5a17b35b1ab7797
 
 
 responses:
@@ -288,10 +415,10 @@ responses:
   - text: Describe any actions or postures that impact the pain positively or negatively.
 
   utter_ask_pain_symptoms:
-  - text: Aside from the pain, are you experiencing any other symptoms like nausea or dizziness?
-  - text: Tell me if there are any additional symptoms accompanying the pain.
+  - text: Aside from this, are you experiencing any other symptoms like nausea or dizziness?
+  - text: Tell me if there are any additional symptoms accompanying this.
   - text: Do you notice any other changes in your body, like sweating or shortness of breath?
-  - text: Are there other feelings or symptoms occurring along with the pain?
+  - text: Are there other feelings or symptoms occurring along with this?
   - text: Describe any other sensations or symptoms you're currently having.
 
   utter_ask_pain_history:
@@ -384,7 +511,30 @@ responses:
   utter_ask_allergy_history:
   - text: Do you have a history of allergies or allergic reactions?
   - text: Have you experienced a similar reaction in the past?
+
+  # ============== fall questions ==============
+  utter_ask_conscious:
+  - text: Are you conscious and able to communicate clearly?
+  - text: Have you lost consciousness at any point since the fall?
+  
+  utter_ask_movement: 
+  - text: Can you move your limbs? Any difficulty moving your arms or legs?
+  - text: Have you attempted to stand or move since the fall?
+
+  # ============== fever questions ==============
+  utter_ask_temperature:
+  - text: Have you measured your temperature, and if so, what was it?
+  - text: Have you checked your temperature, and if yes, what was the result?
+  - text: Were you able to measure your temperature, and if you were, what did it show?
+
+  # ============== headache question =============
+  utter_ask_headache_lifestyle:
+  - text: How would you describe your sleep patterns?
+  - text: Has there been any change in your sleep habits?
+  - text: Can you provide details about your typical sleep patterns?
+
   # =================================================
+  
 
   utter_medical_questions_filled:
   - text: Ok, I have collected all the necessary info about your problem.

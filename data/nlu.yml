@@ -248,6 +248,47 @@ nlu:
     - I've noticed that my [heart starts racing](fainting) for no apparent reason, and shortly after, I end up losing consciousness.
     - Occasionally, I get this [overwhelming feeling of dizziness](fainting), and my [legs give out](fainting), causing me to collapse unexpectedly.
     - I've experienced a couple of instances where I [feel nauseous](fainting), break into a [cold sweat](fainting), and then [black out](fainting) without any warning.
+    - I've [had a fall](fall), and I'm in need of urgent help.
+    - I've [fallen from a height](fall), and I'm injured. Please send help immediately.
+    - I'm in a precarious situation after [falling](fall); I require emergency assistance.
+    - I had an accident and [fell down](fall). I'm hurt and need medical help.
+    - [I've fallen](fall), and I'm in a location that's difficult to access. Please send help quickly.
+    - I'm calling from home where [I've fallen](fall), and I need an ambulance.
+    - I've [had a fall](fall), and I'm unable to move. Please send emergency services.
+    - I'm [injured after falling](fall). Please dispatch an ambulance to my location.
+    - I've [fallen from a height](fall), and I'm experiencing severe pain. 
+    - I've [had a slip](fall) and need help promptly.
+    - I've taken [a tumble](fall) and require immediate medical attention.
+    - I'm in urgent need of help; I'm [running a high temperature](fever).
+    - This is an emergency. I'm dealing with [a persistent fever](fever) that's causing distress.
+    - I [have a fever](fever), and it's spiking rapidly. I need immediate medical assistance.
+    - Calling for help, [my body temperature is elevated](fever), and I can't manage it.
+    - I'm down with [a severe fever](fever) and feeling weak.
+    - I've [got a fever](fever), and it's getting worse by the minute.
+    - My [temperature's spiking](fever), and I could really use some medical help right now.
+    - I've got this [fever](fever) that's really knocking me down. Any chance I could get some assistance?
+    - Calling in because I'm dealing with [a stubborn fever](fever). Feeling pretty rough.
+    - My [temperature's through the roof](fever), and I'm not managing too well.
+    - [Caught a fever](fever), and it's hitting hard. Any chance someone could send help my way?
+    - My body's staging a revolt [with this fever](fever).
+    - Got this [fever situation](fever) that's really making things tough. 
+    - I'm dealing with [a stubborn fever](fever) that's throwing me off balance. Could use some help if possible.
+    - [Caught a fever](fever), and it's making life a bit complicated. Any help would be amazing right now.
+    - I'm calling because I've got [a pretty bad headache](headache).
+    - I've got a [headache](headache) that's bothering me.
+    - I've got this [headache](headache) that's been hanging around all day.
+    - I've got this [pounding migraine](headache), and it's pretty intense.
+    - Calling about this [annoying skull ache](headache) that's been bothering me all day.
+    - I've got a throbbing [temple ache](headache), and it's making it hard to concentrate.
+    - Quick call, battling [a serious head tension](headache), any suggestions?
+    - I've got this [persistent forehead pain](headache); it's been bothering me for a while.
+    - there's this dull, [persistent head pain](headache).
+    - I've got this [throbbing pressure in the head](headache) that won't go away.
+    - it's about this [pounding head](headache) that's been bothering me.
+    - Dealing with this [persistent head discomfort](headache).
+    - Dealing with this [head distress](headache), any suggestions on how to manage it?
+    - Calling because I've got this [persistent headache](headache) that's bothering me.
+    - Hi, I've got a [headache](headache) and was wondering if you have any suggestions on how to handle it?
 
 
 - intent: patient_needs_ambulance
@@ -360,7 +401,7 @@ nlu:
     - I don't think so
     - No, nothing like that
 
-
+# ============== general_pain ==============
 - intent: inform_pain_duration
   examples: |
     - It's been [on and off for most of the day](pain_duration).
@@ -407,6 +448,98 @@ nlu:
     - [Around 8](pain_severity), it's [throbbing and persistent](pain_severity).
     - I'd rate it [4, noticeable](pain_severity) but not too severe.
 
+- intent: inform_pain_location
+  examples: |
+    - I'm experiencing a sharp pain [in my lower back](pain_location).
+    - There's a throbbing pain [in the temples of my head](pain_location).
+    - I feel a dull ache [in my chest, near the heart](pain_location).
+    - I have a stabbing pain [in my abdomen, on the right side](pain_location).
+    - There's a shooting pain down the [back of my leg](pain_location).
+    - I'm dealing with a persistent pain [in my shoulders and neck](pain_location).
+    - There's a burning sensation [in my stomach area](pain_location).
+    - I'm having aching pain [in my joints](pain_location), particularly the knees.
+    - I have a constant pain [in my jaw](pain_location), especially when chewing.
+    - I'm experiencing sharp pains [in my wrists](pain_location).
+    - There's a tingling pain [in my fingers](pain_location).
+    - There's a persistent pain [in my hip joints](pain_location).
+
+- intent: inform_pain_nature
+  examples: |
+    - It's a [sharp, stabbing pain](pain_nature) in my lower back.
+    - I would describe it as [a throbbing, pulsating pain](pain_nature) in my temples.
+    - The pain in my chest feels like [a tight, squeezing pressure](pain_nature).
+    - I'm dealing with [a constant, dull ache](pain_nature) in my abdomen.
+    - It's [a shooting pain](pain_nature) that radiates down the back of my leg.
+    - The pain in my shoulders and neck is more of [a persistent, aching sensation](pain_nature).
+    - I feel [a burning sensation](pain_nature) in my stomach area.
+    - The pain in my joints is [a consistent, nagging ache](pain_nature), especially in the knees.
+    - It's [a sharp, stabbing pain](pain_nature) in my wrists when I move them.
+    - There's [a tingling sensation](pain_nature) in my fingers, accompanied by a dull ache.
+    - The pain in my jaw is [a constant, throbbing discomfort](pain_nature), especially when chewing.
+    - It feels like a [stabbing pain](pain_nature) in my side, just below the ribcage.
+    - The [pulsating pain](pain_nature) in my temples comes and goes.
+    - I'm experiencing [a shooting pain](pain_nature) in my ankles, especially when I walk.
+    - There's [a burning and tingling sensation](pain_nature) in my feet.
+    - It's [a sharp, stabbing pain](pain_nature) in my ears, especially on the left side.
+    - The [dull pain](pain_nature) in my lower abdomen is persistent.
+    - It's [a constant, nagging pain](pain_nature) in my hip joints.
+    - I'm feeling [a throbbing pain](pain_nature) in my fingers and palms.
+    - The pain in my feet is more of [a sharp, shooting discomfort](pain_nature).
+
+- intent: inform_pain_symptoms
+  examples: |
+    - Apart from this, I've been dealing with [persistent headaches](pain_symptoms).
+    - I've also noticed [significant fatigue](pain_symptoms) and [a general sense of weakness](pain_symptoms).
+    - My [throat has been sore](pain_symptoms), and I've had [difficulty swallowing](pain_symptoms).
+    - I've been experiencing [intense body aches](pain_symptoms) and [muscle soreness](pain_symptoms).
+    - [Nausea and occasional vomiting](pain_symptoms) have been additional symptoms.
+    - I've had a [persistent cough](pain_symptoms) and [occasional shortness of breath](pain_symptoms).
+    - [Chills have accompanied this](pain_symptoms), making me feel quite cold.
+    - I've had [gastrointestinal issues](pain_symptoms), including diarrhea and stomach cramps.
+    - [Skin rashes and itching have developed along with](pain_symptoms) what I have now.
+    - [Joint pain has been an additional discomfort](pain_symptoms) alongside this.
+    - I've had [changes in taste and smell](pain_symptoms), which is quite unusual for me.
+    - [Sweating excessively](pain_symptoms), especially during the night, has been notable.
+
+- intent: inform_pain_history
+  examples: |
+    - I have [a history of asthma](pain_history), and I currently [use an inhaler as prescribed](pain_history).
+    - [No significant medical history](pain_history), but I take a daily multivitamin for general health.
+    - I've [had hypertension for a few years](pain_history) and take medication to control it.
+    - I [have a family history of diabetes](pain_history), and I'm currently [on oral medication](pain_history) to manage it.
+    - I [had surgery for appendicitis](pain_history) a few years ago, but no ongoing issues.
+    - I've [been diagnosed with hypothyroidism](pain_history) and [take thyroid medication daily](pain_history).
+    - [No major medical history](pain_history), but I [take a low-dose aspirin for heart health](pain_history).
+    - I [have a history of migraines](pain_history) and [take prescribed medication](pain_history) when needed.
+    - I'm [currently on birth control pills](pain_history) for contraceptive purposes.
+    - I [had a bout of pneumonia last year](pain_history) and completed a course of antibiotics.
+    - I have a [history of anxiety](pain_history) and [take an antidepressant as prescribed](pain_history).
+    - I've [had knee surgery in the past](pain_history), and I occasionally [take pain medication](pain_history) for flare-ups.
+    - I'm currently undergoing treatment for a thyroid condition with medication.
+    - [No chronic conditions](pain_history), but I occasionally use an inhaler for exercise-induced bronchoconstriction.
+    - I'm [on a medication regimen](pain_history) for rheumatoid arthritis to manage joint inflammation.
+
+- intent: inform_pain_relieving
+  examples: |
+    - When the pain gets bad, I find that [taking a short nap can often help](pain_relieving) alleviate it.
+    - Unfortunately, [staring at screens for too long seems to make the pain worse](pain_relieving).
+    - [A hot shower tends to provide some relief](pain_relieving), but it's temporary.
+    - I've noticed that [skipping meals can worsen the headache](pain_relieving).
+    - [Drinking a cup of coffee helps](pain_relieving) ease the pain a bit.
+    - [Exercise exacerbates the pain](pain_relieving).
+    - [Lavender, surprisingly help calm the headache](pain_relieving).
+    - I've noticed that [stress and tension can make the pain worse](pain_relieving).
+    - Getting some [fresh air outside sometimes helps](pain_relieving) clear my head a bit.
+    - [Hydrating regularly seems to have a positive impact](pain_relieving) on preventing headaches.
+    - I've identified that [certain foods can trigger my headaches](pain_relieving).
+    - [A short walk can sometimes alleviate the tension](pain_relieving).
+    - [Listening to calming music can help take the edge off the pain](pain_relieving).
+    - [Applying a warm compress to the back of my neck offers relief](pain_relieving).
+    - [Using a neck pillow alleviates some of the discomfort](pain_relieving).
+
+
+# ============== abdominal_pain ==============
+
 - intent: inform_abdominal_pain_area
   examples: |
     - Right around my [navel area](abdominal_pain_area).
@@ -452,7 +585,7 @@ nlu:
     - Yes, I've been feeling [unwell overall](abdominal_other_symptoms), along with the abdominal pain.
     - [No fever](abdominal_other_symptoms), but the abdominal pain is constant and uncomfortable.
     - I'm experiencing abdominal pain, and I had [some nausea earlier](abdominal_other_symptoms).
-
+# ==============hypothermia  ==============
 - intent: inform_hypothermia_skin_color
   examples: |
     - Yes, my [skin has become very pale](hypothermia_skin_color), and it feels cool to the touch.
@@ -473,7 +606,7 @@ nlu:
     - Yes, I saw a doctor and [received appropriate treatment](hypothermia_treatment).
     - I sought medical help, and I am currently [undergoing treatment](hypothermia_treatment).
     - [Yes, I've received treatment](hypothermia_treatment) for my symptoms from a healthcare professional.
-
+# ==============resp_difficulty  ==============
 - intent: inform_resp_difficulty_nature
   examples: |
     - I'm having trouble breathing, and my [chest feels really tight](resp_difficulty_nature).
@@ -576,6 +709,7 @@ nlu:
     - It's strange, but [loud noises](fainting_patterns) seem to trigger my fainting, especially sudden ones.
     - I've fainted during [moments of extreme pain](fainting_patterns); it's like my body can't handle it.
 
+# ============== Allergy  ==============
 - intent: inform_aller_cause
   examples: |
     - I recently ate [a meal that included shellfish](allergy_cause), and I suspect it might be the cause.
@@ -612,3 +746,68 @@ nlu:
     - I have [a family history of allergies](allergy_history).
     - I have [a history of reactions to insect stings](allergy_history), but this feels different from my usual response.
     - I had [an allergic reaction a few years ago](allergy_history), but the trigger was never identified.
+
+# ============== Fall  ==============
+- intent: inform_fall_conscious
+  examples: |
+    - Yes, I'm [fully conscious](fall_conscious) and able to communicate clearly.
+    - [I'm conscious](fall_conscious), but I might have difficulty speaking clearly due to pain.
+    - [I'm awake](fall_conscious), but I'm feeling a bit disoriented at the moment.
+    - [I'm conscious](fall_conscious), and my communication may be affected, but I can respond.
+    - I'm aware, but the pain is making it [challenging to communicate clearly](fall_conscious).
+    - I'm awake, but I'm finding it [hard to express myself](fall_conscious) clearly.
+    - I'm here, but I may need assistance as I'm [not able to communicate well](fall_conscious).
+    - [Yes, I'm alert](fall_conscious), but I may struggle to convey my thoughts due to pain.
+    - Unfortunately, I'm [not entirely aware](fall_conscious), and I may struggle to communicate at the moment.
+    - I'm having [difficulty staying conscious](fall_conscious), and communication is challenging
+    - No, I'm [not fully conscious](fall_conscious)
+
+- intent: inform_fall_movement
+  examples: |
+    - Yes, I [can move my limbs](fall_move) without any difficulty.
+    - I'm [able to move](fall_move) my arms and legs freely.
+    - I have [no issues moving my limbs](fall_move); everything seems fine.
+    - I'm experiencing [some difficulty moving my left arm](fall_move).
+    - I [can move my legs](fall_move), but my right arm feels a bit weak.
+    - There's no problem with my arms, but I'm finding it [hard to move my legs](fall_move).
+    - I'm having [trouble moving both my arms and legs](fall_move).
+    - I [can move my arms without issues](fall_move), but my right leg is causing discomfort.
+    - There's some pain, but I [can still move all my limbs](fall_move).
+    - I'm having [difficulty moving my arms](fall_move), but my legs are okay.
+    - Both my arms are fine, but I'm [unable to move my right leg](fall_move).
+    - I'm experiencing [weakness in both arms and legs](fall_move).
+# ============== fever =================
+- intent: inform_fever_temperature
+  examples: |
+    - Yes, I did. My temperature was [38.0 degrees Celsius](fever_temperature).
+    - I took my temperature, and it was normal, [around 37.0 degrees Celsius](fever_temperature).
+    - I [haven't taken it yet](fever_temperature).
+    - No, but I feel [quite warm](fever_temperature), and I've been sweating a lot.
+    - I used a digital thermometer, and the reading was [37.2 degrees](fever_temperature).
+    - I checked my temperature earlier, and it was slightly elevated at [38.0 degrees Celsius](fever_temperature).
+    - I took my temperature, and it was lower than usual, [around 36.8 degrees](fever_temperature).
+    - I [don't have a thermometer](fever_temperature) at the moment.
+    - [No, I did't](fever_temperature).
+    - Yes, I measured my temperature, and it was [100.1 degrees Fahrenheit](fever_temperature).
+    - I'm not sure of the exact number,but it was [higher than normal](fever_temperature).
+    - I haven't taken it formally, but I know it's [higher than usual](fever_temperature) because I'm feeling unwell.
+    - I used an oral thermometer, and the reading was [98.9 degrees Fahrenheit](fever_temperature).
+    - [Haven't checked yet](fever_temperature).
+    - Used an ear thermometer, and it indicated [37.6 degrees Celsius](fever_temperature).
+# =============== headache ================
+- intent: inform_headache_lifestyle
+  examples: |
+    - I typically get [a solid 7-8 hours of sleep](headache_lifestyle) each night, a good routine for me.
+    - I'm a night owl, usually [going to bed late](headache_lifestyle) and waking up in the morning.
+    - My sleep is quite erratic; I [struggle with maintaining a consistent schedule](headache_lifestyle).
+    - I'm [an early riser](headache_lifestyle); I enjoy waking up with the sunrise and going to bed early.
+    - I [aim for 6-7 hours of sleep](headache_lifestyle), but work commitments sometimes affect that.
+    - I have a tendency to [wake up multiple times during the night](headache_lifestyle); it's not very restful.
+    - I try to [maintain a routine](headache_lifestyle), but stress can occasionally disrupt my sleep patterns.
+    - Weekdays I'm [strict about bedtime](headache_lifestyle).
+    - I'm [a deep sleeper](headache_lifestyle).
+    - I usually [sleep well](headache_lifestyle).
+    - I'm [a light sleeper](headache_lifestyle).
+    - I prioritize [a full 8 hours of sleep](headache_lifestyle).
+    - I [struggle with insomnia](headache_lifestyle); falling asleep can be challenging for me.
+    - I've developed [a calming bedtime routine](headache_lifestyle) to ensure a peaceful night's sleep.

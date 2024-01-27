@@ -166,12 +166,71 @@ stories:
         - pain_duration: value
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
+      entities:
+        - pain_severity: value #does every question need to specify the entity??
     - action: utter_ask_allergy_cause
     - intent: inform_aller_cause
     - action: utter_ask_allergy_symptoms
     - intent: inform_aller_symptoms
     - action: utter_ask_allergy_history
     - intent: inform_aller_history
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+# ============ Fall ==========================
+- story: report fall
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - fall: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_location
+    - intent: inform_pain_location
+      entities:
+        - pain_location: value
+    - action: utter_ask_pain_nature
+    - intent: inform_pain_nature
+    - action: utter_ask_conscious
+    - intent: inform_fall_conscious
+    - action: utter_ask_movement
+    - intent: inform_fall_movement
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+# ============ fever =============================
+- story: report fever
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - fever: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: utter_ask_pain_symptoms
+    - intent: inform_pain_symptoms
+    - action: utter_ask_pain_history
+    - intent: inform_pain_history
+    - action: utter_ask_temperature
+    - intent: inform_fever_temperature
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+# ============== headache ===========================
+- story: report headache
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - headache: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
+    - action: utter_ask_pain_relieving
+    - intent: inform_pain_relieving
+    - action: utter_ask_headache_lifestyle
+    - intent: inform_headache_lifestyle
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
