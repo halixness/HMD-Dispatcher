@@ -317,23 +317,3 @@ class ValidateFormGeneralInfo(FormValidationAction):
         else:
             return {"patient_homeaddr": slot_value}
 
-# ========================== General info form validation 
-        
-class SetPathology(Action):
-    
-    def name(self) -> Text:
-        return "action_set_pathology"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """
-            Formulating how to ask the form field depending on repetitions
-        """
-        intent_pathology = None
-        for idx in range(len(tracker.events)-1, 0, -1):
-            event = tracker.events[idx]
-            if "parse_data" in event and "patient_reports_" in event["parse_data"]["intent"]["name"]:
-                intent_pathology = event["parse_data"]["intent"]["name"]
-        if intent_pathology:
-            return [SlotSet("reported_pathology", intent_pathology)]
-        else:
-            return []

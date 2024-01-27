@@ -1,6 +1,14 @@
 ## Behaviors to handle
 
-### Questions
+### Quality checkup
+- [ ] Over-informative user
+- [ ] Mixed initiative
+- [ ] Low coherence user
+- [ ] Conversational markers
+- [ ] Error handling
+    - No speech
+    - Ambiguous input
+    - Error escalation: give indications on the correct input
 
 ### Pathologies
 - [x] Abdominal pain

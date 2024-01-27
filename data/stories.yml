@@ -80,14 +80,41 @@ stories:
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: positive_conv_marker
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
+      entities:
+        - pain_severity: value
+    - action: positive_conv_marker
     - action: utter_ask_abdominal_pain_area
     - intent: inform_abdominal_pain_area
+      entities:
+        - abdominal_pain_area: value
+    - action: positive_conv_marker
     - action: utter_ask_abdominal_other_symptoms
     - intent: inform_abdominal_other_symptoms
+      entities:
+        - abdominal_other_symptoms: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
+
+- story: abdominal pain - negative answ (1)
+  steps:
+    - action: utter_ask_abdominal_pain_area
+    - intent: negative
+    - action: negative_conv_marker
+    - action: utter_ask_abdominal_other_symptoms
+
+- story: abdominal pain - negative answ (2)
+  steps:
+    - action: inform_abdominal_other_symptoms
+    - intent: negative
+    - action: negative_conv_marker
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 
 # ========== Respiratory difficulty 
 - story: report respiratory difficulty
@@ -98,14 +125,44 @@ stories:
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: positive_conv_marker
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
+      entities:
+        - pain_severity: value
+    - action: positive_conv_marker
     - action: utter_ask_resp_difficulty_nature
     - intent: inform_resp_difficulty_nature
+      entities:
+        - resp_difficulty_nature: value
+    - action: positive_conv_marker
     - action: utter_ask_resp_difficulty_triggers
     - intent: inform_resp_difficulty_triggers
+      entities:
+        - resp_difficulty_triggers: value
+    - action: positive_conv_marker
     - action: utter_ask_resp_difficulty_exposure
     - intent: inform_resp_difficulty_exposure
+      entities:
+        - resp_difficulty_exposure: value
+    - action: positive_conv_marker
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+- story: resp difficulty - negative answ (1)
+  steps:
+    - action: utter_ask_resp_difficulty_triggers
+    - intent: negative
+    - action: negative_conv_marker
+    - action: utter_ask_resp_difficulty_exposure
+
+- story: resp difficulty - negative answ (2)
+  steps:
+    - action: utter_ask_resp_difficulty_exposure
+    - intent: negative
+    - action: negative_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -118,12 +175,33 @@ stories:
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
+      entities:
+        - pain_severity: value
     - action: utter_ask_fainting_prior
     - intent: inform_fainting_prior
+      entities:
+        - fainting_prior: value
     - action: utter_ask_fainting_patterns
     - intent: inform_fainting_patterns
+      entities:
+        - fainting_patterns: value
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+- story: resp difficulty - negative answ (1)
+  steps:
+    - action: utter_ask_fainting_prior
+    - intent: negative
+    - action: utter_ask_fainting_patterns
+
+- story: resp difficulty - negative answ (2)
+  steps:
+    - action: utter_ask_fainting_patterns
+    - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -214,6 +292,7 @@ stories:
     - intent: inform_fever_temperature
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
+
 # ============== headache ===========================
 - story: report headache
   steps:

@@ -1,4 +1,4 @@
-version: '3.1'
+version: "3.1"
 
 intents:
 - greet
@@ -9,12 +9,6 @@ intents:
 - patient_asks_cause
 - patient_needs_ambulance
 - patient_wants_human_agent
-<<<<<<< HEAD
-=======
-- affirmative
-- negative
-#--------general------------
->>>>>>> b7758835b01df4c7579dd430d5a17b35b1ab7797
 - inform_pain_duration
 - inform_pain_severity
 - inform_pain_location
@@ -22,7 +16,6 @@ intents:
 - inform_pain_symptoms
 - inform_pain_history
 - inform_pain_relieving
-#---------specific-----------
 - inform_abdominal_pain_area
 - inform_abdominal_other_symptoms
 - inform_resp_difficulty_nature
@@ -33,15 +26,12 @@ intents:
 - inform_aller_cause
 - inform_aller_symptoms
 - inform_aller_history
-<<<<<<< HEAD
 - inform_fainting_prior
 - inform_fainting_patterns
-=======
 - inform_fall_conscious
 - inform_fall_movement
 - inform_fever_temperature
 - inform_headache_lifestyle
->>>>>>> b7758835b01df4c7579dd430d5a17b35b1ab7797
 
 entities:
 - patient_phonenmbr
@@ -55,7 +45,6 @@ entities:
 - fall
 - fever
 - headache
-# ==== general
 - pain_duration
 - pain_severity
 - pain_location
@@ -63,7 +52,6 @@ entities:
 - pain_symptoms
 - pain_history
 - pain_relieving
-# ==== specific 
 - abdominal_pain_area
 - abdominal_other_symptoms
 - hypothermia_skin_color
@@ -78,7 +66,6 @@ entities:
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
-
   # ============== Reported pathologies ==============
   is_pain_reported:
     type: bool
@@ -287,7 +274,6 @@ actions:
 - utter_proceed_asking_pain
 - validate_form_general_info
 - action_ask_patient_homeaddr
-- action_set_pathology
 - action_submit_patient_coordinates
 - action_submit_emergency_form
 - utter_greet
@@ -302,7 +288,6 @@ actions:
 - utter_confirm_ambulance_sent
 - utter_goodbye
 - utter_start_QA
-#=========================
 - action_map_pain_duration
 - action_map_pain_severity
 - action_map_pain_location
@@ -310,7 +295,6 @@ actions:
 - action_map_pain_symptoms
 - action_map_pain_history
 - action_map_pain_relieving
-#=========================
 - action_map_abdominal_pain_area
 - action_map_abdominal_other_symptoms
 - action_map_hypothermia_skin_color
@@ -319,26 +303,32 @@ actions:
 - action_map_resp_difficulty_nature
 - action_map_resp_difficulty_triggers
 - action_map_resp_difficulty_exposure
-- action_map_hypothermia_skin_color
-- action_map_hypothermia_treatment
 - action_map_aller_cuase
 - action_map_aller_symptoms
 - action_map_aller_history
-<<<<<<< HEAD
 - utter_will_ask_medical_questions
 - utter_ask_pain_severity
 - utter_ask_pain_duration
 - utter_ask_fainting_prior
 - utter_ask_fainting_patterns
-=======
 - action_map_fall_conscious
 - action_map_fall_movement
 - action_map_fever_temperature
 - action_map_headachelifestyle
->>>>>>> b7758835b01df4c7579dd430d5a17b35b1ab7797
 
 
 responses:
+
+  positive_conv_marker:
+  - text: Got it.
+  - text: I see.
+  - text: Ok.
+  - text: Alright.
+  
+  negative_conv_marker:
+  - text: Ok, no problem.
+  - text: Alright, that's fine.
+  - text: That's fine.
 
   utter_will_ask_medical_questions:
   - text: I see, I am going to ask you some detailed questions to be as accurate as possible, don't worry if you can't answer fully.
