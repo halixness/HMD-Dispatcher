@@ -45,7 +45,6 @@ stories:
 - story: medical questions > ask ambulance > yes
   steps:
     - checkpoint: completed_medical_questions
-    - action: utter_medical_questions_filled
     - action: utter_ask_dispatch_ambulance
     - intent: affirmative
     - action: form_general_info
@@ -54,7 +53,6 @@ stories:
 - story: medical questions > ask ambulance > no
   steps:
     - checkpoint: completed_medical_questions
-    - action: utter_medical_questions_filled
     - action: utter_ask_dispatch_ambulance
     - intent: negative
     - action: utter_ask_any_questions
@@ -82,17 +80,17 @@ stories:
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
       entities:
         - pain_severity: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_abdominal_pain_area
     - intent: inform_abdominal_pain_area
       entities:
         - abdominal_pain_area: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_abdominal_other_symptoms
     - intent: inform_abdominal_other_symptoms
       entities:
@@ -102,16 +100,30 @@ stories:
 
 - story: abdominal pain - negative answ (1)
   steps:
-    - action: utter_ask_abdominal_pain_area
+    - action: utter_ask_pain_duration
     - intent: negative
-    - action: negative_conv_marker
-    - action: utter_ask_abdominal_other_symptoms
+    - action: utter_negative_conv_marker
+    - action: utter_ask_pain_severity
 
 - story: abdominal pain - negative answ (2)
   steps:
-    - action: inform_abdominal_other_symptoms
+    - action: utter_ask_pain_severity
     - intent: negative
-    - action: negative_conv_marker
+    - action: utter_negative_conv_marker
+    - action: utter_ask_abdominal_pain_area
+
+- story: abdominal pain - negative answ (3)
+  steps:
+    - action: utter_ask_abdominal_pain_area
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_abdominal_other_symptoms
+
+- story: abdominal pain - negative answ (4)
+  steps:
+    - action: utter_ask_abdominal_other_symptoms
+    - intent: negative
+    - action: utter_negative_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -127,27 +139,27 @@ stories:
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
       entities:
         - pain_severity: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_resp_difficulty_nature
     - intent: inform_resp_difficulty_nature
       entities:
         - resp_difficulty_nature: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_resp_difficulty_triggers
     - intent: inform_resp_difficulty_triggers
       entities:
         - resp_difficulty_triggers: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_ask_resp_difficulty_exposure
     - intent: inform_resp_difficulty_exposure
       entities:
         - resp_difficulty_exposure: value
-    - action: positive_conv_marker
+    - action: utter_positive_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -155,14 +167,14 @@ stories:
   steps:
     - action: utter_ask_resp_difficulty_triggers
     - intent: negative
-    - action: negative_conv_marker
+    - action: utter_negative_conv_marker
     - action: utter_ask_resp_difficulty_exposure
 
 - story: resp difficulty - negative answ (2)
   steps:
     - action: utter_ask_resp_difficulty_exposure
     - intent: negative
-    - action: negative_conv_marker
+    - action: utter_negative_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 

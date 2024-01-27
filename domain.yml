@@ -270,6 +270,8 @@ slots:
 
 
 actions:
+- utter_positive_conv_marker
+- utter_negative_conv_marker
 - utter_medical_questions_filled
 - utter_proceed_asking_pain
 - validate_form_general_info
@@ -319,13 +321,13 @@ actions:
 
 responses:
 
-  positive_conv_marker:
+  utter_positive_conv_marker:
   - text: Got it.
   - text: I see.
   - text: Ok.
   - text: Alright.
   
-  negative_conv_marker:
+  utter_negative_conv_marker:
   - text: Ok, no problem.
   - text: Alright, that's fine.
   - text: That's fine.
