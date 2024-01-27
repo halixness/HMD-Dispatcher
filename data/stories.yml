@@ -75,58 +75,67 @@ stories:
     - intent: patient_reports_pain
       entities:
         - abdominal_pain: value
+    - slot_was_set:
+      - abdominal_pain: value
+    - checkpoint: reported_abdominal_pain
     - action: utter_will_ask_medical_questions
+    - action: utter_ask_allergy_history
+    - intent: inform_aller_history
+      entities:
+        - allergy_history: value
+    - action: utter_positive_conv_marker
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
     - action: utter_positive_conv_marker
-    - action: utter_ask_pain_severity
-    - intent: inform_pain_severity
-      entities:
-        - pain_severity: value
-    - action: utter_positive_conv_marker
     - action: utter_ask_abdominal_pain_area
     - intent: inform_abdominal_pain_area
       entities:
         - abdominal_pain_area: value
-    - action: utter_positive_conv_marker
-    - action: utter_ask_abdominal_other_symptoms
-    - intent: inform_abdominal_other_symptoms
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
       entities:
-        - abdominal_other_symptoms: value
+        - pain_severity: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
 - story: abdominal pain - negative answ (1)
   steps:
-    - action: utter_ask_pain_duration
+    - slot_was_set:
+      - abdominal_pain: value
+    - action: utter_ask_allergy_history
     - intent: negative
     - action: utter_negative_conv_marker
-    - action: utter_ask_pain_severity
+    - action: utter_ask_pain_duration
 
 - story: abdominal pain - negative answ (2)
   steps:
-    - action: utter_ask_pain_severity
+    - slot_was_set:
+      - abdominal_pain: value
+    - action: utter_ask_pain_duration
     - intent: negative
     - action: utter_negative_conv_marker
     - action: utter_ask_abdominal_pain_area
 
 - story: abdominal pain - negative answ (3)
   steps:
+    - slot_was_set:
+      - abdominal_pain: value
     - action: utter_ask_abdominal_pain_area
     - intent: negative
     - action: utter_negative_conv_marker
-    - action: utter_ask_abdominal_other_symptoms
+    - action: utter_ask_pain_severity
 
 - story: abdominal pain - negative answ (4)
   steps:
-    - action: utter_ask_abdominal_other_symptoms
+    - slot_was_set:
+      - abdominal_pain: value
+    - action: utter_ask_pain_severity
     - intent: negative
     - action: utter_negative_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
-
 
 # ========== Respiratory difficulty 
 - story: report respiratory difficulty
@@ -134,197 +143,54 @@ stories:
     - intent: patient_reports_pain
       entities:
         - respiratory_difficulty: value
+    - slot_was_set:
+      - respiratory_difficulty: value
     - action: utter_will_ask_medical_questions
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
-    - action: utter_positive_conv_marker
-    - action: utter_ask_pain_severity
-    - intent: inform_pain_severity
-      entities:
-        - pain_severity: value
-    - action: utter_positive_conv_marker
-    - action: utter_ask_resp_difficulty_nature
-    - intent: inform_resp_difficulty_nature
-      entities:
-        - resp_difficulty_nature: value
     - action: utter_positive_conv_marker
     - action: utter_ask_resp_difficulty_triggers
     - intent: inform_resp_difficulty_triggers
       entities:
         - resp_difficulty_triggers: value
     - action: utter_positive_conv_marker
-    - action: utter_ask_resp_difficulty_exposure
-    - intent: inform_resp_difficulty_exposure
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
       entities:
-        - resp_difficulty_exposure: value
+        - pain_severity: value
     - action: utter_positive_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
-- story: resp difficulty - negative answ (1)
+- story: resp. diff - negative answ (1)
   steps:
+    - slot_was_set:
+      - respiratory_difficulty: value
+    - action: utter_ask_pain_duration
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_resp_difficulty_triggers
+
+- story: resp. diff - negative answ (2)
+  steps:
+    - slot_was_set:
+      - respiratory_difficulty: value
     - action: utter_ask_resp_difficulty_triggers
     - intent: negative
     - action: utter_negative_conv_marker
-    - action: utter_ask_resp_difficulty_exposure
+    - action: utter_ask_pain_severity
 
-- story: resp difficulty - negative answ (2)
+- story: resp. diff - negative answ (4)
   steps:
-    - action: utter_ask_resp_difficulty_exposure
+    - slot_was_set:
+      - respiratory_difficulty: value
+    - action: utter_ask_pain_severity
     - intent: negative
     - action: utter_negative_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
-
-# ========== Fainting 
-- story: report fainting
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - fainting: value
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_duration
-    - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
-    - action: utter_ask_pain_severity
-    - intent: inform_pain_severity
-      entities:
-        - pain_severity: value
-    - action: utter_ask_fainting_prior
-    - intent: inform_fainting_prior
-      entities:
-        - fainting_prior: value
-    - action: utter_ask_fainting_patterns
-    - intent: inform_fainting_patterns
-      entities:
-        - fainting_patterns: value
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-
-- story: resp difficulty - negative answ (1)
-  steps:
-    - action: utter_ask_fainting_prior
-    - intent: negative
-    - action: utter_ask_fainting_patterns
-
-- story: resp difficulty - negative answ (2)
-  steps:
-    - action: utter_ask_fainting_patterns
-    - intent: negative
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-
-# ========== Hypothermia 
-- story: report hypothermia pain
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - hypothermia: value
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_duration
-    - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
-    - action: utter_ask_pain_severity
-    - intent: inform_pain_severity
-      entities:
-        - pain_severity: value
-    - action: utter_ask_hypothermia_skin_color
-    - intent: inform_hypothermia_skin_color
-      entities:
-        - hypothermia_skin_color: value
-    - action: utter_ask_hypothermia_treatment
-    - intent: inform_hypothermia_treatment
-      entities:
-        - hypothermia_treatment: value
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-
-# ========== Allergy Reaction
-- story: report allergy reaction
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - allergic_reaction: value
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_duration
-    - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
-    - action: utter_ask_pain_severity
-    - intent: inform_pain_severity
-      entities:
-        - pain_severity: value #does every question need to specify the entity??
-    - action: utter_ask_allergy_cause
-    - intent: inform_aller_cause
-    - action: utter_ask_allergy_symptoms
-    - intent: inform_aller_symptoms
-    - action: utter_ask_allergy_history
-    - intent: inform_aller_history
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-# ============ Fall ==========================
-- story: report fall
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - fall: value
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_location
-    - intent: inform_pain_location
-      entities:
-        - pain_location: value
-    - action: utter_ask_pain_nature
-    - intent: inform_pain_nature
-    - action: utter_ask_conscious
-    - intent: inform_fall_conscious
-    - action: utter_ask_movement
-    - intent: inform_fall_movement
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-# ============ fever =============================
-- story: report fever
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - fever: value
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_duration
-    - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
-    - action: utter_ask_pain_symptoms
-    - intent: inform_pain_symptoms
-    - action: utter_ask_pain_history
-    - intent: inform_pain_history
-    - action: utter_ask_temperature
-    - intent: inform_fever_temperature
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-
-# ============== headache ===========================
-- story: report headache
-  steps:
-    - intent: patient_reports_pain
-      entities:
-        - headache: value
-    - action: utter_will_ask_medical_questions
-    - action: utter_ask_pain_duration
-    - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
-    - action: utter_ask_pain_severity
-    - intent: inform_pain_severity
-    - action: utter_ask_pain_relieving
-    - intent: inform_pain_relieving
-    - action: utter_ask_headache_lifestyle
-    - intent: inform_headache_lifestyle
-    - action: utter_medical_questions_filled
-    - checkpoint: completed_medical_questions
-
 
 # ========== Interruptions
 

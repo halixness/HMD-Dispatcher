@@ -154,107 +154,47 @@ nlu:
     - I'm calling from [3219877890](patient_phonenmbr).
 
 # ======================================================
-#  Emergency detection
+#  Emergency detection (reviewed)
 # ======================================================
 - intent: patient_reports_pain
   examples: |
     - I have this sensation of [discomfort in my abdomen](abdominal_pain)
-    - It's like [I have a sharp pain in my stomach](abdominal_pain)
-    - I'm experiencing [some sort of ache in my belly](abdominal_pain)
-    - I feel like [there's a dull pain in my midsection](abdominal_pain)
-    - It seems like [my tummy is really hurting](abdominal_pain)
-    - I have this [uncomfortable feeling in my stomach](abdominal_pain)
-    - It's as if [my belly is aching a lot](abdominal_pain)
+    - It's like I have a [sharp pain in my stomach](abdominal_pain)
+    - I'm experiencing some sort of [ache in my belly](abdominal_pain)
+    - I feel like there's a [dull pain in my midsection](abdominal_pain)
+    - It seems like my [tummy is really hurting](abdominal_pain)
+    - I have this uncomfortable [feeling in my stomach](abdominal_pain)
+    - It's as if my [belly is aching](abdominal_pain) a lot
     - I'm having this sensation of [pain in my abdominal area](abdominal_pain)
-    - I sense [some pain in my stomach](abdominal_pain)
-    - I'm in [a lot of discomfort in my abdomen](abdominal_pain)
-    - I have this [sharp ache in my belly](abdominal_pain)
-    - It feels like [there's a throbbing pain in my stomach](abdominal_pain)
-    - I'm having [some serious pain in my midsection](abdominal_pain)
-    - It's as though [my tummy is really aching](abdominal_pain)
-    - I have this [unpleasant feeling in my stomach](abdominal_pain)
-    - It's like [my belly is really hurting badly](abdominal_pain)
-    - I'm experiencing [a great deal of pain in my abdominal area](abdominal_pain)
-    - I feel like [there's a persistent pain in my stomach](abdominal_pain)
-    - It seems like [my tummy is causing me a lot of pain](abdominal_pain)
-    - I have this sensation of [intense discomfort in my belly](abdominal_pain)
-    - It's as if [my stomach is in a lot of pain](abdominal_pain)
-    - I'm having this sensation of [aching in my abdominal area](abdominal_pain)
-    - I sense [a sharp pain in my stomach](abdominal_pain)
-    - I'm in [a lot of discomfort in my midsection](abdominal_pain)
-    - I have this [dull ache in my abdomen](abdominal_pain)
-    - It feels like [there's a constant pain in my stomach](abdominal_pain)
-    - It seems like [I'm gasping for air](abdominal_pain).
-    - I'm experiencing something similar to [a heavy weight on my chest](abdominal_pain).
-    - It's like [I'm suffocating](abdominal_pain) and can't get enough air.
-    - I have this sensation of [air hunger](abdominal_pain) and it's really uncomfortable.
-    - I'm having trouble [drawing in a full breath](abdominal_pain).
-    - It feels like [there's a band around my chest](abdominal_pain) and it's hard to expand.
-    - I'm finding it hard to [catch my breath](abdominal_pain).
-    - I have this feeling of [shallow breathing](abdominal_pain) and it's worrying me.
-    - It's like [my chest is constricting](abdominal_pain) and I can't take deep breaths.
-    - I feel like [I'm not getting enough air](abdominal_pain).
-    - I'm having this sensation of [breathlessness] and it's concerning.
-    - It's as if [there's a pressure on my chest](abdominal_pain) and I can't breathe deeply.
-    - I feel like [I'm wheezing](abdominal_pain) and it's making me anxious.
-    - I'm struggling with [breathing deeply](abdominal_pain) and it's painful.
-    - It's like [there's a blockage in my airway](abdominal_pain) and I can't breathe properly.
-    - I have this sensation of [labored breathing](abdominal_pain) and it's distressing.
-    - It feels like [I'm fighting for each breath](abdominal_pain) and it's exhausting.
-    - I'm experiencing something similar to [airway constriction](abdominal_pain) and it's alarming.
-    - It's as if [I'm breathing through a straw](abdominal_pain) and it's uncomfortable.
-    - I feel like [I'm not able to fill my lungs completely](abdominal_pain).
-    - I'm having difficulty [getting enough air into my lungs](abdominal_pain).
-    - It's like [my breathing is restricted](abdominal_pain) and it's causing pain.
-    - I have this feeling of [airway obstruction](abdominal_pain) and it's frightening.
-    - It seems like [I'm not able to take a deep breath](abdominal_pain).
-    - I'm finding it hard to [breathe in fully](abdominal_pain) and it's distressing.
-    - It feels like [there's a weight on my chest](abdominal_pain) and I can't breathe properly.
-    - I'm struggling with [shortness of breath](abdominal_pain) and it's concerning.
-    - It's like [my chest is tightening](abdominal_pain) and I can't take a deep breath.
-    - I feel like [I'm suffocating](abdominal_pain) and it's making me anxious.
-    - I feel [extremely cold](hypothermia) and my teeth are chattering. #hypothermia
+    - I sense some [pain in my stomach](abdominal_pain)
+    - I'm in a lot of [discomfort in my abdomen](abdominal_pain)
+    - I feel [extremely cold](hypothermia) and my teeth are chattering.
     - My [skin is cold](hypothermia) and my speech is becoming slurred.
-    - I'm [having trouble breathing](hypothermia).
-    - I feel [extremely tired](hypothermia).
-    - I'm confused and my [heart rate is slowing down](hypothermia).
     - My hands are clumsy and I'm [feeling very cold](hypothermia).
     - I'm exhausted and [my skin is cold to the touch](hypothermia).
-    - I'm [becoming drowsy](hypothermia).
     - I'm [feeling numb in my extremities](hypothermia).
     - I'm experiencing a [slow heart rate](hypothermia).
-    - My [breathing rate is decreasing](hypothermia).
-    - I'm [having trouble speaking clearly](hypothermia).
-    - My [movements are slow and clumsy](hypothermia).
-    - I'm feeling very cold and [my teeth are chattering](hypothermia).
-    - I'm feeling drowsy and [my pulse is weakening](hypothermia).
+    - I'm [feeling very cold](hypothermia) and [my teeth are chattering](hypothermia).
     - I'm [shivering uncontrollably](hypothermia) and my heart rate is slowing down.
-    - I'm feeling [extremely exhausted](hypothermia) and my skin is cold to the touch.
-    - I feel like [my energy is draining away](hypothermia).
     - My [skin is turning bluish](hypothermia).
     - I'm experiencing intense shivering and [my fingers are becoming numb](hypothermia).
-    - Doctor, I've been having [trouble breathing](respiratory_difficulty) lately.
-    - It feels like my [chest is tight and I can't take a deep breath](respiratory_difficulty).
+    - It feels like my [chest is tight](respiratory_difficulty) and I [can't take a deep breath](respiratory_difficulty).
     - I often find myself [short of breath](respiratory_difficulty), even with minimal exertion.
-    - Breathing feels labored and I [struggle to inhale](respiratory_difficulty) properly.
+    - [Breathing feels labored](respiratory_difficulty) and I [struggle to inhale](respiratory_difficulty) properly.
     - I've noticed a [persistent cough and wheezing](respiratory_difficulty) that accompanies my [difficulty in breathing](respiratory_difficulty).
     - I've experienced [increased breathlessness](respiratory_difficulty), especially during physical activities.
     - I feel like I'm [not getting enough air](respiratory_difficulty), as if my lungs aren't expanding fully.
     - Sometimes it's [hard to catch my breath](respiratory_difficulty), and I [feel breathless](respiratory_difficulty) even at rest.
     - I've been waking up at night [feeling breathless](respiratory_difficulty), and it's affecting my sleep.
-    - I've observed a decrease in my exercise tolerance due to these [respiratory issues](respiratory_difficulty).
     - I've had this persistent [shortness of breath](respiratory_difficulty) for the past few weeks.
     - Hello, I'm calling because I'm having a [severe allergic reaction](allergic_reaction).
-    - I've been exposed to an [allergen](allergic_reaction), and I'm experiencing difficulty breathing.
     - I believe I'm having an allergic reaction, and [my throat feels tight](allergic_reaction).
-    - I'm at risk of anaphylaxis due to an [allergic trigger](allergic_reaction), and I need immediate medical attention.
-    - I'm having an allergic reaction, and I'm feeling [lightheaded and dizzy](allergic_reaction).
-    - My face and lips are swelling, and I suspect it's an [allergic response](allergic_reaction).
+    - I'm at risk of [anaphylaxis](allergic_reaction) due to an [allergic trigger](allergic_reaction), and I need immediate medical attention.
+    - I'm having an [allergic reaction](allergic_reaction), and I'm feeling lightheaded and dizzy.
+    - My [face and lips are swelling](allergic_reaction), and I suspect it's an allergic response.
     - I've broken out in hives, and my skin is very [itchy and red](allergic_reaction).
     - I'm having [difficulty swallowing](allergic_reaction), and I'm concerned about a severe allergic reaction.
     - I've developed shortness of breath and chest tightness due to an [allergic exposure](allergic_reaction).
-    - I have a known [allergy](allergic_reaction), and I'm experiencing an allergic reaction. Please send help immediately.
-    - I accidentally ingested an allergen, and I'm now experiencing [swelling in my face and difficulty breathing](allergic_reaction).
     - I have a known allergy, and I'm encountering a reaction with symptoms like [itching, redness, and swelling](allergic_reaction).
     - I've been experiencing episodes where I [suddenly lose consciousness](fainting).
     - I [passed out suddenly](fainting) and [found myself on the floor](fainting).
@@ -268,14 +208,12 @@ nlu:
     - [My vision faded](fainting), and [I fainted](fainting), leading to an unexpected fall.
     - There was a brief period where I was [completely unaware](fainting) and [lying down](fainting).
     - I [suddenly collapsed](fainting), and when I opened my eyes, I was on the ground.
-    - I lost consciousness and had a brief episode of being unresponsive.
     - I [had a sudden blackout](fainting), and the next thing I remember is being on the floor.
     - It's worrying because I [just passed out](fainting) without any warning.
     - I've been having these moments where [everything suddenly goes blurry](fainting), and [I can't see clearly](fainting) before I pass out.
     - There are times when I [feel really lightheaded](fainting), and my [head starts spinning](fainting) like I'm on a [merry-go-round](fainting), leading to me fainting.
     - I've noticed that my [heart starts racing](fainting) for no apparent reason, and shortly after, I end up losing consciousness.
-    - Occasionally, I get this [overwhelming feeling of dizziness](fainting), and my [legs give out](fainting), causing me to collapse unexpectedly.
-    - I've experienced a couple of instances where I [feel nauseous](fainting), break into a [cold sweat](fainting), and then [black out](fainting) without any warning.
+    - My [legs give out](fainting), causing me to [collapse unexpectedly](fainting).
     - I've [had a fall](fall), and I'm in need of urgent help.
     - I've [fallen from a height](fall), and I'm injured. Please send help immediately.
     - I'm in a precarious situation after [falling](fall); I require emergency assistance.
@@ -302,15 +240,15 @@ nlu:
     - Got this [fever situation](fever) that's really making things tough. 
     - I'm dealing with [a stubborn fever](fever) that's throwing me off balance. Could use some help if possible.
     - [Caught a fever](fever), and it's making life a bit complicated. Any help would be amazing right now.
-    - I'm calling because I've got [a pretty bad headache](headache).
+    - I'm calling because I've got a pretty [bad headache](headache).
     - I've got a [headache](headache) that's bothering me.
     - I've got this [headache](headache) that's been hanging around all day.
     - I've got this [pounding migraine](headache), and it's pretty intense.
-    - Calling about this [annoying skull ache](headache) that's been bothering me all day.
+    - Calling about this annoying [skull ache](headache) that's been bothering me all day.
     - I've got a throbbing [temple ache](headache), and it's making it hard to concentrate.
-    - Quick call, battling [a serious head tension](headache), any suggestions?
-    - I've got this [persistent forehead pain](headache); it's been bothering me for a while.
-    - there's this dull, [persistent head pain](headache).
+    - Quick call, battling a serious [head tension](headache), any suggestions?
+    - I've got this persistent [forehead pain](headache); it's been bothering me for a while.
+    - there's this dull, persistent [head pain](headache).
     - I've got this [throbbing pressure in the head](headache) that won't go away.
     - it's about this [pounding head](headache) that's been bothering me.
     - Dealing with this [persistent head discomfort](headache).
@@ -410,24 +348,24 @@ nlu:
 - intent: inform_pain_duration
   examples: |
     - It's been [on and off for most of the day](pain_duration).
-    - The pain is [constant](pain_duration) and [has been getting worse over the past hour](pain_duration).
+    - The pain is [constant](pain_duration) and has been [getting worse over the past hour](pain_duration).
     - Started feeling it [this morning](pain_duration), and it [comes and goes in waves](pain_duration).
     - It's been bothering me [for about an hour now](pain_duration), and it's pretty intense.
     - I've had this abdominal pain [off and on since yesterday evening](pain_duration).
-    - The pain is [continuous](pain_duration), and I [first noticed it about two hours ago](pain_duration).
-    - It started as a mild discomfort [this afternoon](pain_duration), and [now it's constant and severe](pain_duration).
-    - Been feeling this abdominal pain [for the past 30 minutes](pain_duration), and it's not letting up.
-    - It's been [intermittent for the past few hours](pain_duration), but [now it's more constant](pain_duration).
-    - The pain [started around lunchtime](pain_duration), and it's been [pretty steady since then](pain_duration).
+    - The pain is [continuous](pain_duration), and I first noticed it about [two hours ago](pain_duration).
+    - It started as a mild discomfort [this afternoon](pain_duration), and now it's [constant](pain_duration) and severe.
+    - Been feeling this abdominal pain for the [past 30 minutes](pain_duration), and it's not letting up.
+    - It's been [intermittent for the past few hours](pain_duration), but now it's [more constant](pain_duration).
+    - The pain [started around lunchtime](pain_duration), and it's been [pretty steady](pain_duration) since then.
     - Feels like [it comes and goes every 10 minutes](pain_duration) or so.
-    - Started feeling the pain [about three hours ago](pain_duration), and [it's been continuous](pain_duration).
+    - Started feeling the pain [about three hours ago](pain_duration), and it's been [continuous](pain_duration).
     - The abdominal pain has been [constant and quite hard for the past hour](pain_duration).
     - It [comes and goes](pain_duration), but when it's here, it's really sharp.
-    - I first noticed the pain [this morning](pain_duration), and it's been [constant since then](pain_duration).
-    - It started [as a dull ache yesterday](pain_duration), but [now it's a constant pain](pain_duration).
-    - The abdominal pain is [intermittent](pain_duration), but [it's been happening all day](pain_duration).
-    - Started feeling it [about two hours ago](pain_duration), and [it hasn't stopped since](pain_duration).
-    - It's been [off and on for the past few days](pain_duration), and [now it's more continuous](pain_duration).
+    - I first noticed the pain [this morning](pain_duration), and it's been [constant](pain_duration) since then.
+    - It started [as a dull ache yesterday](pain_duration), but now it's a [constant](pain_duration) pain.
+    - The abdominal pain is [intermittent](pain_duration), but it's been [happening all day](pain_duration).
+    - Started feeling it about [two hours ago](pain_duration), and it hasn't stopped since.
+    - It's been [off and on for the past few days](pain_duration), and now it's more [continuous](pain_duration).
     - The pain is quite hard and has been [constant since last night](pain_duration).
 
 - intent: inform_pain_severity
@@ -452,96 +390,6 @@ nlu:
     - Maybe [a 6](pain_severity), it [comes and goes in waves](pain_severity).
     - [Around 8](pain_severity), it's [throbbing and persistent](pain_severity).
     - I'd rate it [4, noticeable](pain_severity) but not too severe.
-
-- intent: inform_pain_location
-  examples: |
-    - I'm experiencing a sharp pain [in my lower back](pain_location).
-    - There's a throbbing pain [in the temples of my head](pain_location).
-    - I feel a dull ache [in my chest, near the heart](pain_location).
-    - I have a stabbing pain [in my abdomen, on the right side](pain_location).
-    - There's a shooting pain down the [back of my leg](pain_location).
-    - I'm dealing with a persistent pain [in my shoulders and neck](pain_location).
-    - There's a burning sensation [in my stomach area](pain_location).
-    - I'm having aching pain [in my joints](pain_location), particularly the knees.
-    - I have a constant pain [in my jaw](pain_location), especially when chewing.
-    - I'm experiencing sharp pains [in my wrists](pain_location).
-    - There's a tingling pain [in my fingers](pain_location).
-    - There's a persistent pain [in my hip joints](pain_location).
-
-- intent: inform_pain_nature
-  examples: |
-    - It's a [sharp, stabbing pain](pain_nature) in my lower back.
-    - I would describe it as [a throbbing, pulsating pain](pain_nature) in my temples.
-    - The pain in my chest feels like [a tight, squeezing pressure](pain_nature).
-    - I'm dealing with [a constant, dull ache](pain_nature) in my abdomen.
-    - It's [a shooting pain](pain_nature) that radiates down the back of my leg.
-    - The pain in my shoulders and neck is more of [a persistent, aching sensation](pain_nature).
-    - I feel [a burning sensation](pain_nature) in my stomach area.
-    - The pain in my joints is [a consistent, nagging ache](pain_nature), especially in the knees.
-    - It's [a sharp, stabbing pain](pain_nature) in my wrists when I move them.
-    - There's [a tingling sensation](pain_nature) in my fingers, accompanied by a dull ache.
-    - The pain in my jaw is [a constant, throbbing discomfort](pain_nature), especially when chewing.
-    - It feels like a [stabbing pain](pain_nature) in my side, just below the ribcage.
-    - The [pulsating pain](pain_nature) in my temples comes and goes.
-    - I'm experiencing [a shooting pain](pain_nature) in my ankles, especially when I walk.
-    - There's [a burning and tingling sensation](pain_nature) in my feet.
-    - It's [a sharp, stabbing pain](pain_nature) in my ears, especially on the left side.
-    - The [dull pain](pain_nature) in my lower abdomen is persistent.
-    - It's [a constant, nagging pain](pain_nature) in my hip joints.
-    - I'm feeling [a throbbing pain](pain_nature) in my fingers and palms.
-    - The pain in my feet is more of [a sharp, shooting discomfort](pain_nature).
-
-- intent: inform_pain_symptoms
-  examples: |
-    - Apart from this, I've been dealing with [persistent headaches](pain_symptoms).
-    - I've also noticed [significant fatigue](pain_symptoms) and [a general sense of weakness](pain_symptoms).
-    - My [throat has been sore](pain_symptoms), and I've had [difficulty swallowing](pain_symptoms).
-    - I've been experiencing [intense body aches](pain_symptoms) and [muscle soreness](pain_symptoms).
-    - [Nausea and occasional vomiting](pain_symptoms) have been additional symptoms.
-    - I've had a [persistent cough](pain_symptoms) and [occasional shortness of breath](pain_symptoms).
-    - [Chills have accompanied this](pain_symptoms), making me feel quite cold.
-    - I've had [gastrointestinal issues](pain_symptoms), including diarrhea and stomach cramps.
-    - [Skin rashes and itching have developed along with](pain_symptoms) what I have now.
-    - [Joint pain has been an additional discomfort](pain_symptoms) alongside this.
-    - I've had [changes in taste and smell](pain_symptoms), which is quite unusual for me.
-    - [Sweating excessively](pain_symptoms), especially during the night, has been notable.
-
-- intent: inform_pain_history
-  examples: |
-    - I have [a history of asthma](pain_history), and I currently [use an inhaler as prescribed](pain_history).
-    - [No significant medical history](pain_history), but I take a daily multivitamin for general health.
-    - I've [had hypertension for a few years](pain_history) and take medication to control it.
-    - I [have a family history of diabetes](pain_history), and I'm currently [on oral medication](pain_history) to manage it.
-    - I [had surgery for appendicitis](pain_history) a few years ago, but no ongoing issues.
-    - I've [been diagnosed with hypothyroidism](pain_history) and [take thyroid medication daily](pain_history).
-    - [No major medical history](pain_history), but I [take a low-dose aspirin for heart health](pain_history).
-    - I [have a history of migraines](pain_history) and [take prescribed medication](pain_history) when needed.
-    - I'm [currently on birth control pills](pain_history) for contraceptive purposes.
-    - I [had a bout of pneumonia last year](pain_history) and completed a course of antibiotics.
-    - I have a [history of anxiety](pain_history) and [take an antidepressant as prescribed](pain_history).
-    - I've [had knee surgery in the past](pain_history), and I occasionally [take pain medication](pain_history) for flare-ups.
-    - I'm currently undergoing treatment for a thyroid condition with medication.
-    - [No chronic conditions](pain_history), but I occasionally use an inhaler for exercise-induced bronchoconstriction.
-    - I'm [on a medication regimen](pain_history) for rheumatoid arthritis to manage joint inflammation.
-
-- intent: inform_pain_relieving
-  examples: |
-    - When the pain gets bad, I find that [taking a short nap can often help](pain_relieving) alleviate it.
-    - Unfortunately, [staring at screens for too long seems to make the pain worse](pain_relieving).
-    - [A hot shower tends to provide some relief](pain_relieving), but it's temporary.
-    - I've noticed that [skipping meals can worsen the headache](pain_relieving).
-    - [Drinking a cup of coffee helps](pain_relieving) ease the pain a bit.
-    - [Exercise exacerbates the pain](pain_relieving).
-    - [Lavender, surprisingly help calm the headache](pain_relieving).
-    - I've noticed that [stress and tension can make the pain worse](pain_relieving).
-    - Getting some [fresh air outside sometimes helps](pain_relieving) clear my head a bit.
-    - [Hydrating regularly seems to have a positive impact](pain_relieving) on preventing headaches.
-    - I've identified that [certain foods can trigger my headaches](pain_relieving).
-    - [A short walk can sometimes alleviate the tension](pain_relieving).
-    - [Listening to calming music can help take the edge off the pain](pain_relieving).
-    - [Applying a warm compress to the back of my neck offers relief](pain_relieving).
-    - [Using a neck pillow alleviates some of the discomfort](pain_relieving).
-
 
 # ============== abdominal_pain ==============
 
@@ -568,39 +416,18 @@ nlu:
     - Concentrated [in the middle, below my sternum](abdominal_pain_area).
     - Towards the [lower part of my stomach](abdominal_pain_area), but on [both sides](abdominal_pain_area).
 
-- intent: inform_abdominal_other_symptoms
-  examples: |
-    - Yes, I've been experiencing [intense abdominal pain and vomiting](abdominal_other_symptoms).
-    - [No, the abdominal pain is the only symptom](abdominal_other_symptoms) I'm currently dealing with.
-    - I do have [some discomfort](abdominal_other_symptoms) in my abdomen, and I've been [running a low-grade fever](abdominal_other_symptoms).
-    - I [haven't noticed any changes in bowel habits](abdominal_other_symptoms), but the abdominal pain is quite severe.
-    - I've been [feeling nauseous](abdominal_other_symptoms) along with the abdominal pain.
-    - [No, thankfully](abdominal_other_symptoms), I haven't had any other symptoms accompanying the abdominal pain.
-    - The abdominal pain is constant, but [I haven't experienced vomiting or fever](abdominal_other_symptoms).
-    - I did have [a bit of a fever earlier](abdominal_other_symptoms), but now it's mostly the abdominal pain bothering me.
-    - I [lost my appetite](abdominal_other_symptoms), and the abdominal pain seems to be getting worse.
-    - Yes, there's abdominal pain, and I've been [feeling queasy as well](abdominal_other_symptoms).
-    - [No other symptoms](abdominal_other_symptoms), just this persistent abdominal pain.
-    - I had [some slight fever earlier](abdominal_other_symptoms), and the abdominal pain is still there.
-    - The abdominal pain is sharp, and I've been [nauseous](abdominal_other_symptoms) since it started.
-    - I'm dealing with abdominal pain, and I noticed [a mild fever setting in](abdominal_other_symptoms).
-    - [No vomiting](abdominal_other_symptoms), but the abdominal pain is [making it hard to eat](abdominal_other_symptoms).
-    - I [haven't experienced any other symptoms](abdominal_other_symptoms) besides this abdominal pain.
-    - The abdominal pain is accompanied by a [feeling of sickness](abdominal_other_symptoms) and [loss of appetite](abdominal_other_symptoms).
-    - Yes, I've been feeling [unwell overall](abdominal_other_symptoms), along with the abdominal pain.
-    - [No fever](abdominal_other_symptoms), but the abdominal pain is constant and uncomfortable.
-    - I'm experiencing abdominal pain, and I had [some nausea earlier](abdominal_other_symptoms).
 # ==============hypothermia  ==============
 - intent: inform_hypothermia_skin_color
   examples: |
-    - Yes, my [skin has become very pale](hypothermia_skin_color), and it feels cool to the touch.
-    - I've observed a [noticeable paleness in my skin](hypothermia_skin_color), and it feels quite cool.
+    - Yes, my skin has become [very pale](hypothermia_skin_color), and it feels cool to the touch.
+    - I've observed a [noticeable paleness](hypothermia_skin_color) in my skin, and it feels quite cool.
     - There's [a change in my skin color](hypothermia_skin_color).
-    - Indeed, my [skin has turned pale](hypothermia_skin_color), and it's noticeably cooler than usual.
+    - Indeed, my skin has turned [pale](hypothermia_skin_color), and it's noticeably cooler than usual.
     - I've noticed both [paleness](hypothermia_skin_color) and a cool sensation in my skin.
-    - Yes, my skin feels cool, and [the color has become paler](hypothermia_skin_color).
+    - Yes, my skin feels cool, and the [color has become paler](hypothermia_skin_color).
     - There's a distinct coolness and [paleness in my skin](hypothermia_skin_color).
-    - My skin has [changed the color](hypothermia_skin_color); it's now paler, and there's a coolness to it.
+    - My skin has changed the color; it's now [paler](hypothermia_skin_color), and there's a coolness to it.
+
 - intent: inform_hypothermia_treatment
   examples: |
     - No, I [haven't received any treatment yet](hypothermia_treatment) for how I'm feeling.
@@ -611,65 +438,26 @@ nlu:
     - Yes, I saw a doctor and [received appropriate treatment](hypothermia_treatment).
     - I sought medical help, and I am currently [undergoing treatment](hypothermia_treatment).
     - [Yes, I've received treatment](hypothermia_treatment) for my symptoms from a healthcare professional.
-# ==============resp_difficulty  ==============
-- intent: inform_resp_difficulty_nature
-  examples: |
-    - I'm having trouble breathing, and my [chest feels really tight](resp_difficulty_nature).
-    - It's like I [can't get enough air](resp_difficulty_nature), and my [chest is getting tighter](resp_difficulty_nature).
-    - I noticed a [sudden shortness of breath](resp_difficulty_nature), and my [chest is feeling constricted](resp_difficulty_nature).
-    - My [breathing is becoming difficult](resp_difficulty_nature), and there's a [tightening sensation in my chest](resp_difficulty_nature).
-    - I started [wheezing](resp_difficulty_nature), and it's getting harder to breathe.
-    - I'm experiencing [shortness of breath](resp_difficulty_nature), and my [chest is starting to feel tight](resp_difficulty_nature).
-    - I feel like I'm [gasping for air](resp_difficulty_nature), and my [chest is getting tighter with each breath](resp_difficulty_nature).
-    - It's getting [tough to breathe](resp_difficulty_nature), and my [chest is feeling really heavy](resp_difficulty_nature).
-    - I started [wheezing](resp_difficulty_nature), and it feels like there's [a weight on my chest](resp_difficulty_nature).
-    - My [breaths are getting shallower](resp_difficulty_nature).
-    - It feels like [my airways are closing up](resp_difficulty_nature), and I'm struggling to breathe.
-    - It's like I [can't fill my lungs completely](resp_difficulty_nature), and there's [pressure building in my chest](resp_difficulty_nature).
-    - I started [wheezing](resp_difficulty_nature), and it's becoming [harder to take deep breaths](resp_difficulty_nature).
-    - I feel [like I'm suffocating](resp_difficulty_nature), and my [chest is getting tighter](resp_difficulty_nature).
-    - I [can't seem to breathe deeply](resp_difficulty_nature), and my [chest is feeling constricted](resp_difficulty_nature).
+
+# ============== resp_difficulty  ==============
 
 - intent: inform_resp_difficulty_triggers
   examples: |
-    - No, I can't pinpoint anything specific. It just feels like it's getting harder to breathe.
-    - Well, it seems to get worse [when I try to climb stairs](resp_distress_triggers) or [exert myself](resp_distress_triggers).
-    - I've noticed it tends to [flare up after I eat a big meal](resp_distress_triggers).
-    - I think it gets worse when the [weather is really cold or hot](resp_distress_triggers).
+    - Well, it seems to get worse when I try to [climb stairs](resp_distress_triggers) or [exert myself](resp_distress_triggers).
     - It seems to be triggered when I'm exposed to [strong odors or perfumes](resp_distress_triggers).
-    - Sometimes it gets worse when I'm [lying down, especially at night](resp_distress_triggers).
-    - I haven't identified any specific triggers, but [stress seems to make it worse](resp_distress_triggers).
-    - I've noticed that it worsens after I've been [around cigarette smoke](resp_distress_triggers).
-    - It seems to flare up when I'm in a [dusty or moldy environment](resp_distress_triggers).
-    - I can't point to a particular activity, but it tends to [worsen during allergy seasons](resp_distress_triggers).
+    - Sometimes it gets worse when I'm [lying down](resp_distress_triggers), especially at night.
+    - [stress](resp_distress_triggers) seems to make it worse.
+    - around [cigarette smoke](resp_distress_triggers).
+    - in a [dusty or moldy environment](resp_distress_triggers).
     - I think it gets worse when I'm [anxious or feeling panicky](resp_distress_triggers).
-    - I haven't found a pattern yet, but it tends to be more challenging [when I'm talking a lot](resp_distress_triggers).
+    - it tends to be more challenging when I'm [talking a lot](resp_distress_triggers).
     - I've noticed it gets worse after I've been [around pets](resp_distress_triggers) or in [places with pet dander](resp_distress_triggers).
-    - Sometimes it worsens after I've had [a few alcoholic drinks](resp_distress_triggers).
-    - I haven't identified any specific triggers, but it seems to be [worse in the mornings](resp_distress_triggers).
-    - It tends to worsen after I've been [exposed to strong cleaning chemicals](resp_distress_triggers).
-    - I can't pinpoint any particular activity, but it seems worse [when I have a cold](resp_distress_triggers).
+    - it seems to be [worse in the mornings](resp_distress_triggers).
+    - It tends to worsen after I've been exposed to [strong cleaning chemicals](resp_distress_triggers).
     - I've noticed it gets worse when I'm [around pollen](resp_distress_triggers) or [freshly cut grass](resp_distress_triggers).
-    - Sometimes it worsens after I've been [in a crowded or stuffy room](resp_distress_triggers).
-    - I can't find a specific trigger, but it seems to be worse when I'm [tired or fatigued](resp_distress_triggers).
+    - Sometimes it worsens after I've been in a [crowded](resp_distress_triggers) or [stuffy room](resp_distress_triggers).
+    - it seems to be worse when I'm [tired or fatigued](resp_distress_triggers).
 
-- intent: inform_resp_difficulty_exposure
-  examples: |
-    - No, I haven't been sick recently, but I did spend the weekend [in a dusty old attic cleaning out some old stuff](resp_difficulty_exposure).
-    - I had a [cold about a week ago](resp_difficulty_exposure), but I thought I was over it. The breathing trouble just started today.
-    - I've been dealing with allergies lately, especially with the [pollen in the air](resp_difficulty_exposure)
-    - I work [in a chemical plant](resp_difficulty_exposure), and today there was a spill. [I had my mask on](resp_difficulty_exposure), but I'm still having trouble breathing.
-    - I've been feeling fine until yesterday when I [went for a run](resp_difficulty_exposure). Now, I'm struggling to catch my breath.
-    - [I live near a construction site](resp_difficulty_exposure), and there's [a lot of dust and fumes in the air](resp_difficulty_exposure).
-    - No recent illnesses, but I did have [a bonfire in my backyard](resp_difficulty_exposure) last night.
-    - I have [a history of asthma](resp_difficulty_exposure), and it's been acting up more than usual lately.
-    - I work [in a bakery](resp_difficulty_exposure), and the [flour dust](resp_difficulty_exposure) is always in the air.
-    - I had a sudden onset of difficulty breathing [after eating a new dish](resp_difficulty_exposure) at a restaurant.
-    - I recently [moved to a new apartment](resp_difficulty_exposure), and the air feels different here.
-    - I was at a friend's house, and they have [a cat](resp_difficulty_exposure). I'm allergic, and now I'm struggling to breathe.
-    - I work in a car repair shop, and there are always [strong odors from the chemicals](resp_difficulty_exposure).
-    - I don't recall any recent illnesses, but I do live in an area with [high air pollution](resp_difficulty_exposure).
-    - No illnesses, but I did attend a family gathering, and someone was [smoking nearby](resp_difficulty_exposure).
 
 - intent: inform_fainting_prior
   examples: |

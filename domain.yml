@@ -17,10 +17,7 @@ intents:
 - inform_pain_history
 - inform_pain_relieving
 - inform_abdominal_pain_area
-- inform_abdominal_other_symptoms
-- inform_resp_difficulty_nature
 - inform_resp_difficulty_triggers
-- inform_resp_difficulty_exposure
 - inform_hypothermia_skin_color
 - inform_hypothermia_treatment
 - inform_aller_cause
@@ -53,7 +50,6 @@ entities:
 - pain_history
 - pain_relieving
 - abdominal_pain_area
-- abdominal_other_symptoms
 - hypothermia_skin_color
 - hypothermia_treatment
 - allergy_cause
@@ -192,30 +188,14 @@ slots:
     mappings:
     - type: custom
       action: action_map_abdominal_pain_area
-  abdominal_other_symptoms:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_abdominal_other_symptoms
-      
+
   # ============== Respiratory difficulty questions ==============
-  resp_difficulty_nature:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_resp_difficulty_nature
 
   resp_difficulty_triggers:
     type: text
     mappings:
     - type: custom
       action: action_map_resp_difficulty_triggers
-
-  resp_difficulty_exposure:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_resp_difficulty_exposure
 
   # ============== Hypothermia questions ==============
   hypothermia_skin_color:
@@ -229,11 +209,11 @@ slots:
     - type: custom
       action: action_map_hypothermia_treatment
    # ============== Allergy reaction questions ==============
-  aller_cuase:
+  aller_cause:
     type: text
     mappings:
     - type: custom
-      action: action_map_aller_cuase
+      action: action_map_aller_cause
   aller_symptoms:
     type: text
     mappings:
@@ -249,12 +229,12 @@ slots:
     type: text
     mappings:
     - type: custom
-      action: action_map_aller_cuase
+      action: action_map_aller_cause
   fall_movement:
     type: text
     mappings:
     - type: custom
-      action: action_map_aller_cuase
+      action: action_map_aller_cause
   # =============== fever questions ==============
   fever_temperature:
     type: text
@@ -297,15 +277,11 @@ actions:
 - action_map_pain_symptoms
 - action_map_pain_history
 - action_map_pain_relieving
-- action_map_abdominal_pain_area
-- action_map_abdominal_other_symptoms
 - action_map_hypothermia_skin_color
 - action_map_hypothermia_treatment
 - action_toggle_is_pain_reported
-- action_map_resp_difficulty_nature
 - action_map_resp_difficulty_triggers
-- action_map_resp_difficulty_exposure
-- action_map_aller_cuase
+- action_map_aller_cause
 - action_map_aller_symptoms
 - action_map_aller_history
 - utter_will_ask_medical_questions
@@ -368,26 +344,44 @@ responses:
 
   ask_patient_homeaddr:
   - text: Can you {verb} your home address, please?
+  
   utter_invalid_patient_homeaddr:
   - text: I'm sorry, we can't find this address on the map.
+  
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
 
+  utter_medical_questions_filled:
+  - text: Ok, I have collected all the necessary info about your problem.
+  
+  utter_transferring_to_human:
+  - text: Ok, I'm transferring you to a human operator.
+  - text: Alright, I'll connect you to a human operator.
+  - text: Sure thing, I'll transfer you to a human agent.
+  - text: No worries, I'm redirecting you to a human operator.
+  - text: Okay, I'm putting you through to a human agent.
+  - text: Understood, initiating transfer to a human operator.
+
+  utter_ask_dispatch_ambulance:
+  - text: I can provide you with some general indications about your problem. But first, Would you like to receive assistance through an ambulance?
+  - text: I can answer to some common questions about your problem. But first, do you want us to send an ambulance to your house?
+
+  utter_confirm_ambulance_sent:
+  - text: An ambulance has been dispatched to your address.
+  - text: Paramedics are on their way.
+
+  utter_ask_any_questions:
+  - text: Do you have any questions?
+
+  utter_goodbye:
+  - text: Alright, I hope I've been helpful. For any question, ask right away anytime!
+  
+  utter_start_QA:
+  - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
+
+
   # ============== General medical questions ==============
   
-  utter_ask_pain_nature:
-  - text: How would you describe the sensation of the pain? (sharp, dull, etc.)
-  - text: Can you tell me more about the kind of pain you're experiencing? (sharp, dull, etc.)
-  - text: In what way is the pain manifesting? (sharp, dull, etc.)
-  - text: What words would you use to characterize the pain?
-
-  utter_ask_pain_location:
-  - text: Can you point to the exact location of the pain? Does it move elsewhere?
-  - text: Tell me where it hurts, and does the pain travel to other parts of your body?
-  - text: Pinpoint the specific area of discomfort. Does it radiate anywhere else?
-  - text: Identify the spot of pain, and does it extend to other regions?
-  - text: Describe the location of the pain and any spreading sensations.
-
   utter_ask_pain_duration:
   - text: When did you first notice the pain, and is it continuous or intermittent?
   - text: Tell me about the onset of the pain. Is it persistent or comes and goes?
@@ -399,75 +393,19 @@ responses:
   - text: If 0 means no pain and 10 is the most severe, where would you place your pain level?
   - text: Can you quantify the pain on a scale from 0 to 10?
 
-  utter_ask_pain_relieving:
-  - text: Are there certain things you do that either worsen or alleviate the pain?
-  - text: Can you identify any actions or postures that affect the pain positively or negatively?
-  - text: Do certain activities or positions bring relief or aggravate the pain?
-  - text: Are there particular movements or positions that either help or worsen the pain?
-  - text: Describe any actions or postures that impact the pain positively or negatively.
-
-  utter_ask_pain_symptoms:
-  - text: Aside from this, are you experiencing any other symptoms like nausea or dizziness?
-  - text: Tell me if there are any additional symptoms accompanying this.
-  - text: Do you notice any other changes in your body, like sweating or shortness of breath?
-  - text: Are there other feelings or symptoms occurring along with this?
-  - text: Describe any other sensations or symptoms you're currently having.
-
-  utter_ask_pain_history:
-  - text: Are you currently being treated for any medical conditions or taking any medications?
-  - text: Tell me about any pre-existing health conditions or medications you're on.
-  - text: Have you been diagnosed with any medical issues, and are you taking any regular medications?
-  - text: Share information about your medical history and any prescribed medications.
-  - text: Describe any known health conditions and the medications you're currently using.
-
-  utter_ask_pain_trauma:
-  - text: Did something happen recently that might be linked to the onset of the pain?
-  - text: Tell me if there were any recent injuries or accidents connected to the pain.
-  - text: Have you encountered any trauma or incidents that could be associated with the pain?
-  - text: Describe any recent events or injuries that might be related to the pain.
-  - text: Share details about any recent traumas or accidents that could be relevant to the pain.
-
-  utter_ask_pain_allergies:
-  - text: Do you have any known allergies to medications or other substances?
-  - text: Are there any medications or substances that you're allergic to?
-  - text: Tell me if you have any known allergies, especially to medications.
-  - text: Provide information on any allergies you have, especially related to medications.
-  - text: Mention if there are any substances or medications you are allergic to.
-
-  utter_ask_pain_warnings:
-  - text: Do you notice any signs of emergency, such as difficulty breathing or chest pain?
-  - text: Are you observing any indications of an emergency, like trouble breathing or chest discomfort?
-  - text: Have you spotted any emergency signs, like struggling to breathe or experiencing chest pain?
-  - text: Do you see any emergency warning signs, such as trouble with breathing or pain in the chest?
-  - text: Are there any signs of emergency, such as difficulty in breathing or chest pain, that you're noticing?
-
   # ============== Abdominal pain questions ==============
   utter_ask_abdominal_pain_area:
-  - text: Where exactly in your abdomen do you feel the pain? (e.g., upper, lower, left, right, centralized)
-  - text: Can you pinpoint the specific location of the abdominal pain? (e.g., upper, lower, left, right, central)
-  - text: In which area of your abdomen is the pain most concentrated? (e.g., upper, lower, left, right)
-  
-  utter_ask_abdominal_other_symptoms:
-  - text: Are there any other symptoms accompanying the abdominal pain, such as nausea, vomiting, changes in bowel habits, or fever?
-  - text: Do you have any additional symptoms along with the abdominal pain, like nausea, vomiting, alterations in bowel habits, or fever?
-  - text: Are there any other signs present with the abdominal pain, such as nausea, vomiting, shifts in bowel patterns, or an elevated body temperature?
+  - text: Where exactly in your abdomen do you feel the pain? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: Can you pinpoint the specific location of the abdominal pain? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: In which area of your abdomen is the pain most concentrated? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
 
   # ============== Respiratory difficulty questions ==============
-  utter_ask_resp_difficulty_nature:
-  - text: Can you describe the nature of the respiratory distress? (e.g., shortness of breath, wheezing, chest tightness)
-  - text: Could you outline the characteristics of the respiratory distress, such as shortness of breath, wheezing, or chest tightness?
-  - text: Please provide details about the respiratory distress, including symptoms like shortness of breath, wheezing, and chest tightness.
-
   utter_ask_resp_difficulty_triggers:
   - text: Have you identified any specific triggers or activities that worsen the respiratory distress?
   - text: Have you pinpointed any particular factors or actions that exacerbate the respiratory difficulties?
   - text: Are there specific triggers or behaviors you've recognized that contribute to the worsening of respiratory distress?
-
-  utter_ask_resp_difficulty_exposure:
-  - text: Have you experienced any recent illness or exposure to environmental factors that might be related to your respiratory distress?
-  - text: Have you encountered any recent health issues or been exposed to environmental factors that could be linked to your respiratory difficulties?
-  - text: Did you undergo any recent illnesses or come into contact with environmental elements that might be associated with your respiratory distress?
-
+  
+  # ============== Fainting questions ==============
   utter_ask_fainting_prior:
   - text: Can you describe the events leading up to the fainting episode?
   - text: Could you provide a detailed account of the circumstances that preceded the fainting incident?
@@ -502,7 +440,7 @@ responses:
 
   utter_ask_allergy_history:
   - text: Do you have a history of allergies or allergic reactions?
-  - text: Have you experienced a similar reaction in the past?
+  - text: Have you experienced any allergic reaction in the past?
 
   # ============== fall questions ==============
   utter_ask_conscious:
@@ -526,37 +464,6 @@ responses:
   - text: Can you provide details about your typical sleep patterns?
 
   # =================================================
-  
-
-  utter_medical_questions_filled:
-  - text: Ok, I have collected all the necessary info about your problem.
-  
-  utter_transferring_to_human:
-  - text: Ok, I'm transferring you to a human operator.
-  - text: Alright, I'll connect you to a human operator.
-  - text: Sure thing, I'll transfer you to a human agent.
-  - text: No worries, I'm redirecting you to a human operator.
-  - text: Okay, I'm putting you through to a human agent.
-  - text: Understood, initiating transfer to a human operator.
-
-  utter_ask_dispatch_ambulance:
-  - text: I can provide you with some general indications about your problem. But first, Would you like to receive assistance through an ambulance?
-  - text: I can answer to some common questions about your problem. But first, do you want us to send an ambulance to your house?
-
-  utter_confirm_ambulance_sent:
-  - text: An ambulance has been dispatched to your address.
-  - text: Paramedics are on their way.
-
-  utter_ask_any_questions:
-  - text: Do you have any questions?
-
-  utter_goodbye:
-  - text: Alright, I hope I've been helpful. For any question, ask right away anytime!
-  
-  utter_start_QA:
-  - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
-
-    # =================================================
 
 forms:
   form_general_info:
