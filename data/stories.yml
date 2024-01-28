@@ -81,9 +81,8 @@ stories:
     - action: utter_will_ask_medical_questions
     #Q1 Allergy history
     - action: utter_ask_allergy_history
-    - intent: inform_aller_history
-      entities:
-        - allergy_history: value
+    - intent: affirmative
+    - action: action_map_aller_history
     - action: utter_positive_conv_marker
     #Q2 Duration
     - action: utter_ask_pain_duration
