@@ -5,13 +5,6 @@ version: "3.1"
 # https://rasa.com/docs/rasa/forms/#writing-stories--rules-for-unhappy-form-paths
 # https://rasa.com/docs/rasa/responses/#conditional-response-variations
 
-# Notes:
-#
-# unhappy paths:
-# - provides pathology first
-# - provides home address first
-# - provides phone number first
-
 stories:
 
 - story: greeting
@@ -133,7 +126,6 @@ stories:
       - abdominal_pain: value
     - action: utter_ask_pain_severity
     - intent: negative
-    - action: utter_negative_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -160,7 +152,6 @@ stories:
     - intent: inform_pain_severity
       entities:
         - pain_severity: value
-    - action: utter_positive_conv_marker
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -188,12 +179,63 @@ stories:
       - respiratory_difficulty: value
     - action: utter_ask_pain_severity
     - intent: negative
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+# ========== Fainting 
+- story: report fainting
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - fainting: value
+    - slot_was_set:
+      - fainting: value
+    - action: utter_will_ask_medical_questions
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: utter_positive_conv_marker
+    - action: utter_ask_fainting_prior
+    - intent: inform_fainting_prior
+      entities:
+        - fainting_prior: value
+    - action: utter_positive_conv_marker
+    - action: utter_ask_fainting_medical_conditions
+    - intent: inform_fainting_medical_conditions
+      entities:
+        - fainting_medical_conditions: value
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+- story: fainting - negative answ (1)
+  steps:
+    - slot_was_set:
+      - fainting: value
+    - action: utter_ask_pain_duration
+    - intent: negative
     - action: utter_negative_conv_marker
+    - action: utter_ask_fainting_prior
+
+- story: fainting - negative answ (2)
+  steps:
+    - slot_was_set:
+      - fainting: value
+    - action: utter_ask_fainting_prior
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_fainting_medical_conditions
+
+- story: fainting - negative answ (3)
+  steps:
+    - slot_was_set:
+      - fainting: value
+    - action: utter_ask_fainting_medical_conditions
+    - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
 # ========== Interruptions
-
 - story: ask dispatch ambulance > needs human agent
   steps:
     - action: utter_ask_dispatch_ambulance

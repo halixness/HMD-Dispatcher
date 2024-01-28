@@ -256,7 +256,6 @@ nlu:
     - Calling because I've got this [persistent headache](headache) that's bothering me.
     - Hi, I've got a [headache](headache) and was wondering if you have any suggestions on how to handle it?
 
-
 - intent: patient_needs_ambulance
   examples: |
     - I need medical assistance right away.
@@ -347,52 +346,70 @@ nlu:
 # ============== general_pain ==============
 - intent: inform_pain_duration
   examples: |
+    - it's been quite [constant](pain_duration) [for two days](pain_duration)
+    - it [continued](pain_duration) [for two hours](pain_duration)
+    - it [hasn't stopped for days](pain_duration)
+    - it [hasn't stopped for hours](pain_duration)
     - It's been [on and off for most of the day](pain_duration).
-    - The pain is [constant](pain_duration) and has been [getting worse over the past hour](pain_duration).
+    - The pain is [constant](pain_duration) and has been getting worse over the [past hour](pain_duration).
     - Started feeling it [this morning](pain_duration), and it [comes and goes in waves](pain_duration).
-    - It's been bothering me [for about an hour now](pain_duration), and it's pretty intense.
-    - I've had this abdominal pain [off and on since yesterday evening](pain_duration).
+    - It's been bothering me [for about an hour now](pain_duration).
+    - I've had this pain [off and on](pain_duration) since [yesterday evening](pain_duration).
     - The pain is [continuous](pain_duration), and I first noticed it about [two hours ago](pain_duration).
-    - It started as a mild discomfort [this afternoon](pain_duration), and now it's [constant](pain_duration) and severe.
-    - Been feeling this abdominal pain for the [past 30 minutes](pain_duration), and it's not letting up.
-    - It's been [intermittent for the past few hours](pain_duration), but now it's [more constant](pain_duration).
-    - The pain [started around lunchtime](pain_duration), and it's been [pretty steady](pain_duration) since then.
-    - Feels like [it comes and goes every 10 minutes](pain_duration) or so.
-    - Started feeling the pain [about three hours ago](pain_duration), and it's been [continuous](pain_duration).
-    - The abdominal pain has been [constant and quite hard for the past hour](pain_duration).
-    - It [comes and goes](pain_duration), but when it's here, it's really sharp.
+    - It started as a mild discomfort [this afternoon](pain_duration), and now it's [constant](pain_duration).
+    - Been feeling this pain for the [past 30 minutes](pain_duration).
+    - It's been [intermittent](pain_duration) for the [past few hours](pain_duration), but now it's [more constant](pain_duration).
+    - The pain started around [lunchtime](pain_duration), and it's been pretty [steady](pain_duration) since then.
+    - Feels like it [comes and goes every 10 minutes](pain_duration) or so.
+    - Started feeling the pain about [three hours ago](pain_duration), and it's been [continuous](pain_duration).
+    - The pain has been [constant](pain_duration) and quite hard for the [past hour](pain_duration).
+    - It [comes and goes](pain_duration).
     - I first noticed the pain [this morning](pain_duration), and it's been [constant](pain_duration) since then.
-    - It started [as a dull ache yesterday](pain_duration), but now it's a [constant](pain_duration) pain.
-    - The abdominal pain is [intermittent](pain_duration), but it's been [happening all day](pain_duration).
+    - It started as a dull ache [yesterday](pain_duration), but now it's a [constant](pain_duration) pain.
+    - The pain is [intermittent](pain_duration), but it's been [happening all day](pain_duration).
     - Started feeling it about [two hours ago](pain_duration), and it hasn't stopped since.
     - It's been [off and on for the past few days](pain_duration), and now it's more [continuous](pain_duration).
-    - The pain is quite hard and has been [constant since last night](pain_duration).
+    - The pain has been [constant since last night](pain_duration).
+    - I've noticed it happening [regularly](pain_duration).
+    - This is the [first occurrence](pain_duration).
+    - It's been going on [for a while](pain_duration).
+    - It's happening more [frequently recently](pain_duration).
+    - This has been [occasional](pain_duration).
+    - It started [suddenly](pain_duration).
+    - It's been happening at [random times](pain_duration).
+    - It usually occurs [after meals](pain_duration).
+    - It happens mostly [in the morning](pain_duration).
+    - There's [no discernible pattern](pain_duration).
+    - I've noticed it during [stressful situations](pain_duration).
+    - It's been happening [on and off](pain_duration).
+    - This is the [third time](pain_duration) it's occurred.
+    - It happened [once before](pain_duration).
+    - I can't find a [common trigger](pain_duration).
+    - I've experienced this [sporadically](pain_duration).
 
 - intent: inform_pain_severity
   examples: |
-    - I'd say it's [around 6, quite uncomfortable](pain_severity).
-    - Solid [8, definitely on the strong side](pain_severity).
-    - It's a [5, bearable but persistent](pain_severity).
-    - Feeling like a [9](pain_severity), [sharp and constant](pain_severity).
-    - Probably [a 3, mild but irritating](pain_severity).
-    - I think it's [a 7](pain_severity), getting [harder to ignore](pain_severity).
-    - [A 10](pain_severity), it's [excruciating](pain_severity)!
-    - [Around 4](pain_severity), not too bad but [noticeable](pain_severity).
-    - I'd rate it [6](pain_severity), [moderate pain](pain_severity) but [not unbearable](pain_severity).
-    - Feels [like an 8](pain_severity), [pretty intense](pain_severity) right now.
-    - Maybe a [2, just a dull ache](pain_severity).
-    - Definitely [a 10](pain_severity), I [can barely handle it](pain_severity).
-    - It's [like a 5](pain_severity), there's a [constant discomfort](pain_severity).
-    - I'd put it at [a 7](pain_severity), [getting worse over time].
-    - [A 9, I can hardly focus](pain_severity) on anything else.
-    - I think it's [a 3, annoying](pain_severity) but not too bad.
-    - Solid [10](pain_severity), the pain is [unbearable](pain_severity)!
-    - Maybe [a 6](pain_severity), it [comes and goes in waves](pain_severity).
-    - [Around 8](pain_severity), it's [throbbing and persistent](pain_severity).
-    - I'd rate it [4, noticeable](pain_severity) but not too severe.
+    - It's more on the [dull](pain_severity) side.
+    - I'd say it's [moderate](pain_severity), [not too intense](pain_severity) but definitely there.
+    - The sensation is [pretty dull](pain_severity), more annoying than painful.
+    - I'm leaning towards [moderate](pain_severity), the pain is [noticeable](pain_severity) but not unbearable.
+    - It's [severe](pain_severity), the pain is [really strong](pain_severity).
+    - Definitely on the [severe](pain_severity) side, it's [hard to ignore](pain_severity).
+    - I'd rate it as [dull](pain_severity), not too bad right now.
+    - The pain is more on the [moderate](pain_severity) side.
+    - It's pretty [severe](pain_severity).
+    - It's more on the [severe](pain_severity) side, the pain is [quite strong](pain_severity).
+    - [Moderate](pain_severity), the pain is there but I can handle it.
+    - [Dull](pain_severity), the sensation is [mild](pain_severity) but [persistent](pain_severity).
+    - [Severe](pain_severity), the pain is [intense](pain_severity).
+    - It's [moderate](pain_severity), not too bad but definitely [noticeable](pain_severity).
+    - I'd describe it as [dull](pain_severity), not too bothersome.
+    - The pain is [severe](pain_severity), it's really [hard to ignore](pain_severity).
+    - It's more on the [moderate](pain_severity) side, the pain is [bothering](pain_severity) me.
+    - [Dull](pain_severity), it's a [bit uncomfortable](pain_severity) but not too painful.
+    - [Severe](pain_severity), the pain is [really strong](pain_severity) right now.
 
 # ============== abdominal_pain ==============
-
 - intent: inform_abdominal_pain_area
   examples: |
     - Right around my [navel area](abdominal_pain_area).
@@ -416,7 +433,7 @@ nlu:
     - Concentrated [in the middle, below my sternum](abdominal_pain_area).
     - Towards the [lower part of my stomach](abdominal_pain_area), but on [both sides](abdominal_pain_area).
 
-# ==============hypothermia  ==============
+# ============== hypothermia  ==============
 - intent: inform_hypothermia_skin_color
   examples: |
     - Yes, my skin has become [very pale](hypothermia_skin_color), and it feels cool to the touch.
@@ -440,67 +457,72 @@ nlu:
     - [Yes, I've received treatment](hypothermia_treatment) for my symptoms from a healthcare professional.
 
 # ============== resp_difficulty  ==============
-
 - intent: inform_resp_difficulty_triggers
   examples: |
-    - Well, it seems to get worse when I try to [climb stairs](resp_distress_triggers) or [exert myself](resp_distress_triggers).
-    - It seems to be triggered when I'm exposed to [strong odors or perfumes](resp_distress_triggers).
-    - Sometimes it gets worse when I'm [lying down](resp_distress_triggers), especially at night.
-    - [stress](resp_distress_triggers) seems to make it worse.
-    - around [cigarette smoke](resp_distress_triggers).
-    - in a [dusty or moldy environment](resp_distress_triggers).
-    - I think it gets worse when I'm [anxious or feeling panicky](resp_distress_triggers).
-    - it tends to be more challenging when I'm [talking a lot](resp_distress_triggers).
-    - I've noticed it gets worse after I've been [around pets](resp_distress_triggers) or in [places with pet dander](resp_distress_triggers).
-    - it seems to be [worse in the mornings](resp_distress_triggers).
-    - It tends to worsen after I've been exposed to [strong cleaning chemicals](resp_distress_triggers).
-    - I've noticed it gets worse when I'm [around pollen](resp_distress_triggers) or [freshly cut grass](resp_distress_triggers).
-    - Sometimes it worsens after I've been in a [crowded](resp_distress_triggers) or [stuffy room](resp_distress_triggers).
-    - it seems to be worse when I'm [tired or fatigued](resp_distress_triggers).
+    - I live in an area with high levels of [pollution](resp_distress_triggers).
+    - I have a history of allergies, and I suspect [allergens](resp_distress_triggers) triggered my distress.
+    - There was a fire nearby, and I was exposed to [smoke](resp_distress_triggers).
+    - I noticed signs of [mold](resp_distress_triggers) in my living space.
+    - Spring just started, and I'm sensitive to [pollen](resp_distress_triggers).
+    - I've been cleaning my house, and I stirred up a lot of [dust](resp_distress_triggers).
+    - My workplace has poor ventilation, and I'm exposed to constant [pollution](resp_distress_triggers).
+    - I recently moved to a new place, and I think there might be hidden [mold](resp_distress_triggers).
+    - I spent time in a dusty attic, and now I'm having trouble breathing due to [dust](resp_distress_triggers).
+    - I was around a bonfire, and the [smoke](resp_distress_triggers) bothered my respiratory system.
+    - The weather changed, and I started experiencing issues, suspecting it's [allergens](resp_distress_triggers).
+    - I work in construction, and the constant exposure to [dust](resp_distress_triggers) might be the cause.
+    - I have a garden, and the increased [pollen](resp_distress_triggers) this season is affecting me.
+    - There was a renovation in my building, and now there's a lot of [dust](resp_distress_triggers).
+    - I visited a friend with pets, and I'm having an allergic reaction to the [allergens](resp_distress_triggers).
+    - The recent rain caused some leaks in my house, leading to [mold](resp_distress_triggers) growth.
+    - I live in an old house with poor ventilation, contributing to the [dust](resp_distress_triggers) issue.
+    - I was in a crowded area with heavy [pollution](resp_distress_triggers), and now I'm experiencing distress.
+    - I tried a new cleaning product, and I think I reacted to the [allergens](resp_distress_triggers) in it.
+    - My office is in a basement, and there's a musty smell, making me suspect [mold](resp_distress_triggers).
 
-
+# ============== fainting  ==============
 - intent: inform_fainting_prior
   examples: |
-    - I was standing in line at the grocery store, and suddenly [everything started spinning](fainting_prior).
-    - I was at work, and I [felt really lightheaded](fainting_prior) while talking to my colleague.
-    - I was sitting on the couch, and out of nowhere, I [started feeling really dizzy](fainting_prior).
-    - I had just [finished exercising](fainting_prior), and when [I stood up](fainting_prior), I [felt extremely lightheaded](fainting_prior).
-    - I was in a [crowded bus](fainting_prior), and suddenly I [felt like I was going to pass out](fainting_prior).
-    - I was in a meeting at work, and [all of a sudden, I started feeling really faint](fainting_prior).
-    - I had been [outside in the heat for a while](fainting_prior), and when I came inside, I [felt dizzy and weak](fainting_prior).
-    - I was on a [long phone call](fainting_prior), and midway through, I [started feeling faint](fainting_prior).
-    - I was [in the shower](fainting_prior), and I suddenly [felt lightheaded](fainting_prior) and [had to sit down](fainting_prior).
-    - I was [walking up the stairs](fainting_prior), and halfway through, I [felt like I was going to faint](fainting_prior).
-    - I was [at a party](fainting_prior), and [the room started spinning](fainting_prior) before I fainted.
-    - I had just [eaten a big meal](fainting_prior), and suddenly I [felt really dizzy](fainting_prior).
-    - I was waiting for the bus, and I [started feeling lightheaded out of nowhere](fainting_prior).
-    - I was at the dentist, and [the sight of blood made me feel faint](fainting_prior).
-    - I was at home [watching TV](fainting_prior), and [suddenly I felt really weak and dizzy](fainting_prior).
-    - I was [standing in a long queue](fainting_prior) at the bank, and I [started feeling faint](fainting_prior).
-    - I was [in a hot and crowded subway](fainting_prior), and I suddenly [felt like I was going to pass out](fainting_prior).
-    - I had been [sitting for a long time](fainting_prior), and [when I stood up](fainting_prior), I [felt lightheaded](fainting_prior).
-    - I was [at a concert](fainting_prior), and the [loud music](fainting_prior) and [the crowd](fainting_prior) made me [feel faint](fainting_prior).
-    - I was [outside in the cold for too long](fainting_prior), and when I came inside, I [felt dizzy and faint](fainting_prior).
+    - Suddenly [everything started spinning](fainting_prior).
+    - Yes, I experienced some [dizziness](fainting_prior) 
+    - I felt really [lightheaded](fainting_prior) 
+    - There was a sudden wave of [nausea](fainting_prior)
+    - I remember breaking out into a [cold sweat](fainting_prior)
+    - The room started spinning, and I had [blurred vision](fainting_prior).
+    - I got extremely [lightheaded](fainting_prior) all of a sudden.
+    - I had this intense feeling of [nausea](fainting_prior)
+    - I recall feeling very [dizzy](fainting_prior)
+    - Everything around me became [blurry](fainting_prior), and I felt [lightheaded](fainting_prior).
+    - My vision got really [blurred](fainting_prior)
+    - I started feeling [dizzy](fainting_prior)
+    - There was a sudden onset of [lightheadedness](fainting_prior) 
+    - I had this overwhelming sense of [nausea](fainting_prior) 
+    - My vision became really [blurred](fainting_prior)
+    - I felt extremely [dizzy](fainting_prior) 
+    - The combination of [sweating](fainting_prior) and [lightheadedness](fainting_prior) 
 
-- intent: inform_fainting_patterns
+- intent: inform_fainting_medical_conditions
   examples: |
-    - Well, it seems to happen [when I stand up too quickly](fainting_patterns), especially after sitting for a while.
-    - I've noticed it usually occurs when I'm [in crowded places](fainting_patterns), like shopping malls or [busy events](fainting_patterns).
-    - It happens more often [when I'm feeling really stressed](fainting_patterns) or [anxious about something](fainting_patterns).
-    - I've fainted a few times [after seeing blood](fainting_patterns) or [experiencing a medical procedure](fainting_patterns).
-    - I've noticed a pattern [after intense physical activity](fainting_patterns); it seems to trigger my fainting episodes.
-    - There's a connection with dehydration—I tend to faint [when I forget to drink](fainting_patterns) enough water.
-    - It's strange, but [certain strong smells](fainting_patterns) can sometimes make me faint.
-    - Whenever I'm [in a hot environment](fainting_patterns), it increases the likelihood of a fainting episode.
-    - I've fainted a couple of times [when I've been extremely fatigued](fainting_patterns) or [sleep-deprived](fainting_patterns).
-    - It's more likely to happen [during my menstrual cycle](fainting_patterns); I've noticed a monthly pattern.
-    - My fainting episodes seem to coincide with [moments of low blood sugar](fainting_patterns).
-    - [Bright lights or flashing lights](fainting_patterns) can be a trigger for me, especially in a dark room.
-    - I've fainted when I've [had to stand still for a long time](fainting_patterns), like in long queues.
-    - It tends to happen when I'm [feeling emotionally overwhelmed or panicked](fainting_patterns).
-    - [Hot showers or baths](fainting_patterns) sometimes precede my fainting episodes.
-    - It's strange, but [loud noises](fainting_patterns) seem to trigger my fainting, especially sudden ones.
-    - I've fainted during [moments of extreme pain](fainting_patterns); it's like my body can't handle it.
+    - Yes, I often deal with [low blood sugar](fainting_medical_conditions).
+    - I've been diagnosed with [hypoglycemia](fainting_medical_conditions).
+    - [Dehydration](fainting_medical_conditions) is a constant issue for me.
+    - I've had episodes of [arrhythmias](fainting_medical_conditions).
+    - My doctor told me I have [low blood pressure](fainting_medical_conditions).
+    - I'm prone to [hypotension](fainting_medical_conditions).
+    - [Anemia](fainting_medical_conditions) is a health concern I've been managing.
+    - I've experienced symptoms of [low blood sugar](fainting_medical_conditions).
+    - [Dehydration](fainting_medical_conditions) has been a recurring problem.
+    - My medical history includes [arrhythmias](fainting_medical_conditions).
+    - Yes, I have a history of [hypotension](fainting_medical_conditions).
+    - [Anemia](fainting_medical_conditions) runs in my family, and I've been affected too.
+    - I've fainted before due to [low blood sugar](fainting_medical_conditions).
+    - [Hypoglycemia](fainting_medical_conditions) is something I deal with regularly.
+    - [Arrhythmias](fainting_medical_conditions) have been identified in my medical records.
+    - My blood pressure tends to be on the lower side, indicating [hypotension](fainting_medical_conditions).
+    - Yes, I've been diagnosed with [anemia](fainting_medical_conditions).
+    - [Low blood sugar](fainting_medical_conditions) episodes have been a challenge for me.
+    - I've been feeling lightheaded lately, possibly due to [dehydration](fainting_medical_conditions).
+    - [Arrhythmias](fainting_medical_conditions) have been a concern since my last check-up.
 
 # ============== Allergy  ==============
 - intent: inform_aller_cause
@@ -557,18 +579,18 @@ nlu:
 
 - intent: inform_fall_movement
   examples: |
-    - Yes, I [can move my limbs](fall_move) without any difficulty.
-    - I'm [able to move](fall_move) my arms and legs freely.
-    - I have [no issues moving my limbs](fall_move); everything seems fine.
-    - I'm experiencing [some difficulty moving my left arm](fall_move).
-    - I [can move my legs](fall_move), but my right arm feels a bit weak.
-    - There's no problem with my arms, but I'm finding it [hard to move my legs](fall_move).
-    - I'm having [trouble moving both my arms and legs](fall_move).
+    - Yes, I can [move my limbs](fall_move) without any difficulty.
+    - I'm able to [move my arms and legs](fall_move) freely.
+    - I'm experiencing some difficulty [moving my left arm](fall_move).
+    - I can [move my legs](fall_move), but my right arm feels a bit weak.
+    - There's no problem with my arms, but I'm finding it hard to [move my legs](fall_move).
+    - I'm having trouble [moving both my arms and legs](fall_move).
     - I [can move my arms without issues](fall_move), but my right leg is causing discomfort.
     - There's some pain, but I [can still move all my limbs](fall_move).
     - I'm having [difficulty moving my arms](fall_move), but my legs are okay.
     - Both my arms are fine, but I'm [unable to move my right leg](fall_move).
     - I'm experiencing [weakness in both arms and legs](fall_move).
+
 # ============== fever =================
 - intent: inform_fever_temperature
   examples: |
@@ -587,6 +609,7 @@ nlu:
     - I used an oral thermometer, and the reading was [98.9 degrees Fahrenheit](fever_temperature).
     - [Haven't checked yet](fever_temperature).
     - Used an ear thermometer, and it indicated [37.6 degrees Celsius](fever_temperature).
+
 # =============== headache ================
 - intent: inform_headache_lifestyle
   examples: |

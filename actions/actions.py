@@ -183,6 +183,27 @@ class MapRespiratoryDiffTriggers(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="resp_difficulty_triggers", tracker=tracker)
 
+# ============== Fainting actions ==============
+
+class MapFaintingPrior(Action):
+    
+    def name(self) -> Text:
+        return "action_map_fainting_prior"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fainting_prior", tracker=tracker)
+
+class MapFaintingMedicalConditions(Action):
+    
+    def name(self) -> Text:
+        return "action_map_fainting_medical_conditions"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """ Runs custom utility to read entities and fill in the slot """
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fainting_medical_conditions", tracker=tracker)
+
+
 # ============== Hypothermia actions ==============
 
 class MapHypothermiaSkincolor(Action):
