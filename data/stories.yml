@@ -72,20 +72,23 @@ stories:
       - abdominal_pain: value
     - checkpoint: reported_abdominal_pain
     - action: utter_will_ask_medical_questions
+    #Q1 Allergy history
     - action: utter_ask_allergy_history
-    - intent: inform_aller_history
-      entities:
-        - allergy_history: value
+    - intent: affirmative
+    - action: action_map_aller_history
     - action: utter_positive_conv_marker
+    #Q2 Duration
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
     - action: utter_positive_conv_marker
+    #Q3 Area
     - action: utter_ask_abdominal_pain_area
     - intent: inform_abdominal_pain_area
       entities:
         - abdominal_pain_area: value
+    #Q4 Severity
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
       entities:
@@ -138,16 +141,19 @@ stories:
     - slot_was_set:
       - respiratory_difficulty: value
     - action: utter_will_ask_medical_questions
+    #Q1 Duration
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
     - action: utter_positive_conv_marker
+    #Q2 Trigger
     - action: utter_ask_resp_difficulty_triggers
     - intent: inform_resp_difficulty_triggers
       entities:
         - resp_difficulty_triggers: value
     - action: utter_positive_conv_marker
+    #Q3 Severity
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
       entities:
@@ -233,6 +239,42 @@ stories:
     - action: utter_ask_fainting_medical_conditions
     - intent: negative
     - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+# ========== hypothermia
+- story: report abdominal pain
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - hypothermia: value
+    - slot_was_set:
+      - hypothermia: value
+    - checkpoint: reported_hypothermia
+    - action: utter_will_ask_medical_questions
+    #Q1 skincolor 
+    - action: utter_ask_hypothermia_skin_color
+    - intent: inform_hypothermia_skin_color
+      entities:
+        - hypothermia_skin_color: value
+    - action: utter_positive_conv_marker #Get it!
+    #Q2 Duration
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: utter_positive_conv_marker
+    #Q3 Severity
+    - action: utter_ask_pain_severity
+    - intent: inform_pain_severity
+      entities:
+        - pain_severity: value
+    - action: utter_positive_conv_marker
+    # Q4 Enviorment 
+    - action: utter_ask_hypothermia_env
+    - intent: inform_hypothermia_skin_env
+      entities:
+        - hypothermia_env: value
+    - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 
 # ========== Interruptions

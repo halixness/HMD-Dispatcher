@@ -215,14 +215,14 @@ class MapHypothermiaSkincolor(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="hypothermia_skin_color", tracker=tracker)
 
-class MapHypothermiaTreatment(Action):
+class MapHypothermiaEnv(Action):
     
     def name(self) -> Text:
-        return "action_map_hypothermia_treatment"
+        return "action_map_hypothermia_env"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="hypothermia_treatment", tracker=tracker)
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="hypothermia_env", tracker=tracker)
 
 # ============== Allergy actions ==============
 class MapAllergyCause(Action):
@@ -242,14 +242,16 @@ class MapAllergySymptoms(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_symptoms", tracker=tracker)
-class MapAllergyHistory(Action):
-    
-    def name(self) -> Text:
+class ActionSetAllergyHistory(Action):
+    def name(self) -> str:
         return "action_map_aller_history"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_history", tracker=tracker)
+
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
+        intent = tracker.latest_message["intent"]["name"]
+        is_travel = intent == "affirmative"
+        return [SlotSet("aller_history", is_travel)]
 
 # ============== fall actions ==============
 class MapFallConscious(Action):
@@ -279,6 +281,16 @@ class MapFeverTemperature(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="fever_temperature", tracker=tracker)
 
+class ActionSetInfoTravelSlot(Action):
+    def name(self) -> str:
+        return "action_map_fever_travel"
+
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
+        intent = tracker.latest_message["intent"]["name"]
+        is_travel = intent == "affirmative"
+        return [SlotSet("fever_travel", is_travel)]
 # ================ headache ====================
 class MapHeadLife(Action):
     

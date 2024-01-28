@@ -19,7 +19,7 @@ intents:
 - inform_abdominal_pain_area
 - inform_resp_difficulty_triggers
 - inform_hypothermia_skin_color
-- inform_hypothermia_treatment
+- inform_hypothermia_env
 - inform_aller_cause
 - inform_aller_symptoms
 - inform_aller_history
@@ -51,7 +51,7 @@ entities:
 - pain_relieving
 - abdominal_pain_area
 - hypothermia_skin_color
-- hypothermia_treatment
+- hypothermia_env
 - allergy_cause
 - allergy_symptoms
 - allergy_history
@@ -220,11 +220,12 @@ slots:
     mappings:
     - type: custom
       action: action_map_hypothermia_skin_color
-  hypothermia_treatment:
+  hypothermia_skin_env:
     type: text
     mappings:
     - type: custom
-      action: action_map_hypothermia_treatment
+      action: action_map_hypothermia_env
+
    # ============== Allergy reaction questions ==============
   aller_cause:
     type: text
@@ -295,7 +296,7 @@ actions:
 - action_map_pain_history
 - action_map_pain_relieving
 - action_map_hypothermia_skin_color
-- action_map_hypothermia_treatment
+- action_map_hypothermia_env
 - action_toggle_is_pain_reported
 - action_map_resp_difficulty_triggers
 - action_map_aller_cause
@@ -305,12 +306,15 @@ actions:
 - utter_ask_pain_severity
 - utter_ask_pain_duration
 - utter_ask_fainting_prior
+- utter_ask_hypothermia_skin_color
+- utter_ask_hypothermia_env
 - action_map_fall_conscious
 - action_map_fall_movement
 - action_map_fever_temperature
 - action_map_headachelifestyle
 - action_map_fainting_prior
 - action_map_fainting_medical_conditions
+
 
 
 responses:
@@ -439,10 +443,10 @@ responses:
   - text: Have you observed any alterations in your skin's color or temperature, such as becoming paler or cooler to the touch?
   - text: Did your skin color change?
 
-  utter_ask_hypothermia_treatment:
-  - text: Do you have any medical conditions or take any medications that might affect your body's response to cold?
-  - text: Do you have adequate clothing or treatment when you felt bad?
-  - text: Have you recieved any treatment after feeling bad?
+  utter_ask_hypothermia_env:
+  - text: Can you describe the circumstances that led to your exposure to cold temperatures?
+  - text: Could you provide details about the situation that resulted in your exposure to low temperatures?
+  - text: Please share information about the conditions that led to your being exposed to cold temperatures.
 
   # ============== allergy questions ==============
   utter_ask_allergy_cause:
