@@ -237,6 +237,9 @@ slots:
       action: action_map_aller_symptoms
   aller_history:
     type: bool
+    mappings:
+    - type: custom
+      action: action_map_aller_history
   # ============== fall questions ==============
   fall_conscious:
     type: text
@@ -256,6 +259,9 @@ slots:
       action: action_map_fever_temperature
   fever_travel:
     type: bool
+    mappings:
+    - type: custom
+      action: action_map_fever_travel
   # =============== headache ====================
   headache_lifestyle:
     type: text
