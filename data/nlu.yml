@@ -172,12 +172,16 @@ nlu:
     - My [skin is cold](hypothermia) and my speech is becoming slurred.
     - My hands are clumsy and I'm [feeling very cold](hypothermia).
     - I'm exhausted and [my skin is cold to the touch](hypothermia).
-    - I'm [feeling numb in my extremities](hypothermia).
-    - I'm experiencing a [slow heart rate](hypothermia).
     - I'm [feeling very cold](hypothermia) and [my teeth are chattering](hypothermia).
     - I'm [shivering uncontrollably](hypothermia) and my heart rate is slowing down.
     - My [skin is turning bluish](hypothermia).
-    - I'm experiencing intense shivering and [my fingers are becoming numb](hypothermia).
+    - I'm experiencing [intense shivering](hypothermia) and my fingers are becoming numb.
+    - I've been [exposed to cold temperatures](hypothermia) for an extended period.
+    - There's a noticeable [drop in my body temperature](hypothermia).
+    - I'm wearing wet clothing, and I [can't get warm](hypothermia).
+    - I urgently need medical assistance for [hypothermia](hypothermia).
+    - My lips and fingernails are [turning blue due to the cold](hypothermia).
+    - My skin appears pale and [feels unusually cold](hypothermia).
     - It feels like my [chest is tight](respiratory_difficulty) and I [can't take a deep breath](respiratory_difficulty).
     - I often find myself [short of breath](respiratory_difficulty), even with minimal exertion.
     - [Breathing feels labored](respiratory_difficulty) and I [struggle to inhale](respiratory_difficulty) properly.
@@ -196,6 +200,8 @@ nlu:
     - I'm having [difficulty swallowing](allergic_reaction), and I'm concerned about a severe allergic reaction.
     - I've developed shortness of breath and chest tightness due to an [allergic exposure](allergic_reaction).
     - I have a known allergy, and I'm encountering a reaction with symptoms like [itching, redness, and swelling](allergic_reaction).
+    - I've developed a [rash on my skin](allergic_reaction), and it's spreading quickly.
+    - There's a [tingling sensation](allergic_reaction) in my mouth and tongue, signaling an allergic response.
     - I've been experiencing episodes where I [suddenly lose consciousness](fainting).
     - I [passed out suddenly](fainting) and [found myself on the floor](fainting).
     - There was a moment when [everything went dark](fainting), and [I collapsed](fainting).
@@ -224,23 +230,25 @@ nlu:
     - I'm [injured after falling](fall). Please dispatch an ambulance to my location.
     - I've [fallen from a height](fall), and I'm experiencing severe pain. 
     - I've [had a slip](fall) and need help promptly.
-    - I've taken [a tumble](fall) and require immediate medical attention.
+    - I've [taken a tumble](fall) and require immediate medical attention.
+    - I [fell from](fall) the roof, I need help!
     - I'm in urgent need of help; I'm [running a high temperature](fever).
-    - This is an emergency. I'm dealing with [a persistent fever](fever) that's causing distress.
-    - I [have a fever](fever), and it's spiking rapidly. I need immediate medical assistance.
-    - Calling for help, [my body temperature is elevated](fever), and I can't manage it.
+    - This is an emergency. I'm dealing with a persistent [fever](fever) that's causing distress.
+    - I have a [fever](fever), and it's spiking rapidly. I need immediate medical assistance.
+    - Calling for help, my [body temperature is elevated](fever), and I can't manage it.
     - I'm down with [a severe fever](fever) and feeling weak.
-    - I've [got a fever](fever), and it's getting worse by the minute.
+    - I've got a [fever](fever), and it's getting worse by the minute.
     - My [temperature's spiking](fever), and I could really use some medical help right now.
     - I've got this [fever](fever) that's really knocking me down. Any chance I could get some assistance?
-    - Calling in because I'm dealing with [a stubborn fever](fever). Feeling pretty rough.
+    - Calling in because I'm dealing with a stubborn [fever](fever). Feeling pretty rough.
     - My [temperature's through the roof](fever), and I'm not managing too well.
-    - [Caught a fever](fever), and it's hitting hard. Any chance someone could send help my way?
-    - My body's staging a revolt [with this fever](fever).
-    - Got this [fever situation](fever) that's really making things tough. 
-    - I'm dealing with [a stubborn fever](fever) that's throwing me off balance. Could use some help if possible.
-    - [Caught a fever](fever), and it's making life a bit complicated. Any help would be amazing right now.
-    - I'm calling because I've got a pretty [bad headache](headache).
+    - Caught a [fever](fever), and it's hitting hard. Any chance someone could send help my way?
+    - My body's staging a revolt with this [fever](fever).
+    - Got this [fever](fever) situation that's really making things tough. 
+    - I'm dealing with a stubborn [fever](fever) that's throwing me off balance. Could use some help if possible.
+    - Caught a [fever](fever), and it's making life a bit complicated. Any help would be amazing right now.
+    - I'm sweating profusely, and my clothes are drenched due to the [elevated temperature](fever).
+    - I'm calling because I've got a pretty bad [headache](headache).
     - I've got a [headache](headache) that's bothering me.
     - I've got this [headache](headache) that's been hanging around all day.
     - I've got this [pounding migraine](headache), and it's pretty intense.
@@ -255,6 +263,7 @@ nlu:
     - Dealing with this [head distress](headache), any suggestions on how to manage it?
     - Calling because I've got this [persistent headache](headache) that's bothering me.
     - Hi, I've got a [headache](headache) and was wondering if you have any suggestions on how to handle it?
+    - I have a [pain on my head](headache).
 
 
 - intent: patient_needs_ambulance
@@ -427,17 +436,18 @@ nlu:
     - Yes, my skin feels cool, and the [color has become paler](hypothermia_skin_color).
     - There's a distinct coolness and [paleness in my skin](hypothermia_skin_color).
     - My skin has changed the color; it's now [paler](hypothermia_skin_color), and there's a coolness to it.
-
-- intent: inform_hypothermia_treatment
+- intent: inform_hypothermia_env
   examples: |
-    - No, I [haven't received any treatment yet](hypothermia_treatment) for how I'm feeling.
-    - [Not yet](hypothermia_treatment); I haven't received any treatment for feeling unwell.
-    - I [haven't received any medical treatment](hypothermia_treatment) since I started feeling bad.
-    - [No treatment so far](hypothermia_treatment).
-    - I [have received treatment](hypothermia_treatment) after feeling unwell.
-    - Yes, I saw a doctor and [received appropriate treatment](hypothermia_treatment).
-    - I sought medical help, and I am currently [undergoing treatment](hypothermia_treatment).
-    - [Yes, I've received treatment](hypothermia_treatment) for my symptoms from a healthcare professional.
+    - I was caught in an [unexpected snowstorm](hypothermia_env) while hiking in the mountains.
+    - I fell into [icy water](hypothermia_env) lake during a boating accident.
+    - I got lost in a [cold, remote area](hypothermia_env) without proper winter clothing.
+    - I was stranded in my car during a [snowstorm](hypothermia_env) without heating.
+    - I spent too much time [outdoors](hypothermia_env) in freezing temperatures without adequate protection.
+    - I got caught in [heavy rain](hypothermia_env), and the temperature dropped rapidly.
+    - I work in a [refrigerated warehouse](hypothermia_env) and didn't wear enough layers.
+    - I had prolonged exposure to [cold wind](hypothermia_env) during a winter storm.
+    - I fell into a [cold river](hypothermia_env) while attempting to cross it.
+    - I slept in a [poorly heated room](hypothermia_env) during a cold night.
 
 # ============== resp_difficulty  ==============
 
@@ -511,10 +521,11 @@ nlu:
     - I tried [a new medication](allergy_cause) this morning, and shortly afterward, I started experiencing these symptoms.
     - I was [stung by a bee](allergy_cause) while outdoors, and I think I might be allergic to bee venom.
     - I attended a friend's pet-friendly house, and I'm [allergic to cats](allergy_cause). That exposure might be the cause.
-    - I had a [different brand of nuts as a snack](allergy_cause), and I'm wondering if that could be the allergen.
-    - I recently moved into a new apartment, and there might be [environmental factors](allergy_cause) triggering my allergies.
+    - I had a [snack that contains nuts](allergy_cause), and I'm wondering if that could be the allergen.
+    - I recently moved into a new apartment, and there might be [flower pollen](allergy_cause) triggering my allergies.
     - I spent time in a grassy area, and I'm [allergic to certain types of grasses](allergy_cause).
     - I used [a scented cleaning product](allergy_cause) at home today, and the aroma might have triggered my allergic reaction.
+    - I just took [a new medication](allergy_cause), this can be the cause.
 
 - intent: inform_aller_symptoms
   examples: |
@@ -528,17 +539,7 @@ nlu:
     - I'm experiencing pronounced [swelling in my throat](allergy_symptoms), making it hard to breathe.
     - I've developed [watery eyes and a runny nose](allergy_symptoms).
     - I've been feeling [lightheaded and dizzy](allergy_symptoms) since the reaction started.
-
-- intent: inform_aller_history
-  examples: |
-    - [Yes, I have a known allergy to peanuts](allergy_history), and I carry an epinephrine auto-injector for emergencies.
-    - [No, I've never experienced allergies before](allergy_history); this is the first time I've had such a reaction.
-    - [I have seasonal allergies](allergy_history), mainly to pollen, but it has never caused a reaction like this before.
-    - I have [a history of mild skin allergies](allergy_history), but nothing as severe as what I'm experiencing now.
-    - I'm allergic to certain medications, but [I've never had a reaction to food or environmental factors](allergy_history).
-    - I have [a family history of allergies](allergy_history).
-    - I have [a history of reactions to insect stings](allergy_history), but this feels different from my usual response.
-    - I had [an allergic reaction a few years ago](allergy_history), but the trigger was never identified.
+    - I have an [itchy rash](allergy_symptoms) in my body. 
 
 # ============== Fall  ==============
 - intent: inform_fall_conscious
