@@ -199,7 +199,7 @@ stories:
     - checkpoint: completed_medical_questions
 
 # ========== hypothermia
-- story: report abdominal pain
+- story: report hypothermia
   steps:
     - intent: patient_reports_pain
       entities:
@@ -231,6 +231,71 @@ stories:
     - intent: inform_hypothermia_skin_env
       entities:
         - hypothermia_env: value
+    - action: utter_medical_questions_filled #completed! 
+    - checkpoint: completed_medical_questions
+
+# ============= Allergy Reaction
+- story: report allergy
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - allergic_reaction: value
+    - slot_was_set:
+      - allergic_reaction: value
+    - checkpoint: reported_allergic_reaction
+    - action: utter_will_ask_medical_questions
+    #Q1 Area (utter name need to be changed later)
+    - action: utter_ask_abdominal_pain_area
+    - intent: inform_abdominal_pain_area
+      entities:
+        - abdominal_pain_area: value
+    - action: utter_positive_conv_marker #Get it!
+    #Q2 Cause
+    - action: utter_ask_allergy_cause
+    - intent: inform_aller_cause
+      entities:
+        - allergy_cause: value
+    - action: utter_positive_conv_marker
+    #Q3 Symptoms
+    - action: utter_ask_allergy_symptoms
+    - intent: inform_aller_symptoms
+      entities:
+        - allergy_symptoms: value
+    - action: utter_positive_conv_marker
+    # Q4 History
+    - action: utter_ask_allergy_history
+    - intent: negative
+    - action: action_map_aller_history
+    - action: utter_medical_questions_filled #completed! 
+    - checkpoint: completed_medical_questions
+
+# ============= Fever
+- story: report fever
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - fever: value
+    - slot_was_set:
+      - fever: value
+    - checkpoint: reported_fever
+    - action: utter_will_ask_medical_questions
+    #Q1 Tempreture
+    - action: utter_ask_temperature
+    - intent: inform_fever_temperature
+      entities:
+        - fever_temperature: value
+    - action: utter_positive_conv_marker #Get it!
+    #Q2 duration
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - action: utter_positive_conv_marker
+    #Q3 Travel
+    - action: utter_ask_travel
+    - intent: affirmative
+    - action: action_map_fever_travel
+    - action: utter_positive_conv_marker
     - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 

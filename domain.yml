@@ -22,7 +22,6 @@ intents:
 - inform_hypothermia_env
 - inform_aller_cause
 - inform_aller_symptoms
-- inform_aller_history
 - inform_fainting_prior
 - inform_fainting_patterns
 - inform_fall_conscious
@@ -54,7 +53,6 @@ entities:
 - hypothermia_env
 - allergy_cause
 - allergy_symptoms
-- allergy_history
 - fall_conscious
 - fall_move
 - fever_temperature
@@ -221,10 +219,7 @@ slots:
     - type: custom
       action: action_map_aller_symptoms
   aller_history:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_aller_history
+    type: bool
   # ============== fall questions ==============
   fall_conscious:
     type: text
@@ -242,6 +237,8 @@ slots:
     mappings:
     - type: custom
       action: action_map_fever_temperature
+  fever_travel:
+    type: bool
   # =============== headache ====================
   headache_lifestyle:
     type: text
@@ -288,13 +285,21 @@ actions:
 - utter_will_ask_medical_questions
 - utter_ask_pain_severity
 - utter_ask_pain_duration
+- utter_ask_abdominal_pain_area
+- utter_ask_resp_difficulty_triggers
 - utter_ask_fainting_prior
 - utter_ask_fainting_patterns
 - utter_ask_hypothermia_skin_color
 - utter_ask_hypothermia_env
+- utter_ask_allergy_cause
+- utter_ask_allergy_symptoms
+- utter_ask_allergy_history
+- utter_ask_travel
+- utter_ask_temperature
 - action_map_fall_conscious
 - action_map_fall_movement
 - action_map_fever_temperature
+- action_map_fever_travel
 - action_map_headachelifestyle
 
 
@@ -399,9 +404,9 @@ responses:
 
   # ============== Abdominal pain questions ==============
   utter_ask_abdominal_pain_area:
-  - text: Where exactly in your abdomen do you feel the pain? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
-  - text: Can you pinpoint the specific location of the abdominal pain? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
-  - text: In which area of your abdomen is the pain most concentrated? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: Where exactly in your body do you feel the discomfort? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: Can you pinpoint the specific location of the symptoms? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: In which area of your body is the pain most concentrated? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
 
   # ============== Respiratory difficulty questions ==============
   utter_ask_resp_difficulty_triggers:
@@ -461,6 +466,9 @@ responses:
   - text: Have you checked your temperature, and if yes, what was the result?
   - text: Were you able to measure your temperature, and if you were, what did it show?
 
+  utter_ask_travel:
+  - text: Have you recently traveled to any new locations or been in contact with sick individuals?
+  - text: Did you travel to some high-risk areas before?
   # ============== headache question =============
   utter_ask_headache_lifestyle:
   - text: How would you describe your sleep patterns?
