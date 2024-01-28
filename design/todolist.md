@@ -10,7 +10,19 @@
     - Ambiguous input
     - Error escalation: give indications on the correct input
 
-### Pathologies
+### Testing
+- [x] Abdominal pain
+- [x] Respiratory distress
+- [x] Fainting
+- [ ] Poisoning/drug abuse
+- [ ] Hyperthermia
+- [ ] Hypothermia
+- [ ] Allergic reaction
+- [ ] Fall
+- [ ] Fever
+- [ ] Headache
+
+### Added pathologies
 - [x] Abdominal pain
 - [x] Respiratory distress
 - [x] Fainting

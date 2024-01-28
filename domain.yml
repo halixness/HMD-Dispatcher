@@ -23,7 +23,7 @@ intents:
 - inform_aller_cause
 - inform_aller_symptoms
 - inform_fainting_prior
-- inform_fainting_patterns
+- inform_fainting_medical_conditions
 - inform_fall_conscious
 - inform_fall_movement
 - inform_fever_temperature
@@ -57,6 +57,9 @@ entities:
 - fall_move
 - fever_temperature
 - headache_lifestyle
+- resp_difficulty_triggers
+- fainting_prior
+- fainting_medical_conditions
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
@@ -195,6 +198,20 @@ slots:
     - type: custom
       action: action_map_resp_difficulty_triggers
 
+  # ============== Fainting questions ==============
+
+  fainting_prior:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_fainting_prior
+
+  fainting_medical_conditions:
+    type: text
+    mappings:
+    - type: custom
+      action: action_map_fainting_medical_conditions
+
   # ============== Hypothermia questions ==============
   hypothermia_skin_color:
     type: text
@@ -288,7 +305,6 @@ actions:
 - utter_ask_abdominal_pain_area
 - utter_ask_resp_difficulty_triggers
 - utter_ask_fainting_prior
-- utter_ask_fainting_patterns
 - utter_ask_hypothermia_skin_color
 - utter_ask_hypothermia_env
 - utter_ask_allergy_cause
@@ -301,6 +317,8 @@ actions:
 - action_map_fever_temperature
 - action_map_fever_travel
 - action_map_headachelifestyle
+- action_map_fainting_prior
+- action_map_fainting_medical_conditions
 
 
 
@@ -392,15 +410,14 @@ responses:
   # ============== General medical questions ==============
   
   utter_ask_pain_duration:
-  - text: When did you first notice the pain, and is it continuous or intermittent?
-  - text: Tell me about the onset of the pain. Is it persistent or comes and goes?
-  - text: When did the pain begin, and has it been steady or sporadic? How long has it persisted?
+  - text: When did you first notice the problem, what term describes it the most? E.g. Continuous, intermittent, first occurrence, sudden, n-th time. 
+  - text: When did the problem first catch your attention, and how would you characterize it? For instance, was it continuous, intermittent, a sudden onset, or perhaps the n-th occurrence?
+  - text: At what point did you initially become aware of the discomfort, and which term best describes it? Choose from options like continuous, intermittent, first occurrence, sudden onset, or the n-th time.
 
   utter_ask_pain_severity:
-  - text: Using a scale from 0 to 10, how would you rate the intensity of your pain?
-  - text: On a scale of 0 to 10, how severe is the pain you're experiencing?
-  - text: If 0 means no pain and 10 is the most severe, where would you place your pain level?
-  - text: Can you quantify the pain on a scale from 0 to 10?
+  - text: On a scale from "dull" to "moderate" and "severe", how would you describe your sensation? Do you feel some strong pain?
+  - text: How would you rate your current sensation, ranging from "mild" to "moderate" and "intense"? Are you experiencing any significant pain?
+  - text: On a scale from "subtle" to "moderate" and "intense," how would you characterize your current sensation? Do you perceive any notable pain?
 
   # ============== Abdominal pain questions ==============
   utter_ask_abdominal_pain_area:
@@ -410,21 +427,21 @@ responses:
 
   # ============== Respiratory difficulty questions ==============
   utter_ask_resp_difficulty_triggers:
-  - text: Have you identified any specific triggers or activities that worsen the respiratory distress?
-  - text: Have you pinpointed any particular factors or actions that exacerbate the respiratory difficulties?
-  - text: Are there specific triggers or behaviors you've recognized that contribute to the worsening of respiratory distress?
+  - text: Can you identify one of the following as potential causes for your respiratory distress? Pollution, allergens, smoke, mold, pollen, dust.
+  - text: What are some probable factors contributing to your respiratory distress, such as pollution, allergens, smoke, mold, pollen, and dust?
+  - text: Could you pinpoint any potential triggers for your respiratory distress from the following options, pollution, allergens, smoke, mold, pollen, or dust?
   
   # ============== Fainting questions ==============
   utter_ask_fainting_prior:
-  - text: Can you describe the events leading up to the fainting episode?
-  - text: Could you provide a detailed account of the circumstances that preceded the fainting incident?
-  - text: What happened before the person fainted? Please describe the events leading up to it.
+  - text: Did you identify any of the following warning signs before fainting? Dizziness, lightheadedness, nausea, sweating, blurred vision.
+  - text: Have you experienced any of the warning signs like dizziness, lightheadedness, nausea, sweating, or blurred vision before fainting?
+  - text: Before fainting, did you notice any of the following indicators, dizziness, lightheadedness, nausea, sweating, or blurred vision?
 
-  utter_ask_fainting_patterns:
-  - text: Have you noticed any specific triggers or patterns associated with your fainting episodes?
-  - text: Have you identified any particular factors or recurring patterns linked to your episodes of fainting?
-  - text: Are there specific triggers or regular patterns that you've observed in connection with your instances of fainting?
-
+  utter_ask_fainting_medical_conditions:
+  - text: Do you have medical conditions corresponding with the following, low blood sugar (hypoglycemia), dehydration, heart rhythm abnormalities (arrhythmias), low blood pressure (hypotension), or anemia?
+  - text: Do you experience any health issues related to low blood sugar (hypoglycemia), dehydration, heart rhythm abnormalities (arrhythmias), low blood pressure (hypotension), or anemia?
+  - text: Have you been diagnosed with or do you have medical conditions such as low blood sugar (hypoglycemia), dehydration, heart rhythm abnormalities (arrhythmias), low blood pressure (hypotension), or anemia?
+  
   # ============== Hypothermia pain questions ==============
   utter_ask_hypothermia_skin_color:
   - text: Have you noticed any changes in your skin color or temperature, such as paleness or coolness to the touch?
