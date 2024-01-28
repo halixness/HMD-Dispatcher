@@ -52,12 +52,16 @@ stories:
 
 - story: ask any questions > no > goodbye
   steps:
+    - slot_was_set:
+      - is_pain_reported: true
     - action: utter_ask_any_questions
     - intent: negative
     - action: utter_goodbye
 
 - story: ask any questions > no > goodbye
   steps:
+    - slot_was_set:
+      - is_pain_reported: true
     - action: utter_ask_any_questions
     - intent: affirmative
     - action: utter_start_QA
@@ -88,6 +92,7 @@ stories:
     - intent: inform_abdominal_pain_area
       entities:
         - abdominal_pain_area: value
+    - action: utter_positive_conv_marker
     #Q4 Severity
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
@@ -197,16 +202,19 @@ stories:
     - slot_was_set:
       - fainting: value
     - action: utter_will_ask_medical_questions
+    # Q1
     - action: utter_ask_pain_duration
     - intent: inform_pain_duration
       entities:
         - pain_duration: value
     - action: utter_positive_conv_marker
+    # Q2
     - action: utter_ask_fainting_prior
     - intent: inform_fainting_prior
       entities:
         - fainting_prior: value
     - action: utter_positive_conv_marker
+    # Q3
     - action: utter_ask_fainting_medical_conditions
     - intent: inform_fainting_medical_conditions
       entities:

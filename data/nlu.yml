@@ -421,10 +421,11 @@ nlu:
 # ============== abdominal_pain ==============
 - intent: inform_abdominal_pain_area
   examples: |
+    - In my [lower abdomen](abdominal_pain_area).
     - Right around my [navel area](abdominal_pain_area).
     - In the [lower part of my belly](abdominal_pain_area).
     - Just [above my waistline](abdominal_pain_area).
-    - Around the [middle of my stomach](abdominal_pain_area).
+    - Around the [middle of my belly](abdominal_pain_area).
     - Towards the [left side, near my hip](abdominal_pain_area).
     - Around my [pelvic region](abdominal_pain_area).
     - In the [upper part of my abdomen](abdominal_pain_area).
@@ -433,14 +434,14 @@ nlu:
     - More to the [right side](abdominal_pain_area), [below my ribcage](abdominal_pain_area).
     - Around the area [between my ribs and belly button](abdominal_pain_area).
     - Right [above my pelvic bone](abdominal_pain_area).
-    - Across my [entire stomach area](abdominal_pain_area).
+    - Across my [entire abdominal area](abdominal_pain_area).
     - Centralized, [between my chest and belly button](abdominal_pain_area).
     - In the [lower right quadrant](abdominal_pain_area) of my abdomen.
     - [Closer to my groin](abdominal_pain_area), in the lower abdomen.
     - [Spread out](abdominal_pain_area), covering my whole stomach.
     - [Around my belly button](abdominal_pain_area) and [extending to the sides](abdominal_pain_area).
     - Concentrated [in the middle, below my sternum](abdominal_pain_area).
-    - Towards the [lower part of my stomach](abdominal_pain_area), but on [both sides](abdominal_pain_area).
+    - Towards the [lower part of my abdomen](abdominal_pain_area), but on [both sides](abdominal_pain_area).
 
 # ============== hypothermia  ==============
 - intent: inform_hypothermia_skin_color
@@ -453,6 +454,7 @@ nlu:
     - Yes, my skin feels cool, and the [color has become paler](hypothermia_skin_color).
     - There's a distinct coolness and [paleness in my skin](hypothermia_skin_color).
     - My skin has changed the color; it's now [paler](hypothermia_skin_color), and there's a coolness to it.
+
 - intent: inform_hypothermia_env
   examples: |
     - I was caught in an [unexpected snowstorm](hypothermia_env) while hiking in the mountains.
