@@ -95,7 +95,7 @@ slots:
     - type: from_entity
       entity: hypothermia
   
-  allergy:
+  allergic_reaction:
     type: text
     influence_conversation: true
     mappings:
