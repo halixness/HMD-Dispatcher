@@ -2,9 +2,9 @@
 
 ### Quality checkup
 - [ ] Over-informative user
-- [ ] Mixed initiative
+- [x] Mixed initiative
 - [ ] Low coherence user
-- [ ] Conversational markers
+- [x] Conversational markers
 - [ ] Error handling
     - No speech
     - Ambiguous input
@@ -14,13 +14,9 @@
 - [x] Abdominal pain
 - [x] Respiratory distress
 - [x] Fainting
-- [ ] Poisoning/drug abuse
-- [ ] Hyperthermia
 - [ ] Hypothermia
 - [ ] Allergic reaction
 - [ ] Fall
-- [ ] Fever
-- [ ] Headache
 
 ### Added pathologies
 - [x] Abdominal pain

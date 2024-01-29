@@ -6,7 +6,6 @@ intents:
 - negative
 - patient_inputs_coordinates
 - patient_reports_pain
-- patient_asks_cause
 - patient_needs_ambulance
 - patient_wants_human_agent
 - inform_pain_duration
@@ -28,6 +27,8 @@ intents:
 - inform_fall_movement
 - inform_fever_temperature
 - inform_headache_lifestyle
+- patient_asks_cause
+- patient_asks_what_to_do
 
 entities:
 - patient_phonenmbr
@@ -60,6 +61,7 @@ entities:
 - resp_difficulty_triggers
 - fainting_prior
 - fainting_medical_conditions
+- dangers_around
 
 # https://rasa.com/blog/how-to-use-global-slot-mappings/
 slots:
@@ -94,35 +96,44 @@ slots:
     mappings:
     - type: from_entity
       entity: hypothermia
-  
   allergic_reaction:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: allergic_reaction
-  
   fall:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: fall
-
   fever:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: fever
-  
   headache:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: headache
-
+  dangers_around:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: dangers_around
+  multiple_involved:
+    type: bool
+    mappings:
+    - type: from_intent
+      value: true
+      intent: affirmative
+    - type: from_intent
+      value: false
+      intent: negative
 
   # ============== Patient coordinates ==============
   patient_homeaddr:
@@ -325,25 +336,23 @@ actions:
 - action_map_headachelifestyle
 - action_map_fainting_prior
 - action_map_fainting_medical_conditions
-
-
+- utter_ask_multiple_involved
+- utter_ask_dangers_around
 
 responses:
-
   utter_positive_conv_marker:
   - text: Got it.
-  - text: I see.
+  - text: Noted.
   - text: Ok.
-  - text: Alright.
   
   utter_negative_conv_marker:
-  - text: Ok, no problem.
-  - text: Alright, that's fine.
-  - text: That's fine.
+  - text: No problem.
+  - text: Ok.
 
   utter_will_ask_medical_questions:
-  - text: I see, I am going to ask you some detailed questions to be as accurate as possible, don't worry if you can't answer fully.
-  
+  - text: I see, I am going to ask you some questions to assess  the situation. Don't worry if you can't answer.
+  - text: Ok, I will ask you some specific questions to understand your problem. Don't worry, you can tell me when you don't know.
+
   utter_proceed_asking_pain:
   - text: Ok, now could you tell me more about your problem?
   - text: Thank you, now can you tell me what problem are you experiencing?
@@ -365,6 +374,7 @@ responses:
 
   utter_greet:
   - text: Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime.
+  - text: Emergency Dispatcher. Ask anytime if you want to talk with a human operator.
 
   utter_please_specify_pathology:
   - text: Sorry, I need you to give me some details about your pathology first.
@@ -372,6 +382,13 @@ responses:
   utter_please_provide_general_info:
   - text: Ok, to possibly send help for your emergency, I need some details first.
   - text: Ok, I'm going to ask you some contact details first.
+
+  utter_inform_eta:
+  - text: An ambulance shall arrive within the next 20 minutes. Typically, it takes around 8 minutes.
+  - text: An ambulance is on the way and will be here in about 8 minutes.
+  - text: Expect an ambulance to show up within the next 20 minutes; usually, it arrives in around 8 minutes.
+  - text: The ambulance should reach you in the next 20 minutes, with an average time of 8 minutes.
+  - text: Look out for the ambulance, which should get to you in approximately 8 minutes or less.
 
   # =================================================
 
@@ -383,6 +400,12 @@ responses:
   
   utter_ask_patient_phonenmbr:
   - text: And what's your phone number?
+
+  utter_ask_dangers_around:
+  - text: Are there any of the following dangers around? Armed people, fire, floods?
+
+  utter_ask_multiple_involved:
+  - text: Are there multiple persons involved in the emergency?
 
   utter_medical_questions_filled:
   - text: Ok, I have collected all the necessary info about your problem.
@@ -404,7 +427,11 @@ responses:
   - text: Paramedics are on their way.
 
   utter_ask_any_questions:
-  - text: Do you have any questions?
+  - text: Do you have any pain-related questions or indications for the moment?
+  
+  utter_ask_any_other_question:
+  - text: Do you have other questions?
+  - text: Is there other way I can help?
 
   utter_goodbye:
   - text: Alright, I hope I've been helpful. For any question, ask right away anytime!
@@ -430,6 +457,18 @@ responses:
   - text: Where exactly in your body do you feel the discomfort? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
   - text: Can you pinpoint the specific location of the symptoms? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
   - text: In which area of your body is the pain most concentrated? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+
+  utter_answer_abdominal_pain_cause:
+  - text: Common causes of abdominal pain include indigestion, gas, constipation, gastritis, infections, and muscle strain. Serious conditions like appendicitis, gallstones, and inflammatory bowel disease can also contribute to abdominal pain. If persistent or severe, it's important to seek medical attention for proper diagnosis and treatment.
+  - text: Stomachaches can happen from things like eating too fast, gas, or constipation. If it lasts a long time or hurts a lot, it's best to see a doctor.
+  - text: Belly pain can be caused by indigestion, gas, or muscle strain. If it doesn't go away or gets worse, it's smart to go to the doctor for help.
+  - text: Feeling a tummy ache? It could be from indigestion, constipation, or infections. If it's really bad or won't go away, don't hesitate to see a doctor.
+  - text: Sometimes your stomach hurts because of things like gastritis or infections. If the pain sticks around or is really bad, go to the doctor to find out what's going on.
+
+  utter_answer_abdominal_pain_action:
+  - text: While awaiting an ambulance for abdominal pain, stay calm, find a comfortable position, avoid eating/drinking, take slow breaths, track symptoms, have someone with you, remove tight clothing. Hold the line, I will keep you informed on the position of paramedics as they reach your position.
+  - text: Stay calm while waiting for help with stomach pain. Get comfortable, don't eat or drink, breathe slowly, note symptoms, have someone nearby, and loosen tight clothes. I'll update you on the paramedics' location.
+  - text: If you have tummy pain and are waiting for an ambulance, stay cool. Sit comfortably, don't eat or drink, breathe slowly, watch your symptoms, keep someone around, and loosen tight clothes. Hold on, I'll tell you where the paramedics are when they arrive.
 
   # ============== Respiratory difficulty questions ==============
   utter_ask_resp_difficulty_triggers:
@@ -492,6 +531,7 @@ responses:
   utter_ask_travel:
   - text: Have you recently traveled to any new locations or been in contact with sick individuals?
   - text: Did you travel to some high-risk areas before?
+  
   # ============== headache question =============
   utter_ask_headache_lifestyle:
   - text: How would you describe your sleep patterns?
@@ -505,3 +545,5 @@ forms:
     required_slots:
       - patient_homeaddr
       - patient_phonenmbr
+      - dangers_around
+      - multiple_involved

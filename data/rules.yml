@@ -33,6 +33,56 @@ rules:
   - action: utter_confirm_ambulance_sent
   - action: utter_ask_any_questions
 
+# =========== Inappropriate time - user questions
+
+- rule: no emergency, asks cause
+  condition:
+  - slot_was_set:
+    - is_pain_reported: false
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_please_specify_pathology
+
+- rule: no emergency, asks problem
+  condition:
+  - slot_was_set:
+    - is_pain_reported: false
+  steps:
+  - intent: patient_asks_problem
+  - action: utter_please_specify_pathology
+
+- rule: no emergency, asks problem
+  condition:
+  - slot_was_set:
+    - is_pain_reported: false
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_please_specify_pathology
+
+# =========== General user questions
+- rule: patient asks eta (after contact)
+  steps:
+  - intent: patient_asks_eta
+  - action: utter_inform_eta
+
+# =========== Abdominal pain - user questions
+- rule: abdominal pain - cause
+  condition:
+  - slot_was_set:
+    - abdominal_pain: value
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answer_abdominal_pain_cause
+  - action: utter_ask_any_other_question
+
+- rule: abdominal pain - action
+  condition:
+  - slot_was_set:
+    - abdominal_pain: value
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_answer_abdominal_pain_action
+  - action: utter_ask_any_other_question
 
 # ======================================================
 #  Error handling

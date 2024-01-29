@@ -153,6 +153,67 @@ nlu:
     - You can reach me on [3456785678](patient_phonenmbr).
     - I'm calling from [3219877890](patient_phonenmbr).
 
+- intent: inform_dangers_around
+  examples: |
+    - I hear gunshots nearby; there might be [armed people](dangers_around).
+    - There's smoke everywhere; I think there's a [fire](dangers_around) close by.
+    - The [water is rising quickly](dangers_around); we're in the middle of a [flood](dangers_around).
+    - I just saw someone with a [weapon](dangers_around); there are [armed people](dangers_around) around.
+    - Flames are spreading rapidly; there's a [big fire](dangers_around).
+    - Our street is flooded; we're in the midst of a [flood](dangers_around).
+    - I can smell smoke; there seems to be a [fire](dangers_around) nearby.
+    - People are running away; I think there might be [armed people](dangers_around).
+    - The water is entering our home; we're experiencing a [flood](dangers_around).
+    - I saw a [person carrying a gun](dangers_around); there are [armed people](dangers_around) here.
+    - There's a lot of water; we're dealing with a [flood](dangers_around).
+    - I can see flames in the distance; there's a [big fire](dangers_around) somewhere close.
+    - I heard gunshots; there may be [armed people](dangers_around) in the area.
+    - Smoke is filling the air; there's a [fire](dangers_around) nearby.
+    - Our house is surrounded by water; it's a [flood](dangers_around).
+    - I spotted someone with a weapon; there are [armed people](dangers_around) around us.
+    - The sky is orange; there's a [big fire](dangers_around) happening nearby.
+    - Water is rising rapidly; we're facing a serious [flood](dangers_around).
+    - I heard gunfire; there might be [armed people](dangers_around) close by.
+    - There's a strong smell of smoke; there's a [fire](dangers_around) in the vicinity.
+
+
+# ======================================================
+#  User questions
+# ======================================================
+
+- intent: patient_asks_cause
+  examples: |
+    - Why might this happen?
+    - What are the potential reasons?
+    - Can you identify the likely causes?
+    - What could be causing this?
+    - Can you think of any possible explanations?
+    - What factors could be contributing to this?
+    - What are some things that may be causing this?
+
+- intent: patient_asks_what_to_do
+  examples: |
+    - Can I take action while waiting?
+    - What should I do?
+    - What can be done while waiting for emergency help to arrive?
+    - While waiting for the ambulance, what actions can be helpful?
+    - What should I focus on doing as I wait for the ambulance?
+    - In this emergency, what can I do while awaiting the ambulance?
+    - While awaiting medical assistance, what actions can I take?
+
+- intent: patient_asks_eta
+  examples: |
+    - When will the ambulance get here?
+    - How much time until help arrives?
+    - When can we expect the ambulance?
+    - How soon will the help come?
+    - What's the ETA for the ambulance?
+    - When is the ambulance expected?
+    - How long until the ambulance reaches us?
+    - When will help be here?
+    - What's the wait time for the ambulance?
+    - When should we anticipate the arrival of assistance?
+    
 # ======================================================
 #  Emergency detection (reviewed)
 # ======================================================
@@ -232,6 +293,16 @@ nlu:
     - I've [had a slip](fall) and need help promptly.
     - I've [taken a tumble](fall) and require immediate medical attention.
     - I [fell from](fall) the roof, I need help!
+    - Hello, I'm feeling [really hot and sweaty](fever) right now.
+    - My [body is aching all over](fever), especially my muscles and joints.
+    - I've been [shivering](fever), even though I'm under blankets.
+    - My [body temperature is very high](fever)
+    - I feel [really weak and tired](fever), like I don't have any energy.
+    - I'm having these alternating [chills and sweats](fever).
+    - I've noticed that my [face is flushed and feels](fever) warm to the touch.
+    - My [body is covered in sweat](fever), even though I'm not doing anything.
+    - I've checked, and my [temperature is consistently high](fever).
+    - I'm not sure what's going on, but I think I might have a [fever](fever).
     - I'm in urgent need of help; I'm [running a high temperature](fever).
     - This is an emergency. I'm dealing with a persistent [fever](fever) that's causing distress.
     - I have a [fever](fever), and it's spiking rapidly. I need immediate medical assistance.
