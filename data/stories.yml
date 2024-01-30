@@ -286,6 +286,42 @@ stories:
     - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 
+- story: hypotermia - negative answ (1)
+  steps:
+    - slot_was_set:
+      - hypothermia: value
+    - action: utter_ask_hypothermia_skin_color
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_pain_duration
+
+- story: hypotermia - negative answ (2)
+  steps:
+    - slot_was_set:
+      - hypothermia: value
+    - action: utter_ask_pain_duration
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_pain_severity
+
+- story: hypotermia - negative answ (3)
+  steps:
+    - slot_was_set:
+      - hypothermia: value
+    - action: utter_ask_pain_severity
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_hypothermia_env
+
+- story: hypotermia - negative answ (4)
+  steps:
+    - slot_was_set:
+      - hypothermia: value
+    - action: utter_ask_hypothermia_env
+    - intent: negative
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 # ============= Allergy Reaction
 - story: report allergy
   steps:
@@ -321,6 +357,42 @@ stories:
     - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 
+- story: allergy - negative answ (1)
+  steps:
+    - slot_was_set:
+      - allergic_reaction: value
+    - action: utter_ask_abdominal_pain_area
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_allergy_cause
+
+- story: allergy - negative answ (2)
+  steps:
+    - slot_was_set:
+      - allergic_reaction: value
+    - action: utter_ask_allergy_cause
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_allergy_symptoms
+
+- story: allergy - negative answ (3)
+  steps:
+    - slot_was_set:
+      - allergic_reaction: value
+    - action: utter_ask_allergy_symptoms
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_allergy_history
+
+- story: allergy - negative answ (4)
+  steps:
+    - slot_was_set:
+      - allergic_reaction: value
+    - action: utter_ask_allergy_history
+    - intent: negative
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 # ============= Fever
 - story: report fever
   steps:
@@ -349,6 +421,33 @@ stories:
     - action: action_map_fever_travel
     - action: utter_positive_conv_marker
     - action: utter_medical_questions_filled #completed! 
+    - checkpoint: completed_medical_questions
+
+- story: fever - negative answ (1)
+  steps:
+    - slot_was_set:
+      - fever: value
+    - action: utter_ask_temperature
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_pain_duration
+
+- story: fever - negative answ (2)
+  steps:
+    - slot_was_set:
+      - fever: value
+    - action: utter_ask_pain_duration
+    - intent: negative
+    - action: utter_negative_conv_marker
+    - action: utter_ask_travel
+
+- story: fever - negative answ (3)
+  steps:
+    - slot_was_set:
+      - fever: value
+    - action: utter_ask_travel
+    - intent: negative
+    - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
 # ========== Interruptions

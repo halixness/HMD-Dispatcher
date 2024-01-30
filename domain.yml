@@ -27,8 +27,10 @@ intents:
 - inform_fall_movement
 - inform_fever_temperature
 - inform_headache_lifestyle
+- patient_asks_eta
 - patient_asks_cause
 - patient_asks_what_to_do
+- patient_asks_medication
 
 entities:
 - patient_phonenmbr
@@ -338,6 +340,12 @@ actions:
 - action_map_fainting_medical_conditions
 - utter_ask_multiple_involved
 - utter_ask_dangers_around
+- utter_inform_eta
+- utter_inform_medication
+- utter_answer_abdominal_pain_cause
+- utter_answer_abdominal_pain_action
+- utter_answer_hypothermia_cause
+- utter_answer_hypothermia_action
 
 responses:
   utter_positive_conv_marker:
@@ -390,6 +398,12 @@ responses:
   - text: The ambulance should reach you in the next 20 minutes, with an average time of 8 minutes.
   - text: Look out for the ambulance, which should get to you in approximately 8 minutes or less.
 
+  utter_inform_medication:
+  - text: I'm not a medical professional, but I recommend seeking immediate medical attention by visiting the nearest healthcenter.
+  - text: I'm not equipped to provide specific medical advice, but if your symptoms are severe or worsening, it's crucial to contact doctors for medications.
+  - text: I cannot give you specific medical suggestions but I encourage you to wait our ambulance or you visit a nearby doctor to get better treatments. 
+  - text: It is always good to visit the hospitals to get fully checked and get appropriate treatment and medication.
+  - text: Sorry I cannot answer this question, you can have better medical advises in the hospital. 
   # =================================================
 
   ask_patient_homeaddr:
@@ -497,6 +511,13 @@ responses:
   - text: Can you describe the circumstances that led to your exposure to cold temperatures?
   - text: Could you provide details about the situation that resulted in your exposure to low temperatures?
   - text: Please share information about the conditions that led to your being exposed to cold temperatures.
+
+  utter_answer_hypothermia_cause:
+  - text: Hypothermia occurs when the body loses heat faster than it can produce it, leading to a dangerously low body temperature.
+  - text: It happens due to cold weather exposure, inadequate clothing, wet clothing, etc.
+  utter_answer_hypothermia_action:
+  - text: You should find a warm and dry place to protect yourself from the cold.
+  - text: You should use blankets, warm beverages, and gradual heating to raise body temperature. Avoid sudden exposure to high heat sources.
 
   # ============== allergy questions ==============
   utter_ask_allergy_cause:
