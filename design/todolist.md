@@ -16,7 +16,7 @@
 - [x] Fainting
 - [ ] Hypothermia
 - [ ] Allergic reaction
-- [ ] Fall
+- [ ] Fever
 
 ### Added pathologies
 - [x] Abdominal pain
