@@ -20,7 +20,6 @@ intents:
 - inform_hypothermia_skin_color
 - inform_hypothermia_env
 - inform_aller_cause
-- inform_aller_symptoms
 - inform_fainting_prior
 - inform_fainting_medical_conditions
 - inform_fall_conscious
@@ -55,7 +54,6 @@ entities:
 - hypothermia_skin_color
 - hypothermia_env
 - allergy_cause
-- allergy_symptoms
 - fall_conscious
 - fall_move
 - fever_temperature
@@ -243,11 +241,7 @@ slots:
     mappings:
     - type: custom
       action: action_map_aller_cause
-  aller_symptoms:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_aller_symptoms
+
   aller_history:
     type: bool
     mappings:
@@ -316,7 +310,6 @@ actions:
 - action_toggle_is_pain_reported
 - action_map_resp_difficulty_triggers
 - action_map_aller_cause
-- action_map_aller_symptoms
 - action_map_aller_history
 - utter_will_ask_medical_questions
 - utter_ask_pain_severity
@@ -327,7 +320,6 @@ actions:
 - utter_ask_hypothermia_skin_color
 - utter_ask_hypothermia_env
 - utter_ask_allergy_cause
-- utter_ask_allergy_symptoms
 - utter_ask_allergy_history
 - utter_ask_travel
 - utter_ask_temperature
@@ -524,11 +516,6 @@ responses:
   - text: Are you aware of any specific allergen exposure or trigger that might have caused the reaction?
   - text: Have you recently consumed any new foods or medications?
   - text: Were you exposed to any environmental factors, such as insect stings or plants?
-
-  utter_ask_allergy_symptoms:
-  - text: Are you experiencing any difficulty breathing or shortness of breath?
-  - text: Have you noticed any swelling in your face, lips, tongue, or throat?
-  - text: Are there any gastrointestinal symptoms, such as abdominal pain, nausea, or vomiting?
 
   utter_ask_allergy_history:
   - text: Do you have a history of allergies or allergic reactions?

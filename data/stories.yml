@@ -344,13 +344,7 @@ stories:
       entities:
         - allergy_cause: value
     - action: utter_positive_conv_marker
-    #Q3 Symptoms
-    - action: utter_ask_allergy_symptoms
-    - intent: inform_aller_symptoms
-      entities:
-        - allergy_symptoms: value
-    - action: utter_positive_conv_marker
-    # Q4 History
+    # Q3 History
     - action: utter_ask_allergy_history
     - intent: negative
     - action: action_map_aller_history
@@ -373,18 +367,9 @@ stories:
     - action: utter_ask_allergy_cause
     - intent: negative
     - action: utter_negative_conv_marker
-    - action: utter_ask_allergy_symptoms
+    - action:utter_ask_allergy_history
 
 - story: allergy - negative answ (3)
-  steps:
-    - slot_was_set:
-      - allergic_reaction: value
-    - action: utter_ask_allergy_symptoms
-    - intent: negative
-    - action: utter_negative_conv_marker
-    - action: utter_ask_allergy_history
-
-- story: allergy - negative answ (4)
   steps:
     - slot_was_set:
       - allergic_reaction: value

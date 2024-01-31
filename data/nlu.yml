@@ -213,7 +213,22 @@ nlu:
     - When will help be here?
     - What's the wait time for the ambulance?
     - When should we anticipate the arrival of assistance?
-    
+
+- intent: patient_asks_medication
+  examples: |
+    - Should I go to the hospital?
+    - Should I go to see a doctor?
+    - Should I take some medicine?
+    - What medicine should I take?
+    - Should I take some pills?
+    - Would it be advisable to book an appointment with a medical professional?
+    - Do you suggest making arrangements to see a doctor based on the symptoms I've described?
+    - Should I consider scheduling a consultation with a healthcare provider given the nature of my symptoms?
+    - Given the symptoms, would it be prudent to seek advice from a doctor through a scheduled appointment?
+    - Do you recommend setting up a meeting with a healthcare professional to discuss my symptoms in more detail?
+    - Would it be beneficial for me to arrange a doctor's appointment considering the symptoms I'm currently facing?
+
+
 # ======================================================
 #  Emergency detection (reviewed)
 # ======================================================
@@ -231,11 +246,14 @@ nlu:
     - I'm in a lot of [discomfort in my abdomen](abdominal_pain)
     - I feel [extremely cold](hypothermia) and my teeth are chattering.
     - My [skin is cold](hypothermia) and my speech is becoming slurred.
-    - My hands are clumsy and I'm [feeling very cold](hypothermia).
+    - My [body temperature is low](hypothermia).
+    - I have very [low body temperature](hypothermia).
+    - My [body temperature dropped](hypothermia).
+    - I [am freezing](hypothermia).
+    - My hands are clumsy and I'm [feeling cold](hypothermia).
     - I'm exhausted and [my skin is cold to the touch](hypothermia).
-    - I'm [feeling very cold](hypothermia) and [my teeth are chattering](hypothermia).
+    - I'm [feeling cold](hypothermia) and [my teeth are chattering](hypothermia).
     - I'm [shivering uncontrollably](hypothermia) and my heart rate is slowing down.
-    - My [skin is turning bluish](hypothermia).
     - I'm experiencing [intense shivering](hypothermia) and my fingers are becoming numb.
     - I've been [exposed to cold temperatures](hypothermia) for an extended period.
     - There's a noticeable [drop in my body temperature](hypothermia).
@@ -263,6 +281,17 @@ nlu:
     - I have a known allergy, and I'm encountering a reaction with symptoms like [itching, redness, and swelling](allergic_reaction).
     - I've developed a [rash on my skin](allergic_reaction), and it's spreading quickly.
     - There's a [tingling sensation](allergic_reaction) in my mouth and tongue, signaling an allergic response.
+    - Yes, my [lips have become noticeably swollen](allergic_reaction).
+    - I've observed [swelling in my tongue](allergic_reaction) since the onset of symptoms.
+    - There is [swelling around my eyes](allergic_reaction) and on my face.
+    - My throat feels swollen and tight, making it [difficult to swallow](allergic_reaction).
+    - I can feel [swelling in my lips](allergic_reaction), and they appear larger than usual.
+    - There's a [tingling sensation in my tongue](allergic_reaction), and it seems to be swollen.
+    - [My face feels puffy](allergic_reaction), especially around the cheeks and eyes.
+    - I'm experiencing pronounced [swelling in my throat](allergic_reaction), making it hard to breathe.
+    - I've developed [watery eyes and a runny nose](allergic_reaction).
+    - I've been feeling [lightheaded and dizzy](allergic_reaction) since the reaction started.
+    - I have an [itchy rash](allergic_reaction) in my body. 
     - I've been experiencing episodes where I [suddenly lose consciousness](fainting).
     - I [passed out suddenly](fainting) and [found myself on the floor](fainting).
     - There was a moment when [everything went dark](fainting), and [I collapsed](fainting).
@@ -293,7 +322,9 @@ nlu:
     - I've [had a slip](fall) and need help promptly.
     - I've [taken a tumble](fall) and require immediate medical attention.
     - I [fell from](fall) the roof, I need help!
-    - Hello, I'm feeling [really hot and sweaty](fever) right now.
+    - I [fell from a high place](fall)!
+    - I [fell from a tall place](fall)!
+    - Hello, I'm feeling really [hot and sweaty](fever) right now.
     - My [body is aching all over](fever), especially my muscles and joints.
     - I've been [shivering](fever), even though I'm under blankets.
     - My [body temperature is very high](fever)
@@ -321,6 +352,7 @@ nlu:
     - I'm sweating profusely, and my clothes are drenched due to the [elevated temperature](fever).
     - I'm calling because I've got a pretty bad [headache](headache).
     - I've got a [headache](headache) that's bothering me.
+    - My [head hurts](headache) so much.
     - I've got this [headache](headache) that's been hanging around all day.
     - I've got this [pounding migraine](headache), and it's pretty intense.
     - Calling about this annoying [skull ache](headache) that's been bothering me all day.
@@ -445,6 +477,9 @@ nlu:
     - The pain has been [constant](pain_duration) and quite hard for the [past hour](pain_duration).
     - It [comes and goes](pain_duration).
     - I first noticed the pain [this morning](pain_duration), and it's been [constant](pain_duration) since then.
+    - It has been [2 hours](pain_duration).
+    - The pain has lasted for [3 days](pain_duration).
+    - The pain has lasted for [2 months](pain_duration).
     - It started as a dull ache [yesterday](pain_duration), but now it's a [constant](pain_duration) pain.
     - The pain is [intermittent](pain_duration), but it's been [happening all day](pain_duration).
     - Started feeling it about [two hours ago](pain_duration), and it hasn't stopped since.
@@ -493,6 +528,28 @@ nlu:
 - intent: inform_abdominal_pain_area
   examples: |
     - In my [lower abdomen](abdominal_pain_area).
+    - The pain is [around my body](abdominal_pain_area).
+    - The pain is [on my back](abdominal_pain_area).
+    - I feel the pain [on my legs](abdominal_pain_area).
+    - I'm experiencing a sharp pain [in my lower back](abdominal_pain_area).
+    - I have a dull ache [in my shoulders and neck](abdominal_pain_area).
+    - There's a throbbing pain [in my temples](abdominal_pain_area).
+    - I feel a stabbing pain [in my abdomen](abdominal_pain_area).
+    - I'm having discomfort with a sharp pain [in my knees](abdominal_pain_area).
+    - There's a constant ache [in my hips](abdominal_pain_area).
+    - I'm noticing a shooting pain [in my wrists](abdominal_pain_area).
+    - I have a persistent pain [in my chest](abdominal_pain_area).
+    - I'm feeling a tingling sensation and pain [in my hands](abdominal_pain_area).
+    - There's a dull, persistent pain [in my ankles](abdominal_pain_area).
+    - I'm experiencing a stabbing pain [in my upper back](abdominal_pain_area).
+    - There's a throbbing ache [in my elbows](abdominal_pain_area).
+    - I feel a sharp pain [in my jaw](abdominal_pain_area).
+    - I'm having discomfort with a pulsating pain [in my thighs](abdominal_pain_area).
+    - There's a persistent pain [in my shins](abdominal_pain_area).
+    - I have a shooting pain [in my fingers](abdominal_pain_area).
+    - I'm noticing a dull ache [in my stomach](abdominal_pain_area).
+    - There's a constant pain [in my toes](abdominal_pain_area).
+    - I'm experiencing a tingling sensation and pain [in my feet](abdominal_pain_area)(abdominal_pain_area).
     - Right around my [navel area](abdominal_pain_area).
     - In the [lower part of my belly](abdominal_pain_area).
     - Just [above my waistline](abdominal_pain_area).
@@ -529,6 +586,11 @@ nlu:
 - intent: inform_hypothermia_env
   examples: |
     - I was caught in an [unexpected snowstorm](hypothermia_env) while hiking in the mountains.
+    - I am in a [snow mountain](hypothermia_env).
+    - I am in an [ice lake](hypothermia_env).
+    - I am in a [cold snow](hypothermia_env).
+    - I am [outside](hypothermia_env).
+    - I am in a [cold place](hypothermia_env)
     - I fell into [icy water](hypothermia_env) lake during a boating accident.
     - I got lost in a [cold, remote area](hypothermia_env) without proper winter clothing.
     - I was stranded in my car during a [snowstorm](hypothermia_env) without heating.
@@ -612,6 +674,13 @@ nlu:
   examples: |
     - I recently ate [a meal that included shellfish](allergy_cause), and I suspect it might be the cause.
     - I used [a new skincare product](allergy_cause) yesterday, and my skin reacted, so it could be an ingredient in that.
+    - I had [seafood](allergy_cause).
+    - I had [contact with a dog](allergy_cause).
+    - I just touched a [dog](allergy_cause).
+    - I just touched a [cat](allergy_cause).
+    - I was in a place full of [pollen](allergy_cause).
+    - I just drank some [milk](allergy_cause).
+    - I ate [wheat](allergy_cause). 
     - I was gardening earlier, and I may have come into [contact with a plant or pollen](allergy_cause) that triggered my allergies.
     - I tried [a new medication](allergy_cause) this morning, and shortly afterward, I started experiencing these symptoms.
     - I was [stung by a bee](allergy_cause) while outdoors, and I think I might be allergic to bee venom.
@@ -621,20 +690,6 @@ nlu:
     - I spent time in a grassy area, and I'm [allergic to certain types of grasses](allergy_cause).
     - I used [a scented cleaning product](allergy_cause) at home today, and the aroma might have triggered my allergic reaction.
     - I just took [a new medication](allergy_cause), this can be the cause.
-
-- intent: inform_aller_symptoms
-  examples: |
-    - Yes, my [lips have become noticeably swollen](allergy_symptoms).
-    - I've observed [swelling in my tongue](allergy_symptoms) since the onset of symptoms.
-    - There is [swelling around my eyes](allergy_symptoms) and on my face.
-    - My throat feels swollen and tight, making it [difficult to swallow](allergy_symptoms).
-    - I can feel [swelling in my lips](allergy_symptoms), and they appear larger than usual.
-    - There's a [tingling sensation in my tongue](allergy_symptoms), and it seems to be swollen.
-    - [My face feels puffy](allergy_symptoms), especially around the cheeks and eyes.
-    - I'm experiencing pronounced [swelling in my throat](allergy_symptoms), making it hard to breathe.
-    - I've developed [watery eyes and a runny nose](allergy_symptoms).
-    - I've been feeling [lightheaded and dizzy](allergy_symptoms) since the reaction started.
-    - I have an [itchy rash](allergy_symptoms) in my body. 
 
 # ============== Fall  ==============
 - intent: inform_fall_conscious

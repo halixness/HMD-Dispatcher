@@ -233,15 +233,7 @@ class MapAllergyCause(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_cause", tracker=tracker)
-    
-class MapAllergySymptoms(Action):
-    
-    def name(self) -> Text:
-        return "action_map_aller_symptoms"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_symptoms", tracker=tracker)
+
 class ActionSetAllergyHistory(Action):
     def name(self) -> str:
         return "action_map_aller_history"
