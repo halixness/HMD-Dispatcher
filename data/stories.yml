@@ -367,7 +367,7 @@ stories:
     - action: utter_ask_allergy_cause
     - intent: negative
     - action: utter_negative_conv_marker
-    - action:utter_ask_allergy_history
+    - action: utter_ask_allergy_history
 
 - story: allergy - negative answ (3)
   steps:
