@@ -5,12 +5,19 @@
 - [x] Mixed initiative
 - [ ] Low coherence user
 - [x] Conversational markers
+- [ ] Grounding
+    - Meaning: establishing a common reality shared among the speakers. Speakers can perform grounding by: attending to one's logic, providing the next relevant contribution, completing or paraphrasing one's contributions, repeating verbatim. 
+    - [ ] Example 1: "I need X's phone number", "ok, first I need to know from which town". "fist" = grounding term that informs of a sequential procedure to collect info with some rules.
+    - [x] Example 2: providing aknowledgements after one's utternce is a sign of grounding. e.g. "my phone number is X", "okay, what is your town name?". "okay" informs about a transition and a correct reception of the content.
 - [ ] Error handling
     - No speech
     - Ambiguous input
     - Error escalation: give indications on the correct input
 
 ### Testing
+- [ ] The model confuses pain_area with reports_pain
+- [ ] Implement end of the conversation and reset
+- [ ] Test when user changes their mind during QA and wants to call an ambulance.
 - [x] Abdominal pain
 - [x] Respiratory distress
 - [x] Fainting
@@ -18,21 +25,19 @@
 - [ ] Allergic reaction
 - [ ] Fever
 
+### Issues/TODO
+- [ ] what happens if I re-set a reported pain? story twist?
+- [x] The model seems not to generalize negative answers. We may use a custom mapping for that. => retraining and fixing other intents solved it.
+- [x] Refactor abdominal_pain_area
+
+
 ### Added pathologies
 - [x] Abdominal pain
 - [x] Respiratory distress
 - [x] Fainting
-- [ ] Poisoning/drug abuse
-- [ ] Hyperthermia
 - [x] Hypothermia
 - [x] Allergic reaction
-- [x] Fall
 - [x] Fever
-- [x] Headache
-
-### Issues
-- [ ] custom slot mapping: how to apply it conditionally? It always runs for all slots and it empties the values...
-- [ ] Once general info are filled, how to detect whether an emergency has been already reported? Probably global slot mapping or some logical check. We broke down pain_type into different pathologies. Otherwise how would we detect the scenarios?
 
 ### High priority
 - [x] the agent should alert they're going to ask specific questions

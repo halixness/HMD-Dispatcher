@@ -32,6 +32,7 @@ nlu:
 
 - intent: negative
   examples: |
+    - no thanks, I'm good
     - No i'm fine
     - No i'm ok
     - no
@@ -176,7 +177,6 @@ nlu:
     - I heard gunfire; there might be [armed people](dangers_around) close by.
     - There's a strong smell of smoke; there's a [fire](dangers_around) in the vicinity.
 
-
 # ======================================================
 #  User questions
 # ======================================================
@@ -193,6 +193,7 @@ nlu:
 
 - intent: patient_asks_what_to_do
   examples: |
+    - yes, what can I do right now to address this?
     - Can I take action while waiting?
     - What should I do?
     - What can be done while waiting for emergency help to arrive?
@@ -458,6 +459,8 @@ nlu:
 # ============== general_pain ==============
 - intent: inform_pain_duration
   examples: |
+    - it happened [only today](pain_duration)
+    - it occurred both [yesterday](pain_duration) and [today](pain_duration)
     - it's been quite [constant](pain_duration) [for two days](pain_duration)
     - it [continued](pain_duration) [for two hours](pain_duration)
     - it [hasn't stopped for days](pain_duration)
@@ -525,51 +528,38 @@ nlu:
     - [Severe](pain_severity), the pain is [really strong](pain_severity) right now.
 
 # ============== abdominal_pain ==============
-- intent: inform_abdominal_pain_area
+- intent: inform_pain_area
   examples: |
-    - In my [lower abdomen](abdominal_pain_area).
-    - The pain is [around my body](abdominal_pain_area).
-    - The pain is [on my back](abdominal_pain_area).
-    - I feel the pain [on my legs](abdominal_pain_area).
-    - I'm experiencing a sharp pain [in my lower back](abdominal_pain_area).
-    - I have a dull ache [in my shoulders and neck](abdominal_pain_area).
-    - There's a throbbing pain [in my temples](abdominal_pain_area).
-    - I feel a stabbing pain [in my abdomen](abdominal_pain_area).
-    - I'm having discomfort with a sharp pain [in my knees](abdominal_pain_area).
-    - There's a constant ache [in my hips](abdominal_pain_area).
-    - I'm noticing a shooting pain [in my wrists](abdominal_pain_area).
-    - I have a persistent pain [in my chest](abdominal_pain_area).
-    - I'm feeling a tingling sensation and pain [in my hands](abdominal_pain_area).
-    - There's a dull, persistent pain [in my ankles](abdominal_pain_area).
-    - I'm experiencing a stabbing pain [in my upper back](abdominal_pain_area).
-    - There's a throbbing ache [in my elbows](abdominal_pain_area).
-    - I feel a sharp pain [in my jaw](abdominal_pain_area).
-    - I'm having discomfort with a pulsating pain [in my thighs](abdominal_pain_area).
-    - There's a persistent pain [in my shins](abdominal_pain_area).
-    - I have a shooting pain [in my fingers](abdominal_pain_area).
-    - I'm noticing a dull ache [in my stomach](abdominal_pain_area).
-    - There's a constant pain [in my toes](abdominal_pain_area).
-    - I'm experiencing a tingling sensation and pain [in my feet](abdominal_pain_area)(abdominal_pain_area).
-    - Right around my [navel area](abdominal_pain_area).
-    - In the [lower part of my belly](abdominal_pain_area).
-    - Just [above my waistline](abdominal_pain_area).
-    - Around the [middle of my belly](abdominal_pain_area).
-    - Towards the [left side, near my hip](abdominal_pain_area).
-    - Around my [pelvic region](abdominal_pain_area).
-    - In the [upper part of my abdomen](abdominal_pain_area).
-    - [Close to my belly button](abdominal_pain_area), but [a bit to the right](abdominal_pain_area).
-    - Lower [left side of my belly](abdominal_pain_area).
-    - More to the [right side](abdominal_pain_area), [below my ribcage](abdominal_pain_area).
-    - Around the area [between my ribs and belly button](abdominal_pain_area).
-    - Right [above my pelvic bone](abdominal_pain_area).
-    - Across my [entire abdominal area](abdominal_pain_area).
-    - Centralized, [between my chest and belly button](abdominal_pain_area).
-    - In the [lower right quadrant](abdominal_pain_area) of my abdomen.
-    - [Closer to my groin](abdominal_pain_area), in the lower abdomen.
-    - [Spread out](abdominal_pain_area), covering my whole stomach.
-    - [Around my belly button](abdominal_pain_area) and [extending to the sides](abdominal_pain_area).
-    - Concentrated [in the middle, below my sternum](abdominal_pain_area).
-    - Towards the [lower part of my abdomen](abdominal_pain_area), but on [both sides](abdominal_pain_area).
+    - The discomfort is [in my lower abdomen](pain_area).
+    - I feel pain [on my right side, near the hip](pain_area).
+    - It's a burning sensation [around my belly button](pain_area).
+    - The pain is located [in the upper left quadrant](pain_area).
+    - I have cramping [in the lower right abdomen](pain_area).
+    - It's a constant ache [below my ribs](pain_area).
+    - The discomfort is [in the center of my abdomen](pain_area).
+    - I feel pressure [in the upper abdomen, close to the chest](pain_area).
+    - It's [on my left side, by the ribs](pain_area).
+    - It's a throbbing sensation [in the lower left quadrant](pain_area).
+    - I'm feeling [tightness in my chest](pain_area)
+    - It's a sharp pain [right below my ribs](pain_area)
+    - there's a pressure [in the center of my chest](pain_area).
+    - The pain is [in my throat](pain_area)
+    - I feel a heaviness [around my lungs](pain_area)
+    - I have a persistent [aching in my upper abdomen](pain_area)
+    - The discomfort is [in my chest, right in the middle](pain_area)
+    - I'm experiencing pain [on the right side of my chest](pain_area)
+    - The tightness is [across my chest](pain_area)
+    - I'm feeling [a burning sensation](pain_area) in my lower abdomen.
+    - I feel it [in my lower back](pain_area).
+    - The discomfort is mainly [in my left ankle](pain_area).
+    - The pain is localized [on my hip](pain_area) where I landed.
+    - There's aching [in my wrist](pain_area) from the fall.
+    - I'm experiencing discomfort [in my neck](pain_area) after the accident.
+    - The area [around my knee](pain_area) is really sore.
+    - I can't put much weight on my foot because of the pain [in my foot](pain_area).
+    - I have a bruise and tenderness [on my arm](pain_area) after falling.
+
+# abdominal pain, respiratory, fainting, hypothermia, falling, fever
 
 # ============== hypothermia  ==============
 - intent: inform_hypothermia_skin_color
@@ -604,26 +594,26 @@ nlu:
 # ============== resp_difficulty  ==============
 - intent: inform_resp_difficulty_triggers
   examples: |
-    - I live in an area with high levels of [pollution](resp_distress_triggers).
-    - I have a history of allergies, and I suspect [allergens](resp_distress_triggers) triggered my distress.
-    - There was a fire nearby, and I was exposed to [smoke](resp_distress_triggers).
-    - I noticed signs of [mold](resp_distress_triggers) in my living space.
-    - Spring just started, and I'm sensitive to [pollen](resp_distress_triggers).
-    - I've been cleaning my house, and I stirred up a lot of [dust](resp_distress_triggers).
-    - My workplace has poor ventilation, and I'm exposed to constant [pollution](resp_distress_triggers).
-    - I recently moved to a new place, and I think there might be hidden [mold](resp_distress_triggers).
-    - I spent time in a dusty attic, and now I'm having trouble breathing due to [dust](resp_distress_triggers).
-    - I was around a bonfire, and the [smoke](resp_distress_triggers) bothered my respiratory system.
-    - The weather changed, and I started experiencing issues, suspecting it's [allergens](resp_distress_triggers).
-    - I work in construction, and the constant exposure to [dust](resp_distress_triggers) might be the cause.
-    - I have a garden, and the increased [pollen](resp_distress_triggers) this season is affecting me.
-    - There was a renovation in my building, and now there's a lot of [dust](resp_distress_triggers).
-    - I visited a friend with pets, and I'm having an allergic reaction to the [allergens](resp_distress_triggers).
-    - The recent rain caused some leaks in my house, leading to [mold](resp_distress_triggers) growth.
-    - I live in an old house with poor ventilation, contributing to the [dust](resp_distress_triggers) issue.
-    - I was in a crowded area with heavy [pollution](resp_distress_triggers), and now I'm experiencing distress.
-    - I tried a new cleaning product, and I think I reacted to the [allergens](resp_distress_triggers) in it.
-    - My office is in a basement, and there's a musty smell, making me suspect [mold](resp_distress_triggers).
+    - I live in an area with high levels of [pollution](resp_difficulty_triggers).
+    - I have a history of allergies, and I suspect [allergens](resp_difficulty_triggers) triggered my distress.
+    - There was a fire nearby, and I was exposed to [smoke](resp_difficulty_triggers).
+    - I noticed signs of [mold](resp_difficulty_triggers) in my living space.
+    - Spring just started, and I'm sensitive to [pollen](resp_difficulty_triggers).
+    - I've been cleaning my house, and I stirred up a lot of [dust](resp_difficulty_triggers).
+    - My workplace has poor ventilation, and I'm exposed to constant [pollution](resp_difficulty_triggers).
+    - I recently moved to a new place, and I think there might be hidden [mold](resp_difficulty_triggers).
+    - I spent time in a dusty attic, and now I'm having trouble breathing due to [dust](resp_difficulty_triggers).
+    - I was around a bonfire, and the [smoke](resp_difficulty_triggers) bothered my respiratory system.
+    - The weather changed, and I started experiencing issues, suspecting it's [allergens](resp_difficulty_triggers).
+    - I work in construction, and the constant exposure to [dust](resp_difficulty_triggers) might be the cause.
+    - I have a garden, and the increased [pollen](resp_difficulty_triggers) this season is affecting me.
+    - There was a renovation in my building, and now there's a lot of [dust](resp_difficulty_triggers).
+    - I visited a friend with pets, and I'm having an allergic reaction to the [allergens](resp_difficulty_triggers).
+    - The recent rain caused some leaks in my house, leading to [mold](resp_difficulty_triggers) growth.
+    - I live in an old house with poor ventilation, contributing to the [dust](resp_difficulty_triggers) issue.
+    - I was in a crowded area with heavy [pollution](resp_difficulty_triggers), and now I'm experiencing distress.
+    - I tried a new cleaning product, and I think I reacted to the [allergens](resp_difficulty_triggers) in it.
+    - My office is in a basement, and there's a musty smell, making me suspect [mold](resp_difficulty_triggers).
 
 # ============== fainting  ==============
 - intent: inform_fainting_prior
@@ -670,7 +660,7 @@ nlu:
     - [Arrhythmias](fainting_medical_conditions) have been a concern since my last check-up.
 
 # ============== Allergy  ==============
-- intent: inform_aller_cause
+- intent: inform_allergy_cause
   examples: |
     - I recently ate [a meal that included shellfish](allergy_cause), and I suspect it might be the cause.
     - I used [a new skincare product](allergy_cause) yesterday, and my skin reacted, so it could be an ingredient in that.

@@ -31,24 +31,16 @@ rules:
   # collected general info
   - action: action_submit_patient_coordinates
   - action: utter_confirm_ambulance_sent
+  - action: utter_inform_eta
   - action: utter_ask_any_questions
 
 # =========== Inappropriate time - user questions
-
 - rule: no emergency, asks cause
   condition:
   - slot_was_set:
     - is_pain_reported: false
   steps:
   - intent: patient_asks_cause
-  - action: utter_please_specify_pathology
-
-- rule: no emergency, asks problem
-  condition:
-  - slot_was_set:
-    - is_pain_reported: false
-  steps:
-  - intent: patient_asks_problem
   - action: utter_please_specify_pathology
 
 - rule: no emergency, asks problem
@@ -69,6 +61,26 @@ rules:
   steps:
   - intent: patient_asks_medication
   - action: utter_inform_medication
+
+- rule: ask any questions > no > goodbye (restart)
+  condition:
+  - slot_was_set:
+    - is_pain_reported: true
+  steps:
+    - action: utter_ask_any_questions
+    - intent: negative
+    - action: utter_end_conversation
+    - action: action_restart
+
+- rule: ask any questions > yes > start QA
+  condition:
+  - slot_was_set:
+    - is_pain_reported: true
+  steps:
+    - action: utter_ask_any_questions
+    - intent: affirmative
+    - action: utter_start_QA
+
 # =========== Abdominal pain - user questions
 - rule: abdominal pain - cause
   condition:
@@ -86,6 +98,44 @@ rules:
   steps:
   - intent: patient_asks_what_to_do
   - action: utter_answer_abdominal_pain_action
+  - action: utter_ask_any_other_question
+  
+# =========== Respiratory difficulty - user questions
+- rule: resp difficulty - cause
+  condition:
+  - slot_was_set:
+    - respiratory_difficulty: value
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answer_resp_difficulty_cause
+  - action: utter_ask_any_other_question
+
+- rule: resp difficulty - action
+  condition:
+  - slot_was_set:
+    - respiratory_difficulty: value
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_answer_resp_difficulty_action
+  - action: utter_ask_any_other_question
+
+# =========== Fainting - user questions
+- rule: fainting - cause
+  condition:
+  - slot_was_set:
+    - fainting: value
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answer_fainting_cause
+  - action: utter_ask_any_other_question
+
+- rule: fainting - action
+  condition:
+  - slot_was_set:
+    - fainting: value
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_answer_fainting_action
   - action: utter_ask_any_other_question
 
 # =========== Hypothermia - user questions

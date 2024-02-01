@@ -48,12 +48,15 @@ class SubmitPatientCoordinates(Action):
         return "action_submit_patient_coordinates"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-
         home_address = tracker.get_slot('patient_homeaddr')
         phone = tracker.get_slot('patient_phonenmbr')
+        dangers_around = tracker.get_slot('patient_phonenmbr')
+        multiple_involved = tracker.get_slot('patient_phonenmbr')
         helpRequest = {
             "address": home_address,
-            "phone": phone
+            "phone": phone,
+            "dangers_around": dangers_around,
+            "multiple_involved": multiple_involved,
         }
         print(f"[!] New help request at: {helpRequest}")
         return []
@@ -65,18 +68,7 @@ class SubmitEmergencyForm(Action):
         return "action_submit_emergency_form"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        answers = [
-            tracker.get_slot('pain_nature'),
-            tracker.get_slot('pain_location'),
-            tracker.get_slot('pain_duration'),
-            tracker.get_slot('pain_severity'),
-            tracker.get_slot('pain_relieving'),
-            tracker.get_slot('pain_symptoms'),
-            tracker.get_slot('pain_history'),
-            tracker.get_slot('pain_trauma'),
-            tracker.get_slot('pain_allergies'),
-            tracker.get_slot('pain_warnings'),
-        ]
+        answers = [(k, v) for k, v in tracker.slots.items() if v is not None]
         print(f"[!] New help request at: {answers}")
         return []
     
@@ -165,11 +157,11 @@ class MapPainRelieving(Action):
 class MapAbdominalPainArea(Action):
     
     def name(self) -> Text:
-        return "action_map_abdominal_pain_area"
+        return "action_map_pain_area"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="abdominal_pain_area", tracker=tracker)
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="pain_area", tracker=tracker)
         
 # ============== Respiratory difficulty actions ==============
 
@@ -228,11 +220,11 @@ class MapHypothermiaEnv(Action):
 class MapAllergyCause(Action):
     
     def name(self) -> Text:
-        return "action_map_aller_cause"
+        return "action_map_allergy_cause"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="aller_cause", tracker=tracker)
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="allergy_cause", tracker=tracker)
 
 class ActionSetAllergyHistory(Action):
     def name(self) -> str:
@@ -244,6 +236,15 @@ class ActionSetAllergyHistory(Action):
         intent = tracker.latest_message["intent"]["name"]
         is_travel = intent == "affirmative"
         return [SlotSet("aller_history", is_travel)]
+    
+class ActionSetDangersAround(Action):
+    def name(self) -> str:
+        return "action_map_dangers_around"
+
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
+        return SlotMappingUtilities.extract_slot_from_last_intent(slot="dangers_around", tracker=tracker)
 
 # ============== fall actions ==============
 class MapFallConscious(Action):

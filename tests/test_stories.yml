@@ -32,6 +32,7 @@ stories:
       quite [severe]{"entity": "pain_severity"}, it's [unbearable]{"entity": "pain_severity"}
     intent: inform_pain_severity
   - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
   - action: utter_ask_dispatch_ambulance
   - user: |
       no thanks
@@ -64,6 +65,7 @@ stories:
       I don't know
     intent: negative
   - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
   - action: utter_ask_dispatch_ambulance
   - user: |
       no thanks
@@ -92,6 +94,7 @@ stories:
       [moderate]{"entity": "pain_severity"}, it quite hurts
     intent: inform_pain_severity
   - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
   - action: utter_ask_dispatch_ambulance
   - user: |
       no thanks
@@ -119,6 +122,7 @@ stories:
       I don't know
     intent: negative
   - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
   - action: utter_ask_dispatch_ambulance
   - user: |
       no thanks
@@ -147,6 +151,7 @@ stories:
       yes, I am a positive carrier of [anemia]{"entity": "fainting_medical_conditions"}
     intent: inform_fainting_medical_conditions
   - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
   - action: utter_ask_dispatch_ambulance
   - user: |
       no thanks
@@ -163,17 +168,18 @@ stories:
   - user: |
       I don't know
     intent: negative
-  - action: utter_positive_conv_marker
+  - action: utter_negative_conv_marker
   - action: utter_ask_fainting_prior
   - user: |
       I don't know
     intent: negative
-  - action: utter_positive_conv_marker
+  - action: utter_negative_conv_marker
   - action: utter_ask_fainting_medical_conditions
   - user: |
       I don't know
     intent: negative
   - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
   - action: utter_ask_dispatch_ambulance
   - user: |
       no thanks

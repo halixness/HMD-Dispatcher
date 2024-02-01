@@ -39,6 +39,7 @@ stories:
 - story: medical questions > ask ambulance > yes
   steps:
     - checkpoint: completed_medical_questions
+    - action: action_submit_emergency_form
     - action: utter_ask_dispatch_ambulance
     - intent: affirmative
     - action: form_general_info
@@ -47,25 +48,10 @@ stories:
 - story: medical questions > ask ambulance > no
   steps:
     - checkpoint: completed_medical_questions
+    - action: action_submit_emergency_form
     - action: utter_ask_dispatch_ambulance
     - intent: negative
     - action: utter_ask_any_questions
-
-- story: ask any questions > no > goodbye
-  steps:
-    - slot_was_set:
-      - is_pain_reported: true
-    - action: utter_ask_any_questions
-    - intent: negative
-    - action: utter_goodbye
-
-- story: ask any questions > no > goodbye
-  steps:
-    - slot_was_set:
-      - is_pain_reported: true
-    - action: utter_ask_any_questions
-    - intent: affirmative
-    - action: utter_start_QA
 
 # ========== Abdominal pain
 - story: report abdominal pain
@@ -89,16 +75,21 @@ stories:
         - pain_duration: value
     - action: utter_positive_conv_marker
     #Q3 Area
-    - action: utter_ask_abdominal_pain_area
-    - intent: inform_abdominal_pain_area
+    - action: utter_ask_pain_area
+    - intent: inform_pain_area
       entities:
-        - abdominal_pain_area: value
+        - pain_area: value
     - action: utter_positive_conv_marker
     #Q4 Severity
     - action: utter_ask_pain_severity
     - intent: inform_pain_severity
       entities:
         - pain_severity: value
+    - slot_was_set:
+      - aller_history: value
+      - pain_duration: value
+      - pain_area: value
+      - pain_severity: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -118,13 +109,13 @@ stories:
     - action: utter_ask_pain_duration
     - intent: negative
     - action: utter_negative_conv_marker
-    - action: utter_ask_abdominal_pain_area
+    - action: utter_ask_pain_area
 
 - story: abdominal pain - negative answ (3)
   steps:
     - slot_was_set:
       - abdominal_pain: value
-    - action: utter_ask_abdominal_pain_area
+    - action: utter_ask_pain_area
     - intent: negative
     - action: utter_negative_conv_marker
     - action: utter_ask_pain_severity
@@ -164,6 +155,10 @@ stories:
     - intent: inform_pain_severity
       entities:
         - pain_severity: value
+    - slot_was_set:
+      - pain_duration: value
+      - resp_difficulty_triggers: value
+      - pain_severity: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -220,6 +215,10 @@ stories:
     - intent: inform_fainting_medical_conditions
       entities:
         - fainting_medical_conditions: value
+    - slot_was_set:
+      - pain_duration: value
+      - fainting_prior: value
+      - fainting_medical_conditions: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -250,7 +249,7 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
-# ============= hypothermia
+# ========== Hypothermia
 - story: report hypothermia
   steps:
     - intent: patient_reports_pain
@@ -280,9 +279,14 @@ stories:
     - action: utter_positive_conv_marker
     # Q4 Enviorment 
     - action: utter_ask_hypothermia_env
-    - intent: inform_hypothermia_skin_env
+    - intent: inform_hypothermia_env
       entities:
         - hypothermia_env: value
+    - slot_was_set:
+      - hypothermia_skin_color: value
+      - pain_duration: value
+      - pain_severity: value
+      - hypothermia_env: value
     - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 
@@ -322,7 +326,7 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
-# ============= Allergy Reaction
+# ========== Allergy Reaction
 - story: report allergy
   steps:
     - intent: patient_reports_pain
@@ -333,14 +337,14 @@ stories:
     - checkpoint: reported_allergic_reaction
     - action: utter_will_ask_medical_questions
     #Q1 Area (utter name need to be changed later)
-    - action: utter_ask_abdominal_pain_area
-    - intent: inform_abdominal_pain_area
+    - action: utter_ask_pain_area
+    - intent: inform_pain_area
       entities:
-        - abdominal_pain_area: value
+        - pain_area: value
     - action: utter_positive_conv_marker #Get it!
     #Q2 Cause
     - action: utter_ask_allergy_cause
-    - intent: inform_aller_cause
+    - intent: inform_allergy_cause
       entities:
         - allergy_cause: value
     - action: utter_positive_conv_marker
@@ -348,6 +352,10 @@ stories:
     - action: utter_ask_allergy_history
     - intent: negative
     - action: action_map_aller_history
+    - slot_was_set:
+      - allergic_reaction: value
+      - pain_area: value
+      - allergy_cause: value
     - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 
@@ -355,7 +363,7 @@ stories:
   steps:
     - slot_was_set:
       - allergic_reaction: value
-    - action: utter_ask_abdominal_pain_area
+    - action: utter_ask_pain_area
     - intent: negative
     - action: utter_negative_conv_marker
     - action: utter_ask_allergy_cause
@@ -378,7 +386,7 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
-# ============= Fever
+# ========== Fever
 - story: report fever
   steps:
     - intent: patient_reports_pain
@@ -405,6 +413,10 @@ stories:
     - intent: affirmative
     - action: action_map_fever_travel
     - action: utter_positive_conv_marker
+    - slot_was_set:
+      - fever_temperature: value
+      - pain_duration: value
+      - fever_travel: value
     - action: utter_medical_questions_filled #completed! 
     - checkpoint: completed_medical_questions
 

@@ -10,16 +10,11 @@ intents:
 - patient_wants_human_agent
 - inform_pain_duration
 - inform_pain_severity
-- inform_pain_location
-- inform_pain_nature
-- inform_pain_symptoms
-- inform_pain_history
-- inform_pain_relieving
-- inform_abdominal_pain_area
+- inform_pain_area
 - inform_resp_difficulty_triggers
 - inform_hypothermia_skin_color
 - inform_hypothermia_env
-- inform_aller_cause
+- inform_allergy_cause
 - inform_fainting_prior
 - inform_fainting_medical_conditions
 - inform_fall_conscious
@@ -30,6 +25,7 @@ intents:
 - patient_asks_cause
 - patient_asks_what_to_do
 - patient_asks_medication
+- inform_dangers_around
 
 entities:
 - patient_phonenmbr
@@ -50,7 +46,7 @@ entities:
 - pain_symptoms
 - pain_history
 - pain_relieving
-- abdominal_pain_area
+- pain_area
 - hypothermia_skin_color
 - hypothermia_env
 - allergy_cause
@@ -123,8 +119,8 @@ slots:
   dangers_around:
     type: text
     mappings:
-    - type: from_entity
-      entity: dangers_around
+    - type: custom
+      action: action_map_dangers_around
   multiple_involved:
     type: bool
     mappings:
@@ -195,11 +191,11 @@ slots:
       action: action_map_pain_relieving
 
   # ============== Abdominal pain questions ==============
-  abdominal_pain_area:
+  pain_area:
     type: text
     mappings:
     - type: custom
-      action: action_map_abdominal_pain_area
+      action: action_map_pain_area
 
   # ============== Respiratory difficulty questions ==============
 
@@ -229,18 +225,18 @@ slots:
     mappings:
     - type: custom
       action: action_map_hypothermia_skin_color
-  hypothermia_skin_env:
+  hypothermia_env:
     type: text
     mappings:
     - type: custom
       action: action_map_hypothermia_env
 
    # ============== Allergy reaction questions ==============
-  aller_cause:
+  allergy_cause:
     type: text
     mappings:
     - type: custom
-      action: action_map_aller_cause
+      action: action_map_allergy_cause
 
   aller_history:
     type: bool
@@ -252,12 +248,12 @@ slots:
     type: text
     mappings:
     - type: custom
-      action: action_map_aller_cause
+      action: action_map_fall_conscious
   fall_movement:
     type: text
     mappings:
     - type: custom
-      action: action_map_aller_cause
+      action: action_map_fall_movement
   # =============== fever questions ==============
   fever_temperature:
     type: text
@@ -296,7 +292,6 @@ actions:
 - utter_transferring_to_human
 - utter_ask_dispatch_ambulance
 - utter_confirm_ambulance_sent
-- utter_goodbye
 - utter_start_QA
 - action_map_pain_duration
 - action_map_pain_severity
@@ -309,12 +304,12 @@ actions:
 - action_map_hypothermia_env
 - action_toggle_is_pain_reported
 - action_map_resp_difficulty_triggers
-- action_map_aller_cause
+- action_map_allergy_cause
 - action_map_aller_history
 - utter_will_ask_medical_questions
 - utter_ask_pain_severity
 - utter_ask_pain_duration
-- utter_ask_abdominal_pain_area
+- utter_ask_pain_area
 - utter_ask_resp_difficulty_triggers
 - utter_ask_fainting_prior
 - utter_ask_hypothermia_skin_color
@@ -338,8 +333,14 @@ actions:
 - utter_answer_abdominal_pain_action
 - utter_answer_hypothermia_cause
 - utter_answer_hypothermia_action
+- action_map_dangers_around
 
 responses:
+
+  utter_end_conversation:
+  - text: Alright, thanks for calling us. Should you have further questions, do not hesitate to ask. Goodbye.
+  - text: Ok, thank you for contacting Dispatcher. You can call us anytime needed. Goodbye.
+
   utter_positive_conv_marker:
   - text: Got it.
   - text: Noted.
@@ -385,11 +386,9 @@ responses:
 
   utter_inform_eta:
   - text: An ambulance shall arrive within the next 20 minutes. Typically, it takes around 8 minutes.
-  - text: An ambulance is on the way and will be here in about 8 minutes.
-  - text: Expect an ambulance to show up within the next 20 minutes; usually, it arrives in around 8 minutes.
-  - text: The ambulance should reach you in the next 20 minutes, with an average time of 8 minutes.
-  - text: Look out for the ambulance, which should get to you in approximately 8 minutes or less.
-
+  - text: An ambulance could take up to 20 minutes; usually, it arrives in around 8 minutes.
+  - text: Paramedics can take up to 20 minutes to arrive, with an average time of 8 minutes.
+  
   utter_inform_medication:
   - text: I'm not a medical professional, but I recommend seeking immediate medical attention by visiting the nearest healthcenter.
   - text: I'm not equipped to provide specific medical advice, but if your symptoms are severe or worsening, it's crucial to contact doctors for medications.
@@ -408,7 +407,7 @@ responses:
   - text: And what's your phone number?
 
   utter_ask_dangers_around:
-  - text: Are there any of the following dangers around? Armed people, fire, floods?
+  - text: Thank you. Are there any of the following dangers around? Armed people, fire, floods?
 
   utter_ask_multiple_involved:
   - text: Are there multiple persons involved in the emergency?
@@ -438,9 +437,6 @@ responses:
   utter_ask_any_other_question:
   - text: Do you have other questions?
   - text: Is there other way I can help?
-
-  utter_goodbye:
-  - text: Alright, I hope I've been helpful. For any question, ask right away anytime!
   
   utter_start_QA:
   - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
@@ -459,7 +455,7 @@ responses:
   - text: On a scale from "subtle" to "moderate" and "intense," how would you characterize your current sensation? Do you perceive any notable pain?
 
   # ============== Abdominal pain questions ==============
-  utter_ask_abdominal_pain_area:
+  utter_ask_pain_area:
   - text: Where exactly in your body do you feel the discomfort? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
   - text: Can you pinpoint the specific location of the symptoms? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
   - text: In which area of your body is the pain most concentrated? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
@@ -482,6 +478,16 @@ responses:
   - text: What are some probable factors contributing to your respiratory distress, such as pollution, allergens, smoke, mold, pollen, and dust?
   - text: Could you pinpoint any potential triggers for your respiratory distress from the following options, pollution, allergens, smoke, mold, pollen, or dust?
   
+  utter_answer_resp_difficulty_cause:
+  - text: Common causes of respiratory difficulty include infections (such as pneumonia or bronchitis), asthma, chronic obstructive pulmonary disease (COPD), heart failure, allergies, and lung conditions like pulmonary embolism or interstitial lung disease.
+  - text: Breathing problems can happen because of infections (like pneumonia or bronchitis), asthma, chronic obstructive pulmonary disease (COPD), heart failure, allergies, and lung issues such as pulmonary embolism or interstitial lung disease.
+  - text: Difficulty in breathing may be caused by infections (such as pneumonia or bronchitis), asthma, chronic obstructive pulmonary disease (COPD), heart failure, allergies, and lung conditions like pulmonary embolism or interstitial lung disease.
+  
+  utter_answer_resp_difficulty_action:
+  - text: In case of respiratory difficulty while awaiting an ambulance, it's crucial to remain calm and find a comfortable seated position. Utilize any prescribed inhalers or respiratory aids and practice pursed-lip breathing to regulate your breath. Keep yourself hydrated by sipping water, and ensure your clothing is not restricting your chest. If someone is present, seek their assistance and inform them of your condition. These measures are temporary, and prompt medical attention should be sought without delay.
+  - text: If you're having trouble breathing before the ambulance arrives, stay calm and sit comfortably. Use your inhaler, breathe slowly, sip water, and make sure your clothes aren't too tight. If someone's around, ask for help and tell them what's going on. Remember, these are just temporary fixes – get medical help quickly.
+  - text: If it's hard to breathe while waiting for the ambulance, stay cool and sit comfortably. Take your prescribed inhaler, do slow breaths, drink water, and check if your clothes are too tight. If there's someone nearby, ask for help and let them know about your situation. These steps are short-term; don't wait, seek medical help promptly.
+
   # ============== Fainting questions ==============
   utter_ask_fainting_prior:
   - text: Did you identify any of the following warning signs before fainting? Dizziness, lightheadedness, nausea, sweating, blurred vision.
@@ -493,6 +499,16 @@ responses:
   - text: Do you experience any health issues related to low blood sugar (hypoglycemia), dehydration, heart rhythm abnormalities (arrhythmias), low blood pressure (hypotension), or anemia?
   - text: Have you been diagnosed with or do you have medical conditions such as low blood sugar (hypoglycemia), dehydration, heart rhythm abnormalities (arrhythmias), low blood pressure (hypotension), or anemia?
   
+  utter_answer_fainting_cause:
+  - text: Fainting, or syncope, can happen for various reasons, often due to a temporary drop in blood flow to the brain. Common causes include dehydration, which reduces blood volume; sudden changes in position, like standing up too quickly, leading to a brief drop in blood pressure; and stress or anxiety triggering the body's "fight or flight" response. Other factors may involve heart issues, like irregular heart rhythms or problems with the heart's structure, and certain medications that affect blood pressure. Sometimes, it can be a result of low blood sugar or intense pain. If someone faints, it's crucial to determine the cause and seek medical advice, especially if it happens frequently or without an apparent trigger.
+  - text: Fainting, or syncope, can occur for different reasons - often due to a temporary drop in blood flow to the brain. Causes include dehydration, reducing blood volume; sudden changes in position - like standing up too quickly, leading to a brief drop in blood pressure; and stress or anxiety triggering the body's "fight or flight" response. Other factors may involve heart issues - irregular heart rhythms or problems with the heart's structure, and certain medications affecting blood pressure. Sometimes, it can result from low blood sugar or intense pain. If someone faints, it's crucial to determine the cause and seek medical advice - especially if it happens frequently or without an apparent trigger.
+  - text: Fainting, or syncope, can happen for different reasons - often because of a temporary drop in blood flow to the brain. Causes include dehydration - reducing blood volume; sudden changes in position, such as standing up too quickly - leading to a brief drop in blood pressure; and stress or anxiety triggering the body's "fight or flight" response. Other factors may involve heart issues - irregular heart rhythms or problems with the heart's structure, and certain medications that affect blood pressure. Sometimes, it can be a result of low blood sugar or intense pain. If someone faints, it's crucial to determine the cause and seek medical advice - especially if it happens frequently or without an apparent trigger.
+
+  utter_answer_fainting_action:
+  - text: If someone is fainting while waiting for an ambulance, lay them down gently on their back and elevate their legs about 12 inches to improve blood flow. Loosen any tight clothing around the neck or chest, and check if they are breathing. If not, start CPR if trained. Reassure the person and keep bystanders calm while awaiting professional medical assistance.
+  - text: If someone feels dizzy and an ambulance is on the way, help them lie down slowly on their back and raise their legs about a foot to help their blood circulation. Loosen any tight clothes near the neck or chest and make sure they're breathing. If not, do CPR if you know how. Keep them calm and reassure others until the medical help arrives.
+  - text: If someone is fainting and waiting for an ambulance, lay them down gently on their back and lift their legs about a foot high to boost blood flow. Loosen any tight clothing around the neck or chest, and check if they are breathing. If not, start CPR if you're trained. Keep the person calm and reassure bystanders while waiting for professional medical help.
+
   # ============== Hypothermia pain questions ==============
   utter_ask_hypothermia_skin_color:
   - text: Have you noticed any changes in your skin color or temperature, such as paleness or coolness to the touch?
@@ -507,6 +523,7 @@ responses:
   utter_answer_hypothermia_cause:
   - text: Hypothermia occurs when the body loses heat faster than it can produce it, leading to a dangerously low body temperature.
   - text: It happens due to cold weather exposure, inadequate clothing, wet clothing, etc.
+  
   utter_answer_hypothermia_action:
   - text: You should find a warm and dry place to protect yourself from the cold.
   - text: You should use blankets, warm beverages, and gradual heating to raise body temperature. Avoid sudden exposure to high heat sources.
