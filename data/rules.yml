@@ -151,6 +151,44 @@ rules:
   - action: utter_answer_fever_action
   - action: utter_ask_any_other_question
 
+# ========== Allergy
+- rule: allergy - cause
+  condition:
+  - slot_was_set:
+    - allergic_reaction: value
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answer_allergy_cause
+  - action: utter_ask_any_other_question
+
+- rule: allergy - action
+  condition:
+  - slot_was_set:
+    - allergic_reaction: value
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_answer_allergy_action
+  - action: utter_ask_any_other_question
+
+# ========== fever
+- rule: fever - cause
+  condition:
+  - slot_was_set:
+    - fever: value
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answer_fever_cause
+  - action: utter_ask_any_other_question
+
+- rule: fever - action
+  condition:
+  - slot_was_set:
+    - fever: value
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_answer_fever_action
+  - action: utter_ask_any_other_question
+
 # ======================================================
 #  Error handling
 # ======================================================

@@ -514,6 +514,14 @@ responses:
   - text: Do you have a history of allergies or allergic reactions?
   - text: Have you experienced any allergic reaction in the past?
 
+  utter_answer_allergy_cause:
+  - text: Exposure to common allergens such as pollen from trees, dust mites in household environments, proteins in pet dander, mold spores in damp conditions, venom from insect stings,etc. may cause allergy reaction.
+  - text: Encountering allergens like pollen, dust mites, pet dander, mold spores, insect venom, certain foods, latex, medications, inhaled irritants, and contact allergens can provoke allergic reactions in susceptible individuals.
+
+  utter_answer_allergy_action:
+  - text: If experiencing an allergic reaction, take an over-the-counter antihistamine, rinse affected areas (e.g., eyes, skin) with water, and use a prescribed epinephrine auto-injector if available.
+  
+
   # ============== fall questions ==============
   utter_ask_conscious:
   - text: Are you conscious and able to communicate clearly?
@@ -532,6 +540,14 @@ responses:
   utter_ask_travel:
   - text: Have you recently traveled to any new locations or been in contact with sick individuals?
   - text: Did you travel to some high-risk areas before?
+
+  utter_answer_fever_cause:
+  - text: Fever is often caused by infections, inflammatory conditions, or other medical factors, signaling an elevated body temperature as the immune system responds to illness or infection.
+  - text: Elevated body temperature, or fever, commonly arises as a response to infections, inflammation, or certain medical conditions triggered by the immune system.
+
+  utter_answer_fever_action:
+  - text: If you have a fever, it's advisable to rest, stay hydrated, take over-the-counter fever-reducing medications like acetaminophen or ibuprofen.
+  - text: When experiencing a fever, get plenty of rest, drink fluids, use fever-reducing medications, and consult a healthcare professional.
   
   utter_answer_fever_cause:
   - text: Fever is often a sign that your body is fighting an infection or illness. Common causes include viral infections like the flu or cold, bacterial infections such as urinary tract infections or pneumonia, and even certain inflammatory conditions. Sometimes, fever can also be a response to vaccinations or other medical treatments. Additionally, environmental factors like heat stroke or dehydration can lead to elevated body temperature. In rare cases, more serious conditions like autoimmune diseases or certain cancers may also cause fevers.
