@@ -6,6 +6,9 @@ from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import UserUtteranceReverted
 
 # References
 # [1] https://rasa.com/docs/rasa/forms/#using-a-custom-action-to-ask-for-the-next-slot
@@ -317,3 +320,24 @@ class ValidateFormGeneralInfo(FormValidationAction):
         else:
             return {"patient_homeaddr": slot_value}
 
+# ===================== avoid too many repitition
+class ActionDefaultFallback(Action):
+    def name(self) -> Text:
+        return "action_default_fallback"
+
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(template="utter_please_rephrase")
+        
+        # Check if the number of fallback attempts exceeds a threshold
+        fallback_count = tracker.get_slot("fallback_count") or 0
+        fallback_count += 1
+        tracker.slots["fallback_count"] = fallback_count
+
+        if fallback_count >= 3:
+            # Hand off to a human agent
+            dispatcher.utter_message(template="utter_transferring_to_human")
+            return []
+
+        return [UserUtteranceReverted()]
