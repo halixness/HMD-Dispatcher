@@ -1,5 +1,4 @@
 version: "3.1"
-
 rules:
 
 # =========== General info form
@@ -57,11 +56,6 @@ rules:
   - intent: patient_asks_eta
   - action: utter_inform_eta
 
-- rule: patient asks doctor and medication (after contact)
-  steps:
-  - intent: patient_asks_medication
-  - action: utter_inform_medication
-
 - rule: ask any questions > no > goodbye (restart)
   condition:
   - slot_was_set:
@@ -99,7 +93,7 @@ rules:
   - intent: patient_asks_what_to_do
   - action: utter_answer_abdominal_pain_action
   - action: utter_ask_any_other_question
-  
+
 # =========== Respiratory difficulty - user questions
 - rule: resp difficulty - cause
   condition:
@@ -138,29 +132,28 @@ rules:
   - action: utter_answer_fainting_action
   - action: utter_ask_any_other_question
 
-# =========== Hypothermia - user questions
-- rule: hypothermia - cause
+# =========== Fever - user questions
+- rule: fever - cause
   condition:
   - slot_was_set:
-    - hypothermia: value
+    - fever: value
   steps:
   - intent: patient_asks_cause
-  - action: utter_answer_hypothermia_cause
+  - action: utter_answer_fever_cause
   - action: utter_ask_any_other_question
 
-- rule: hypothermia - action
+- rule: fever - action
   condition:
   - slot_was_set:
-    - hypothermia: value
+    - fever: value
   steps:
   - intent: patient_asks_what_to_do
-  - action: utter_answer_hypothermia_action
+  - action: utter_answer_fever_action
   - action: utter_ask_any_other_question
 
 # ======================================================
 #  Error handling
 # ======================================================
-
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
   - intent: nlu_fallback

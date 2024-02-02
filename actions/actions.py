@@ -225,17 +225,7 @@ class MapAllergyCause(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="allergy_cause", tracker=tracker)
-
-class ActionSetAllergyHistory(Action):
-    def name(self) -> str:
-        return "action_map_aller_history"
-
-    def run(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]
-    ) -> List[Dict[str, Any]]:
-        intent = tracker.latest_message["intent"]["name"]
-        is_travel = intent == "affirmative"
-        return [SlotSet("aller_history", is_travel)]
+    
     
 class ActionSetDangersAround(Action):
     def name(self) -> str:
@@ -274,16 +264,6 @@ class MapFeverTemperature(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="fever_temperature", tracker=tracker)
 
-class ActionSetInfoTravelSlot(Action):
-    def name(self) -> str:
-        return "action_map_fever_travel"
-
-    def run(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]
-    ) -> List[Dict[str, Any]]:
-        intent = tracker.latest_message["intent"]["name"]
-        is_travel = intent == "affirmative"
-        return [SlotSet("fever_travel", is_travel)]
 # ================ headache ====================
 class MapHeadLife(Action):
     

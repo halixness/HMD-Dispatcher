@@ -180,7 +180,6 @@ nlu:
 # ======================================================
 #  User questions
 # ======================================================
-
 - intent: patient_asks_cause
   examples: |
     - Why might this happen?
@@ -215,21 +214,6 @@ nlu:
     - What's the wait time for the ambulance?
     - When should we anticipate the arrival of assistance?
 
-- intent: patient_asks_medication
-  examples: |
-    - Should I go to the hospital?
-    - Should I go to see a doctor?
-    - Should I take some medicine?
-    - What medicine should I take?
-    - Should I take some pills?
-    - Would it be advisable to book an appointment with a medical professional?
-    - Do you suggest making arrangements to see a doctor based on the symptoms I've described?
-    - Should I consider scheduling a consultation with a healthcare provider given the nature of my symptoms?
-    - Given the symptoms, would it be prudent to seek advice from a doctor through a scheduled appointment?
-    - Do you recommend setting up a meeting with a healthcare professional to discuss my symptoms in more detail?
-    - Would it be beneficial for me to arrange a doctor's appointment considering the symptoms I'm currently facing?
-
-
 # ======================================================
 #  Emergency detection (reviewed)
 # ======================================================
@@ -262,6 +246,9 @@ nlu:
     - I urgently need medical assistance for [hypothermia](hypothermia).
     - My lips and fingernails are [turning blue due to the cold](hypothermia).
     - My skin appears pale and [feels unusually cold](hypothermia).
+    - I [can't breathe normally](respiratory_difficulty)
+    - I [can't breathe](respiratory_difficulty)
+    - I have [trouble breathing](respiratory_difficulty)
     - It feels like my [chest is tight](respiratory_difficulty) and I [can't take a deep breath](respiratory_difficulty).
     - I often find myself [short of breath](respiratory_difficulty), even with minimal exertion.
     - [Breathing feels labored](respiratory_difficulty) and I [struggle to inhale](respiratory_difficulty) properly.
@@ -293,18 +280,18 @@ nlu:
     - I've developed [watery eyes and a runny nose](allergic_reaction).
     - I've been feeling [lightheaded and dizzy](allergic_reaction) since the reaction started.
     - I have an [itchy rash](allergic_reaction) in my body. 
-    - I've been experiencing episodes where I [suddenly lose consciousness](fainting).
-    - I [passed out suddenly](fainting) and [found myself on the floor](fainting).
+    - I've been experiencing episodes where I [suddenly](pain_duration) [lose consciousness](fainting).
+    - I [passed out](fainting) [suddenly](pain_duration) and [found myself on the floor](fainting).
     - There was a moment when [everything went dark](fainting), and [I collapsed](fainting).
     - [I fainted](fainting) and woke up to the realization that I had fallen.
     - It happened so fast—I just [blacked out](fainting) and hit the ground.
     - One moment I was standing, and the next, [I was unconscious](fainting).
-    - I experienced a [sudden loss of consciousness](fainting) and ended up on the ground.
+    - I experienced a [sudden](pain_duration) [loss of consciousness](fainting) and ended up on the ground.
     - I [had a blackout episode](fainting) where I [lost consciousness](fainting) for a brief period.
     - It felt like the [lights went out](fainting), and I came to on the floor.
     - [My vision faded](fainting), and [I fainted](fainting), leading to an unexpected fall.
     - There was a brief period where I was [completely unaware](fainting) and [lying down](fainting).
-    - I [suddenly collapsed](fainting), and when I opened my eyes, I was on the ground.
+    - I [suddenly](pain_duration) [collapsed](fainting), and when I opened my eyes, I was on the ground.
     - I [had a sudden blackout](fainting), and the next thing I remember is being on the floor.
     - It's worrying because I [just passed out](fainting) without any warning.
     - I've been having these moments where [everything suddenly goes blurry](fainting), and [I can't see clearly](fainting) before I pass out.
@@ -494,6 +481,7 @@ nlu:
     - It's happening more [frequently recently](pain_duration).
     - This has been [occasional](pain_duration).
     - It started [suddenly](pain_duration).
+    - it happened [all of the sudden](pain_duration).
     - It's been happening at [random times](pain_duration).
     - It usually occurs [after meals](pain_duration).
     - It happens mostly [in the morning](pain_duration).
@@ -559,8 +547,6 @@ nlu:
     - I can't put much weight on my foot because of the pain [in my foot](pain_area).
     - I have a bruise and tenderness [on my arm](pain_area) after falling.
 
-# abdominal pain, respiratory, fainting, hypothermia, falling, fever
-
 # ============== hypothermia  ==============
 - intent: inform_hypothermia_skin_color
   examples: |
@@ -618,19 +604,19 @@ nlu:
 # ============== fainting  ==============
 - intent: inform_fainting_prior
   examples: |
-    - Suddenly [everything started spinning](fainting_prior).
+    - [everything started spinning](fainting_prior).
     - Yes, I experienced some [dizziness](fainting_prior) 
     - I felt really [lightheaded](fainting_prior) 
-    - There was a sudden wave of [nausea](fainting_prior)
+    - There was [nausea](fainting_prior)
     - I remember breaking out into a [cold sweat](fainting_prior)
     - The room started spinning, and I had [blurred vision](fainting_prior).
-    - I got extremely [lightheaded](fainting_prior) all of a sudden.
+    - I got extremely [lightheaded](fainting_prior)
     - I had this intense feeling of [nausea](fainting_prior)
     - I recall feeling very [dizzy](fainting_prior)
     - Everything around me became [blurry](fainting_prior), and I felt [lightheaded](fainting_prior).
     - My vision got really [blurred](fainting_prior)
     - I started feeling [dizzy](fainting_prior)
-    - There was a sudden onset of [lightheadedness](fainting_prior) 
+    - There was a [sudden onset](pain_duration) of [lightheadedness](fainting_prior) 
     - I had this overwhelming sense of [nausea](fainting_prior) 
     - My vision became really [blurred](fainting_prior)
     - I felt extremely [dizzy](fainting_prior) 
@@ -713,21 +699,26 @@ nlu:
 # ============== fever =================
 - intent: inform_fever_temperature
   examples: |
-    - Yes, I did. My temperature was [38.0 degrees Celsius](fever_temperature).
-    - I took my temperature, and it was normal, [around 37.0 degrees Celsius](fever_temperature).
-    - I [haven't taken it yet](fever_temperature).
-    - No, but I feel [quite warm](fever_temperature), and I've been sweating a lot.
-    - I used a digital thermometer, and the reading was [37.2 degrees](fever_temperature).
-    - I checked my temperature earlier, and it was slightly elevated at [38.0 degrees Celsius](fever_temperature).
-    - I took my temperature, and it was lower than usual, [around 36.8 degrees](fever_temperature).
-    - I [don't have a thermometer](fever_temperature) at the moment.
-    - [No, I did't](fever_temperature).
-    - Yes, I measured my temperature, and it was [100.1 degrees Fahrenheit](fever_temperature).
-    - I'm not sure of the exact number,but it was [higher than normal](fever_temperature).
-    - I haven't taken it formally, but I know it's [higher than usual](fever_temperature) because I'm feeling unwell.
-    - I used an oral thermometer, and the reading was [98.9 degrees Fahrenheit](fever_temperature).
-    - [Haven't checked yet](fever_temperature).
-    - Used an ear thermometer, and it indicated [37.6 degrees Celsius](fever_temperature).
+    - Yes, I checked, and my temperature is [normal](fever_temperature).
+    - I measured it, and it's [a bit elevated](fever_temperature).
+    - It was [around 38 degrees](fever_temperature).
+    - My temperature is [37.5 degrees](fever_temperature).
+    - I have a slight fever, it's [38.2 degrees](fever_temperature).
+    - Unfortunately, it's [spiking at 39 degrees](fever_temperature).
+    - Yes, I took my temperature, and it's [38.7 degrees](fever_temperature).
+    - I feel warm, and it's [37.9 degrees](fever_temperature).
+    - I noticed a fever, and it's [38.5 degrees](fever_temperature).
+    - I have a low-grade fever, about [37.8 degrees](fever_temperature).
+    - My temperature is [slightly above 38 degrees](fever_temperature).
+    - I'm running a fever, and it's [38.4 degrees](fever_temperature).
+    - It's [just under 38 degrees](fever_temperature), but I'm feeling really hot.
+    - I checked, and my temperature is [37.3 degrees](fever_temperature).
+    - I'm experiencing a fever, and it's [38.8 degrees](fever_temperature).
+    - My temperature is [38.9 degrees](fever_temperature), and I'm not feeling well.
+    - I have a fever, and it's [37.6 degrees](fever_temperature).
+    - Yes, I measured it, and it's [38 degrees](fever_temperature).
+    - It's [around 38.6 degrees](fever_temperature), and I have chills.
+    - My temperature is [37.2 degrees](fever_temperature), but I feel feverish.
 
 # =============== headache ================
 - intent: inform_headache_lifestyle
