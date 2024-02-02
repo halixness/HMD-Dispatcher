@@ -541,13 +541,6 @@ responses:
   - text: Have you recently traveled to any new locations or been in contact with sick individuals?
   - text: Did you travel to some high-risk areas before?
 
-  utter_answer_fever_cause:
-  - text: Fever is often caused by infections, inflammatory conditions, or other medical factors, signaling an elevated body temperature as the immune system responds to illness or infection.
-  - text: Elevated body temperature, or fever, commonly arises as a response to infections, inflammation, or certain medical conditions triggered by the immune system.
-
-  utter_answer_fever_action:
-  - text: If you have a fever, it's advisable to rest, stay hydrated, take over-the-counter fever-reducing medications like acetaminophen or ibuprofen.
-  - text: When experiencing a fever, get plenty of rest, drink fluids, use fever-reducing medications, and consult a healthcare professional.
   
   utter_answer_fever_cause:
   - text: Fever is often a sign that your body is fighting an infection or illness. Common causes include viral infections like the flu or cold, bacterial infections such as urinary tract infections or pneumonia, and even certain inflammatory conditions. Sometimes, fever can also be a response to vaccinations or other medical treatments. Additionally, environmental factors like heat stroke or dehydration can lead to elevated body temperature. In rare cases, more serious conditions like autoimmune diseases or certain cancers may also cause fevers.
