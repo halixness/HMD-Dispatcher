@@ -53,14 +53,6 @@ stories:
     - intent: negative
     - action: utter_ask_any_questions
 
-- story: general info collected, pain is reported 
-  steps:
-  - action: action_submit_patient_coordinates
-  - action: utter_proceed_asking_pain
-  - intent: patient_reports_pain
-  - slot_was_set:
-    - is_pain_reported: true
-
 - story: undefined reported pain
   steps:
     - intent: patient_reports_pain
@@ -78,6 +70,17 @@ stories:
       - abdominal_pain: value
     - action: utter_will_ask_medical_questions
     - checkpoint: reported_abdominal_pain
+
+- story: general info collected, pain is reported 
+  steps:
+  - action: utter_proceed_asking_pain
+  - intent: patient_reports_pain
+    entities:
+      - abdominal_pain: value
+  - slot_was_set:
+    - abdominal_pain: value
+  - action: utter_will_ask_medical_questions
+  - checkpoint: reported_abdominal_pain
 
 - story: abdominal pain, specific questions
   steps:

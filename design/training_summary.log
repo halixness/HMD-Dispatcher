@@ -1,0 +1,76 @@
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\core\tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html      
+  import pkg_resources
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\pkg_resources\__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages      
+  declare_namespace(pkg)
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\pkg_resources\__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages      
+  declare_namespace(pkg)
+2024-02-02 17:55:58 INFO     rasa.cli.train  - Started validating domain and training data...
+2024-02-02 17:56:02 INFO     rasa.validator  - Validating intents...
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_allergy_cause' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_dangers_around' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_fall_conscious' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_fall_movement' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_headache_lifestyle' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_hypothermia_env' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'inform_hypothermia_skin_color' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The intent 'patient_inputs_coordinates' is not used in any story or rule.
+2024-02-02 17:56:02 INFO     rasa.validator  - Validating uniqueness of intents and stories...
+2024-02-02 17:56:02 INFO     rasa.validator  - Validating utterances...
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_ask_dangers_around' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_ask_allergy_cause' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_ask_movement' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_inform_medication' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_answer_hypothermia_cause' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_answer_hypothermia_action' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'ask_patient_homeaddr' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_ask_hypothermia_env' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_invalid_patient_homeaddr' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_ask_headache_lifestyle' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_ask_patient_phonenmbr' is not used in any story or rule.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The utterance 'utter_repeat_last_time' is not used in any story or rule.
+<00:00, 941.87it/s, # trackers=1]
+2024-02-02 17:56:02 INFO     rasa.core.training.story_conflict  - Considering all preceding turns for conflict analysis.
+2024-02-02 17:56:02 INFO     rasa.validator  - No story structure conflicts found.
+2024-02-02 17:56:05 INFO     rasa.engine.training.hooks  - Restored component 'RegexFeaturizer' from cache. 
+2024-02-02 17:56:05 INFO     rasa.engine.training.hooks  - Restored component 'LexicalSyntacticFeaturizer' from cache.
+2024-02-02 17:56:05 INFO     rasa.engine.training.hooks  - Starting to train component 'CountVectorsFeaturizer'.
+2024-02-02 17:56:05 INFO     rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer  - 1100 vocabulary items were created for text attribute.
+2024-02-02 17:56:05 INFO     rasa.engine.training.hooks  - Finished training component 'CountVectorsFeaturizer'.
+2024-02-02 17:56:06 INFO     rasa.engine.training.hooks  - Starting to train component 'CountVectorsFeaturizer'.
+2024-02-02 17:56:06 INFO     rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer  - 5784 vocabulary items were created for text attribute.
+2024-02-02 17:56:06 INFO     rasa.engine.training.hooks  - Finished training component 'CountVectorsFeaturizer'.
+2024-02-02 17:56:07 INFO     rasa.engine.training.hooks  - Starting to train component 'DIETClassifier'.    
+Epochs: 100%|██████████████████████████| 100/100 [04:02<00:00,  2.42s/it, t_loss=2.87, i_acc=1, e_f1=0.984] 
+2024-02-02 18:00:09 INFO     rasa.engine.training.hooks  - Finished training component 'DIETClassifier'.
+2024-02-02 18:00:10 INFO     rasa.engine.training.hooks  - Starting to train component 'EntitySynonymMapper'.
+2024-02-02 18:00:10 INFO     rasa.engine.training.hooks  - Finished training component 'EntitySynonymMapper'.
+2024-02-02 18:00:11 INFO     rasa.engine.training.hooks  - Starting to train component 'ResponseSelector'.
+2024-02-02 18:00:11 INFO     rasa.nlu.selectors.response_selector  - Retrieval intent parameter was left to its default value. This response selector will be trained on training examples combining all retrieval intents.
+2024-02-02 18:00:11 INFO     rasa.engine.training.hooks  - Finished training component 'ResponseSelector'.  
+Processed story blocks: 100%|██████████████████████████████| 24/24 [00:00<00:00, 1541.53it/s, # trackers=1]
+Processed story blocks: 100%|███████████████████████████████| 24/24 [00:00<00:00, 25.23it/s, # trackers=28]
+Processed story blocks: 100%|███████████████████████████████| 24/24 [00:01<00:00, 14.10it/s, # trackers=50]
+Processed story blocks: 100%|███████████████████████████████| 24/24 [00:01<00:00, 12.09it/s, # trackers=50]
+Processed rules: 100%|█████████████████████████████████████| 20/20 [00:00<00:00, 1285.65it/s, # trackers=1]
+2024-02-02 18:00:17 INFO     rasa.engine.training.hooks  - Starting to train component 'AugmentedMemoizationPolicy'.
+Processed trackers: 100%|███████████████████████████████████| 28/28 [00:00<00:00, 896.02it/s, # action=182]
+Processed actions: 182it [00:00, 5753.72it/s, # examples=182]
+2024-02-02 18:00:19 INFO     rasa.engine.training.hooks  - Finished training component 'AugmentedMemoizationPolicy'.
+2024-02-02 18:00:20 INFO     rasa.engine.training.hooks  - Starting to train component 'RulePolicy'.
+Processed trackers: 100%|████████████████████████████████████| 18/18 [00:00<00:00, 832.82it/s, # action=62]
+Processed actions: 62it [00:00, ?it/s, # examples=52]
+Processed trackers: 100%|███████████████████████████████████| 28/28 [00:00<00:00, 709.03it/s, # action=182] 
+Processed trackers: 100%|████████████████████████████████████████████████| 18/18 [00:00<00:00, 1015.83it/s] 
+Processed trackers: 100%|█████████████████████████████████████████████████| 46/46 [00:00<00:00, 402.46it/s] 
+2024-02-02 18:00:22 INFO     rasa.engine.training.hooks  - Finished training component 'RulePolicy'.        
+2024-02-02 18:00:22 INFO     rasa.engine.training.hooks  - Starting to train component 'TEDPolicy'.
+C:\Users\xdieg\anaconda3\envs\rasa_8\lib\site-packages\rasa\utils\train_utils.py:530: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.       
+  rasa.shared.utils.io.raise_warning(
+Processed trackers: 100%|████████████████████████████████| 528/528 [00:02<00:00, 233.48it/s, # action=6250] 
+Epochs: 100%|█████████████████████████| 50/50 [10:24<00:00, 12.49s/it, t_loss=0.659, loss=0.174, acc=0.997]
+2024-02-02 18:11:13 INFO     rasa.engine.training.hooks  - Finished training component 'TEDPolicy'.
+Your Rasa model is trained and saved at 'models\20240202-175604-tall-raven.tar.gz'.

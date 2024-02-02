@@ -40,11 +40,6 @@ entities:
   - headache
   - pain_duration
   - pain_severity
-  - pain_location
-  - pain_nature
-  - pain_symptoms
-  - pain_history
-  - pain_relieving
   - pain_area
   - hypothermia_skin_color
   - hypothermia_env
@@ -208,12 +203,8 @@ slots:
   allergy_history:
     type: bool
     mappings:
-    - type: from_intent
-      value: true
-      intent: affirmative
-    - type: from_intent
-      value: false
-      intent: negative
+    - type: custom
+      action: action_map_allergy_history
   
   # ============== fall questions ==============
   fall_conscious:
@@ -238,12 +229,8 @@ slots:
   fever_travel:
     type: bool
     mappings:
-    - type: from_intent
-      value: true
-      intent: affirmative
-    - type: from_intent
-      value: false
-      intent: negative
+    - type: custom
+      action: action_map_fever_travel
   
   # =============== headache ====================
   headache_lifestyle:
@@ -274,11 +261,6 @@ actions:
   - utter_start_QA
   - action_map_pain_duration
   - action_map_pain_severity
-  - action_map_pain_location
-  - action_map_pain_nature
-  - action_map_pain_symptoms
-  - action_map_pain_history
-  - action_map_pain_relieving
   - action_map_hypothermia_skin_color
   - action_map_hypothermia_env
   - action_toggle_is_pain_reported
@@ -541,14 +523,6 @@ responses:
   - text: Have you recently traveled to any new locations or been in contact with sick individuals?
   - text: Did you travel to some high-risk areas before?
 
-  utter_answer_fever_cause:
-  - text: Fever is often caused by infections, inflammatory conditions, or other medical factors, signaling an elevated body temperature as the immune system responds to illness or infection.
-  - text: Elevated body temperature, or fever, commonly arises as a response to infections, inflammation, or certain medical conditions triggered by the immune system.
-
-  utter_answer_fever_action:
-  - text: If you have a fever, it's advisable to rest, stay hydrated, take over-the-counter fever-reducing medications like acetaminophen or ibuprofen.
-  - text: When experiencing a fever, get plenty of rest, drink fluids, use fever-reducing medications, and consult a healthcare professional.
-  
   utter_answer_fever_cause:
   - text: Fever is often a sign that your body is fighting an infection or illness. Common causes include viral infections like the flu or cold, bacterial infections such as urinary tract infections or pneumonia, and even certain inflammatory conditions. Sometimes, fever can also be a response to vaccinations or other medical treatments. Additionally, environmental factors like heat stroke or dehydration can lead to elevated body temperature. In rare cases, more serious conditions like autoimmune diseases or certain cancers may also cause fevers.
   - text: Feeling hot with a fever usually means your body is working hard to fight off sickness or infection. This can happen when you catch a cold or flu, get a urinary tract or lung infection, or face some inflammation. Sometimes, shots or treatments may also make you run a temperature. Other times, being too hot outside or not drinking enough water can make you feel feverish. In rare situations, serious issues like autoimmune diseases or certain cancers might cause fevers.
