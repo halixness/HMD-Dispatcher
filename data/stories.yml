@@ -241,7 +241,7 @@ stories:
     - checkpoint: reported_fever
     
 - story: ask temperature first 
-steps:
+  steps:
     - checkpoint: reported_fever
     - action: utter_will_ask_medical_questions
     #Q1 Tempreture
