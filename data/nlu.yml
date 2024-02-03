@@ -154,7 +154,7 @@ nlu:
     - You can reach me on [3456785678](patient_phonenmbr).
     - I'm calling from [3219877890](patient_phonenmbr).
 
-- intent: inform_dangers_around
+- intent: patient_reports_dangers_around
   examples: |
     - I hear gunshots nearby; there might be [armed people](dangers_around).
     - There's smoke everywhere; I think there's a [fire](dangers_around) close by.
@@ -327,7 +327,6 @@ nlu:
     - Caught a [fever](fever), and it's making life a bit complicated. Any help would be amazing right now.
     - I'm sweating profusely, and my clothes are drenched due to the [elevated temperature](fever).
  
-
 - intent: patient_needs_ambulance
   examples: |
     - I need medical assistance right away.

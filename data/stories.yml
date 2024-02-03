@@ -379,7 +379,15 @@ stories:
     - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
-
+    
+- story: allergy, over-informative
+  steps:
+    - intent: inform_allergy_cause
+      entities:
+        - allergic_reaction: value
+        - pain_area: value
+        - allergy_cause: value
+    - action: utter_ask_allergy_history
 # ========== Hypothermia 
 - story: report hypothermia
   steps:
@@ -437,7 +445,7 @@ stories:
     - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
-    
+
 
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent

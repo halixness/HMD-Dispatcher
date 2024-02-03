@@ -21,7 +21,7 @@ intents:
 - patient_asks_eta
 - patient_asks_cause
 - patient_asks_what_to_do
-- inform_dangers_around
+- patient_reports_dangers_around
 
 entities:
 - patient_phonenmbr
