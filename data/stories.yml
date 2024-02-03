@@ -128,6 +128,17 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+- story: abdominal pain, over-informative
+  steps:
+    - intent: inform_pain_area
+      entities:
+        - abdominal_pain: value
+        - allergy_history: value
+        - pain_duration: value
+        - pain_area: value
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 # ========== Respiratory difficulty 
 - story: report respiratory difficulty
   steps:
@@ -179,6 +190,17 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+- story: respiratory difficulty, over-informative
+  steps:
+    - intent: inform_pain_severity
+      entities:
+        - respiratory_difficulty: value
+        - pain_duration: value
+        - resp_difficulty_triggers: value
+        - pain_severity: value
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 # ========== Fainting 
 - story: report fainting
   steps:
@@ -227,6 +249,17 @@ stories:
     # Q3
     - action: utter_ask_fainting_medical_conditions
     - intent: negative
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+- story: fainting, over-informative
+  steps:
+    - intent: inform_fainting_medical_conditions
+      entities:
+        - fainting: value
+        - pain_duration: value
+        - fainting_prior: value
+        - fainting_medical_conditions: value
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -291,6 +324,15 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+- story: fever, over-informative
+  steps:
+    - intent: inform_pain_duration
+      entities:
+        - fever: value
+        - fever_temperature: value
+        - pain_duration: value
+    - action: utter_ask_travel
+
 # ========== Allergy
 - story: report allergy
   steps:
@@ -344,6 +386,15 @@ stories:
     - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
+
+- story: allergy, over-informative
+  steps:
+    - intent: inform_allergy_cause
+      entities:
+        - allergic_reaction: value
+        - pain_area: value
+        - allergy_cause: value
+    - action: utter_ask_allergy_history
 
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent
