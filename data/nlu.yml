@@ -534,6 +534,11 @@ nlu:
     - Yes, my skin has become [very pale](hypothermia_skin_color), and it feels cool to the touch.
     - I've observed a [noticeable paleness](hypothermia_skin_color) in my skin, and it feels quite cool.
     - There's [a change in my skin color](hypothermia_skin_color).
+    - My skin color is [red](hypothermia_skin_color).
+    - The skin color is [purple](hypothermia_skin_color).
+    - My skin color is very [pale](hypothermia_skin_color).
+    - My skin color is [blue](hypothermia_skin_color).
+    - My skin color [becomes red](hypothermia_skin_color).
     - Indeed, my skin has turned [pale](hypothermia_skin_color), and it's noticeably cooler than usual.
     - I've noticed both [paleness](hypothermia_skin_color) and a cool sensation in my skin.
     - Yes, my skin feels cool, and the [color has become paler](hypothermia_skin_color).
@@ -546,8 +551,11 @@ nlu:
     - I am in a [snow mountain](hypothermia_env).
     - I am in an [ice lake](hypothermia_env).
     - I am in a [cold snow](hypothermia_env).
+    - I am in a [snowstorm](hypothermia_env).
+    - I am in a [icy river](hypothermia_env).
+    - There is [heavy snow](hypothermia_env).
     - I am [outside](hypothermia_env).
-    - I am in a [cold place](hypothermia_env)
+    - I am in a [cold place](hypothermia_env).
     - I fell into [icy water](hypothermia_env) lake during a boating accident.
     - I got lost in a [cold, remote area](hypothermia_env) without proper winter clothing.
     - I was stranded in my car during a [snowstorm](hypothermia_env) without heating.

@@ -430,9 +430,10 @@ responses:
 
   # ============== Hypothermia pain questions ==============
   utter_ask_hypothermia_skin_color:
-  - text: Have you noticed any changes in your skin color or temperature, such as paleness or coolness to the touch?
-  - text: Have you observed any alterations in your skin's color or temperature, such as becoming paler or cooler to the touch?
-  - text: Did your skin color change?
+  - text: Can you describe your skin color? (e.g., pale, red, purple)
+  - text: How is your skin color condition? (e.g., pale, red, purple)
+  - text: Please describe your skin color. (e.g., pale, red, purple)
+  
 
   utter_ask_hypothermia_env:
   - text: Can you describe the circumstances that led to your exposure to cold temperatures?

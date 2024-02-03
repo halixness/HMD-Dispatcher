@@ -75,12 +75,10 @@ class SubmitPatientCoordinates(Action):
         home_address = tracker.get_slot('patient_homeaddr')
         phone = tracker.get_slot('patient_phonenmbr')
         dangers_around = tracker.get_slot('dangers_around')
-        multiple_involved = tracker.get_slot('multiple_involved')
         helpRequest = {
             "address": home_address,
             "phone": phone,
             "dangers_around": dangers_around,
-            "multiple_involved": multiple_involved,
         }
         print(f"[!] New help request at: {helpRequest}")
         return []

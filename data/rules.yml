@@ -149,6 +149,7 @@ rules:
   - intent: patient_asks_what_to_do
   - action: utter_answer_fever_action
   - action: utter_ask_any_other_question
+  
 # ========== Allergy
 - rule: allergy - cause
   condition:
