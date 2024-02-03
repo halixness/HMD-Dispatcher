@@ -195,25 +195,6 @@ class ActionSetDangersAround(Action):
     ) -> List[Dict[str, Any]]:
         return SlotMappingUtilities.extract_slot_from_last_intent(slot="dangers_around", tracker=tracker)
 
-# ============== fall actions ==============
-class MapFallConscious(Action):
-    
-    def name(self) -> Text:
-        return "action_map_fall_conscious"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fall_conscious", tracker=tracker)
-
-class MapFallMovement(Action):
-    
-    def name(self) -> Text:
-        return "action_map_fall_movement"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="fall_movement", tracker=tracker)
-
 # ================= fever =====================
 class MapFeverTemperature(Action):
     
@@ -233,16 +214,6 @@ class MapFeverTravel(Action):
         """ Runs custom utility to read entities and fill in the slot """
         return SlotMappingUtilities.binary_slot_from_last_intent(slot="fever_travel", tracker=tracker)
     
-# ================ headache ====================
-class MapHeadLife(Action):
-    
-    def name(self) -> Text:
-        return "action_map_headachelifestyle"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
-        """ Runs custom utility to read entities and fill in the slot """
-        return SlotMappingUtilities.extract_slot_from_last_intent(slot="headache_lifestyle", tracker=tracker)
-
 # ========================================================
 
 class ValidateFormGeneralInfo(FormValidationAction):
@@ -266,25 +237,3 @@ class ValidateFormGeneralInfo(FormValidationAction):
         else:
             return {"patient_homeaddr": slot_value}
 
-# ===================== Avoid too many repititions
-
-class ActionDefaultFallback(Action):
-    def name(self) -> Text:
-        return "action_default_fallback"
-
-    def run(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
-    ) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(template="utter_please_rephrase")
-        
-        # Check if the number of fallback attempts exceeds a threshold
-        fallback_count = tracker.get_slot("fallback_count") or 0
-        fallback_count += 1
-        tracker.slots["fallback_count"] = fallback_count
-
-        if fallback_count >= 3:
-            # Hand off to a human agent
-            dispatcher.utter_message(template="utter_transferring_to_human")
-            return []
-
-        return [UserUtteranceReverted()]

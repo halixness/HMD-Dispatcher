@@ -55,6 +55,7 @@ rules:
   steps:
   - intent: patient_asks_eta
   - action: utter_inform_eta
+  - action: utter_ask_any_other_question
 
 - rule: ask any questions > no > goodbye (restart)
   condition:
@@ -74,6 +75,16 @@ rules:
     - action: utter_ask_any_questions
     - intent: affirmative
     - action: utter_start_QA
+
+- rule: ask any other questions > no > goodbye (restart)
+  condition:
+  - slot_was_set:
+    - is_pain_reported: true
+  steps:
+    - action: utter_ask_any_other_question
+    - intent: negative
+    - action: utter_end_conversation
+    - action: action_restart
 
 # =========== Abdominal pain - user questions
 - rule: abdominal pain - cause
@@ -150,7 +161,6 @@ rules:
   - intent: patient_asks_what_to_do
   - action: utter_answer_fever_action
   - action: utter_ask_any_other_question
-
 # ========== Allergy
 - rule: allergy - cause
   condition:

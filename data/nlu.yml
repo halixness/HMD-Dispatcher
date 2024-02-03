@@ -258,6 +258,8 @@ nlu:
     - Sometimes it's [hard to catch my breath](respiratory_difficulty), and I [feel breathless](respiratory_difficulty) even at rest.
     - I've been waking up at night [feeling breathless](respiratory_difficulty), and it's affecting my sleep.
     - I've had this persistent [shortness of breath](respiratory_difficulty) for the past few weeks.
+    - I feel bad due to [allergy](allergic_reaction).
+    - I think I am having an [allergy](allergic_reaction). 
     - Hello, I'm calling because I'm having a [severe allergic reaction](allergic_reaction).
     - I believe I'm having an allergic reaction, and [my throat feels tight](allergic_reaction).
     - I'm at risk of [anaphylaxis](allergic_reaction) due to an [allergic trigger](allergic_reaction), and I need immediate medical attention.
@@ -298,20 +300,6 @@ nlu:
     - There are times when I [feel really lightheaded](fainting), and my [head starts spinning](fainting) like I'm on a [merry-go-round](fainting), leading to me fainting.
     - I've noticed that my [heart starts racing](fainting) for no apparent reason, and shortly after, I end up losing consciousness.
     - My [legs give out](fainting), causing me to [collapse unexpectedly](fainting).
-    - I've [had a fall](fall), and I'm in need of urgent help.
-    - I've [fallen from a height](fall), and I'm injured. Please send help immediately.
-    - I'm in a precarious situation after [falling](fall); I require emergency assistance.
-    - I had an accident and [fell down](fall). I'm hurt and need medical help.
-    - [I've fallen](fall), and I'm in a location that's difficult to access. Please send help quickly.
-    - I'm calling from home where [I've fallen](fall), and I need an ambulance.
-    - I've [had a fall](fall), and I'm unable to move. Please send emergency services.
-    - I'm [injured after falling](fall). Please dispatch an ambulance to my location.
-    - I've [fallen from a height](fall), and I'm experiencing severe pain. 
-    - I've [had a slip](fall) and need help promptly.
-    - I've [taken a tumble](fall) and require immediate medical attention.
-    - I [fell from](fall) the roof, I need help!
-    - I [fell from a high place](fall)!
-    - I [fell from a tall place](fall)!
     - Hello, I'm feeling really [hot and sweaty](fever) right now.
     - My [body is aching all over](fever), especially my muscles and joints.
     - I've been [shivering](fever), even though I'm under blankets.
@@ -338,23 +326,7 @@ nlu:
     - I'm dealing with a stubborn [fever](fever) that's throwing me off balance. Could use some help if possible.
     - Caught a [fever](fever), and it's making life a bit complicated. Any help would be amazing right now.
     - I'm sweating profusely, and my clothes are drenched due to the [elevated temperature](fever).
-    - I'm calling because I've got a pretty bad [headache](headache).
-    - I've got a [headache](headache) that's bothering me.
-    - My [head hurts](headache) so much.
-    - I've got this [headache](headache) that's been hanging around all day.
-    - I've got this [pounding migraine](headache), and it's pretty intense.
-    - Calling about this annoying [skull ache](headache) that's been bothering me all day.
-    - I've got a throbbing [temple ache](headache), and it's making it hard to concentrate.
-    - Quick call, battling a serious [head tension](headache), any suggestions?
-    - I've got this persistent [forehead pain](headache); it's been bothering me for a while.
-    - there's this dull, persistent [head pain](headache).
-    - I've got this [throbbing pressure in the head](headache) that won't go away.
-    - it's about this [pounding head](headache) that's been bothering me.
-    - Dealing with this [persistent head discomfort](headache).
-    - Dealing with this [head distress](headache), any suggestions on how to manage it?
-    - Calling because I've got this [persistent headache](headache) that's bothering me.
-    - Hi, I've got a [headache](headache) and was wondering if you have any suggestions on how to handle it?
-    - I have a [pain on my head](headache).
+ 
 
 - intent: patient_needs_ambulance
   examples: |
@@ -546,6 +518,8 @@ nlu:
     - The area [around my knee](pain_area) is really sore.
     - I can't put much weight on my foot because of the pain [in my foot](pain_area).
     - I have a bruise and tenderness [on my arm](pain_area) after falling.
+    - I have rashes [all over my body](pain_area).
+    - It is on the [skin of my arms](pain_area).
 
 # ============== hypothermia  ==============
 - intent: inform_hypothermia_skin_color
@@ -667,35 +641,6 @@ nlu:
     - I used [a scented cleaning product](allergy_cause) at home today, and the aroma might have triggered my allergic reaction.
     - I just took [a new medication](allergy_cause), this can be the cause.
 
-# ============== Fall  ==============
-- intent: inform_fall_conscious
-  examples: |
-    - Yes, I'm [fully conscious](fall_conscious) and able to communicate clearly.
-    - [I'm conscious](fall_conscious), but I might have difficulty speaking clearly due to pain.
-    - [I'm awake](fall_conscious), but I'm feeling a bit disoriented at the moment.
-    - [I'm conscious](fall_conscious), and my communication may be affected, but I can respond.
-    - I'm aware, but the pain is making it [challenging to communicate clearly](fall_conscious).
-    - I'm awake, but I'm finding it [hard to express myself](fall_conscious) clearly.
-    - I'm here, but I may need assistance as I'm [not able to communicate well](fall_conscious).
-    - [Yes, I'm alert](fall_conscious), but I may struggle to convey my thoughts due to pain.
-    - Unfortunately, I'm [not entirely aware](fall_conscious), and I may struggle to communicate at the moment.
-    - I'm having [difficulty staying conscious](fall_conscious), and communication is challenging
-    - No, I'm [not fully conscious](fall_conscious)
-
-- intent: inform_fall_movement
-  examples: |
-    - Yes, I can [move my limbs](fall_move) without any difficulty.
-    - I'm able to [move my arms and legs](fall_move) freely.
-    - I'm experiencing some difficulty [moving my left arm](fall_move).
-    - I can [move my legs](fall_move), but my right arm feels a bit weak.
-    - There's no problem with my arms, but I'm finding it hard to [move my legs](fall_move).
-    - I'm having trouble [moving both my arms and legs](fall_move).
-    - I [can move my arms without issues](fall_move), but my right leg is causing discomfort.
-    - There's some pain, but I [can still move all my limbs](fall_move).
-    - I'm having [difficulty moving my arms](fall_move), but my legs are okay.
-    - Both my arms are fine, but I'm [unable to move my right leg](fall_move).
-    - I'm experiencing [weakness in both arms and legs](fall_move).
-
 # ============== fever =================
 - intent: inform_fever_temperature
   examples: |
@@ -719,21 +664,3 @@ nlu:
     - Yes, I measured it, and it's [38 degrees](fever_temperature).
     - It's [around 38.6 degrees](fever_temperature), and I have chills.
     - My temperature is [37.2 degrees](fever_temperature), but I feel feverish.
-
-# =============== headache ================
-- intent: inform_headache_lifestyle
-  examples: |
-    - I typically get [a solid 7-8 hours of sleep](headache_lifestyle) each night, a good routine for me.
-    - I'm a night owl, usually [going to bed late](headache_lifestyle) and waking up in the morning.
-    - My sleep is quite erratic; I [struggle with maintaining a consistent schedule](headache_lifestyle).
-    - I'm [an early riser](headache_lifestyle); I enjoy waking up with the sunrise and going to bed early.
-    - I [aim for 6-7 hours of sleep](headache_lifestyle), but work commitments sometimes affect that.
-    - I have a tendency to [wake up multiple times during the night](headache_lifestyle); it's not very restful.
-    - I try to [maintain a routine](headache_lifestyle), but stress can occasionally disrupt my sleep patterns.
-    - Weekdays I'm [strict about bedtime](headache_lifestyle).
-    - I'm [a deep sleeper](headache_lifestyle).
-    - I usually [sleep well](headache_lifestyle).
-    - I'm [a light sleeper](headache_lifestyle).
-    - I prioritize [a full 8 hours of sleep](headache_lifestyle).
-    - I [struggle with insomnia](headache_lifestyle); falling asleep can be challenging for me.
-    - I've developed [a calming bedtime routine](headache_lifestyle) to ensure a peaceful night's sleep.

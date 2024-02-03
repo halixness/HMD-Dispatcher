@@ -1,57 +1,49 @@
 version: "3.1"
 
 intents:
-  - greet
-  - affirmative
-  - negative
-  - patient_inputs_coordinates
-  - patient_reports_pain
-  - patient_needs_ambulance
-  - patient_wants_human_agent
-  - inform_pain_duration
-  - inform_pain_severity
-  - inform_pain_area
-  - inform_resp_difficulty_triggers
-  - inform_hypothermia_skin_color
-  - inform_hypothermia_env
-  - inform_allergy_cause
-  - inform_fainting_prior
-  - inform_fainting_medical_conditions
-  - inform_fall_conscious
-  - inform_fall_movement
-  - inform_fever_temperature
-  - inform_headache_lifestyle
-  - patient_asks_eta
-  - patient_asks_cause
-  - patient_asks_what_to_do
-  - inform_dangers_around
+- greet
+- affirmative
+- negative
+- patient_inputs_coordinates
+- patient_reports_pain
+- patient_needs_ambulance
+- patient_wants_human_agent
+- inform_pain_duration
+- inform_pain_severity
+- inform_pain_area
+- inform_resp_difficulty_triggers
+- inform_hypothermia_skin_color
+- inform_hypothermia_env
+- inform_allergy_cause
+- inform_fainting_prior
+- inform_fainting_medical_conditions
+- inform_fever_temperature
+- patient_asks_eta
+- patient_asks_cause
+- patient_asks_what_to_do
+- inform_dangers_around
 
 entities:
-  - patient_phonenmbr
-  - patient_homeaddr
-  - abdominal_pain
-  - respiratory_difficulty
-  - fainting
-  - poisoning
-  - hypothermia
-  - allergic_reaction
-  - fall
-  - fever
-  - headache
-  - pain_duration
-  - pain_severity
-  - pain_area
-  - hypothermia_skin_color
-  - hypothermia_env
-  - allergy_cause
-  - fall_conscious
-  - fall_move
-  - fever_temperature
-  - headache_lifestyle
-  - resp_difficulty_triggers
-  - fainting_prior
-  - fainting_medical_conditions
-  - dangers_around
+- patient_phonenmbr
+- patient_homeaddr
+- abdominal_pain
+- respiratory_difficulty
+- fainting
+- poisoning
+- hypothermia
+- allergic_reaction
+- fever
+- pain_duration
+- pain_severity
+- pain_area
+- hypothermia_skin_color
+- hypothermia_env
+- allergy_cause
+- fever_temperature
+- resp_difficulty_triggers
+- fainting_prior
+- fainting_medical_conditions
+- dangers_around
 
 slots:
   # ============== Reported pathologies ==============
@@ -61,49 +53,41 @@ slots:
     mappings:
     - type: custom
       action: action_toggle_is_pain_reported
-  
+
   abdominal_pain:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: abdominal_pain
-  
+
   respiratory_difficulty:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: respiratory_difficulty
-  
+
   fainting:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: fainting
-  
+
   hypothermia:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: hypothermia
-  
+
   allergic_reaction:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: allergic_reaction
-  
-  fall:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: fall
-  
   fever:
     type: text
     influence_conversation: true
@@ -111,12 +95,6 @@ slots:
     - type: from_entity
       entity: fever
 
-  headache:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: headache
 
   # ============== Patient coordinates ==============
   patient_homeaddr:
@@ -126,7 +104,7 @@ slots:
       entity: patient_homeaddr
       conditions:
       - active_loop: form_general_info
-  
+
   patient_phonenmbr:
     type: text
     mappings:
@@ -186,14 +164,14 @@ slots:
     mappings:
     - type: custom
       action: action_map_hypothermia_skin_color
-  
+
   hypothermia_env:
     type: text
     mappings:
     - type: custom
       action: action_map_hypothermia_env
 
-  # ============== Allergy reaction questions ==============
+   # ============== Allergy reaction questions ==============
   allergy_cause:
     type: text
     mappings:
@@ -205,95 +183,71 @@ slots:
     mappings:
     - type: custom
       action: action_map_allergy_history
-  
-  # ============== fall questions ==============
-  fall_conscious:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_fall_conscious
-  
-  fall_movement:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_fall_movement
-  
   # =============== fever questions ==============
   fever_temperature:
     type: text
     mappings:
     - type: custom
       action: action_map_fever_temperature
-  
+
   fever_travel:
     type: bool
     mappings:
     - type: custom
       action: action_map_fever_travel
-  
-  # =============== headache ====================
-  headache_lifestyle:
-    type: text
-    mappings:
-    - type: custom
-      action: action_map_headachelifestyle
+
 
 actions:
-  - utter_positive_conv_marker
-  - utter_negative_conv_marker
-  - utter_medical_questions_filled
-  - utter_proceed_asking_pain
-  - validate_form_general_info
-  - action_ask_patient_homeaddr
-  - action_submit_patient_coordinates
-  - action_submit_emergency_form
-  - utter_greet
-  - utter_question_issue
-  - utter_repeat_last_time
-  - utter_please_rephrase
-  - utter_please_specify_pathology
-  - utter_please_provide_general_info
-  - utter_invalid_patient_homeaddr
-  - utter_transferring_to_human
-  - utter_ask_dispatch_ambulance
-  - utter_confirm_ambulance_sent
-  - utter_start_QA
-  - action_map_pain_duration
-  - action_map_pain_severity
-  - action_map_hypothermia_skin_color
-  - action_map_hypothermia_env
-  - action_toggle_is_pain_reported
-  - action_map_resp_difficulty_triggers
-  - action_map_allergy_cause
-  - action_map_allergy_history
-  - utter_will_ask_medical_questions
-  - utter_ask_pain_severity
-  - utter_ask_pain_duration
-  - utter_ask_pain_area
-  - utter_ask_resp_difficulty_triggers
-  - utter_ask_fainting_prior
-  - utter_ask_hypothermia_skin_color
-  - utter_ask_hypothermia_env
-  - utter_ask_allergy_cause
-  - utter_ask_allergy_history
-  - utter_ask_travel
-  - utter_ask_temperature
-  - action_map_fall_conscious
-  - action_map_fall_movement
-  - action_map_fever_temperature
-  - action_map_fever_travel
-  - action_map_headachelifestyle
-  - action_map_fainting_prior
-  - action_map_fainting_medical_conditions
-  - utter_ask_dangers_around
-  - utter_inform_eta
-  - utter_inform_medication
-  - utter_answer_abdominal_pain_cause
-  - utter_answer_abdominal_pain_action
-  - utter_answer_hypothermia_cause
-  - utter_answer_hypothermia_action
-  - action_map_dangers_around
+- utter_positive_conv_marker
+- utter_negative_conv_marker
+- utter_medical_questions_filled
+- utter_proceed_asking_pain
+- validate_form_general_info
+- action_ask_patient_homeaddr
+- action_submit_patient_coordinates
+- action_submit_emergency_form
+- utter_greet
+- utter_question_issue
+- utter_repeat_last_time
+- utter_please_rephrase
+- utter_please_specify_pathology
+- utter_please_provide_general_info
+- utter_invalid_patient_homeaddr
+- utter_transferring_to_human
+- utter_ask_dispatch_ambulance
+- utter_confirm_ambulance_sent
+- utter_start_QA
+- action_map_pain_duration
+- action_map_pain_severity
+- action_map_hypothermia_skin_color
+- action_map_hypothermia_env
+- action_toggle_is_pain_reported
+- action_map_resp_difficulty_triggers
+- action_map_allergy_cause
+- action_map_allergy_history
+- utter_will_ask_medical_questions
+- utter_ask_pain_severity
+- utter_ask_pain_duration
+- utter_ask_pain_area
+- utter_ask_resp_difficulty_triggers
+- utter_ask_fainting_prior
+- utter_ask_hypothermia_skin_color
+- utter_ask_hypothermia_env
+- utter_ask_allergy_cause
+- utter_ask_allergy_history
+- utter_ask_travel
+- utter_ask_temperature
+- action_map_fever_temperature
+- action_map_fever_travel
+- action_map_fainting_prior
+- action_map_fainting_medical_conditions
+- utter_ask_dangers_around
+- utter_inform_eta
+- utter_answer_abdominal_pain_cause
+- utter_answer_abdominal_pain_action
+- utter_answer_hypothermia_cause
+- utter_answer_hypothermia_action
+- action_map_dangers_around
 
 responses:
 
@@ -346,25 +300,19 @@ responses:
   utter_greet:
   - text: Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime.
   - text: Emergency Dispatcher. Ask anytime if you want to talk with a human operator.
-  
+
   # ============== QA Answers ==============
   utter_inform_eta:
   - text: An ambulance shall arrive within the next 20 minutes. Typically, it takes around 8 minutes.
   - text: An ambulance could take up to 20 minutes; usually, it arrives in around 8 minutes.
   - text: Paramedics can take up to 20 minutes to arrive, with an average time of 8 minutes.
   
-  utter_inform_medication:
-  - text: I'm not a medical professional, but I recommend seeking immediate medical attention by visiting the nearest healthcenter.
-  - text: I'm not equipped to provide specific medical advice, but if your symptoms are severe or worsening, it's crucial to contact doctors for medications.
-  - text: I cannot give you specific medical suggestions but I encourage you to wait our ambulance or you visit a nearby doctor to get better treatments. 
-  - text: It is always good to visit the hospitals to get fully checked and get appropriate treatment and medication.
-  - text: Sorry I cannot answer this question, you can have better medical advises in the hospital. 
-
   utter_medical_questions_filled:
   - text: Ok, I have collected all the necessary info about your problem.
 
-  utter_start_QA:
+    utter_start_QA:
   - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
+  - text: Sure, how can I help you?
   
   utter_transferring_to_human:
   - text: Ok, I'm transferring you to a human operator.
@@ -502,16 +450,6 @@ responses:
 
   utter_answer_allergy_action:
   - text: If experiencing an allergic reaction, take an over-the-counter antihistamine, rinse affected areas (e.g., eyes, skin) with water, and use a prescribed epinephrine auto-injector if available.
-  
-
-  # ============== fall questions ==============
-  utter_ask_conscious:
-  - text: Are you conscious and able to communicate clearly?
-  - text: Have you lost consciousness at any point since the fall?
-  
-  utter_ask_movement: 
-  - text: Can you move your limbs? Any difficulty moving your arms or legs?
-  - text: Have you attempted to stand or move since the fall?
 
   # ============== fever questions ==============
   utter_ask_temperature:
@@ -529,15 +467,10 @@ responses:
   - text: When you have a fever, it's a signal that your body is tackling an infection or sickness. This could be due to common culprits like the flu, cold, urinary tract infections, or pneumonia, as well as certain inflammatory conditions. Fever might also pop up after vaccinations or medical treatments. External factors such as heat stroke or not drinking sufficient fluids can also cause your body temperature to rise. In uncommon instances, more severe conditions like autoimmune diseases or specific cancers could be behind the fever.
 
   utter_answer_fever_action:
-  - text: While waiting for an ambulance to arrive, a patient with a fever can take a few steps to alleviate symptoms. Rest in a comfortable position, stay hydrated by drinking water or clear fluids, and use a damp cloth to cool the forehead. Avoid strenuous activities, and if possible, remove excess clothing to promote body heat release. Over-the-counter fever-reducing medications like acetaminophen or ibuprofen can be taken if appropriate, following recommended dosage. It's crucial to remain calm and monitor symptoms while awaiting professional medical assistance.
+ - text: While waiting for an ambulance to arrive, a patient with a fever can take a few steps to alleviate symptoms. Rest in a comfortable position, stay hydrated by drinking water or clear fluids, and use a damp cloth to cool the forehead. Avoid strenuous activities, and if possible, remove excess clothing to promote body heat release. Over-the-counter fever-reducing medications like acetaminophen or ibuprofen can be taken if appropriate, following recommended dosage. It's crucial to remain calm and monitor symptoms while awaiting professional medical assistance.
   - text: If someone is sick and waiting for an ambulance, they can feel better by lying down comfortably, drinking water, and using a wet cloth on their forehead. Don't do anything too tiring, take off extra clothes if you can, and if it's okay, take medicine like acetaminophen or ibuprofen. Stay calm and keep an eye on how you feel until the ambulance comes.
   - text: When you're sick and waiting for an ambulance, rest in a comfy position, drink water, and use a wet cloth on your forehead. Don't do anything too hard, take off extra clothes if possible, and if it's okay, take medicine like acetaminophen or ibuprofen. Stay calm and watch how you feel until the ambulance arrives.
 
-  # ============== headache question =============
-  utter_ask_headache_lifestyle:
-  - text: How would you describe your sleep patterns?
-  - text: Has there been any change in your sleep habits?
-  - text: Can you provide details about your typical sleep patterns?
 
   # =================================================
 

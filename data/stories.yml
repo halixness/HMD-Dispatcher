@@ -239,6 +239,13 @@ stories:
     - slot_was_set:
       - fever: value
     - checkpoint: reported_fever
+    
+- story: ask temperature first 
+steps:
+    - checkpoint: reported_fever
+    - action: utter_will_ask_medical_questions
+    #Q1 Tempreture
+    - action: utter_ask_temperature
 
 - story: fever, specific questions
   steps:
@@ -259,6 +266,8 @@ stories:
     #Q3 Travel
     - action: utter_ask_travel
     - intent: affirmative
+    - slot_was_set:
+      - fever_travel: true
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
@@ -277,6 +286,8 @@ stories:
     #Q3 Travel
     - action: utter_ask_travel
     - intent: negative
+    - slot_was_set:
+      - fever_travel: false
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
