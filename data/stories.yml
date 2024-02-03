@@ -280,6 +280,60 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+# ========== Allergy
+- story: report allergy
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - allergic_reaction: value
+    - slot_was_set:
+      - allergic_reaction: value
+    - checkpoint: reported_allergy
+
+- story: allergy, specific questions
+  steps:
+    - checkpoint: reported_allergy
+    - action: utter_will_ask_medical_questions
+    #Q1 Area
+    - action: utter_ask_pain_area
+    - intent: inform_pain_area
+      entities:
+        - pain_area: value
+    - slot_was_set:
+      - pain_area: value
+    - action: utter_positive_conv_marker
+    #Q2 Allergy cause
+    - action: utter_ask_allergy_cause
+    - intent: inform_allergy_cause
+      entities:
+        - allergy_cause: value
+    - action: utter_positive_conv_marker
+    #Q3 History
+    - action: utter_ask_allergy_history
+    - intent: affirmative
+    - slot_was_set:
+      - allergy_history: true
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+- story: allergy, user can't answer
+  steps:
+    - checkpoint: reported_allergy
+    - action: utter_will_ask_medical_questions
+    #Q1 Tempreture
+    - action: utter_ask_pain_area
+    - intent: negative
+    - action: utter_negative_conv_marker
+    #Q2 duration
+    - action: utter_ask_allergy_cause
+    - intent: negative
+    - action: utter_negative_conv_marker
+    #Q3 Travel
+    - action: utter_ask_allergy_history
+    - intent: negative
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent
   steps:

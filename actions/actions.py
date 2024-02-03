@@ -53,8 +53,8 @@ class SubmitPatientCoordinates(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         home_address = tracker.get_slot('patient_homeaddr')
         phone = tracker.get_slot('patient_phonenmbr')
-        dangers_around = tracker.get_slot('patient_phonenmbr')
-        multiple_involved = tracker.get_slot('patient_phonenmbr')
+        dangers_around = tracker.get_slot('dangers_around')
+        multiple_involved = tracker.get_slot('multiple_involved')
         helpRequest = {
             "address": home_address,
             "phone": phone,
