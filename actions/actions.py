@@ -1,3 +1,4 @@
+import re
 from typing import Text, List, Any, Dict
 from utils.geocoding import Geocoding
 from utils.nlu import SlotMappingUtilities
@@ -45,6 +46,26 @@ class AskPatientHomeAddr(Action):
                 dispatcher.utter_message(response="ask_patient_homeaddr", verb="repeat")
         return []
     
+class AskPatientPhoneNumber(Action):
+    
+    def name(self) -> Text:
+        return "action_ask_patient_phonenmbr"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+        """
+            Formulating how to ask the form field depending on repetitions
+        """
+        phonenmbr = tracker.get_slot('patient_phonenmbr')
+        if phonenmbr is None:
+            attempts = get_num_attempts(tracker, repetition_utterance="utter_invalid_patient_phonenmbr")
+            # asking for the param depending on the errors
+            if not attempts:
+                dispatcher.utter_message(response="ask_patient_phonenmbr")
+            else:
+                dispatcher.utter_message(response="ask_repeat_patient_phonenmbr")
+        return []
+
+    
 class SubmitPatientCoordinates(Action):
     
     def name(self) -> Text:
@@ -87,8 +108,8 @@ class TogglePainIsReported(Action):
                 has_reported_pain = past_event["parse_data"]["intent"]["name"] == "patient_reports_pain" # catches pain reported and relative entities
                 has_detected_entities = len(past_event["parse_data"]["entities"]) > 0 
                 if has_answered_any_medical_question or (has_reported_pain and has_detected_entities): return [SlotSet("is_pain_reported", True)]
-        return [SlotSet("is_pain_reported", False)]            
-     
+        return [SlotSet("is_pain_reported", False)]           
+
 class MapPainDuration(Action):
     
     def name(self) -> Text:
@@ -237,4 +258,51 @@ class ValidateFormGeneralInfo(FormValidationAction):
             return {"patient_homeaddr": None}
         else:
             return {"patient_homeaddr": slot_value}
+        
 
+    def validate_patient_phonenmbr(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Dict[Text, Any]:
+        """ 
+            Validate through regex and digits
+        """
+        attempts = get_num_attempts(tracker, repetition_utterance="utter_invalid_patient_phonenmbr")
+        # phone validation
+        is_only_digits = slot_value.isdigit()
+        pattern = re.compile("^(0{1}[1-9]{1,3}|3{1}[1-9]{1,2})[\s|\.|\-| ]?(\d{4,})$")
+        is_accepted_number = pattern.match(slot_value)
+        phone_valid = is_only_digits or is_accepted_number 
+        if not phone_valid and attempts < TOLERATED_ATTEMPTS:
+            if not attempts:
+                dispatcher.utter_message(response="utter_invalid_patient_phonenmbr")
+            else: 
+                dispatcher.utter_message(response="utter_repeat_last_time")
+            return {"patient_phonenmbr": None}
+        else:
+            return {"patient_phonenmbr": slot_value}
+
+
+class ActionRestart(Action):
+
+  def name(self) -> Text:
+      return "action_restart"
+
+  async def run(
+      self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
+  ) -> List[Dict[Text, Any]]:
+
+      # custom behavior
+
+      return [...]
+
+class ActionRestarted(Action):
+    """ This is for restarting the chat"""
+
+    def name(self) -> Text:
+        return "action_restart"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        await self.restart()
+        dispatcher.utter_message(response="utter_greet")
+        return []

@@ -414,6 +414,14 @@ nlu:
     - I wish to talk with a person directly.
     - I want to have a conversation with a human representative.
 
+- intent: patient_wants_restart
+  examples: |
+    - I want to start over.
+    - Can we please start over?
+    - Can we restart?
+    - Actually I want to start over.
+    - Can we start fresh?
+
 # ============== general_pain ==============
 - intent: inform_pain_duration
   examples: |

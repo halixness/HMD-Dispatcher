@@ -4,17 +4,18 @@
 - [ ] Create google forms for all the extrinsic evaluation experiments
 - [ ] Run extrinsic evaluation experiments
 - [ ] Run all intrinsic evaluation experiments
-- [ ] Refine the conversation flow diagram
 - [ ] Illustrate sample rasa shell conversations with the chatbot
 - [ ] Record 2 videos for 3 cases: ask ambulance, report emergency, interrupt with human agent
 - [ ] Run on Alexa
+- [x] Finish the interaction aspects part
+- [x] Refine the conversation flow diagram
 
 ### Quality checkup
-- [ ] Grounding
+- [x] Grounding
     - Meaning: establishing a common reality shared among the speakers. Speakers can perform grounding by: attending to one's logic, providing the next relevant contribution, completing or paraphrasing one's contributions, repeating verbatim. 
-    - [ ] Example 1: "I need X's phone number", "ok, first I need to know from which town". "fist" = grounding term that informs of a sequential procedure to collect info with some rules.
+    - [x] Example 1: "I need X's phone number", "ok, first I need to know from which town". "fist" = grounding term that informs of a sequential procedure to collect info with some rules.
     - [x] Example 2: providing aknowledgements after one's utternce is a sign of grounding. e.g. "my phone number is X", "okay, what is your town name?". "okay" informs about a transition and a correct reception of the content.
-- [ ] Error handling
+- [x] Error handling
     - [x] Over-informative user
     - [x] Low coherence user
     - [x] No speech
@@ -24,8 +25,11 @@
 - [x] Conversational markers
 
 ### Testing
-- [ ] what happens if I re-set a reported pain? story twist?
-    - I also have this other issue: the agent may detect whether it's in the middle of something (then ask to finish the current request first), then moves on to collecting a new request with proper var setup
+- [ ] User asks to restart
+- [ ] test two stage fallback
+- [ ] implement phone validation
+- [x] what happens if I reset a reported pain? story twist?
+    - Agent moves on to the next form: OK!
 - [x] Test over informative user
     - The model skips the questions and jumps to the missing one! Cool beans!!!!!
     - Just improve "is_pain_reported" mapping to toggle with detected entities

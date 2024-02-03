@@ -22,6 +22,7 @@ intents:
 - patient_asks_cause
 - patient_asks_what_to_do
 - patient_reports_dangers_around
+- patient_wants_restart
 
 entities:
 - patient_phonenmbr
@@ -209,7 +210,7 @@ actions:
 - utter_greet
 - utter_question_issue
 - utter_repeat_last_time
-- utter_please_rephrase
+- utter_ask_rephrase
 - utter_please_specify_pathology
 - utter_please_provide_general_info
 - utter_invalid_patient_homeaddr
@@ -255,10 +256,16 @@ responses:
   utter_please_specify_pathology:
   - text: Sorry, I need you to give me some details about your pathology first.
 
+  utter_default:
+  - text: I'm sorry, I can't help you.
+
   utter_repeat_last_time:
   - text: Let's retry one last time.
 
-  utter_please_rephrase:
+  utter_please_finish_reporting:
+  - text: Ok, I ask you to firstly finish reporting your current emergency. You can ask to start over if you want.
+
+  utter_ask_rephrase:
   - text: Sorry, I'm not sure I understood what you said. Can you repeat?
   - text: Sorry, I didn't catch that. Could you repeat?
   - text: Sorry, can you rephrase what you said?
@@ -353,9 +360,15 @@ responses:
   
   utter_invalid_patient_homeaddr:
   - text: I'm sorry, we can't find this address on the map.
+
+  utter_invalid_patient_phonenmbr:
+  - text: I'm sorry, {patient_phonenmbr} seems to be invalid.
   
-  utter_ask_patient_phonenmbr:
-  - text: And what's your phone number?
+  ask_patient_phonenmbr:
+  - text: What's your phone number?
+
+  ask_repeat_patient_phonenmbr:
+  - text: Can you repeat? We accept italian phone numbers, for instance 312345678.
 
   utter_ask_dangers_around:
   - text: Thank you. Are there any of the following dangers around? Armed people, fire, floods?
