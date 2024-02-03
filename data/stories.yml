@@ -240,13 +240,6 @@ stories:
       - fever: value
     - checkpoint: reported_fever
 
-- story: ask temperature first 
-  steps:
-    - checkpoint: reported_fever
-    - action: utter_will_ask_medical_questions
-    #Q1 Tempreture
-    - action: utter_ask_temperature
-
 - story: fever, specific questions
   steps:
     - checkpoint: reported_fever
@@ -335,15 +328,74 @@ stories:
     - action: utter_ask_pain_area
     - intent: negative
     - action: utter_negative_conv_marker
-    #Q2 duration
+    #Q2 cause
     - action: utter_ask_allergy_cause
     - intent: negative
     - action: utter_negative_conv_marker
-    #Q3 Travel
+    #Q3 history
     - action: utter_ask_allergy_history
     - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
+
+# ========== Hypothermia 
+- story: report hypothermia
+  steps:
+    - intent: patient_reports_pain
+      entities:
+        - hypothermia: value
+    - slot_was_set:
+      - hypothermia: value
+    - checkpoint: reported_hypothermia
+
+- story: hypothermia, specific questions
+  steps:
+    - checkpoint: reported_hypothermia
+    - action: utter_will_ask_medical_questions
+    #Q1 duration
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - slot_was_set:
+      - pain_duration: value
+    - action: utter_positive_conv_marker
+    #Q2 skin color
+    - action: utter_ask_hypothermia_skin_color
+    - intent: inform_hypothermia_skin_color
+      entities:
+        - hypothermia_skin_color: value
+    - slot_was_set:
+      - hypothermia_skin_color: value
+    - action: utter_positive_conv_marker
+    #Q3 hypothermia enviorment
+    - action: utter_ask_hypothermia_env
+    - intent: inform_hypothermia_env
+      entities:
+        - hypothermia_env: value
+    - slot_was_set:
+      - hypothermia_env: value
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
+- story: hypothermia, user can't answer
+  steps:
+    - checkpoint: reported_hypothermia
+    - action: utter_will_ask_medical_questions
+    #Q1 duration
+    - action: utter_ask_pain_duration
+    - intent: negative
+    - action: utter_negative_conv_marker
+    #Q2 skin color
+    - action: utter_ask_hypothermia_skin_color
+    - intent: negative
+    - action: utter_negative_conv_marker
+    #Q3 enviorment
+    - action: utter_ask_hypothermia_env
+    - intent: negative
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
+
 
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent
