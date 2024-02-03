@@ -310,7 +310,7 @@ responses:
   utter_medical_questions_filled:
   - text: Ok, I have collected all the necessary info about your problem.
 
-    utter_start_QA:
+  utter_start_QA:
   - text: Alright, you can ask any general information about your problem, please remember you can always speak with a human operator, just ask it! 
   - text: Sure, how can I help you?
   
