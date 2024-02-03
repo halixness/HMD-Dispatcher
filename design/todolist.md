@@ -23,6 +23,8 @@
 - [x] Abdominal pain
 - [x] Respiratory distress
 - [x] Fainting
+- [x] Allergy
+- [x] Fever
 
 ### Issues/TODO
 - [ ] Improve conversation markers
