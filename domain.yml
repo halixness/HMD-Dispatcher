@@ -205,6 +205,7 @@ actions:
 - utter_proceed_asking_pain
 - validate_form_general_info
 - action_ask_patient_homeaddr
+- action_ask_patient_phonenmbr
 - action_submit_patient_coordinates
 - action_submit_emergency_form
 - utter_greet
