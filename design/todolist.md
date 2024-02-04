@@ -25,8 +25,10 @@
 - [x] Conversational markers
 
 ### Testing
-- [ ] User asks to restart
-- [ ] test two stage fallback
+- [x] User asks to restart
+      - keeps running action_default_fallback
+- [x] test two stage fallback
+      - works but not natural
 - [ ] implement phone validation
 - [x] what happens if I reset a reported pain? story twist?
     - Agent moves on to the next form: OK!
