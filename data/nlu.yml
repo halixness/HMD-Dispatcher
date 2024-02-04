@@ -154,28 +154,28 @@ nlu:
     - You can reach me on [3456785678](patient_phonenmbr).
     - I'm calling from [3219877890](patient_phonenmbr).
 
-- intent: patient_reports_dangers_around
+- intent: report_dangers_around
   examples: |
-    - I hear gunshots nearby; there might be [armed people](dangers_around).
-    - There's smoke everywhere; I think there's a [fire](dangers_around) close by.
+    - I hear [gunshots nearby](dangers_around); there might be [armed people](dangers_around).
+    - There's [smoke everywhere](dangers_around); I think there's a [fire](dangers_around) close by.
     - The [water is rising quickly](dangers_around); we're in the middle of a [flood](dangers_around).
     - I just saw someone with a [weapon](dangers_around); there are [armed people](dangers_around) around.
-    - Flames are spreading rapidly; there's a [big fire](dangers_around).
-    - Our street is flooded; we're in the midst of a [flood](dangers_around).
-    - I can smell smoke; there seems to be a [fire](dangers_around) nearby.
+    - [Flames](dangers_around) are spreading rapidly; there's a [big fire](dangers_around).
+    - Our [street is flooded](dangers_around); we're in the midst of a [flood](dangers_around).
+    - I can smell [smoke](dangers_around); there seems to be a [fire](dangers_around) nearby.
     - People are running away; I think there might be [armed people](dangers_around).
-    - The water is entering our home; we're experiencing a [flood](dangers_around).
+    - The [water is entering](dangers_around) our home; we're experiencing a [flood](dangers_around).
     - I saw a [person carrying a gun](dangers_around); there are [armed people](dangers_around) here.
-    - There's a lot of water; we're dealing with a [flood](dangers_around).
-    - I can see flames in the distance; there's a [big fire](dangers_around) somewhere close.
-    - I heard gunshots; there may be [armed people](dangers_around) in the area.
-    - Smoke is filling the air; there's a [fire](dangers_around) nearby.
-    - Our house is surrounded by water; it's a [flood](dangers_around).
-    - I spotted someone with a weapon; there are [armed people](dangers_around) around us.
+    - There's a [lot of water+(dangers_around); we're dealing with a [flood](dangers_around).
+    - I can see [flames](dangers_around) in the distance; there's a [big fire](dangers_around) somewhere close.
+    - I heard [gunshots](dangers_around); there may be [armed people](dangers_around) in the area.
+    - [Smoke](dangers_around) is filling the air; there's a [fire](dangers_around) nearby.
+    - Our house is [surrounded by water](dangers_around); it's a [flood](dangers_around).
+    - I spotted [someone with a weapon](dangers_around); there are [armed people](dangers_around) around us.
     - The sky is orange; there's a [big fire](dangers_around) happening nearby.
-    - Water is rising rapidly; we're facing a serious [flood](dangers_around).
-    - I heard gunfire; there might be [armed people](dangers_around) close by.
-    - There's a strong smell of smoke; there's a [fire](dangers_around) in the vicinity.
+    - [Water is rising](dangers_around) rapidly; we're facing a serious [flood](dangers_around).
+    - I [heard gunfire](dangers_around); there might be [armed people](dangers_around) close by.
+    - There's a strong smell of [smoke](dangers_around); there's a [fire](dangers_around) in the vicinity.
 
 # ======================================================
 #  User questions

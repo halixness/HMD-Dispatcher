@@ -25,6 +25,10 @@
 - [x] Conversational markers
 
 ### Testing
+- [ ] fails with dangers around
+- [x] can't switch from need ambulance to report pain
+- [x] Improve conversation markers
+    - Before each utterance, set a conversation marker slot that changes depending on the previous intent
 - [x] User asks to restart
       - keeps running action_default_fallback
 - [x] test two stage fallback
@@ -45,8 +49,6 @@
 - [x] Fever
 
 ### Issues/TODO
-- [ ] Improve conversation markers
-    - Before each utterance, set a conversation marker slot that changes depending on the previous intent
 - [x] implement QA for fever
 - [x] re-test negative answers
 - [x] the model loops through the same question

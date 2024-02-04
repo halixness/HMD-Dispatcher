@@ -21,7 +21,7 @@ intents:
 - patient_asks_eta
 - patient_asks_cause
 - patient_asks_what_to_do
-- report_dangers_around
+- patient_reports_dangers_around
 - patient_wants_restart
 
 entities:
@@ -119,8 +119,6 @@ slots:
     mappings:
     - type: custom
       action: action_map_dangers_around
-      conditions:
-      - active_loop: form_general_info
 
   # ============== General medical questions ==============
   pain_duration:
@@ -291,13 +289,13 @@ responses:
 
   utter_positive_conv_marker:
   - text: got it.
-  - text: and
+  - text: and,
   - text: ok.
   
   utter_negative_conv_marker:
   - text: no problem.
   - text: that's fine.
-  - text: and
+  - text: and,
 
   utter_will_ask_medical_questions:
   - text: I see, I am going to ask you some questions to assess  the situation. Don't worry if you can't answer.
@@ -305,7 +303,7 @@ responses:
 
   utter_proceed_asking_pain:
   - text: ok, now could you tell me more about your problem?
-  - text: ok, now can you tell me what problem are you experiencing?
+  - text: thank you, now can you tell me what problem are you experiencing?
 
   utter_question_issue:
   - text: tell me what's the issue.
@@ -383,9 +381,9 @@ responses:
 
   # ============== Abdominal pain questions ==============
   utter_ask_pain_area:
-  - text: do you feel discomfort in one of the following areas? Upper or lower abdomen, left side, close to the belly button or the ribs.
-  - text: could you identify some pain in the following areas? Upper or lower abdomen, left side, close to the belly button or the ribs.
-  - text: do you feel some pain concentrated in the upper or lower abdomen, left side, close to the belly button or the ribs?
+  - text: where exactly in your body do you feel the discomfort? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: can you pinpoint the specific location of the symptoms? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
+  - text: in which area of your body is the pain most concentrated? (e.g., upper or lower abdomen, left side, close to the belly button or the ribs)
 
   utter_answer_abdominal_pain_cause:
   - text: common causes of abdominal pain include indigestion, gas, constipation, gastritis, infections, and muscle strain. Serious conditions like appendicitis, gallstones, and inflammatory bowel disease can also contribute to abdominal pain. If persistent or severe, it's important to seek medical attention for proper diagnosis and treatment.
@@ -438,9 +436,11 @@ responses:
 
   # ============== Hypothermia pain questions ==============
   utter_ask_hypothermia_skin_color:
-  - text: Do you identify your skin color as pale, red or purple?
-  - text: Would you describe your skin color as pale, red or purple?
+  - text: can you describe your skin color? (e.g., pale, red, purple)
+  - text: how is your skin color condition? (e.g., pale, red, purple)
+  - text: please describe your skin color. (e.g., pale, red, purple)
   
+
   utter_ask_hypothermia_env:
   - text: can you describe the circumstances that led to your exposure to cold temperatures?
   - text: could you provide details about the situation that resulted in your exposure to low temperatures?

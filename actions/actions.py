@@ -3,6 +3,7 @@ from typing import Text, List, Any, Dict
 from utils.geocoding import Geocoding
 from utils.nlu import SlotMappingUtilities
 
+from rasa_core_sdk.events import Restarted
 from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
@@ -255,6 +256,7 @@ class ValidateFormGeneralInfo(FormValidationAction):
                 dispatcher.utter_message(response="utter_repeat_last_time")
             return {"patient_homeaddr": None}
         else:
+            dispatcher.utter_message(response="utter_positive_conv_marker")
             return {"patient_homeaddr": slot_value}
         
 
@@ -265,7 +267,7 @@ class ValidateFormGeneralInfo(FormValidationAction):
         attempts = get_num_attempts(tracker, repetition_utterance="utter_invalid_patient_phonenmbr")
         # phone validation
         is_only_digits = slot_value.isdigit()
-        pattern = re.compile("^(0{1}[1-9]{1,3}|3{1}[1-9]{1,2})[\s|\.|\-| ]?(\d{4,})$")
+        pattern = re.compile(r'^(0{1}[1-9]{1,3}|3{1}[1-9]{1,2})[\s|\.|\-| ]?(\d{4,})$')
         is_accepted_number = pattern.match(slot_value)
         phone_valid = is_only_digits or is_accepted_number 
         if not phone_valid and attempts < TOLERATED_ATTEMPTS:
@@ -276,31 +278,3 @@ class ValidateFormGeneralInfo(FormValidationAction):
             return {"patient_phonenmbr": None}
         else:
             return {"patient_phonenmbr": slot_value}
-
-
-class ActionRestart(Action):
-
-  def name(self) -> Text:
-      return "action_restart"
-
-  async def run(
-      self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
-  ) -> List[Dict[Text, Any]]:
-
-      # custom behavior
-
-      return [...]
-
-class ActionRestarted(Action):
-    """ This is for restarting the chat"""
-
-    def name(self) -> Text:
-        return "action_restart"
-
-    async def run(self, dispatcher: CollectingDispatcher,
-                  tracker: Tracker,
-                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        await self.restart()
-        dispatcher.utter_message(response="utter_greet")
-        return []

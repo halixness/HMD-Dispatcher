@@ -12,7 +12,7 @@ class SlotMappingUtilities:
         bot_utterances = [e for e in reversed(tracker.events) if e["event"] == "bot"]
         last_utterance = bot_utterances[0]["metadata"]["utter_action"] if len(bot_utterances) > 0 else None
         detected_intent = tracker.get_intent_of_latest_message()
-        if detected_intent == f"inform_{slot}":
+        if detected_intent == f"inform_{slot}" or detected_intent == f"report_{slot}":
             curr_slot_value = tracker.get_slot(slot)
             entity_value = f"{curr_slot_value}; " if curr_slot_value else "" # supports filling over time
             detected_entities = tracker.latest_message['entities']        
