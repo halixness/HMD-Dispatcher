@@ -25,7 +25,7 @@
 - [x] Conversational markers
 
 ### Testing
-- [ ] User asks to restart
+- [ ] User asks to restart : tested, keeps running action_default_fallback
 - [ ] test two stage fallback
 - [ ] implement phone validation
 - [x] what happens if I reset a reported pain? story twist?
