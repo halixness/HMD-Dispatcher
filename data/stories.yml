@@ -402,22 +402,21 @@ stories:
   steps:
     - checkpoint: reported_hypothermia
     - action: utter_will_ask_medical_questions
-    #Q1 duration
-    - action: utter_ask_pain_duration
-    - intent: inform_pain_duration
-      entities:
-        - pain_duration: value
-    - slot_was_set:
-      - pain_duration: value
-    - checkpoint: reported_hypothermia_duration # because there´s an inconsistency in this step
-    - action: utter_positive_conv_marker
-    #Q2 skin color
+    #Q1 skin color
     - action: utter_ask_hypothermia_skin_color
     - intent: inform_hypothermia_skin_color
       entities:
         - hypothermia_skin_color: value
     - slot_was_set:
       - hypothermia_skin_color: value
+    - action: utter_positive_conv_marker
+    #Q2 duration
+    - action: utter_ask_pain_duration
+    - intent: inform_pain_duration
+      entities:
+        - pain_duration: value
+    - slot_was_set:
+      - pain_duration: value
     - action: utter_positive_conv_marker
     #Q3 hypothermia enviorment
     - action: utter_ask_hypothermia_env
@@ -446,12 +445,6 @@ stories:
     - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
-
-- story: hypothermia, Q1 to Q2
-  steps:
-    - checkpoint: reported_hypothermia_duration
-    - action: utter_positive_conv_marker
-    - action: utter_ask_hypothermia_skin_color
 
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent

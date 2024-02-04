@@ -188,6 +188,25 @@ rules:
   - action: utter_answer_fever_action
   - action: utter_ask_any_other_question
 
+# =========hypothermia 
+- rule: hypothermia  - cause
+  condition:
+  - slot_was_set:
+    - hypothermia: value
+  steps:
+  - intent: patient_asks_cause
+  - action: utter_answer_hypothermia_cause
+  - action: utter_ask_any_other_question
+
+- rule: hypothermia  - action
+  condition:
+  - slot_was_set:
+    - hypothermia: value
+  steps:
+  - intent: patient_asks_what_to_do
+  - action: utter_answer_hypothermia_action
+  - action: utter_ask_any_other_question
+
 # ======================================================
 #  Error handling
 # ======================================================
