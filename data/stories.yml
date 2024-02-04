@@ -379,7 +379,7 @@ stories:
     - intent: negative
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
-    
+
 - story: allergy, over-informative
   steps:
     - intent: inform_allergy_cause
@@ -409,6 +409,7 @@ stories:
         - pain_duration: value
     - slot_was_set:
       - pain_duration: value
+    - checkpoint: reported_hypothermia_duration # because there´s an inconsistency in this step
     - action: utter_positive_conv_marker
     #Q2 skin color
     - action: utter_ask_hypothermia_skin_color
@@ -446,6 +447,11 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+- story: hypothermia, Q1 to Q2
+  steps:
+    - checkpoint: reported_hypothermia_duration
+    - action: utter_positive_conv_marker
+    - action: utter_ask_hypothermia_skin_color
 
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent
