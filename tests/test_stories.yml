@@ -22,10 +22,10 @@ stories:
       it started [yesterday]{"entity": "pain_duration"} and it's been [continuous ever since]{"entity": "pain_duration"}
     intent: inform_pain_duration
   - action: utter_positive_conv_marker
-  - action: utter_ask_abdominal_pain_area
+  - action: utter_ask_pain_area
   - user: |
-      [close to my belly button]{"entity": "abdominal_pain_area"}
-    intent: inform_abdominal_pain_area
+      [close to my belly button]{"entity": "pain_area"}
+    intent: inform_pain_area
   - action: utter_positive_conv_marker
   - action: utter_ask_pain_severity
   - user: |
@@ -55,7 +55,7 @@ stories:
       I don't know
     intent: negative
   - action: utter_negative_conv_marker
-  - action: utter_ask_abdominal_pain_area
+  - action: utter_ask_pain_area
   - user: |
       I don't know
     intent: negative
@@ -259,7 +259,7 @@ stories:
   - action: utter_ask_allergy_cause
   - user: |
       I just ate some [seafood]{"entity": "allergy_cause"}
-    intent: inform_pain_duration
+    intent: inform_allergy_cause
   - action: utter_positive_conv_marker
   - action: utter_ask_allergy_history
   - user: |
