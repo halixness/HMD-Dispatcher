@@ -503,6 +503,7 @@ nlu:
     - The pain is located [in the upper left quadrant](pain_area).
     - I have cramping [in the lower right abdomen](pain_area).
     - It's a constant ache [below my ribs](pain_area).
+    - It is [on my lips](pain_area).
     - The discomfort is [in the center of my abdomen](pain_area).
     - I feel pressure [in the upper abdomen, close to the chest](pain_area).
     - It's [on my left side, by the ribs](pain_area).
