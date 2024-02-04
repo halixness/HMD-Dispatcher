@@ -22,10 +22,10 @@ stories:
       it started [yesterday]{"entity": "pain_duration"} and it's been [continuous ever since]{"entity": "pain_duration"}
     intent: inform_pain_duration
   - action: utter_positive_conv_marker
-  - action: utter_ask_abdominal_pain_area
+  - action: utter_ask_pain_area
   - user: |
-      [close to my belly button]{"entity": "abdominal_pain_area"}
-    intent: inform_abdominal_pain_area
+      [close to my belly button]{"entity": "pain_area"}
+    intent: inform_pain_area
   - action: utter_positive_conv_marker
   - action: utter_ask_pain_severity
   - user: |
@@ -55,7 +55,7 @@ stories:
       I don't know
     intent: negative
   - action: utter_negative_conv_marker
-  - action: utter_ask_abdominal_pain_area
+  - action: utter_ask_pain_area
   - user: |
       I don't know
     intent: negative
@@ -185,3 +185,253 @@ stories:
       no thanks
     intent: negative
   - action: utter_ask_any_questions
+
+# ========== fever
+- story: fever - report pain, don't ask for an ambulance 
+  steps:
+  - user: |
+      My [body temperarure is very high]{"entity": "fever"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_temperature
+  - user: |
+      It is [38 degrees]{"entity": "fever_temperature"}
+    intent: inform_fever_temperature
+  - action: utter_positive_conv_marker
+  - action: utter_ask_pain_duration
+  - user: |
+      It started [last night]{"entity": "pain_duration"}
+    intent: inform_pain_duration
+  - action: utter_positive_conv_marker
+  - action: utter_ask_travel
+  - user: |
+      Yes I did.
+    intent: affirmative
+  - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+
+
+- story: Fever - doesn't know
+  steps:
+  - user: |
+      My [body temperarure is very high]{"entity": "fever"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_temperature
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_negative_conv_marker
+  - action: utter_ask_pain_duration
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_negative_conv_marker
+  - action: utter_ask_travel
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+
+# ============ Allergy
+- story: allergy - report pain, don't ask for an ambulance 
+  steps:
+  - user: |
+      My [lips are swollen]{"entity": "allergic_reaction"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_pain_area
+  - user: |
+      It is [on my lips]{"entity": "pain_area"}
+    intent: inform_pain_area
+  - action: utter_positive_conv_marker
+  - action: utter_ask_allergy_cause
+  - user: |
+      I just ate some [seafood]{"entity": "allergy_cause"}
+    intent: inform_allergy_cause
+  - action: utter_positive_conv_marker
+  - action: utter_ask_allergy_history
+  - user: |
+      Yes I did.
+    intent: affirmative
+  - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+
+- story: Allergy - doesn't know
+  steps:
+  - user: |
+      My [lips are swollen]{"entity": "allergic_reaction"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_pain_area
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_negative_conv_marker
+  - action: utter_ask_allergy_cause
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_negative_conv_marker
+  - action: utter_ask_allergy_history
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+
+# =========hypothermia
+- story: hypothermia - report pain, don't ask for an ambulance 
+  steps:
+  - user: |
+      I am [freezing]{"entity": "hypothermia"}, I feel so [cold]{"entity": "hypothermia"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_hypothermia_skin_color
+  - user: |
+      My skin is so [pale]{"entity": "hypothermia_skin_color"}
+    intent: inform_hypothermia_skin_color
+  - action: utter_positive_conv_marker
+  - action: utter_ask_pain_duration
+  - user: |
+      It has been [three hours]{"entity": "pain_duration"}
+    intent: inform_pain_duration
+  - action: utter_positive_conv_marker
+  - action: utter_ask_hypothermia_env
+  - user: |
+      I am caught in a big [snowstorm]{"entity": "hypothermia_env"}
+    intent: inform_hypothermia_env
+  - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+
+- story: hypothermia - doesn't know
+  steps:
+  - user: |
+      I am [freezing]{"entity": "hypothermia"}, I feel so [cold]{"entity": "hypothermia"}
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_hypothermia_skin_color
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_negative_conv_marker
+  - action: utter_ask_pain_duration
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_negative_conv_marker
+  - action: utter_ask_hypothermia_env
+  - user: |
+      I don't know
+    intent: negative
+  - action: utter_medical_questions_filled
+  - action: action_submit_emergency_form
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      no thanks
+    intent: negative
+  - action: utter_ask_any_questions
+
+# ============= transfer to human agent 
+- story: ask dispatch ambulance > needs human agent
+  steps:
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: utter_transferring_to_human
+
+- story: ask any questions > needs human agent
+  steps:
+  - action: utter_ask_any_questions
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: utter_transferring_to_human
+
+- story: anytime > needs human agent
+  steps:
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: utter_transferring_to_human
+
+- story: during form > needs human agent
+  steps:
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_transferring_to_human
+
+# ============ fill general form > report pain
+- story: ask ambulance > fill form > report pain 
+  steps:
+  - user: |
+      I need an ambulance right now!
+    intent: patient_needs_ambulance
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      My address is [Via Calepina 14]{"entity":"patient_homeaddr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - user: |
+      My phone number is [68764247]{"entity":"patient_phonenmbr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - user: |
+      There is a [big fire]{"entity":"dangers_around"}
+    intent: patient_reports_dangers_around
+  - action: form_general_info
+  - active_loop: null
+  - action: action_submit_patient_coordinates
+  - action: utter_proceed_asking_pain
+  - user: |
+      I have a high [fever]{"entity":"fever"}
+  - action: utter_will_ask_medical_questions
+
+# ==========change emergency
+- story: change emergency during medical questions
+  steps:
+  - user: |
+      I am [freezing]{"entity": "hypothermia"} right now!
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_hypothermia_skin_color
+  - user: |
+      Actually, I have an [allergic reaction]{"entity": "allergic_reaction"} instead, my face is [swollen]{"entity": "allergic_reaction"}.
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_pain_area

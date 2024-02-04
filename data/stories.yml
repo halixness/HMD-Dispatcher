@@ -646,6 +646,16 @@ stories:
     - action: utter_medical_questions_filled
     - checkpoint: completed_medical_questions
 
+- story: hypothermia, over-informative
+  steps:
+    - intent: inform_pain_area
+      entities:
+        - hypothermia: value
+        - hypothermia_skin_color: value
+        - pain_duration: value
+        - hypothermia_env: value
+    - action: utter_medical_questions_filled
+    - checkpoint: completed_medical_questions
 # ========== Interruptions
 - story: ask dispatch ambulance > needs human agent
   steps:
