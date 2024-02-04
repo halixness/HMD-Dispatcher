@@ -264,21 +264,21 @@ nlu:
     - I believe I'm having an allergic reaction, and [my throat feels tight](allergic_reaction).
     - I'm at risk of [anaphylaxis](allergic_reaction) due to an [allergic trigger](allergic_reaction), and I need immediate medical attention.
     - I'm having an [allergic reaction](allergic_reaction), and I'm feeling lightheaded and dizzy.
-    - My [face and lips are swelling](allergic_reaction), and I suspect it's an allergic response.
+    - My face and lips are [swelling](allergic_reaction), and I suspect it's an allergic response.
     - I've broken out in hives, and my skin is very [itchy and red](allergic_reaction).
     - I'm having [difficulty swallowing](allergic_reaction), and I'm concerned about a severe allergic reaction.
     - I've developed shortness of breath and chest tightness due to an [allergic exposure](allergic_reaction).
     - I have a known allergy, and I'm encountering a reaction with symptoms like [itching, redness, and swelling](allergic_reaction).
-    - I've developed a [rash on my skin](allergic_reaction), and it's spreading quickly.
+    - I've developed a [rash](allergic_reaction) on my skin, and it's spreading quickly.
     - There's a [tingling sensation](allergic_reaction) in my mouth and tongue, signaling an allergic response.
-    - Yes, my [lips have become noticeably swollen](allergic_reaction).
+    - Yes, my lips have become noticeably [swollen](allergic_reaction).
     - I've observed [swelling in my tongue](allergic_reaction) since the onset of symptoms.
     - There is [swelling around my eyes](allergic_reaction) and on my face.
     - My throat feels swollen and tight, making it [difficult to swallow](allergic_reaction).
-    - I can feel [swelling in my lips](allergic_reaction), and they appear larger than usual.
+    - I can feel [swelling](allergic_reaction) in my lips, and they appear larger than usual.
     - There's a [tingling sensation in my tongue](allergic_reaction), and it seems to be swollen.
-    - [My face feels puffy](allergic_reaction), especially around the cheeks and eyes.
-    - I'm experiencing pronounced [swelling in my throat](allergic_reaction), making it hard to breathe.
+    - My face [feels puffy](allergic_reaction), especially around the cheeks and eyes.
+    - I'm experiencing pronounced [swelling](allergic_reaction) in my throat, making it hard to breathe.
     - I've developed [watery eyes and a runny nose](allergic_reaction).
     - I've been feeling [lightheaded and dizzy](allergic_reaction) since the reaction started.
     - I have an [itchy rash](allergic_reaction) in my body. 

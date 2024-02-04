@@ -357,3 +357,81 @@ stories:
       no thanks
     intent: negative
   - action: utter_ask_any_questions
+
+# ============= transfer to human agent 
+- story: ask dispatch ambulance > needs human agent
+  steps:
+  - action: utter_ask_dispatch_ambulance
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: utter_transferring_to_human
+
+- story: ask any questions > needs human agent
+  steps:
+  - action: utter_ask_any_questions
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: utter_transferring_to_human
+
+- story: anytime > needs human agent
+  steps:
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: utter_transferring_to_human
+
+- story: during form > needs human agent
+  steps:
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      I would like to talk with a human.
+    intent: patient_wants_human_agent
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_transferring_to_human
+
+# ============ fill general form > report pain
+- story: ask ambulance > fill form > report pain 
+  steps:
+  - user: |
+      I need an ambulance right now!
+    intent: patient_needs_ambulance
+  - action: utter_please_provide_general_info
+  - action: form_general_info
+  - active_loop: form_general_info
+  - user: |
+      My address is [Via Calepina 14]{"entity":"patient_homeaddr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - user: |
+      My phone number is [68764247]{"entity":"patient_phonenmbr"}
+    intent: patient_inputs_coordinates
+  - action: form_general_info
+  - user: |
+      There is a [big fire]{"entity":"dangers_around"}
+    intent: patient_reports_dangers_around
+  - action: form_general_info
+  - active_loop: null
+  - action: action_submit_patient_coordinates
+  - action: utter_proceed_asking_pain
+  - user: |
+      I have a high [fever]{"entity":"fever"}
+  - action: utter_will_ask_medical_questions
+
+# ==========change emergency
+- story: change emergency during medical questions
+  steps:
+  - user: |
+      I am [freezing]{"entity": "hypothermia"} right now!
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_hypothermia_skin_color
+  - user: |
+      Actually, I have an [allergic reaction]{"entity": "allergic_reaction"} instead, my face is [swollen]{"entity": "allergic_reaction"}.
+    intent: patient_reports_pain
+  - action: utter_will_ask_medical_questions
+  - action: utter_ask_pain_area
