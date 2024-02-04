@@ -233,6 +233,7 @@ stories:
     intent: negative
   - action: utter_negative_conv_marker
   - action: utter_ask_travel
+  - user: |
       I don't know
     intent: negative
   - action: utter_medical_questions_filled
@@ -289,6 +290,7 @@ stories:
     intent: negative
   - action: utter_negative_conv_marker
   - action: utter_ask_allergy_history
+  - user: |
       I don't know
     intent: negative
   - action: utter_medical_questions_filled
@@ -345,6 +347,7 @@ stories:
     intent: negative
   - action: utter_negative_conv_marker
   - action: utter_ask_hypothermia_env
+  - user: |
       I don't know
     intent: negative
   - action: utter_medical_questions_filled
