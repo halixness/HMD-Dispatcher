@@ -432,12 +432,12 @@ stories:
   steps:
     - checkpoint: reported_hypothermia
     - action: utter_will_ask_medical_questions
-    #Q1 duration
-    - action: utter_ask_pain_duration
+    #Q1 skin color
+    - action: utter_ask_hypothermia_skin_color
     - intent: negative
     - action: utter_negative_conv_marker
-    #Q2 skin color
-    - action: utter_ask_hypothermia_skin_color
+    #Q2 duration
+    - action: utter_ask_pain_duration
     - intent: negative
     - action: utter_negative_conv_marker
     #Q3 enviorment
