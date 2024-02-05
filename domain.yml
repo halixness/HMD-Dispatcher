@@ -442,9 +442,8 @@ responses:
   - text: Would you describe your skin color as pale, red or purple?
   
   utter_ask_hypothermia_env:
-  - text: can you describe the circumstances that led to your exposure to cold temperatures?
-  - text: could you provide details about the situation that resulted in your exposure to low temperatures?
-  - text: please share information about the conditions that led to your being exposed to cold temperatures.
+  - text: Are you in stuck in circumstances such as snowstorm, snow mountain or icy river?
+  - text: Would you describe the enviorment around you as as snowstorm, snow mountain or icy river?
 
   utter_answer_hypothermia_cause:
   - text: hypothermia occurs when the body loses heat faster than it can produce it, leading to a dangerously low body temperature.
@@ -456,12 +455,11 @@ responses:
 
   # ============== allergy questions ==============
   utter_ask_allergy_cause:
-  - text: are you aware of any specific allergen exposure or trigger that might have caused the reaction?
-  - text: have you recently consumed any new foods or medications?
-  - text: were you exposed to any environmental factors, such as insect stings or plants?
+  - text: Do you identify you had contact with allergy triggers such as seafood, pollen, dog, nuts?
+  - text: Did you had allergy triggers around you such as pollen, dog or cat? 
 
   utter_ask_allergy_history:
-  - text: do you have a history of allergies or allergic reactions?
+  - text: Do you have a history of allergies or allergic reactions?
   - text: have you experienced any allergic reaction in the past?
 
   utter_answer_allergy_cause:
@@ -473,18 +471,18 @@ responses:
 
   # ============== fever questions ==============
   utter_ask_temperature:
-  - text: have you measured your temperature (celsius), and if so, what was it?
-  - text: have you checked your temperature (celsius), and if yes, what was the result?
-  - text: were you able to measure your temperature (celsius), and if you were, what did it show?
+  - text: Have you measured your temperature (celsius), and if so, what was it?
+  - text: Have you checked your temperature (celsius), and if yes, what was the result?
+  - text: Were you able to measure your temperature (celsius), and if you were, what did it show?
 
   utter_ask_travel:
-  - text: have you recently traveled to any new locations or been in contact with sick individuals?
-  - text: did you travel to some high-risk areas before?
+  - text: Have you recently traveled to any new locations or been in contact with sick individuals?
+  - text: Did you travel to some high-risk areas before?
 
   utter_answer_fever_cause:
-  - text: fever is often a sign that your body is fighting an infection or illness. Common causes include viral infections like the flu or cold, bacterial infections such as urinary tract infections or pneumonia, and even certain inflammatory conditions. Sometimes, fever can also be a response to vaccinations or other medical treatments. Additionally, environmental factors like heat stroke or dehydration can lead to elevated body temperature. In rare cases, more serious conditions like autoimmune diseases or certain cancers may also cause fevers.
-  - text: feeling hot with a fever usually means your body is working hard to fight off sickness or infection. This can happen when you catch a cold or flu, get a urinary tract or lung infection, or face some inflammation. Sometimes, shots or treatments may also make you run a temperature. Other times, being too hot outside or not drinking enough water can make you feel feverish. In rare situations, serious issues like autoimmune diseases or certain cancers might cause fevers.
-  - text: when you have a fever, it's a signal that your body is tackling an infection or sickness. This could be due to common culprits like the flu, cold, urinary tract infections, or pneumonia, as well as certain inflammatory conditions. Fever might also pop up after vaccinations or medical treatments. External factors such as heat stroke or not drinking sufficient fluids can also cause your body temperature to rise. In uncommon instances, more severe conditions like autoimmune diseases or specific cancers could be behind the fever.
+  - text: Fever is often a sign that your body is fighting an infection or illness. Common causes include viral infections like the flu or cold, bacterial infections such as urinary tract infections or pneumonia, and even certain inflammatory conditions. Sometimes, fever can also be a response to vaccinations or other medical treatments. Additionally, environmental factors like heat stroke or dehydration can lead to elevated body temperature. In rare cases, more serious conditions like autoimmune diseases or certain cancers may also cause fevers.
+  - text: Feeling hot with a fever usually means your body is working hard to fight off sickness or infection. This can happen when you catch a cold or flu, get a urinary tract or lung infection, or face some inflammation. Sometimes, shots or treatments may also make you run a temperature. Other times, being too hot outside or not drinking enough water can make you feel feverish. In rare situations, serious issues like autoimmune diseases or certain cancers might cause fevers.
+  - text: When you have a fever, it's a signal that your body is tackling an infection or sickness. This could be due to common culprits like the flu, cold, urinary tract infections, or pneumonia, as well as certain inflammatory conditions. Fever might also pop up after vaccinations or medical treatments. External factors such as heat stroke or not drinking sufficient fluids can also cause your body temperature to rise. In uncommon instances, more severe conditions like autoimmune diseases or specific cancers could be behind the fever.
 
   utter_answer_fever_action:
   - text: while waiting for an ambulance to arrive, a patient with a fever can take a few steps to alleviate symptoms. Rest in a comfortable position, stay hydrated by drinking water or clear fluids, and use a damp cloth to cool the forehead. Avoid strenuous activities, and if possible, remove excess clothing to promote body heat release. Over-the-counter fever-reducing medications like acetaminophen or ibuprofen can be taken if appropriate, following recommended dosage. It's crucial to remain calm and monitor symptoms while awaiting professional medical assistance.
