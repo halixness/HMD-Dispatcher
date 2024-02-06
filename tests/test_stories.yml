@@ -1,4 +1,5 @@
 stories:
+
 # There is a special syntax for this. For instance:
 # - you don't have to unclude utterances for the form questions
 # - you don't need to include "action_listen"
@@ -215,7 +216,6 @@ stories:
     intent: negative
   - action: utter_ask_any_questions
 
-
 - story: Fever - doesn't know
   steps:
   - user: |
@@ -394,7 +394,7 @@ stories:
   - active_loop: null
   - action: utter_transferring_to_human
 
-# ============ fill general form > report pain
+# ============ Fill general form > report pain
 - story: ask ambulance > fill form > report pain 
   steps:
   - user: |
@@ -422,7 +422,7 @@ stories:
       I have a high [fever]{"entity":"fever"}
   - action: utter_will_ask_medical_questions
 
-# ==========change emergency
+# ============ Change emergency
 - story: change emergency during medical questions
   steps:
   - user: |

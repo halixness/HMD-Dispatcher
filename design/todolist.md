@@ -1,12 +1,20 @@
 ## Behaviors to handle
 
 ### Report
-- [ ] Create google forms for all the extrinsic evaluation experiments
+- [ ] (Diego, Zixuan) Explain in the appendix conversation areas as in Appendix A.3 of the sample report
 - [ ] Run extrinsic evaluation experiments
 - [ ] Run all intrinsic evaluation experiments
+- [ ] (Diego) Write about intrinsic evaluation
+- [ ] (Zixuan) Write about extrinsic evaluation 
+- [ ] Reviewing introduction
+- [ ] Reviewing conversation design
+- [ ] Review data description & analysis
+- [ ] Review conversation model
+- [ ] Review evaluation
 - [ ] Illustrate sample rasa shell conversations with the chatbot
 - [ ] Record 2 videos for 3 cases: ask ambulance, report emergency, interrupt with human agent
-- [ ] Run on Alexa
+- [x] Run on Alexa
+- [x] Create google forms for all the extrinsic evaluation experiments
 - [x] Finish the interaction aspects part
 - [x] Refine the conversation flow diagram
 
@@ -25,7 +33,7 @@
 - [x] Conversational markers
 
 ### Testing
-- [ ] fails with dangers around
+- [x] fails with dangers around
 - [x] can't switch from need ambulance to report pain
 - [x] Improve conversation markers
     - Before each utterance, set a conversation marker slot that changes depending on the previous intent

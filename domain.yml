@@ -252,6 +252,7 @@ actions:
 - utter_answer_hypothermia_cause
 - utter_answer_hypothermia_action
 - action_map_dangers_around
+- patient_reports_dangers_around
 
 responses:
 

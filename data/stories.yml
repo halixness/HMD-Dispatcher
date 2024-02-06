@@ -80,7 +80,29 @@ stories:
   - slot_was_set:
     - abdominal_pain: value
   - action: utter_will_ask_medical_questions
-  - checkpoint: reported_abdominal_pain
+  #Q1 Allergy history
+  - action: utter_ask_allergy_history
+  - intent: affirmative
+  - slot_was_set:
+    - allergy_history: true
+  - action: utter_positive_conv_marker
+  #Q2 Duration
+  - action: utter_ask_pain_duration
+  - intent: inform_pain_duration
+    entities:
+      - pain_duration: value
+  - slot_was_set:
+    - pain_duration: value
+  - action: utter_positive_conv_marker
+  #Q3 Area
+  - action: utter_ask_pain_area
+  - intent: inform_pain_area
+    entities:
+      - pain_area: value
+  - slot_was_set:
+    - pain_area: value
+  - action: utter_medical_questions_filled
+  - checkpoint: completed_medical_questions
 
 - story: abdominal pain, specific questions
   steps:
@@ -277,6 +299,41 @@ stories:
       - fainting: value
     - action: utter_will_ask_medical_questions
     - checkpoint: reported_fainting
+
+- story: general info collected, pain is reported 
+  steps:
+  - action: utter_proceed_asking_pain
+  - intent: patient_reports_pain
+    entities:
+      - fainting: value
+  - slot_was_set:
+    - fainting: value
+  - action: utter_will_ask_medical_questions
+  # Q1
+  - action: utter_ask_pain_duration
+  - intent: inform_pain_duration
+    entities:
+      - pain_duration: value
+  - slot_was_set:
+    - pain_duration: value
+  - action: utter_positive_conv_marker
+  # Q2
+  - action: utter_ask_fainting_prior
+  - intent: inform_fainting_prior
+    entities:
+      - fainting_prior: value
+  - slot_was_set:
+    - fainting_prior: value
+  - action: utter_positive_conv_marker
+  # Q3
+  - action: utter_ask_fainting_medical_conditions
+  - intent: inform_fainting_medical_conditions
+    entities:
+      - fainting_medical_conditions: value
+  - slot_was_set:
+    - fainting_medical_conditions: value
+  - action: utter_medical_questions_filled
+  - checkpoint: completed_medical_questions
 
 - story: fainting, specific questions
   steps:

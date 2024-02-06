@@ -1,0 +1,159 @@
+version: "3.1"
+nlu:
+- intent: patient_wants_restart
+  examples: |
+    - Can we start again?
+- intent: affirmative
+  examples: |
+    - yes I do
+    - yes please
+- intent: patient_asks_what_to_do
+  examples: |
+    - Then what should I do while waiting?
+- intent: patient_asks_eta
+  examples: |
+    - How soon will the ambulance come?
+    - How long do I need to wait for the ambulance?
+- intent: greet
+  examples: |
+    - hi there
+    - good night
+- intent: inform_hypothermia_skin_color
+  examples: |
+    - My skin color is [red](hypothermia_skin_color).
+    - I've observed a [noticeable redness](hypothermia_skin_color) in my skin, and it feels quite bad.
+    - My skin is so [pale](hypothermia_skin_color).
+- intent: negative
+  examples: |
+    - no need
+    - No, not really
+    - no, I dont know
+- intent: inform_fainting_prior
+  examples: |
+    - I had this overwhelming sense of [nausea](fainting_prior)
+    - I felt extremely [dizzy](fainting_prior)
+    - I got extremely [lightheaded](fainting_prior)
+- intent: inform_hypothermia_env
+  examples: |
+    - I got caught in [heavy snow](hypothermia_env),the temperature dropped rapidly.
+    - I am in a [cold rain](hypothermia_env).
+    - I had long exposure to a winter [storm](hypothermia_env) .
+    - I dropped into a [cold river](hypothermia_env).
+- intent: inform_allergy_cause
+  examples: |
+    - I was in a place full of [flower pollen](allergy_cause).
+    - I was gardening earlier, and I may have come into [contact with a dog](allergy_cause) that triggered my allergies.
+    - I recently moved into a new apartment, and there might be [grass](allergy_cause) triggering my allergies.
+- intent: patient_wants_human_agent
+  examples: |
+    - Please transfer me to a human. 
+    - I want to speak with a person directly.
+    - I need help with a person
+- intent: inform_pain_severity
+  examples: |
+    - The sensation is [pretty moderate](pain_severity), more annoying than painful.
+    - I'd describe it as [severe](pain_severity), not too bothersome.
+    - It's [dull](pain_severity), not too bad but definitely [noticeable](pain_severity).
+    - it is very [intense](hypothermia_env).
+- intent: report_dangers_around
+  examples: |
+    - There's [fire everywhere](dangers_around); I think there's a [fire](dangers_around) close by.
+    - Our house is [surrounded by smoke](dangers_around).
+    - I [heard shot](dangers_around); there might be [people with gun](dangers_around) close by.
+    - I am kept in water, there must be a huge [flood](dangers_around).
+- intent: inform_resp_difficulty_triggers
+  examples: |
+    - I recently moved to a new place, and I think there might be hidden [mold](resp_difficulty_triggers).
+    - I spent time in a dusty attic, and now I'm having trouble breathing due to [pollen](resp_difficulty_triggers).
+    - I noticed signs of [pollen](resp_difficulty_triggers) in my living space.
+    - I work in construction, and the constant exposure to [pollution](resp_difficulty_triggers) might be the cause.
+- intent: inform_fainting_medical_conditions
+  examples: |
+    - I'had [low blood sugar](fainting_medical_conditions).
+    - [low blood pressure](fainting_medical_conditions) caused my fainting.
+    - [Dehydration](fainting_medical_conditions) have been identified in my medical records.
+    - [Anemia](fainting_medical_conditions) is a constant issue for me.
+- intent: inform_fever_temperature
+  examples: |
+    - My temperature is [37.58 degrees](fever_temperature).
+    - It's [around 38 degrees](fever_temperature), but I'm feeling really hot.
+    - I have a high fever, it's [40 degrees](fever_temperature).
+    - [38.5 degrees](fever_temperature).
+- intent: patient_needs_ambulance
+  examples: |
+    - Please send an ambulance now
+    - There has been an accident, and we need an ambulance immediately.
+    - Please send an ambulance to me now, I need it!
+    - We need help now. Please send an ambulance.
+- intent: inform_pain_area
+  examples: |
+    - The symptoms are [in my right ankle](pain_area).
+    - It's [on my ribs](pain_area).
+    - I feel pain [on my hip](pain_area) where I landed.
+    - It's a constant ache [on my shoulders](pain_area).
+    - I feel pain [in my wrist](pain_area) from the fall.
+    - I have pain [on my right side, near the hip](pain_area).
+- intent: patient_asks_cause
+  examples: |
+    - What are the potential factors that may have caused this condition?
+    - What might be the reason behind this condition?
+    - why I am having this pain?
+    - Why I am having this?
+- intent: inform_pain_duration
+  examples: |
+    - It happened [a few hours ago](pain_duration), but now it's [more constant](pain_duration).
+    - it [hasn't stopped for days](pain_duration)
+    - I've had this pain [off and on](pain_duration) since [yesterday evening](pain_duration).
+    - Started feeling it [tonight](pain_duration), and it [comes and goes](pain_duration).
+    - It's been happening at [all times](pain_duration).
+    - it happened [only yesterday](pain_duration)
+    - it's been quite [constant](pain_duration) [for a week](pain_duration)
+    - It started [all of a sudden](pain_duration).
+- intent: patient_inputs_coordinates
+  examples: |
+    - I'm calling from [3219877890](patient_phonenmbr).
+    - I'm at [street salerno 11](patient_homeaddr).
+    - It's [11 Corso Vittorio Emanuele II, Trieste](patient_homeaddr)
+    - My place is at [piazza garibaldi 3 napoli](patient_homeaddr).
+    - My phone number is [38474638](patient_phonenmbr).
+    - [Piazza santa croce 21 vicenza](patient_homeaddr) is my location.
+    - [Piazza duomo 7 catania](patient_homeaddr) is where I live.
+    - I'm at [16 Via Roma, Ferrara](patient_homeaddr)
+    - [Via roma 6 sassari](patient_homeaddr) is where I'm situated.
+    - [Via roma 14 cremona](patient_homeaddr) is my address.
+    - I reside at [18 Corso Umberto, Palermo](patient_homeaddr)
+    - Find me at [corso vittorio veneto 5 benevento](patient_homeaddr).
+    - [Via della rocca 23 trento](patient_homeaddr) is my current residence.
+    - My phone number is [3218765432](patient_phonenmbr).
+    - My residence is at [corso italia 10 genova](patient_homeaddr).
+    - You can find me at [corso vittorio emanuele 8 milano](patient_homeaddr).
+    - My address is [12 street Roma, Rome](patient_homeaddr)
+    - My home address is [street of pace 13 udine](patient_homeaddr).
+    - My home is [via garibaldi 20 massa](patient_homeaddr).
+    - You can reach me at [22 Via Dante, Verona](patient_homeaddr)
+- intent: patient_reports_pain
+  examples: |
+    - I have a [fever](fever), and it's spiking rapidly. I need immediate medical assistance.
+    - I feel [extremely cold](hypothermia) and my teeth are chattering.
+    - I've developed shortness of breath and chest tightness due to an [allergic exposure](allergic_reaction).
+    - There is [swelling around my eyes](allergic_reaction) and on my face.
+    - I've got this [fever](fever) that's really knocking me down. Any chance I could get some assistance?
+    - I'm at risk of [anaphylaxis](allergic_reaction) due to an [allergic trigger](allergic_reaction), and I need immediate medical attention.
+    - I feel like I'm [not getting enough air](respiratory_difficulty), as if my lungs aren't expanding fully.
+    - Sometimes it's [hard to catch my breath](respiratory_difficulty), and I [feel breathless](respiratory_difficulty) even at rest.
+    - I've been experiencing episodes where I [suddenly](pain_duration) [lose consciousness](fainting).
+    - I have this sensation of [discomfort in my abdomen](abdominal_pain)
+    - Caught a [fever](fever), and it's hitting hard. Any chance someone could send help my way?
+    - There was a brief period where I was [completely unaware](fainting) and [lying down](fainting).
+    - I've got a [fever](fever), and it's getting worse by the minute.
+    - I've noticed that my [heart starts racing](fainting) for no apparent reason, and shortly after, I end up losing consciousness.
+    - This is an emergency. I'm dealing with a persistent [fever](fever) that's causing distress.
+    - Calling in because I'm dealing with a stubborn [fever](fever). Feeling pretty rough.
+    - Yes, my lips have become noticeably [swollen](allergic_reaction).
+    - There are times when I [feel really lightheaded](fainting), and my [head starts spinning](fainting) like I'm on a [merry-go-round](fainting), leading to me fainting.
+    - I've had this persistent [shortness of breath](respiratory_difficulty) for the past few weeks.
+    - I'm [feeling cold](hypothermia) and [my teeth are chattering](hypothermia).
+    - My face [feels puffy](allergic_reaction), especially around the cheeks and eyes.
+    - I have [trouble breathing](respiratory_difficulty)
+    - I've checked, and my [temperature is consistently high](fever).
+    - It seems like my [tummy is really hurting](abdominal_pain)

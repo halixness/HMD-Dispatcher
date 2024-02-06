@@ -47,7 +47,7 @@ class AlexaConnector(InputChannel):
             # if the user is starting the skill, let them
             # know it worked & what to do next
             if intenttype == "LaunchRequest":
-                message = "Hello! Welcome to this Rasa-powered Alexa skill. You can start by saying 'hi'."
+                message = "Hello, this is the Ambulance Emergency Dispatcher. To talk with a human operator, just ask anytime. What is the issue?'"
                 session = "false"
             else:
                 # get the Alexa-detected intent

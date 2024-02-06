@@ -229,6 +229,20 @@ nlu:
     - I'm having this sensation of [pain in my abdominal area](abdominal_pain)
     - I sense some [pain in my stomach](abdominal_pain)
     - I'm in a lot of [discomfort in my abdomen](abdominal_pain)
+    - I feel [very strong pain n my stomach](abdominal_pain)
+    - my [stomach hurts](abdominal_pain)
+    - I've been having [cramps in my stomach](abdominal_pain)
+    - I feel some [burning in my stomach](abdominal_pain)
+    - I have an [excruciating pain in my stomach](abdominal_pain)
+    - I have a [sharp pain in my stomach](abdominal_pain)
+    - There's a [burning sensation in my belly](abdominal_pain)
+    - I'm experiencing [nausea and discomfort in my stomach](abdominal_pain)
+    - My [stomach hurts a lot](abdominal_pain)
+    - I feel [painful cramps in my abdomen](abdominal_pain)
+    - There's a [constant ache in my stomach](abdominal_pain)
+    - I'm dealing with [persistent stomach pain](abdominal_pain)
+    - I'm having [difficulty due to stomach discomfort](abdominal_pain)
+    - I feel [pressure and pain in my stomach area](abdominal_pain)
     - I feel [extremely cold](hypothermia) and my teeth are chattering.
     - My [skin is cold](hypothermia) and my speech is becoming slurred.
     - My [body temperature is low](hypothermia).
